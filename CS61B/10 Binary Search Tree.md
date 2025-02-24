@@ -27,7 +27,8 @@ static BST insert(BST T, Key ik) {
 
 ### delete()
 1. No children：直接删除即可
-2. One child：删除该节点，将该节点的子节点连接到gai'jie'd
+2. One child：删除该节点，将该节点的子节点连接到该节点的父节点上
+3. Two children(**Hibbard deletion**)：
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM4ODcxOTg2M119
+eyJoaXN0b3J5IjpbMTMzOTYyNjIwNl19
 -->
