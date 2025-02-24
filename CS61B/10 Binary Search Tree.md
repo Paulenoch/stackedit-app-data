@@ -29,6 +29,8 @@ static BST insert(BST T, Key ik) {
 1. No children：直接删除即可
 2. One child：删除该节点，将该节点的子节点连接到该节点的父节点上
 3. Two children(**Hibbard deletion**)：
+![输入图片说明](/imgs/2025-02-24/NiMWXwGQNkClRHFY.png)
+若删除dog，首先找到其
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMzOTYyNjIwNl19
+eyJoaXN0b3J5IjpbNTgwNDExMDhdfQ==
 -->
