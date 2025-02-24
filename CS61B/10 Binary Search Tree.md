@@ -26,7 +26,8 @@ static BST insert(BST T, Key ik) {
 ```
 
 ### delete()
-
+1. No children：直接删除即可
+2. One child：删除该节点，将该节点的子节点连接到gai'jie'd
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQyODk1MjU0NF19
+eyJoaXN0b3J5IjpbMTM4ODcxOTg2M119
 -->
