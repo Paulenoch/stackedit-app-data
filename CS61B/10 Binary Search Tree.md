@@ -24,6 +24,9 @@ static BST insert(BST T, Key ik) {
   return T;
 }
 ```
+
+### delete()
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5MTM0OTYwMV19
+eyJoaXN0b3J5IjpbLTQyODk1MjU0NF19
 -->
