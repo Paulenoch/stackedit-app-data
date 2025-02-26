@@ -24,8 +24,8 @@ public class TrieSet {
 ![输入图片说明](/imgs/2025-02-26/F9MUpts3IN5Hzx4H.png)
 每个node中不需要存储element，因为128个指针和128个ASCII字符是对应的
 性能：
--   `add`: Θ(1)Θ
--   `contains`: Θ(1)Θ(1)
+-   `add`: Θ(1)
+-   `contains`: Θ(1)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTM0MDI2NzksLTU1MTM1MDk2Nl19
+eyJoaXN0b3J5IjpbLTEyNTQ1MTQ4NzcsLTU1MTM1MDk2Nl19
 -->
