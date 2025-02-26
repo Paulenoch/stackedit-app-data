@@ -44,7 +44,7 @@ public class TrieSet {
     -   Runtime: O(R)O(R), where R is the size of the alphabet
 
 Prefix Matching
-
+返回Trie中所有的key
 ```
 collect():
     Create an empty list of results x
@@ -58,6 +58,16 @@ colHelp(String s, List<String> x, Node n):
     For character c in n.next.keys():
         Call colHelp(s + c, x, n.next.get(c))
 ```
+
+自动匹配
+```
+keysWithPrefix(String s):
+    Find the end of the prefix, alpha
+    Create an empty list x
+    For character in alpha.next.keys():
+        Call colHelp("sa" + c, x, alpha.next.get(c))
+    Return x
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3NDc0NTU0NiwtNTUxMzUwOTY2XX0=
+eyJoaXN0b3J5IjpbLTg5NTUwODAxNywtNTUxMzUwOTY2XX0=
 -->
