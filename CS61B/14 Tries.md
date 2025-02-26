@@ -30,6 +30,34 @@ public class TrieSet {
 
 ### 处理空间问题
 上面implement的Trie会造成大量的空间被浪费，可以使用hash table存储![输入图片说明](/imgs/2025-02-26/VBAGpijnBeHkPhlX.png)
+或者BTS![输入图片说明](/imgs/2025-02-26/dcNiFBymv9e8wBoh.png)
+
+效率对比
+-   DataIndexedCharMap
+    -   Space: 128 links per node
+    -   Runtime: Θ(1)Θ(1)
+-   BST
+    -   Space: C links per node, where C is the number of children
+    -   Runtime: O(logR)O(logR), where R is the size of the alphabet
+-   Hash Table
+    -   Space: C links per node, where C is the number of children
+    -   Runtime: O(R)O(R), where R is the size of the alphabet
+
+Prefix Matching
+
+```
+collect():
+    Create an empty list of results x
+    For character c in root.next.keys():
+        Call colHelp(c, x, root.next.get(c))
+    Return x
+
+colHelp(String s, List<String> x, Node n):
+    if n.isKey:
+        x.add(s)
+    For character c in n.next.keys():
+        Call colHelp(s + c, x, n.next.get(c))
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2MjAxMjkxOSwtNTUxMzUwOTY2XX0=
+eyJoaXN0b3J5IjpbMTI3NDc0NTU0NiwtNTUxMzUwOTY2XX0=
 -->
