@@ -11,19 +11,21 @@ public class TrieSet {
    private Node root;    // root of trie
 
    private static class Node {
-      private char ch;  
       private boolean isKey;   
       private DataIndexedCharMap next;
 
-      private Node(char c, boolean blue, int R) {
-         ch = c; 
+      private Node(boolean blue, int R) {
          isKey = blue;
          next = new DataIndexedCharMap<Node>(R);
       }
    }
 }
 ```
-
+![输入图片说明](/imgs/2025-02-26/F9MUpts3IN5Hzx4H.png)
+每个node中不需要存储element，因为128个指针和128个ASCII字符是对应的
+性能：
+-   `add`: Θ(1)Θ
+-   `contains`: Θ(1)Θ(1)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgxOTQzODA0NywtNTUxMzUwOTY2XX0=
+eyJoaXN0b3J5IjpbLTEyNTM0MDI2NzksLTU1MTM1MDk2Nl19
 -->
