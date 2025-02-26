@@ -28,7 +28,8 @@ public class TrieSet {
 -   `contains`: Θ(1)
 
 
-###
+### 处理空间问题
+上面implement的Trie会造成大量的空间被浪费，可以使用hash table存储![输入图片说明](/imgs/2025-02-26/VBAGpijnBeHkPhlX.png)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM4MzUzOTgwLC01NTEzNTA5NjZdfQ==
+eyJoaXN0b3J5IjpbLTY2MjAxMjkxOSwtNTUxMzUwOTY2XX0=
 -->
