@@ -1,6 +1,7 @@
 # V1.0
 1. 客户端获取ClientProxy对象获取代理对象，ClientProxy通过反射构建request对象，通过IOClient的sendRequest方法和服务端进行数据传输
-2. 服务端指定监听端口，如果没有链接会一直处于堵塞状态，有链接来了会创建一个新的线程WorkThread
+2. 服务端指定监听端口，如果没有链接会一直处于堵塞状态，有链接来了会创建一个新的线程WorkThread执行处理，WorkThread类负责启动线程和客户端进行数据传输
+3. WorkThread类中的getResponse方法负责解析收到的request信息，寻找服务进行调用并返回结果。因为一个服务器会有多个服务，所以需要设置一个本地服务存放器serviceProvider存放服务。在接收到服务端的request信息之后，我们在本地服务存放器找到需要的服务，通过反射调用方法，得到结果并返回
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1NDUwNTE4MF19
+eyJoaXN0b3J5IjpbMzEzNDc4NjU3XX0=
 -->
