@@ -39,8 +39,8 @@ netty和传统socket编程相比有哪些优势
     -   支持线程安全的属性存储（`AttributeKey`）。
         
     -   可扩展性强，可以通过 `NettyClientInitializer` 配置自定义的处理器链。
-7. NettyClientInitializer类，配置netty对**消息的处理机制**
-	2.1 通过指定消息格式和消息长度解决TCP流量控制机制可能带来的沾包问题
+## 2. NettyClientInitializer类，配置netty对消息的处理机制
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzOTc1NDkwNSwzMTM0Nzg2NTddfQ==
+eyJoaXN0b3J5IjpbNjIzOTU4Mjc1LDMxMzQ3ODY1N119
 -->
