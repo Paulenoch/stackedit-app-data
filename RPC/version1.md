@@ -21,8 +21,18 @@ netty和传统socket编程相比有哪些优势
   
 -   支持TCP,UDP多种传输协议；支持堵塞返回和异步返回
 
-1. NettyClientInitializer类，配置netty对**消息的处理机制**
-	1.1 通过指定消息格式和消息长度解决TCP流量控制机制可能带来的沾包问题
+## 1. 将IOClient重写为NettyRpcClient
+	1.1 1.  初始化 Netty 客户端（`Bootstrap` 和 `EventLoopGroup`）。
+    
+2.  连接到服务端。
+    
+3.  发送 `RpcRequest` 请求。
+    
+4.  阻塞等待服务端返回 `RpcResponse`。
+    
+5.  从通道属性中获取响应并返回。
+3. NettyClientInitializer类，配置netty对**消息的处理机制**
+	2.1 通过指定消息格式和消息长度解决TCP流量控制机制可能带来的沾包问题
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjUxMTA3NDIsMzEzNDc4NjU3XX0=
+eyJoaXN0b3J5IjpbMTc0NDA4MDAzNCwzMTM0Nzg2NTddfQ==
 -->
