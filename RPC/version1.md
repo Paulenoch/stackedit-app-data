@@ -41,12 +41,20 @@ netty和传统socket编程相比有哪些优势
     -   可扩展性强，可以通过 `NettyClientInitializer` 配置自定义的处理器链。
     
     
-## 2. NettyClientInitializer类，配置netty对消息的处理机制
+## 2. NettyClientInitializer类，配置对发送消息的处理机制
 1. 指定消息格式，消息长度，解决沾包问题
 2. 指定编码器（将消息转为字节数组），解码器（将字节数组转为消息）
 3. 指定对接收的消息的处理handler为自定义的业务处理器，用于处理服务端返回的响应。
 
+## 3. NettyClientHandler，指定对接收消息的处理方式
+**功能**
+
+-   处理从服务端接收到的 `RpcResponse` 消息。
+    
+-   将 `RpcResponse` 对象存储到 `Channel` 的属性中，供客户端在 `sendRequest` 方法中读取。
+    
+-   关闭 `Channel`，表示本次请求-响应交互完成。
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1NjE2OTAxMSwzMTM0Nzg2NTddfQ==
+eyJoaXN0b3J5IjpbMzAzMDM1MTcsMzEzNDc4NjU3XX0=
 -->
