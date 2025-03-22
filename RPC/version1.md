@@ -67,29 +67,23 @@ netty和传统socket编程相比有哪些优势
 
 `zookeepepr`是一个经典的**分布式**数据一致性解决方案，致力于为分布式应用提供一个高性能、高可用,且具有严格顺序访问控制能力的分布式协调存储服务。
 
--   1.
-    
-    高性能
+-   1. 高性能
     
     -   `zookeeper`将全量数据存储在**内存**中，并直接服务于客户端的所有非事务请求，尤其用于以读为主的应用场景
         
     
 
--   2.
-    
-    高可用
+-   2. 高可用
     
     -   `zookeeper`一般以集群的方式对外提供服务，一般`3~5`台机器就可以组成一个可用的 `Zookeeper`集群了，每台机器都会在内存中维护当前的服务器状态，井且每台机器之间都相互保持着通信。只要集群中超过一半的机器都能够正常工作，那么整个集群就能够正常对外服务
         
     
 
--   3.
-    
-    严格顺序访问
+-   3. 严格顺序访问
     
     -   对于来自客户端的每个更新请求，`Zookeeper`都会分配一个全局唯一的递增编号，这个编号反应了所有事务操作的先后顺序
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ3NTczNTI1LDk2OTk3ODAzMSwzMDMwMz
-UxNywzMTM0Nzg2NTddfQ==
+eyJoaXN0b3J5IjpbLTE3Njk5MjI5OTUsOTY5OTc4MDMxLDMwMz
+AzNTE3LDMxMzQ3ODY1N119
 -->
