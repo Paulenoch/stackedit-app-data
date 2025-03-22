@@ -4,7 +4,18 @@
 3. WorkThread类中的getResponse方法负责解析收到的request信息，寻找服务进行调用并返回结果。因为一个服务器会有多个服务，所以需要设置一个本地服务存放器serviceProvider存放服务。在接收到服务端的request信息之后，我们在本地服务存放器找到需要的服务，通过反射调用方法，得到结果并返回
 
 # V1.1
+在客户端与服务端进行网络传输，采用Java原生的socket编程方式，效率低
+引入`netty`高性能网络框架，进行优化
 
+netty和传统socket编程相比有哪些优势
+
+-   io传输由BIO ->NIO模式；底层 池化技术复用资源
+    
+
+-   可以自主编写 编码/解码器，序列化器等等，可拓展性和灵活性高
+    
+
+-   支持TCP,UDP多种传输协议；支持堵塞返回和异步返回
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODIzODI0Njg4LDMxMzQ3ODY1N119
+eyJoaXN0b3J5IjpbMjUyMTUzODI1LDMxMzQ3ODY1N119
 -->
