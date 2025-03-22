@@ -83,7 +83,9 @@ netty和传统socket编程相比有哪些优势
     
     -   对于来自客户端的每个更新请求，`Zookeeper`都会分配一个全局唯一的递增编号，这个编号反应了所有事务操作的先后顺序
 
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3Njk5MjI5OTUsOTY5OTc4MDMxLDMwMz
+eyJoaXN0b3J5IjpbLTE3NzYyNTY4NTUsOTY5OTc4MDMxLDMwMz
 AzNTE3LDMxMzQ3ODY1N119
 -->
