@@ -84,8 +84,12 @@ netty和传统socket编程相比有哪些优势
     -   对于来自客户端的每个更新请求，`Zookeeper`都会分配一个全局唯一的递增编号，这个编号反应了所有事务操作的先后顺序
 
 1. 在testClient和ClientProxy中不用再写死ip和端口，改为在rpcClient.sendRequest方法中，先去注册中心中查找服务对应的ip和port，再去连接对应的服务器
-
+```java
+InetSocketAddress address = serviceCenter.serviceDiscovery(request.getInterfaceName()); 
+String host = address.getHostName(); 
+int port = address.getPort();
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDM4ODUxMjksOTY5OTc4MDMxLDMwMz
+eyJoaXN0b3J5IjpbLTE2ODIyMzA5MTcsOTY5OTc4MDMxLDMwMz
 AzNTE3LDMxMzQ3ODY1N119
 -->
