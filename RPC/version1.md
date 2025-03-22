@@ -89,7 +89,9 @@ InetSocketAddress address = serviceCenter.serviceDiscovery(request.getInterfaceN
 String host = address.getHostName(); 
 int port = address.getPort();
 ```
+2. ZKServiceCenter类: 实现向注册中心中查询 服务地址的类
+3. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODIyMzA5MTcsOTY5OTc4MDMxLDMwMz
-AzNTE3LDMxMzQ3ODY1N119
+eyJoaXN0b3J5IjpbLTYzODM2MDQyNiwtMTY4MjIzMDkxNyw5Nj
+k5NzgwMzEsMzAzMDM1MTcsMzEzNDc4NjU3XX0=
 -->
