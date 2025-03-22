@@ -55,6 +55,12 @@ netty和传统socket编程相比有哪些优势
     
 -   关闭 `Channel`，表示本次请求-响应交互完成。
 
+## 4. NettyRPCRPCServer类实现RpcServer接口
+## 5. NettyServerInitializer类 和NettyClientInitializer类似
+## 6. NettyRPCServerHandler类，接收来自客户端的信息，并解析调用
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzAzMDM1MTcsMzEzNDc4NjU3XX0=
+eyJoaXN0b3J5IjpbOTY5OTc4MDMxLDMwMzAzNTE3LDMxMzQ3OD
+Y1N119
 -->
