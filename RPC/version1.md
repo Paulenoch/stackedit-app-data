@@ -10,12 +10,17 @@
 netty和传统socket编程相比有哪些优势
 
 -   io传输由BIO ->NIO模式；底层 池化技术复用资源
+    -   **BIO**：同步阻塞I/O，线程在读写数据时会阻塞，直到操作完成。
+						   基于流（Stream），数据按字节流或字符流处理。
+
     
+	-   **NIO**：同步非阻塞I/O，线程可以立即返回，无需等待操作完成。
+											   基于通道（Channel）和缓冲区（Buffer），数据通过缓冲区进行读写
 
 -   可以自主编写 编码/解码器，序列化器等等，可拓展性和灵活性高
     
 
 -   支持TCP,UDP多种传输协议；支持堵塞返回和异步返回
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjUyMTUzODI1LDMxMzQ3ODY1N119
+eyJoaXN0b3J5IjpbMTQxMjI1NjMxLDMxMzQ3ODY1N119
 -->
