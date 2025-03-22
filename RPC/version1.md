@@ -90,8 +90,8 @@ String host = address.getHostName();
 int port = address.getPort();
 ```
 2. ZKServiceCenter类: 实现向注册中心中查询 服务地址的类
-3. 
+3. 服务端重构：V1.0中的ServiceProvider类功能是注册服务到本地集合中，添加一个ServiceRegister变量用于注册服务到注册中心
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzODM2MDQyNiwtMTY4MjIzMDkxNyw5Nj
+eyJoaXN0b3J5IjpbLTcxMTk4MzQ0MywtMTY4MjIzMDkxNyw5Nj
 k5NzgwMzEsMzAzMDM1MTcsMzEzNDc4NjU3XX0=
 -->
