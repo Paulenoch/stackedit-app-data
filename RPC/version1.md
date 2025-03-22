@@ -2,7 +2,7 @@
 1. 客户端获取ClientProxy对象获取代理对象，ClientProxy通过反射构建request对象，通过IOClient的sendRequest方法和服务端进行数据传输
 2. 服务端指定监听端口，如果没有链接会一直处于堵塞状态，有链接来了会创建一个新的线程WorkThread执行处理，WorkThread类负责启动线程和客户端进行数据传输
 3. WorkThread类中的getResponse方法负责解析收到的request信息，寻找服务进行调用并返回结果。因为一个服务器会有多个服务，所以需要设置一个本地服务存放器serviceProvider存放服务。在接收到服务端的request信息之后，我们在本地服务存放器找到需要的服务，通过反射调用方法，得到结果并返回
-4. ![输入图片说明](/imgs/2025-03-22/Ek3meDAZZnV9vDkt.jpeg)
+![输入图片说明](/imgs/2025-03-22/Ek3meDAZZnV9vDkt.jpeg)
 
 # V1.1
 在客户端与服务端进行网络传输，采用Java原生的socket编程方式，效率低
@@ -59,7 +59,7 @@ netty和传统socket编程相比有哪些优势
 ## 4. NettyRPCRPCServer类实现RpcServer接口
 ## 5. NettyServerInitializer类 和NettyClientInitializer类似
 ## 6. NettyRPCServerHandler类，接收来自客户端的信息，并解析调用
-
+![输入图片说明](/imgs/2025-03-22/yEXCLdQmlnvjzAo1.jpeg)
 
 # V1.2 引入ZooKeeper
 在part1 和part2 中，我们在调用服务时，对目标的ip地址和端口port都是写死的，默认本机地址和9999端口号
@@ -92,7 +92,8 @@ int port = address.getPort();
 ```
 2. ZKServiceCenter类: 实现向注册中心中查询 服务地址的类
 3. 服务端重构：V1.0中的ServiceProvider类功能是注册服务到本地集合中，添加一个ServiceRegister变量用于注册服务到注册中心
+![输入图片说明](/imgs/2025-03-22/JNHE54VJG10yebil.jpeg)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIxMjExMzM3NywtMTY4MjIzMDkxNyw5Nj
-k5NzgwMzEsMzAzMDM1MTcsMzEzNDc4NjU3XX0=
+eyJoaXN0b3J5IjpbLTEyNDkzODQ4ODIsLTE2ODIyMzA5MTcsOT
+Y5OTc4MDMxLDMwMzAzNTE3LDMxMzQ3ODY1N119
 -->
