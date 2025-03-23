@@ -42,7 +42,9 @@ V1版本中使用netty自带的编码器和解码器 来实现数据的传输
 ---
 ### 3 自定义序列化器
 
+Serializer接口中
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTE4NTgyMDEsLTUwNDA2NTA2MSwxMD
-A3OTMwOTU1XX0=
+eyJoaXN0b3J5IjpbMTg5OTI3ODU0NCwtNTA0MDY1MDYxLDEwMD
+c5MzA5NTVdfQ==
 -->
