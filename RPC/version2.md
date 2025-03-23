@@ -42,9 +42,14 @@ V1版本中使用netty自带的编码器和解码器 来实现数据的传输
 ---
 ### 3 自定义序列化器
 
-Serializer接口中定义serializer方法，用于将对象序列化为字节数组；定义deserializer方法用于反序列化（若使用java自带的序列化器不适用messageTypeye'ke'yi
+Serializer接口中定义serializer方法，用于将对象序列化为字节数组；
+
+定义deserializer方法用于反序列化（若使用java自带的序列化器不适用messageType也可以得到相对应的对象，其他方式需要指定消息格式，再根据message转换成相应的对象
+
+
+引入fastjson包用于序列化
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzNzA2MjA2LC01MDQwNjUwNjEsMTAwNz
-kzMDk1NV19
+eyJoaXN0b3J5IjpbLTE1OTc2MDg1NzksLTUwNDA2NTA2MSwxMD
+A3OTMwOTU1XX0=
 -->
