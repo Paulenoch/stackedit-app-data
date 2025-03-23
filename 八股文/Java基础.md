@@ -2,7 +2,10 @@
 Java 中，JVM 可以理解的代码就叫做字节码（即扩展名为 `.class` 的文件），它不面向任何特定的处理器，只面向虚拟机。由于字节码并不针对一种特定的机器，因此，Java 程序无须重新编译便可在多种不同操作系统的计算机上运行。
 
 ## 2. Java与C++的区别
-1. java不提供zhi
+1. Java不提供指针直接访问内存，程序内存更加安全
+2. Java的类是单继承的，C++是多继承，但Java可以继承多个类
+3. Java有自动内存管理和垃圾回收机制GC
+4. C++同时支持方法重载和操作符重载，Java只能方法重载
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwNDk3OTQ0Nl19
+eyJoaXN0b3J5IjpbLTEyNDc2MzcwNTNdfQ==
 -->
