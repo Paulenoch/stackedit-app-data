@@ -52,10 +52,13 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 静态变量是通过类名来访问的，例如`StaticVariableExample.staticVar`（如果被 `private`关键字修饰就无法这样访问了）。
 
 ## 8. 静态方法为什么不能调用非静态成员
+-   静态方法是属于类的，在类加载的时候就会分配内存，可以通过类名直接访问。而非静态成员属于实例对象，只有在对象实例化之后才存在，需要通过类的实例对象去访问。
+-   在类的非静态成员不存在的时候静态方法就已经存在了，此时调用在内存中还不存在的非静态成员，属于非法操作。
 
+## fang'fa
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODc2MTY0OTcsLTEyNDc2MzcwNTNdfQ
+eyJoaXN0b3J5IjpbLTEyMzAxMzQ2MzgsLTEyNDc2MzcwNTNdfQ
 ==
 -->
