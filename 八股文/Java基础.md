@@ -8,8 +8,8 @@ Java 中，JVM 可以理解的代码就叫做字节码（即扩展名为 `.class
 4. C++同时支持方法重载和操作符重载，Java只能方法重载
 
 ## 3. 位移运算符
-```<<```左移n位，相当于乘以2的n次方
-```>>```右移n位，相当于除以2的n次方
+`<<`左移n位，相当于乘以2的n次方
+`>>`右移n位，相当于除以2的n次方
 
 ## 4. 基本类型和包装类的区别
 1. 包装类可用于泛型，基本类型不可
@@ -31,7 +31,7 @@ public class Test {
 ```
 3. 基本类型占用空间较小
 4. 基本类型不赋值会有默认值，包装类不赋值为null
-5. 基本类型通过==比较，包装类型通过```==```比较内存地址，通过.equals()比较值
+5. 基本类型通过==比较，包装类型通过`==`比较内存地址，通过.equals()比较值
 
 
 ## 5. 包装类的缓存机制
@@ -80,11 +80,12 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 如果 `HashSet` 在对比的时候，同样的 `hashCode` 有多个对象，它会继续使用 `equals()` 来判断是否真的相同。也就是说 `hashCode` 帮助我们大大缩小了查找成本。
 
 ## String、StringBuffer、StringBuilder
-1. String中的对象是可不变的，线程安全；StringBuffer
+1. `String`中的对象是可不变的，线程安全；`StringBuffer`对方法加了同步锁或者对调用的方法加了同步锁，所以是线程安全的。`StringBuilder` 并没有对方法进行加同步锁，所以是非线程安全的。
+2. 每次对 `String` 类型进行改变的时候，都会生成一个新的 `String` 对象，然后将指针指向新的 `String` 对象
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI1Mjc4MTY4OSw3NDg3MDg0OTUsLTEyND
+eyJoaXN0b3J5IjpbMTczNDgyODg0Myw3NDg3MDg0OTUsLTEyND
 c2MzcwNTNdfQ==
 -->
