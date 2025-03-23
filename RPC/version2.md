@@ -32,7 +32,17 @@ V1版本中使用netty自带的编码器和解码器 来实现数据的传输
 
 ---
 使用自定义编/解码器的好处：
+-  将编码解码的过程进行封装，代码变得简洁易读，维护更加方便
+    
+
+-   在内部实现消息头的加工，解决沾包问题
+    
+
+-   消息头中加入messageType消息类型，对消息的读取机制有了进一步的拓展
+---
+### 3 自定义序列化器
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM1MzYzMDY1OSwtNTA0MDY1MDYxLDEwMD
-c5MzA5NTVdfQ==
+eyJoaXN0b3J5IjpbLTE1OTE4NTgyMDEsLTUwNDA2NTA2MSwxMD
+A3OTMwOTU1XX0=
 -->
