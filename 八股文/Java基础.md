@@ -70,9 +70,10 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 
 ## 11. 浅拷贝、深拷贝、引用拷贝![输入图片说明](/imgs/2025-03-24/SClMMUPEIQC2oFRf.png)
 
+## 12. hashcode()
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzMjE2MTY5NCw3NDg3MDg0OTUsLTEyND
-c2MzcwNTNdfQ==
+eyJoaXN0b3J5IjpbMjIwMDU3MTMsNzQ4NzA4NDk1LC0xMjQ3Nj
+M3MDUzXX0=
 -->
