@@ -15,7 +15,10 @@ V1版本中使用netty自带的编码器和解码器 来实现数据的传输
 3.  **消息长度**：4 字节，表示序列化后的字节数组的长度。
     
 4.  **序列化后的字节数组**：实际的消息内容。
+
+
+### 2 自定义解码器myDecoder
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAxOTM2Mzk2NCwtNTA0MDY1MDYxLDEwMD
-c5MzA5NTVdfQ==
+eyJoaXN0b3J5IjpbMTIwNzE2NzIyLC01MDQwNjUwNjEsMTAwNz
+kzMDk1NV19
 -->
