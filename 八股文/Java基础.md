@@ -14,6 +14,9 @@ Java 中，JVM 可以理解的代码就叫做字节码（即扩展名为 `.class
 ## 4. 基本类型和包装类的区别
 1. 包装类可用于泛型，基本类型不可
 2. 本数据类型的局部变量存放在 Java 虚拟机栈中的局部变量表中，基本数据类型的成员变量（未被 `static` 修饰 ）存放在 Java 虚拟机的堆中。包装类型属于对象类型，我们知道几乎所有对象实例都存在于堆中。
+3. 基本类型占用空间较小
+4. 基本类型不赋值会有默认值，包装类不赋值为null
+5. 基本类型通过==比较，包装类型通过```==```比较内存地址，
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTU1NTE0Mzc4LC0xMjQ3NjM3MDUzXX0=
+eyJoaXN0b3J5IjpbMTMyMDI3NjA3OCwtMTI0NzYzNzA1M119
 -->
