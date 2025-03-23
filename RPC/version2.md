@@ -49,28 +49,9 @@ Serializer接口中定义serializer方法，用于将对象序列化为字节数
 
 引入fastjson包用于将Java 对象序列化为 JSON 字节数组
 
-```java
-case 0:
-    RpcRequest request = JSON.parseObject(bytes, RpcRequest.class);
-    Object[] objects = new Object[request.getParams().length];
-    // 把json字串转化成对应的对象， fastjson可以读出基本数据类型，不用转化
-    // 对转换后的request中的params属性逐个进行类型判断
-    for(int i = 0; i < objects.length; i++){
-        Class<?> paramsType = request.getParamsType()[i];
-        //判断每个对象类型是否和paramsTypes中的一致
-        if (!paramsType.isAssignableFrom(request.getParams()[i].getClass())){
-            //如果不一致，就行进行类型转换
-            objects[i] = JSONObject.toJavaObject((JSONObject) request.getParams()[i],request.getParamsType()[i]);
-        }else{
-            //如果一致就直接赋给objects[i]
-            objects[i] = request.getParams()[i];
-        }
-    }
-    request.setParams(objects);
-    obj = request;
-    break;
-    ```
+Deserializer
+case0: 处理RPCRequest
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2ODM3MDQ0NSwtNTA0MDY1MDYxLDEwMD
+eyJoaXN0b3J5IjpbMTA4MDg2NzA5NSwtNTA0MDY1MDYxLDEwMD
 c5MzA5NTVdfQ==
 -->
