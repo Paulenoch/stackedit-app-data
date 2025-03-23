@@ -18,7 +18,21 @@ V1版本中使用netty自带的编码器和解码器 来实现数据的传输
 
 
 ### 2 自定义解码器myDecoder
+`MyDecoder` 的主要功能是将接收到的字节流按照自定义的消息格式解码为 Java 对象。解码过程包括以下步骤：
+
+1.  **读取消息类型**：2 字节，确定消息是请求还是响应。
+    
+2.  **读取序列化方式**：2 字节，确定使用的序列化器。
+    
+3.  **读取消息长度**：4 字节，确定序列化后的字节数组的长度。
+    
+4.  **读取序列化数组**：根据长度读取字节数组。
+    
+5.  **反序列化为对象**：使用序列化器将字节数组反序列化为 Java 对象，并将其添加到输出列表中。
+
+---
+使用自定义编/解码器的好处：
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwNzE2NzIyLC01MDQwNjUwNjEsMTAwNz
-kzMDk1NV19
+eyJoaXN0b3J5IjpbLTM1MzYzMDY1OSwtNTA0MDY1MDYxLDEwMD
+c5MzA5NTVdfQ==
 -->
