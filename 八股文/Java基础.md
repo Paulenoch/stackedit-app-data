@@ -79,13 +79,13 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 
 如果 `HashSet` 在对比的时候，同样的 `hashCode` 有多个对象，它会继续使用 `equals()` 来判断是否真的相同。也就是说 `hashCode` 帮助我们大大缩小了查找成本。
 
-## String、StringBuffer、StringBuilder
+## 13. String、StringBuffer、StringBuilder
 1. `String`中的对象是可不变的，线程安全；`StringBuffer`对方法加了同步锁或者对调用的方法加了同步锁，所以是线程安全的。`StringBuilder` 并没有对方法进行加同步锁，所以是非线程安全的。
 2. 每次对 `String` 类型进行改变的时候，都会生成一个新的 `String` 对象，然后将指针指向新的 `String` 对象
 3. “+”和“+=”是专门为 String 类重载过的运算符，实际上是通过 `StringBuilder` 调用 `append()` 方法实现的，拼接完成之后调用 `toString()` 得到一个 `String` 对象
 4. `String` 中的 `equals` 方法是被重写过的，比较的是 String 字符串的值是否相等
 
-## String s1 = new String("abc"); 创建了几个对象
+## 14. String s1 = new String("abc"); 创建了几个对象
 -   字符串常量池中不存在 "abc"：会创建 2 个 字符串对象。一个在字符串常量池中，由 `ldc` 指令触发创建。一个在堆中，由 `new String()` 创建，并使用常量池中的 "abc" 进行初始化。
 -   字符串常量池中已存在 "abc"：会创建 1 个 字符串对象。该对象在堆中，由 `new String()` 创建，并使用常量池中的 "abc" 进行初始化。
 
@@ -93,6 +93,6 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNDUxODU5NDUsNzQ4NzA4NDk1LC0xMj
-Q3NjM3MDUzXX0=
+eyJoaXN0b3J5IjpbMTU4NTQyNTA2NCw3NDg3MDg0OTUsLTEyND
+c2MzcwNTNdfQ==
 -->
