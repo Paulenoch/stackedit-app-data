@@ -6,6 +6,10 @@ Java 中，JVM 可以理解的代码就叫做字节码（即扩展名为 `.class
 2. Java的类是单继承的，C++是多继承，但Java可以继承多个类
 3. Java有自动内存管理和垃圾回收机制GC
 4. C++同时支持方法重载和操作符重载，Java只能方法重载
+
+## 3. 位移运算符
+```<<```左移n位，相当于除以2的n次方
+```>>```you移n位，相当于除以2的n次方
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDc2MzcwNTNdfQ==
+eyJoaXN0b3J5IjpbNjA2MTc0ODY0LC0xMjQ3NjM3MDUzXX0=
 -->
