@@ -86,8 +86,9 @@ case1:  处理 `RpcResponse` 类型的消息
 V1版本中调用方每次调用服务，都要去注册中心zookeeper中查找地址，性能较差
 可以在客户端建立一个本地缓存，缓存服务地址信息，作为优化的方案
 
-
+### 1 本地缓存serviceCache类
+用```Map<String, List<String>>```存储
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ4MzkxMzY3NSwtNTA0MDY1MDYxLDEwMD
-c5MzA5NTVdfQ==
+eyJoaXN0b3J5IjpbLTE3ODI1MjMzMCwtNDgzOTEzNjc1LC01MD
+QwNjUwNjEsMTAwNzkzMDk1NV19
 -->
