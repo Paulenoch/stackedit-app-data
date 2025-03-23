@@ -111,7 +111,34 @@ V1版本中调用方每次调用服务，都要去注册中心zookeeper中查找
 首先，目前的项目框架不能使用经典的Cache Aside旁路缓存策略（首先去本地缓存中读，读不到，再去注册中心中读，返回数据时刷新缓存....等等）
 
 假设A服务有三个地址abc，此时服务端感受到A服务请求压力过大，于是增加了一个新地址并注册到zookeeper中，若使用旁路缓存策略，d地址永远无法被存入客户端缓存中
+
+正确做法：**通过在注册中心注册Watcher，监听注册中心的变化，实现本地缓存的动态更新**
+
+#### 事件监听机制
+
+**watcher概念**
+
+-   `zookeeper`提供了数据的`发布/订阅`功能，多个订阅者可同时监听某一特定主题对象，当该主题对象的自身状态发生变化时例如节点内容改变、节点下的子节点列表改变等，会实时、主动通知所有订阅者
+    
+
+-   `zookeeper`采用了 `Watcher`机制实现数据的发布订阅功能。该机制在被订阅对象发生变化时会异步通知客户端，因此客户端不必在 `Watcher`注册后轮询阻塞，从而减轻了客户端压力
+    
+
+-   `watcher`机制事件上与观察者模式类似，也可看作是一种观察者模式在分布式场景下的实现方式
+    
+
+#### watcher架构
+
+`watcher`实现由三个部分组成
+
+-   `zookeeper`服务端
+    
+
+-   `zookeeper`客户端
+    
+
+-   客户端的`ZKWatchManager对象`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjY1MzA0NzIsLTQ4MzkxMzY3NSwtNT
-A0MDY1MDYxLDEwMDc5MzA5NTVdfQ==
+eyJoaXN0b3J5IjpbMTE4NzI0NzQwMiwtNDgzOTEzNjc1LC01MD
+QwNjUwNjEsMTAwNzkzMDk1NV19
 -->
