@@ -84,11 +84,15 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 2. 每次对 `String` 类型进行改变的时候，都会生成一个新的 `String` 对象，然后将指针指向新的 `String` 对象
 3. “+”和“+=”是专门为 String 类重载过的运算符，实际上是通过 `StringBuilder` 调用 `append()` 方法实现的，拼接完成之后调用 `toString()` 得到一个 `String` 对象
 4. `String` 中的 `equals` 方法是被重写过的，比较的是 String 字符串的值是否相等
-5. 
+
+## String s1 = new String("abc"); 创建了几个对象
+-   字符串常量池中不存在 "abc"：会创建 2 个 字符串对象。一个在字符串常量池中，由 `ldc` 指令触发创建。一个在堆中，由 `new String()` 创建，并使用常量池中的 "abc" 进行初始化。
+-   字符串常量池中已存在 "abc"：会创建 1 个 字符串对象。该对象在堆中，由 `new String()` 创建，并使用常量池中的 "abc" 进行初始化。
+
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU1MjU4MzU1LDc0ODcwODQ5NSwtMTI0Nz
-YzNzA1M119
+eyJoaXN0b3J5IjpbLTExNDUxODU5NDUsNzQ4NzA4NDk1LC0xMj
+Q3NjM3MDUzXX0=
 -->
