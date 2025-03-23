@@ -42,12 +42,15 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 对于 `Integer`，可以通过 JVM 参数 `-XX:AutoBoxCacheMax=<size>` 修改缓存上限，但不能修改下限 -128。实际使用时，并不建议设置过大的值，避免浪费内存，甚至是 OOM。
 
 
-## 什么是自动拆箱与装箱
+## 6. 什么是自动拆箱与装箱
 装箱：```Integer i = Integer.valueOf(10)```
 拆箱：```int n = i.intValue()```
 如果频繁拆装箱的话，也会严重影响系统的性能。我们应该尽量避免不必要的拆装箱操作。
 
+## 
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ3OTg4MTM4MSwtMTI0NzYzNzA1M119
+eyJoaXN0b3J5IjpbLTE4NzY2NTgzNDcsLTEyNDc2MzcwNTNdfQ
+==
 -->
