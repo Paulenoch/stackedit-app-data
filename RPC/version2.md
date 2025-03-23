@@ -110,8 +110,8 @@ V1版本中调用方每次调用服务，都要去注册中心zookeeper中查找
 ### 3 动态缓存更新
 首先，目前的项目框架不能使用经典的Cache Aside旁路缓存策略（首先去本地缓存中读，读不到，再去注册中心中读，返回数据时刷新缓存....等等）
 
-假设A服务有三个
+假设A服务有三个地址abc，此时服务端感受到A服务请求压力过大，于是增加了一个新地址并注册到zookeeper中，若使用旁路缓存策略，d地址永远无法被存入客户端缓存中
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTE2NDg3OTAsLTQ4MzkxMzY3NSwtNT
+eyJoaXN0b3J5IjpbLTE1NjY1MzA0NzIsLTQ4MzkxMzY3NSwtNT
 A0MDY1MDYxLDEwMDc5MzA5NTVdfQ==
 -->
