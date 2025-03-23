@@ -79,7 +79,15 @@ case1:  处理 `RpcResponse` 类型的消息
         -   如果不一致，使用 `JSONObject.toJavaObject` 将 JSON 对象转换为目标类型。
             
     4.  将处理后的 `response` 对象赋值给 `obj`。
+
+
+# V2.1 客户端建立本地服务缓存/缓存动态更新
+
+V1版本中调用方每次调用服务，都要去注册中心zookeeper中查找地址，性能较差
+可以在客户端建立一个本地缓存，缓存服务地址信息，作为优化的方案
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MjkxNzQwMywtNTA0MDY1MDYxLDEwMD
+eyJoaXN0b3J5IjpbLTQ4MzkxMzY3NSwtNTA0MDY1MDYxLDEwMD
 c5MzA5NTVdfQ==
 -->
