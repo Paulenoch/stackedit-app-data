@@ -8,8 +8,11 @@ Java 中，JVM 可以理解的代码就叫做字节码（即扩展名为 `.class
 4. C++同时支持方法重载和操作符重载，Java只能方法重载
 
 ## 3. 位移运算符
-```<<```左移n位，相当于除以2的n次方
-```>>```you移n位，相当于除以2的n次方
+```<<```左移n位，相当于乘以2的n次方
+```>>```右移n位，相当于除以2的n次方
+
+## 4
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjA2MTc0ODY0LC0xMjQ3NjM3MDUzXX0=
+eyJoaXN0b3J5IjpbLTEwNTM5NjQ4NDAsLTEyNDc2MzcwNTNdfQ
+==
 -->
