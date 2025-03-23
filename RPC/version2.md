@@ -87,8 +87,25 @@ V1版本中调用方每次调用服务，都要去注册中心zookeeper中查找
 可以在客户端建立一个本地缓存，缓存服务地址信息，作为优化的方案
 
 ### 1 本地缓存serviceCache类
-用```Map<String, List<String>>```存储
+用```Map<String, List<String>>```存储服务名称与服务提供者地址列表的映射关系。
+
+添加服务地址方法
+-   **功能**：将服务名称和服务提供者地址添加到缓存中。
+    
+-   **逻辑**：
+    
+    1.  检查缓存中是否已经存在该服务名称：
+        
+        -   如果存在，获取对应的地址列表，并将新地址添加到列表中。
+            
+        -   如果不存在，创建一个新的地址列表，并将新地址添加到列表中，然后将服务名称和地址列表存入缓存。
+            
+    2.  打印日志，提示服务地址已添加到缓存中。添加服务地址
+
+查找和删除服务地址方法同理
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3ODI1MjMzMCwtNDgzOTEzNjc1LC01MD
+eyJoaXN0b3J5IjpbLTY3NTUwMTYxNSwtNDgzOTEzNjc1LC01MD
 QwNjUwNjEsMTAwNzkzMDk1NV19
 -->
