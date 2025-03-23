@@ -33,12 +33,21 @@ public class Test {
 4. 基本类型不赋值会有默认值，包装类不赋值为null
 5. 基本类型通过==比较，包装类型通过```==```比较内存地址，通过.equals()比较值
 
+
 ## 5. 包装类的缓存机制
 Java 基本数据类型的包装类型的大部分都用到了缓存机制来提升性能。
 
 `Byte`,`Short`,`Integer`,`Long` 这 4 种包装类默认创建了数值 **[-128，127]** 的相应类型的缓存数据，`Character` 创建了数值在 **[0,127]** 范围的缓存数据，`Boolean` 直接返回 `TRUE` or `FALSE`。
 
 对于 `Integer`，可以通过 JVM 参数 `-XX:AutoBoxCacheMax=<size>` 修改缓存上限，但不能修改下限 -128。实际使用时，并不建议设置过大的值，避免浪费内存，甚至是 OOM。
+
+
+## 什么是自动拆箱与装箱
+装箱：```Integer i = Integer.valueOf(10)```
+拆箱：```int n = i.intValue()```
+如果频繁拆装箱的话，也会严重影响系统的性能。我们应该尽量避免不必要的拆装箱操作。
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5NzY0MjAyNiwtMTI0NzYzNzA1M119
+eyJoaXN0b3J5IjpbLTQ3OTg4MTM4MSwtMTI0NzYzNzA1M119
 -->
