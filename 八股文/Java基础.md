@@ -71,9 +71,15 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 ## 11. 浅拷贝、深拷贝、引用拷贝![输入图片说明](/imgs/2025-03-24/SClMMUPEIQC2oFRf.png)
 
 ## 12. hashcode()
+`hashCode()` 的作用是获取哈希码（`int` 整数），也称为散列码。这个哈希码的作用是确定该对象在哈希表中的索引位置
 
+`hashCode()` 和 `equals()`都是用于比较两个对象是否相等。
+
+在一些容器（比如 `HashMap`、`HashSet`）中，有了 `hashCode()` 之后，判断元素是否在对应容器中的效率会更高（参考添加元素进`HashSet`的过程）！
+
+如果 `HashSet` 在对比的时候，同样的 `hashCode` 有多个对象，它会继续使用 `equals()` 来判断是否真的相同。也就是说 `hashCode` 帮助我们大大缩小了查找成本。
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjIwMDU3MTMsNzQ4NzA4NDk1LC0xMjQ3Nj
-M3MDUzXX0=
+eyJoaXN0b3J5IjpbMTQyMTY4NTk0NCw3NDg3MDg0OTUsLTEyND
+c2MzcwNTNdfQ==
 -->
