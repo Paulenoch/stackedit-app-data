@@ -161,9 +161,9 @@ watcher.watchToUpdate(ROOT_PATH);
     -   `watchZK` 是一个自定义的事件监听器类，用于监听 Zookeeper 节点的变化。
         
     -   `watcher.watchToUpdate(ROOT_PATH)`：启动对根路径（`ROOT_PATH`）的监听，当节点发生变化时，更新本地缓存。
-    - ![输入图片说明](/imgs/2025-03-23/mZiUPNFeGt0tR53W.jpeg)
+    ![输入图片说明](/imgs/2025-03-23/mZiUPNFeGt0tR53W.jpeg)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQzOTAxMDIyMywtMjA2ODY2MjA1LDExOD
+eyJoaXN0b3J5IjpbMjA4NjA3MTQ1MiwtMjA2ODY2MjA1LDExOD
 cyNDc0MDIsLTQ4MzkxMzY3NSwtNTA0MDY1MDYxLDEwMDc5MzA5
 NTVdfQ==
 -->
