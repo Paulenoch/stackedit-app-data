@@ -142,10 +142,26 @@ V1版本中调用方每次调用服务，都要去注册中心zookeeper中查找
 流程
 客户端**首先将 `Watcher`注册到服务端**，同时将 `Watcher`对象**保存到客户端的`watch`管理器中**。当`Zookeeper`服务端监听的数据状态发生变化时，服务端会**主动通知客户端**，接着客户端的 `Watch`管理器会**触发相关 `Watcher`**来回调相应处理逻辑，从而完成整体的数据 `发布/订阅`流程![输入图片说明](/imgs/2025-03-23/dkMY7SCp64RsJ2fe.png)
 
-
-###在ZKServiceCenter中加入缓存和监听器
-
+```java
+//加入zookeeper事件监听器
+watchZK watcher = new watchZK(client, cache);
+//监听启动
+watcher.watchToUpdate(ROOT_PATH);
+```
+-   **功能**：注册 Zookeeper 事件监听器，并启动监听。
+    
+-   **参数**：
+    
+    -   `client`：Zookeeper 客户端实例。
+        
+    -   `cache`：本地缓存实例。
+        
+-   **作用**：
+    
+    -   `watchZK` 是一个自定义的事件监听器类，用于监听 Zookeeper 节点的变化。
+        
+    -   `watcher.watchToUpdate(ROOT_PATH)`：启动对根路径（`ROOT_PATH`）的监听，当节点发生变化时，更新本地缓存。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkzOTQ3ODY3MCwxMTg3MjQ3NDAyLC00OD
+eyJoaXN0b3J5IjpbLTIwNjg2NjIwNSwxMTg3MjQ3NDAyLC00OD
 M5MTM2NzUsLTUwNDA2NTA2MSwxMDA3OTMwOTU1XX0=
 -->
