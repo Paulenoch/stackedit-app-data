@@ -106,7 +106,12 @@ V1版本中调用方每次调用服务，都要去注册中心zookeeper中查找
 
 ### 2 **修改ZKServiceCenter的serviceDiscovery方法**
 先从本地缓存中找 ，如果找不到，再去zookeeper中找
+
+### 3 动态缓存更新
+首先，目前的项目框架不能使用经典的Cache Aside旁路缓存策略（首先去本地缓存中读，读不到，再去注册中心中读，返回数据时刷新缓存....等等）
+
+假设A服务有三个
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE1Mjg4MzU5OSwtNDgzOTEzNjc1LC01MD
-QwNjUwNjEsMTAwNzkzMDk1NV19
+eyJoaXN0b3J5IjpbLTE1OTE2NDg3OTAsLTQ4MzkxMzY3NSwtNT
+A0MDY1MDYxLDEwMDc5MzA5NTVdfQ==
 -->
