@@ -68,9 +68,11 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 	-   多态不能调用“只在子类存在但在父类不存在”的方法；
 	-   如果子类重写了父类的方法，真正执行的是子类重写的方法，如果子类没有重写父类的方法，执行的是父类的方法。
 
-## 11. 浅拷贝、深拷贝、引用拷贝
+## 11. 浅拷贝、深拷贝、引用拷贝![输入图片说明](/imgs/2025-03-24/SClMMUPEIQC2oFRf.png)
+
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTUyMzAyNzcsNzQ4NzA4NDk1LC0xMj
-Q3NjM3MDUzXX0=
+eyJoaXN0b3J5IjpbMTEzMjE2MTY5NCw3NDg3MDg0OTUsLTEyND
+c2MzcwNTNdfQ==
 -->
