@@ -4,6 +4,9 @@
 V1版本中使用netty自带的编码器和解码器 来实现数据的传输
 
 在V2版本中，我们可以通过**继承netty提供的基类**，实现自定义的编码器和解码器
+
+### 1 自定义编码器myEncoder
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwNzkzMDk1NV19
+eyJoaXN0b3J5IjpbLTUwNDA2NTA2MSwxMDA3OTMwOTU1XX0=
 -->
