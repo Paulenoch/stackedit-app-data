@@ -79,7 +79,12 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 
 如果 `HashSet` 在对比的时候，同样的 `hashCode` 有多个对象，它会继续使用 `equals()` 来判断是否真的相同。也就是说 `hashCode` 帮助我们大大缩小了查找成本。
 
+## String、StringBuffer、StringBuilder
+1. String中的对象是可不变的，线程安全；StringBuffer
+
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyMTY4NTk0NCw3NDg3MDg0OTUsLTEyND
+eyJoaXN0b3J5IjpbMTI1Mjc4MTY4OSw3NDg3MDg0OTUsLTEyND
 c2MzcwNTNdfQ==
 -->
