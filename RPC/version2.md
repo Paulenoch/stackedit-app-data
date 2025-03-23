@@ -50,8 +50,36 @@ Serializer接口中定义serializer方法，用于将对象序列化为字节数
 引入fastjson包用于将Java 对象序列化为 JSON 字节数组
 
 Deserializer
-case0: 处理RPCRequest
+case0: 处理RpcRequest类型消息
+-   **步骤**：
+    
+    1.  使用 `JSON.parseObject(bytes, RpcRequest.class)` 将字节数组反序列化为 `RpcRequest` 对象。
+        
+    2.  创建一个 `Object[]` 数组 `objects`，用于存储反序列化后的参数。
+        
+    3.  遍历 `request.getParams()`，逐个检查参数的类型是否与 `request.getParamsType()` 中定义的类型一致。
+        
+        -   如果不一致，使用 `JSONObject.toJavaObject` 将 JSON 对象转换为目标类型。
+            
+        -   如果一致，直接赋值。
+            
+    4.  将处理后的参数数组 `objects` 设置回 `request` 对象。
+        
+    5.  将 `request` 对象赋值给 `obj`。
+
+case1:  处理 `RpcResponse` 类型的消息
+-   **步骤**：
+    
+    1.  使用 `JSON.parseObject(bytes, RpcResponse.class)` 将字节数组反序列化为 `RpcResponse` 对象。
+        
+    2.  获取 `response` 中 `data` 的目标类型 `dataType`。
+        
+    3.  检查 `response.getData()` 的类型是否与 `dataType` 一致。
+        
+        -   如果不一致，使用 `JSONObject.toJavaObject` 将 JSON 对象转换为目标类型。
+            
+    4.  将处理后的 `response` 对象赋值给 `obj`。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4MDg2NzA5NSwtNTA0MDY1MDYxLDEwMD
+eyJoaXN0b3J5IjpbLTE5MjkxNzQwMywtNTA0MDY1MDYxLDEwMD
 c5MzA5NTVdfQ==
 -->
