@@ -138,7 +138,10 @@ V1版本中调用方每次调用服务，都要去注册中心zookeeper中查找
     
 
 -   客户端的`ZKWatchManager对象`
+
+流程
+客户端**首先将 `Watcher`注册到服务端**，同时将 `Watcher`对象**保存到客户端的`watch`管理器中**。当`Zookeeper`服务端监听的数据状态发生变化时，服务端会**主动通知客户端**，接着客户端的 `Watch`管理器会**触发相关 `Watcher`**来回调相应处理逻辑，从而完成整体的数据 `发布/订阅`流程![输入图片说明](/imgs/2025-03-23/dkMY7SCp64RsJ2fe.png)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4NzI0NzQwMiwtNDgzOTEzNjc1LC01MD
-QwNjUwNjEsMTAwNzkzMDk1NV19
+eyJoaXN0b3J5IjpbMTg0MDUxOTQyMiwxMTg3MjQ3NDAyLC00OD
+M5MTM2NzUsLTUwNDA2NTA2MSwxMDA3OTMwOTU1XX0=
 -->
