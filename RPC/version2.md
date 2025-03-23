@@ -104,8 +104,9 @@ V1版本中调用方每次调用服务，都要去注册中心zookeeper中查找
 
 查找和删除服务地址方法同理
 
-
+### 2 **修改ZKServiceCenter的serviceDiscovery方法**
+先从本地缓存中找 ，如果找不到，再去zookeeper中找
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3NTUwMTYxNSwtNDgzOTEzNjc1LC01MD
+eyJoaXN0b3J5IjpbMTE1Mjg4MzU5OSwtNDgzOTEzNjc1LC01MD
 QwNjUwNjEsMTAwNzkzMDk1NV19
 -->
