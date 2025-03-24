@@ -50,8 +50,11 @@ zookeeper成熟稳定，很多大数据应用kafka，hadoop，hbase都是使用z
 
 ## 本地缓存怎么做的，如何保证缓存和服务的一致性
 在客户端设计一个缓存层，每次调用服务时优先从缓存层获取地址
-使用zookeeper的监听机制，在服务节点上注册watcher，当注册中心的服务地址发生变动时，watcher会异步通知客户端的huan'c
+使用zookeeper的监听机制，在服务节点上注册watcher，当注册中心的服务地址发生变动时，watcher会异步通知客户端的缓存层修改地址
+
+## 某个服务多个节点压力承受能力不一，怎么办
+在一致性哈希算法中，通过设置虚拟节点的个数来控制对应的真实节点收到请求的概率
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODM3MzQ1NDI2LDg2NDk1Mjc2OSwtMTA5MD
+eyJoaXN0b3J5IjpbMTE1MzQxNjg4LDg2NDk1Mjc2OSwtMTA5MD
 E5OTY5NywtNjY1MzQyMzFdfQ==
 -->
