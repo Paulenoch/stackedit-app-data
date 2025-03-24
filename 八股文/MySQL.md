@@ -12,7 +12,10 @@
 MySQL存储引擎采用插件式架构，存储引擎基于表，而不是数据库
 
 # 4. MyISAM和InnoDB的区别
-
+1. MyISAM只有表锁，InnoDB支持行锁
+2. InnoDB支持事务
+3. InnoDB支持外键
+4. InnoDB支持数据库异常崩溃后的安全回复（r
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4NjIyMjgzM119
+eyJoaXN0b3J5IjpbMTU3NDc1NTYyN119
 -->
