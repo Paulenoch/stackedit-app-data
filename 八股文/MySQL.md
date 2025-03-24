@@ -87,6 +87,12 @@ B+树，只有叶子节点存放key和data，其他内节点只存放key，叶�
 2. 尽可能建立联合索引而不是单列索引
 3. 字符串类型使用前缀索引
 4. 索引失效（select*，查询条件不遵守最左匹配，在索引上计算，以%开头的模糊查询）
+
+# 20. 慢查询日志
+记录执行时间超过`long_query_time`的所有查询
+
+# 21. binlog
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyOTIwNjQwNzNdfQ==
+eyJoaXN0b3J5IjpbLTExMzc3NjI2NzNdfQ==
 -->
