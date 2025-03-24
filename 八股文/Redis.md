@@ -26,7 +26,9 @@ volatile/allkeys * lru/ttl/random
 Redis通过创建snapshot来获得存储在内存里面的数据在某个时间点上的副本
 
 # 7. AOF持久化
-每执行一条更改Redis中的数据的命令，Redis将该命令写入到内存缓存`server.aof_buf`中，再更具`appendfsync`配置
+每执行一条更改Redis中的数据的命令，Redis将该命令写入到内存缓存`server.aof_buf`中，再更具`appendfsync`配置决定什么时候同步到硬盘中的AOF文件
+
+# 8. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQ1MTg5OTgzLC0yMDg4NzQ2NjEyXX0=
+eyJoaXN0b3J5IjpbLTk1Mjk4MTUyNSwtMjA4ODc0NjYxMl19
 -->
