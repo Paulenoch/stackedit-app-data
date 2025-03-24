@@ -59,8 +59,17 @@ Redis 从 2.6 版本开始支持执行 Lua 脚本，它的功能和事务非常�
 **频繁修改 Redis 中的数据也会产生内存碎片。**
 
 # 14. 缓存穿透
-大量请求的key不在缓存中，导致请求直接落在数据库上
+大量请求的key不在缓存中，也不再数据库中	
+解决：
+- 缓存无效key：查到某个key不在数据库中，将其存入缓存
+- 布隆过滤器
+
+# 15. 缓存击穿
+请求的 key 对应的是 **热点数据**，该数据 **存在于数据库中，但不存在于缓存中（通常是因为缓存中的那份数据已经过期）**。这就可能会导致瞬时大量的请求直接打到了数据库上
+
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjUzNDA5NTQyLC0yMDg4NzQ2NjEyXX0=
+eyJoaXN0b3J5IjpbLTE5Mzc0NDExOTksLTIwODg3NDY2MTJdfQ
+==
 -->
