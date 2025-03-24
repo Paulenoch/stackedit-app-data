@@ -57,6 +57,9 @@ MVCC是一种并发版本控制机制，通过在每个数据行上维护多个�
 
 # 11. 意向锁有什么作用
 快速判断能否对某个表使用表锁
+
+# 12. 索引的底层实现
+B+树，只有叶子节点存放key和data，其他内节点只存放key
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc5MDAxMjI5Ml19
+eyJoaXN0b3J5IjpbMjAwMzk2NDExNF19
 -->
