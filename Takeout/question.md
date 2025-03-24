@@ -38,6 +38,7 @@ Sharding-JDBC介绍Sharding-JDBC定位为轻量级java框架，在java的JDBC层
 
 # 4. 使用Redis，采用一主两从＋哨兵的集群方案
 
+## 4.1 为什么用Re
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyMjI0MDQwNSwxNDk2NTMyNjA0XX0=
+eyJoaXN0b3J5IjpbLTEzODgwNDc1MywxNDk2NTMyNjA0XX0=
 -->
