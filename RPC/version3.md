@@ -30,7 +30,8 @@
     - “虚拟节点”就是真实节点的复制品，一个真实的节点对应多个“虚拟节点”，这样使得我们的节点能尽可能的在环形Hash空间均匀分布，这样我们再根据虚拟节点找到真实节点，从而保证每个真实节点上分配到的请求是均衡的。
 
 	- 没有虚拟节点的情况下，节点的增加或删除会导致哈希环上的重新分配，可能导致大量的请求重定向到其他节点，引入虚拟节点后，节点的增删只会影响与该节点相关的少部分虚拟节点，减少了请求的迁移
+	- 如果一个真实节点故障且没有虚拟节点，所有映射到该节点的请求都会丢失，引入虚拟节点后，其他的虚拟节点可能会分摊其负载，减少系统的影响
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzE0NzE5MDI0LDIxMDYxMzYxNDgsLTQ0OT
-U3MTg1MiwtMjA4ODc0NjYxMl19
+eyJoaXN0b3J5IjpbLTg3Mzc1Mjg1NiwzMTQ3MTkwMjQsMjEwNj
+EzNjE0OCwtNDQ5NTcxODUyLC0yMDg4NzQ2NjEyXX0=
 -->
