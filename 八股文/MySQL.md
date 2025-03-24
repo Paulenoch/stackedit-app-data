@@ -40,7 +40,12 @@ AID是手段，C是目的
 - 幻读
 ![输入图片说明](/imgs/2025-03-25/yNsL8VG4EP0Zh4wp.png)
 
-# SQL定义了na'xi
+# SQL定义了哪些事务隔离级别
+从低到高
+- 读取未提交
+- 读取已提交（可阻止脏读）
+- 可重复读（可阻止脏读和不可重复读）
+- 可串行化：全部组织，所有的事务依次逐个执行，不互相干扰
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwMDE1NDY2OV19
+eyJoaXN0b3J5IjpbOTE5MDg0MTE4XX0=
 -->
