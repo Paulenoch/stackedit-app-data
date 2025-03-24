@@ -4,6 +4,10 @@
 - Set：HashSet
 - Hash：HashMap
 - ZSet：类似Set，加了一个权重参数score，使元素能按照score排序
+
+# 2. Redis单线程模型了解吗
+对于读写命令，Redis一直是单线程模型
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcyNzM5NTY1MCwtMjA4ODc0NjYxMl19
+eyJoaXN0b3J5IjpbLTE2Nzc0NDg0OTYsLTIwODg3NDY2MTJdfQ
+==
 -->
