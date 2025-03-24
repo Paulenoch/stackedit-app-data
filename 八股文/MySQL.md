@@ -95,7 +95,9 @@ B+树，只有叶子节点存放key和data，其他内节点只存放key，叶�
 binlog是逻辑日志，记录语句的原始逻辑，记录了数据库中的所有变化
 
 # 22. redo log
-InnoDB独有，让MySQL拥有
+InnoDB独有，让MySQL拥有了崩溃恢复能力，记录某个数据页上做了什么修改。在事务提交时按照刷盘策略刷到磁盘上去
+
+# 22
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDU4Nzk4NDQzXX0=
+eyJoaXN0b3J5IjpbMTE5MjY3Mjc0M119
 -->
