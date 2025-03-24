@@ -45,9 +45,12 @@ LRU的思想可以被借鉴用于负载均衡。例如可以设计一个基于�
 # V3.1 超时重传，白名单
 使用Guava Retry实现超时重传
 ![输入图片说明](/imgs/2025-03-24/UAkQW5exWwKQnJJt.png)
+withRetryListener()：设置重试监听器，用来执行额外的处理工作 withWaitStrategy()
 
+##  重试机制存在什么问题？
+如果这个服务业务逻辑不是幂等的，比如插入数据操作，ze'hui
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI2OTg1NTYyNSwtNjM0NzY1MjIyLC05Nj
-M1MTQyOTMsMzE0NzE5MDI0LDIxMDYxMzYxNDgsLTQ0OTU3MTg1
-MiwtMjA4ODc0NjYxMl19
+eyJoaXN0b3J5IjpbMTI4NzQ2NTAxNiwxMjY5ODU1NjI1LC02Mz
+Q3NjUyMjIsLTk2MzUxNDI5MywzMTQ3MTkwMjQsMjEwNjEzNjE0
+OCwtNDQ5NTcxODUyLC0yMDg4NzQ2NjEyXX0=
 -->
