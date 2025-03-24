@@ -55,6 +55,11 @@ public class DeadLockDemo {
     }
 }
 ```
+
+# 4. 乐观锁和悲观锁
+
+悲观锁：**共享资源每次只给一个线程使用，其它线程阻塞，用完后再把资源转让给其它线程**
+乐观锁：只是在提交修改的时候去验证对应的资源（也就是数据）是否被其它线程修改了（具体方法可以使用版本号机制或 CAS 算法）。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODUyNDkyMDM2XX0=
+eyJoaXN0b3J5IjpbMTQ2NzM1NzAyM119
 -->
