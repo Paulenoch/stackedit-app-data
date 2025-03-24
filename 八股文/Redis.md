@@ -15,6 +15,13 @@
 1. 缓存大小有限，短信验证码之类的功能也要设定过期时间
 2. 通过一个过期字典（hash表）保存过期时间
 3. redis采用定期删除（周期性地随机从设置了过期时间的 key 中抽查一批，然后逐个检查这些 key 是否过期）+ 惰性删除（只会在取出/查询 key 的时候才对数据进行过期检查）
+
+# 5. Redis内存淘汰策略
+六种
+volatile/allkeys * lru/ttl/random
+
+后续加入lfu
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY0MjYyNzE4NywtMjA4ODc0NjYxMl19
+eyJoaXN0b3J5IjpbLTEyNDMxNDc2NDEsLTIwODg3NDY2MTJdfQ
+==
 -->
