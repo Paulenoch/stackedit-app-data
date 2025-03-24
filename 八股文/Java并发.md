@@ -87,11 +87,25 @@ public class DeadLockDemo {
 # 8. synchronized关键字
 可以保证被它修饰的方法或者代码块在任意时刻只能有一个线程执行
 
+### 8.1 底层原理
+`synchronized` 同步语句块的实现使用的是 `monitorenter` 和 `monitorexit` 指令，其中 `monitorenter` 指令指向同步代码块的开始位置，`monitorexit` 指令则指明同步代码块的结束位置。
+
+`synchronized` 修饰的方法并没有 `monitorenter` 指令和 `monitorexit` 指令，取而代之的是 `ACC_SYNCHRONIZED` 标识，该标识指明了该方法是一个同步方法。
+**不过，两者的本质都是对对象监视器 monitor 的获取。**
+
+### 8.2 与volatile的关系
+-   `volatile` 关键字是线程同步的轻量级实现，所以 `volatile`性能肯定比`synchronized`关键字要好 。但是 `volatile` 关键字只能用于变量而 `synchronized` 关键字可以修饰方法以及代码块 。
+-   `volatile` 关键字能保证数据的可见性，但不能保证数据的原子性。`synchronized` 关键字两者都能保证。
+-   `volatile`关键字主要用于解决变量在多个线程之间的可见性，而 `synchronized` 关键字解决的是多个线程之间访问资源的同步性。
+
+----------
+
+著作权归JavaGuide(javaguide.cn)所有 基于MIT协议 原文链接：https://javaguide.cn/java/concurrent/java-concurrent-questions-02.html
 
 
 # 9. volatile关键字
 在 Java 中，`volatile` 关键字可以保证变量的可见性，如果我们将变量声明为 **`volatile`** ，这就指示 JVM，这个变量是共享且不稳定的，每次使用它都到主存中进行读取。
 不能保证数据的原子性
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ3MjA1NjY3Ml19
+eyJoaXN0b3J5IjpbMTAwODM4ODAxN119
 -->
