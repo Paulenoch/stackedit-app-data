@@ -47,7 +47,11 @@ netty底层默认通过TCP进行传输，TCP是面向流的协议，接收方在
 zookeeper作为项目的注册中心，实现服务注册，服务发现和维护服务状态的功能
 zookeeper成熟稳定，很多大数据应用kafka，hadoop，hbase都是使用zookeeper
 强一致性：即在集群中的所有节点都能看到相同的数据
+
+## 本地缓存怎么做的，如何保证缓存和服务的一致性
+在客户端设计一个缓存层，每次调用服务时优先从缓存层获取地址
+使用zookeeper的监听机制，在服务节点上注册watcher，当注册中心的服务地址发生变动时，watcher会异步通知客户端的huan'c
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODk2NTQwNjExLDg2NDk1Mjc2OSwtMTA5MD
+eyJoaXN0b3J5IjpbODM3MzQ1NDI2LDg2NDk1Mjc2OSwtMTA5MD
 E5OTY5NywtNjY1MzQyMzFdfQ==
 -->
