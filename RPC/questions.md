@@ -36,7 +36,11 @@ netty底层默认通过TCP进行传输，TCP是面向流的协议，接收方在
 - 效率较低
 
 3. Protobuf
-4. 使用二进制编码，xu'lie'hua
+- 使用二进制编码，序列化后数据更小，解析速度快
+- 可读性差，需要先定义数据结构（.proto文件）
+
+4. Hessian
+- 高效，采用er'jing'zhi
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNDc2NDc5MjIsLTY2NTM0MjMxXX0=
+eyJoaXN0b3J5IjpbMTgxMzQzMjQ5MCwtNjY1MzQyMzFdfQ==
 -->
