@@ -118,6 +118,15 @@ ReentrantLock新功能：
 # 9. volatile关键字
 在 Java 中，`volatile` 关键字可以保证变量的可见性，如果我们将变量声明为 **`volatile`** ，这就指示 JVM，这个变量是共享且不稳定的，每次使用它都到主存中进行读取。
 不能保证数据的原子性
+
+# 10. ThreadLocal有什么用
+![输入图片说明](/imgs/2025-03-25/dGCdkDkakSuK3a1X.png)
+
+# 11. ThreadLocal原理
+每一个线程都有一个ThreadLocalMap
+
+# 12. 为什么要用线程池
+- 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDA5MTExNzddfQ==
+eyJoaXN0b3J5IjpbLTMwNzczMDI5MF19
 -->
