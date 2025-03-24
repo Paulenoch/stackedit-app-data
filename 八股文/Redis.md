@@ -84,8 +84,10 @@ Redis Sentinel集群
 哨兵是Redis的一种运行模式，监控所有redis节点，故障转移，通知，配置提供
 
 ### Sentinel如何检测节点是否下线
-主观下线：单个sentinel认为下线；客观下线：过半
+主观下线：单个sentinel认为下线；客观下线：过半sentinel认为下线
+每个sentinel节点以固定频率向整个集群中的master和slave发送ping，如果发现master下线，开启故障转移
+
+### 如何选举中新的
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTAwODg0NTgsLTIwODg3NDY2MTJdfQ
-==
+eyJoaXN0b3J5IjpbMTI0ODkwMDg4MiwtMjA4ODc0NjYxMl19
 -->
