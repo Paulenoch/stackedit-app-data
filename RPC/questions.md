@@ -26,7 +26,17 @@ netty底层默认通过TCP进行传输，TCP是面向流的协议，接收方在
 
 通过在发送消息时，在头部加入消息长度信息；项目中通过自定义消息的传输协议来解决沾包问题
 
-## 4. 你听说过a
+## 4. 你听说过哪些序列化方式，哪种比较好
+1. Java对象序列化
+- 兼容性高，可以方便地在Java应用内部进行对象持久化和传输
+- 序列化后数据较大，速度较慢，不支持跨语言
+
+2. JSON
+- 可读性好，跨语言支持
+- 效率较低
+
+3. Protobuf
+4. 使用二进制编码，xu'lie'hua
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODMwNDExODYsLTY2NTM0MjMxXX0=
+eyJoaXN0b3J5IjpbLTExNDc2NDc5MjIsLTY2NTM0MjMxXX0=
 -->
