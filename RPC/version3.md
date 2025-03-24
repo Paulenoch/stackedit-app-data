@@ -59,10 +59,11 @@ withRetryListener()：设置重试监听器，用来执行额外的处理工作 
 - 遍历获取到的服务列表，若查到当前输入的`serviceName`说明服务在白名单中，设置`canRetry = true`
 - 返回`canRetry`
 
-注册中心中
+注册中心中`client.create().creatingParentsIfNeeded().withMode(CreateMode.EPHEMERAL).forPath(path)`
+withMode(CreateMode.EPHEMERAL)表示设置的节点类型为临时节点，当客户端与Zookeeper链接断开后，hui'zi'dong'shan'chu'zhe'ge'jie'd
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYzMjUzMjM1MywxOTk5MTE0MDk5LDEyNj
-k4NTU2MjUsLTYzNDc2NTIyMiwtOTYzNTE0MjkzLDMxNDcxOTAy
-NCwyMTA2MTM2MTQ4LC00NDk1NzE4NTIsLTIwODg3NDY2MTJdfQ
-==
+eyJoaXN0b3J5IjpbLTE1NDUyMTI4NDUsMTk5OTExNDA5OSwxMj
+Y5ODU1NjI1LC02MzQ3NjUyMjIsLTk2MzUxNDI5MywzMTQ3MTkw
+MjQsMjEwNjEzNjE0OCwtNDQ5NTcxODUyLC0yMDg4NzQ2NjEyXX
+0=
 -->
