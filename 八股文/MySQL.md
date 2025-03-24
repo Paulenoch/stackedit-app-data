@@ -5,7 +5,14 @@
 1. 先经过连接器（管理链接，权限验证）
 2. 若命中缓存直接返回
 3. 分析器（语义分析）
-4. 优化器（执行计划sh
+4. 优化器（执行计划生产，索引选择）
+5. 执行器（操作引擎返回结果）
+
+# 3. MySQL存储引擎架构了解吗
+MySQL存储引擎采用插件式架构，存储引擎基于表，而不是数据库
+
+# 4. MyISAM和InnoDB的区别
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTI2MDU0OTE4XX0=
+eyJoaXN0b3J5IjpbMTE4NjIyMjgzM119
 -->
