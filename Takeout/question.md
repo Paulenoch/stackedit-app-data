@@ -116,7 +116,7 @@ spring:
 当从节点服务重启之后，数据就不一致了，所以这个时候，从节点会请求主节点同步数据，主节点还是判断不是第一次请求，不是第一次就获取从节点的offset值，然后主节点从命令日志中获取offset值之后的数据，发送给从节点进行数据同步
 
 # 如何解决数据一致性问题
-#### 1.redisson读写锁解决
+### 1.redisson读写锁解决
 
 我们项目使用redisson实现的读写锁来解决双写一致性问题。在读的时候添加共享锁，可以保证读读不互斥，读写互斥(其他线程可以一起读，但是不能写)。当我们更新数据的时候，添加排他锁，它是读写，读读都互斥（其他线程不能读也不能写），这样就能保证在写数据的同时是不会让其他线程读数据的，**避免了脏数据**。这里面需要注意的是读方法和写方法上需要使用同一把锁才行。
 
@@ -124,7 +124,7 @@ spring:
 
 其实排他锁底层使用也是setnx，保证了同时只能有一个线程操作锁
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNjIyNDY5NDEsLTE5ODgxNDc3OSwtMz
-kyMTg4NTYyLDIwNDc0ODEzODMsMTU2OTA1OTYzNCwyMDgzMzg3
-NzE2LDE0OTY1MzI2MDRdfQ==
+eyJoaXN0b3J5IjpbLTY2MjE5NjIzOCwtMTk4ODE0Nzc5LC0zOT
+IxODg1NjIsMjA0NzQ4MTM4MywxNTY5MDU5NjM0LDIwODMzODc3
+MTYsMTQ5NjUzMjYwNF19
 -->
