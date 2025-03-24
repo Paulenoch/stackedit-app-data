@@ -115,7 +115,7 @@ spring:
 2. 增量同步
 当从节点服务重启之后，数据就不一致了，所以这个时候，从节点会请求主节点同步数据，主节点还是判断不是第一次请求，不是第一次就获取从节点的offset值，然后主节点从命令日志中获取offset值之后的数据，发送给从节点进行数据同步
 
-# 如何解决数据一致性问题
+# 5. 如何解决数据一致性问题
 ### 1.redisson读写锁解决
 
 我们项目使用redisson实现的读写锁来解决双写一致性问题。在读的时候添加共享锁，可以保证读读不互斥，读写互斥(其他线程可以一起读，但是不能写)。当我们更新数据的时候，添加排他锁，它是读写，读读都互斥（其他线程不能读也不能写），这样就能保证在写数据的同时是不会让其他线程读数据的，**避免了脏数据**。这里面需要注意的是读方法和写方法上需要使用同一把锁才行。
@@ -167,9 +167,15 @@ try {
 
 延迟双删，如果是写操作，我们先把缓存中的数据删除，然后更新数据库，最后再延时删除缓存中的数据，其中这个延时多久不太好确定，在延时的过程中可能会出现脏数据，并不能保证强一致性，所以没有采用它。-   延迟时间需要大于"读数据库+写缓存"的耗时，但这个时间难以准确预估
 
-
+# 6. 乐观锁解决超卖问题
+项目中使用版本号实现乐观锁
+在商品表中增加一个版本号字段，每次更新库存时，都会携带这个版本号。如果版本号没有发生变化，说明在此期间没有其他线程修改过数据，更新操作可以进行；如果版本号发生了变化，则说明有其他线程已经修改过数据，此时需要重新获取最新的数据并尝试再次更新。
+```sql
+"UPDATE goods SET stock = stock - 1, version = version + 1 WHERE id = #{id} AND stock > 0 AND version = #{version}
+//当商品的库存大于0且版本号与传入的版本号相同时，将库存减1，并将版本号加1。
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAxNTI2MTkzMCwtMTk4ODE0Nzc5LC0zOT
-IxODg1NjIsMjA0NzQ4MTM4MywxNTY5MDU5NjM0LDIwODMzODc3
-MTYsMTQ5NjUzMjYwNF19
+eyJoaXN0b3J5IjpbLTk1NDM3ODYsLTE5ODgxNDc3OSwtMzkyMT
+g4NTYyLDIwNDc0ODEzODMsMTU2OTA1OTYzNCwyMDgzMzg3NzE2
+LDE0OTY1MzI2MDRdfQ==
 -->
