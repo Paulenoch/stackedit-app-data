@@ -43,9 +43,11 @@ TreeMap会根据键的顺序自动进行排序，使用TreeMap存储哈希值与
 LRU的思想可以被借鉴用于负载均衡。例如可以设计一个基于请求历史的负载均衡算法，其中每个服务器都有一个“最近访问时间戳”，当新的请求到来时，可以选择“最久未被请求”的服务器进行处理。但这种做法通常不是最优的，因为它没有考虑到服务器的当前负载，并且还可能会出现 **部分某个时间被大量访问的节点之后无法再访问到**的问题。
 
 # V3.1 超时重传，白名单
-
+使用Guava Retry实现超时重传
+```
+public class guavaRetry { private RpcClient rpcClient; public RpcResponse sendServiceWithRetry(RpcRequest request, RpcClient rpcClient) { this.rpcClient=rpcClient; Retryer<RpcResponse> retryer = RetryerBuilder.<RpcResponse>newBuilder() //无论出现什么异常，都进行重试 .retryIfException() //返回结果为 error时进行重试 .retryIfResult(response -> Objects.equals(response.getCode(), 500)) //重试等待策略：等待 2s 后再进行重试 .withWaitStrategy(WaitStrategies.fixedWait(2, TimeUnit.SECONDS)) //重试停止策略：重试达到 3 次 .withStopStrategy(StopStrategies.stopAfterAttempt(3)) .withRetryListener(new RetryListener() { @Override public <V> void onRetry(Attempt<V> attempt) { System.out.println("RetryListener: 第" + attempt.getAttemptNumber() + "次调用"); } }) .build(); try { return retryer.call(() -> rpcClient.sendRequest(request)); } catch (Exception e) { e.printStackTrace(); } return RpcResponse.fail(); } }
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYzNDc2NTIyMiwtOTYzNTE0MjkzLDMxND
-cxOTAyNCwyMTA2MTM2MTQ4LC00NDk1NzE4NTIsLTIwODg3NDY2
-MTJdfQ==
+eyJoaXN0b3J5IjpbLTIwNzAwMzEwOTIsLTYzNDc2NTIyMiwtOT
+YzNTE0MjkzLDMxNDcxOTAyNCwyMTA2MTM2MTQ4LC00NDk1NzE4
+NTIsLTIwODg3NDY2MTJdfQ==
 -->
