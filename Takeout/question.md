@@ -44,7 +44,8 @@ Sharding-JDBC介绍Sharding-JDBC定位为轻量级java框架，在java的JDBC层
 ### 为什么采用一主两从+哨兵
 单Redis的并发能力是有上限的，搭建主从集群实现读写分离。主节点负责写数据，从节点负责读数据（解决高并发问题）
 
-主数据库若崩溃。哨兵作为一个独立运行的进程，通过发送ping命令等待Redis服务器响应，从而监控运行的多个Redis实例。当检测到master宕机，会自动将slave切换成master
+主数据库若崩溃。哨兵作为一个独立运行的进程，通过发送ping命令等待Redis服务器响应，从而监控运行的多个Redis实例。当检测到master宕机，会自动将slave切换成master。通过发布订阅模式通知其他slave修改配置文件，让它们切换master
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA4MzM4NzcxNiwxNDk2NTMyNjA0XX0=
+eyJoaXN0b3J5IjpbLTE3MTQ3OTM0OCwyMDgzMzg3NzE2LDE0OT
+Y1MzI2MDRdfQ==
 -->
