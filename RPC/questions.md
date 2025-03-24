@@ -40,7 +40,8 @@ netty底层默认通过TCP进行传输，TCP是面向流的协议，接收方在
 - 可读性差，需要先定义数据结构（.proto文件）
 
 4. Hessian
-- 高效，采用er'jing'zhi
+- 高效，采用二进制RPC协议
+- 可读性差，安全性差，生态系统支持较少
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxMzQzMjQ5MCwtNjY1MzQyMzFdfQ==
+eyJoaXN0b3J5IjpbLTEwOTAxOTk2OTcsLTY2NTM0MjMxXX0=
 -->
