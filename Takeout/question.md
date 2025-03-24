@@ -260,8 +260,15 @@ EVAL "if redis.call('exists', KEYS[1]) == 1 then return redis.call('del', KEYS[1
 5.  拦截器解析JWT令牌，获取用户信息，并将其存储在ThreadLocal中,以避免在每次请求时都去解析JWT令牌。
 6.  接下来，拦截器可以检查用户是否已经通过认证。如果用户未通过认证，拦截器将拒绝请求并返回相应的错误信息。如果用户已通过认证，拦截器将继续处理请求，并将用户信息传递给后续的处理逻辑。
 7.  请求处理完成后，拦截器使用remove()清除ThreadLocal中的用户信息，以避免内存泄漏。
+
+jwt的优点:
+
+9.  jwt基于json，数据处理方便。
+10.  可以在令牌（token）中自定义内容，容易扩展。
+11.  使用非对称加密和签名技术，安全性高。
+12.  资源服务使用JWT，可不依赖认证服务即可完成授权。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ3Mjg2OTk3OCwtMTk4ODE0Nzc5LC0zOT
-IxODg1NjIsMjA0NzQ4MTM4MywxNTY5MDU5NjM0LDIwODMzODc3
-MTYsMTQ5NjUzMjYwNF19
+eyJoaXN0b3J5IjpbMzY1ODI3OTM1LC0xOTg4MTQ3NzksLTM5Mj
+E4ODU2MiwyMDQ3NDgxMzgzLDE1NjkwNTk2MzQsMjA4MzM4Nzcx
+NiwxNDk2NTMyNjA0XX0=
 -->
