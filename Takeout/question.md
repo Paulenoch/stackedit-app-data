@@ -200,8 +200,16 @@ CAS 三大问题：
 1.  ABA问题。CAS需要在操作值的时候检查内存值是否发生变化，没有发生变化才会更新内存值。但是如果内存值原来是A，后来变成了B，然后又变成了A，那么CAS进行检查时会发现值没有发生变化，但是实际上是有变化的。ABA问题的解决思路就是在变量前面添加版本号，每次变量更新的时候都把版本号加一，这样变化过程就从A－B－A变成了1A－2B－3A。JDK从1.5开始提供了AtomicStampedReference类来解决ABA问题，原子更新带有版本号的引用类型。
 2.  循环时间长开销大。CAS操作如果长时间不成功，会导致其一直自旋，给CPU带来非常大的开销。
 3.  只能保证一个共享变量的原子操作。对一个共享变量执行操作时，CAS能够保证原子操作，但是对多个共享变量操作时，CAS是无法保证操作的原子性的。
+
+# 7. # 生成订单的时候，基于Redis，使用防重Token和lua脚本进行幂等性校验，防止重复提交
+
+### 1.什么是幂等性问题？
+
+幂等性问题就是同一个接口，多次发出同一个请求，必须保证操作只执行一次。
+
+解决幂等性问题有很多方法，比如:用防重token,设置提交按钮一段时间只能提交一次，使用唯一索引防止新增脏数据等等方法。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NTMyMDc0NTksLTE5ODgxNDc3OSwtMz
-kyMTg4NTYyLDIwNDc0ODEzODMsMTU2OTA1OTYzNCwyMDgzMzg3
-NzE2LDE0OTY1MzI2MDRdfQ==
+eyJoaXN0b3J5IjpbMjI4Njk0Njg0LC0xOTg4MTQ3NzksLTM5Mj
+E4ODU2MiwyMDQ3NDgxMzgzLDE1NjkwNTk2MzQsMjA4MzM4Nzcx
+NiwxNDk2NTMyNjA0XX0=
 -->
