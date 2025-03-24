@@ -45,7 +45,8 @@ netty底层默认通过TCP进行传输，TCP是面向流的协议，接收方在
 
 ## 5. Zookeeper在项目中的角色，为什么选择zookeeper
 zookeeper作为项目的注册中心，实现服务注册，服务发现和维护服务状态的功能
+zookeeper成熟稳定，很多大数据应用kafka，hadoop，hbase都是使用zookeeper来协调
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODY0OTUyNzY5LC0xMDkwMTk5Njk3LC02Nj
-UzNDIzMV19
+eyJoaXN0b3J5IjpbLTMxMzk3ODI2NCw4NjQ5NTI3NjksLTEwOT
+AxOTk2OTcsLTY2NTM0MjMxXX0=
 -->
