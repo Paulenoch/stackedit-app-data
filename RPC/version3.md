@@ -33,8 +33,8 @@
 	- 如果一个真实节点故障且没有虚拟节点，所有映射到该节点的请求都会丢失，引入虚拟节点后，其他的虚拟节点可能会分摊其负载，减少系统的影响
 
 ### 为什么使用treeMap存储虚拟节点
-TreeMap会根据键的顺序自动进行排序，使用TreeMap存储哈希值与虚拟节点之间的映射shi
+TreeMap会根据键的顺序自动进行排序，使用TreeMap存储哈希值与虚拟节点之间的映射时，哈希值会始终保持有序，因为我们需要按照哈希值的大小顺序来查找最近的节点，TreeMap底层通过红黑树实现有序性。当根据请求的ha'xi
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM0MzM1NjExMCwzMTQ3MTkwMjQsMjEwNj
+eyJoaXN0b3J5IjpbLTI4NDMxNDQ1NywzMTQ3MTkwMjQsMjEwNj
 EzNjE0OCwtNDQ5NTcxODUyLC0yMDg4NzQ2NjEyXX0=
 -->
