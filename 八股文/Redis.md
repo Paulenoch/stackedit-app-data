@@ -34,7 +34,15 @@ Redis通过创建snapshot来获得存储在内存里面的数据在某个时间�
 # 9. Redis事务支持原子性嘛
 不支持，事务运行错误的情况下，只有错误的指令不会被执行，且Redis不支持回滚
 
+# 10. 如何解决Redis事务的缺陷
+Redis 从 2.6 版本开始支持执行 Lua 脚本，它的功能和事务非常类似。我们可以利用 Lua 脚本来批量执行多条 Redis 命令，这些 Redis 命令会被提交到 Redis 服务器一次性执行完成，大幅减小了网络开销。
 
+一段 Lua 脚本可以视作一条命令执行，一段 Lua 脚本执行过程中不会有其他脚本或 Redis 命令同时执行，保证了操作不会被其他指令插入或打扰。
+
+不过，如果 Lua 脚本运行时出错并中途结束，出错之后的命令是不会被执行的。并且，出错之前执行的命令是无法被撤销的，无法实现类似关系型数据库执行失败可以回滚的那种原子性效果。因此，**严格来说的话，通过 Lua 脚本来批量执行 Redis 命令实际也是不完全满足原子性的。**
+
+如果想要让 Lua 脚本中的命令全部执行，必须保证语句语法和命令都是对的。
+另外，Redis 7.0 新增了 [Redis functions](https://redis.io/docs/manual/programmability/functions-intro/) 特性，你可以将 Redis functions 看作是比 Lua 更强大的脚本。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg2NDMxODc0OCwtMjA4ODc0NjYxMl19
+eyJoaXN0b3J5IjpbNTU4NjYyMDE2LC0yMDg4NzQ2NjEyXX0=
 -->
