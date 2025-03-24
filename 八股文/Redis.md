@@ -45,7 +45,11 @@ Redis 从 2.6 版本开始支持执行 Lua 脚本，它的功能和事务非常�
 另外，Redis 7.0 新增了 [Redis functions](https://redis.io/docs/manual/programmability/functions-intro/) 特性，你可以将 Redis functions 看作是比 Lua 更强大的脚本。
 
 # 11. 什么是Big Key/Hot Key/
-一个key对应的value占用的内存比较大
+一个key对应的value占用的内存比较大/一个 key 的访问次数比较多且明显多于其他 key
+处理方案
+- 分割bigkey，手动清理，采用合适的数据结构，开启lazy-free
+- 读写分离，使用Redistribution
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzMTYwNDY3LC0yMDg4NzQ2NjEyXX0=
+eyJoaXN0b3J5IjpbLTM5NDI5NDU1OCwtMjA4ODc0NjYxMl19
 -->
