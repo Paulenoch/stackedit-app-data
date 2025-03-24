@@ -42,6 +42,10 @@ netty底层默认通过TCP进行传输，TCP是面向流的协议，接收方在
 4. Hessian
 - 高效，采用二进制RPC协议
 - 可读性差，安全性差，生态系统支持较少
+
+## 5. Zookeeper在项目中的角色，为什么选择zookeeper
+zookeeper作为项目的注册中心，实现服务注册，服务发现和维护服务状态的功能
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwOTAxOTk2OTcsLTY2NTM0MjMxXX0=
+eyJoaXN0b3J5IjpbODY0OTUyNzY5LC0xMDkwMTk5Njk3LC02Nj
+UzNDIzMV19
 -->
