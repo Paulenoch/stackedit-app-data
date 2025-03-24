@@ -248,8 +248,20 @@ EVAL "if redis.call('exists', KEYS[1]) == 1 then return redis.call('del', KEYS[1
 ```
 
 其中，`token_key`是要校验的Token的键名。
+
+# 8. JWT令牌，ThreadLocal
+### 8.1  JWT登录流程
+使用JWT令牌和自定义拦截器完成用户认证的流程如下：
+
+1.  用户登录时，客户端发送用户名和密码给服务器向服务器请求令牌,服务器验证用户的用户名和密码。如果验证成功，服务器生成一个包含用户信息的JWT令牌，并将其发送给客户端。
+2.  客户端收到JWT令牌后，将其存储在本地（例如localStorage或cookie）。
+3.  当客户端发起请求时，将JWT令牌添加到请求头中
+4.  服务器端的自定义拦截器会拦截所有请求，从请求头中提取JWT令牌。
+5.  拦截器解析JWT令牌，获取用户信息，并将其存储在ThreadLocal中,以避免在每次请求时都去解析JWT令牌。
+6.  接下来，拦截器可以检查用户是否已经通过认证。如果用户未通过认证，拦截器将拒绝请求并返回相应的错误信息。如果用户已通过认证，拦截器将继续处理请求，并将用户信息传递给后续的处理逻辑。
+7.  请求处理完成后，拦截器使用remove()清除ThreadLocal中的用户信息，以避免内存泄漏。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NTIxNTQ1NzEsLTE5ODgxNDc3OSwtMz
-kyMTg4NTYyLDIwNDc0ODEzODMsMTU2OTA1OTYzNCwyMDgzMzg3
-NzE2LDE0OTY1MzI2MDRdfQ==
+eyJoaXN0b3J5IjpbLTQ3Mjg2OTk3OCwtMTk4ODE0Nzc5LC0zOT
+IxODg1NjIsMjA0NzQ4MTM4MywxNTY5MDU5NjM0LDIwODMzODc3
+MTYsMTQ5NjUzMjYwNF19
 -->
