@@ -80,8 +80,12 @@ public class DeadLockDemo {
 - 有序性：`volatile` 关键字可以禁止指令进行重排序优化
 
 # 7. 为什么要有JMM（Java内存模型）
-抽象了线程和主内存的关系；规定了从java源代码到CPU可执行指令这个转化过程要遵守的
+抽象了线程和主内存的关系；规定了从java源代码到CPU可执行指令这个转化过程要遵守的规则
+
+![输入图片说明](/imgs/2025-03-25/dYPtrQed7KL0wNF8.png)
+
+# 8. synchronized关键字
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjU1MzI1MjQzXX0=
+eyJoaXN0b3J5IjpbLTE3NTg5NTI0OTVdfQ==
 -->
