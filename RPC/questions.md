@@ -24,7 +24,7 @@ netty是一个高性能的网络框架，可以实现高效的信息传输；抽
 ## 3. 为什么会出现沾包问题，如何解决
 netty底层默认通过TCP进行传输，TCP是面向流的协议，接收方在接收数据时无法直接得知一条消息的具体字节数，TCP有流量控制机制，可能导致一个包内包含多条消息或不足一条消息
 
-通过在发送消息时
+通过在发送消息时，在头部加入消息长度信息；项目中通过自定义消息的传输协议来解决沾包问题
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxNDkyMDY3MywtNjY1MzQyMzFdfQ==
+eyJoaXN0b3J5IjpbLTk5NjIyMTY2NiwtNjY1MzQyMzFdfQ==
 -->
