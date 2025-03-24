@@ -279,8 +279,13 @@ ThreadLocal为每个线程提供单独一份存储空间，具有线程隔离的
 
 ThreadLocal 使用一个 ThreadLocalMap 来存储每个线程的变量副本，其中键为 ThreadLocal 实例，值为对应线程的变量副本。当一个线程创建一个 ThreadLocal 变量时，实际上是在当前线程的 ThreadLocalMap 中存储了一个键值对。当一个线程访问 ThreadLocal 变量时，实际上是在访问该线程自己的变量副本，而不是共享变量。这样可以保证线程之间的数据隔离，避免了线程安全问题。
 
+#### 3.ThreadLocal-内存泄露问题是怎么导致的？
+
+每个线程都有⼀个`ThreadLocalMap`的内部属性，map的key是`ThreaLocal`，定义为弱引用，value是强引用类型。垃圾回收的时候会⾃动回收key，而value的回收取决于Thread对象的生命周期。一般会通过线程池的方式复用线程节省资源，这也就导致了线程对象的生命周期比较长，这样便一直存在一条强引用链的关系：`Thread` --> `ThreadLocalMap`-->`Entry`-->`Value`，随着任务的执行，value就有可能越来越多且无法释放，最终导致内存泄漏。
+
+解决⽅法：每次使⽤完`ThreadLocal`就调⽤它的`remove()`⽅法，手动将对应的键值对删除，从⽽避免内存泄漏
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjMzNjk2NjEsLTE5ODgxNDc3OSwtMz
-kyMTg4NTYyLDIwNDc0ODEzODMsMTU2OTA1OTYzNCwyMDgzMzg3
-NzE2LDE0OTY1MzI2MDRdfQ==
+eyJoaXN0b3J5IjpbMTk1NDIzODk1MCwtMTk4ODE0Nzc5LC0zOT
+IxODg1NjIsMjA0NzQ4MTM4MywxNTY5MDU5NjM0LDIwODMzODc3
+MTYsMTQ5NjUzMjYwNF19
 -->
