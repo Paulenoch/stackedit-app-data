@@ -50,7 +50,12 @@ AID是手段，C是目的
 # 9. MVCC
 MVCC是一种并发版本控制机制，通过在每个数据行上维护多个版本的数据实现，当一个事务要修改数据库中数据时，MVCC 会为该事务创建一个数据快照，而不是直接修改实际的数据行。
 
-# 10. InnoDBy
+# 10. InnoDB有哪几类行锁
+- 记录锁：单个行记录上的锁
+- 间隙锁：锁定一个范围不包括记录本身
+- 临键锁：锁定一个范围包括记录本身，解决幻读问题（避免插入新纪录）
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NTM2MTU0OTldfQ==
+eyJoaXN0b3J5IjpbLTE2NzI4MjAwMDBdfQ==
 -->
