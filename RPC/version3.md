@@ -31,7 +31,10 @@
 
 	- 没有虚拟节点的情况下，节点的增加或删除会导致哈希环上的重新分配，可能导致大量的请求重定向到其他节点，引入虚拟节点后，节点的增删只会影响与该节点相关的少部分虚拟节点，减少了请求的迁移
 	- 如果一个真实节点故障且没有虚拟节点，所有映射到该节点的请求都会丢失，引入虚拟节点后，其他的虚拟节点可能会分摊其负载，减少系统的影响
+
+### 为什么使用treeMap存储虚拟节点
+TreeMap会根据键的顺序自动进行排序，使用TreeMap存储哈希值与虚拟节点之间的映射shi
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3Mzc1Mjg1NiwzMTQ3MTkwMjQsMjEwNj
+eyJoaXN0b3J5IjpbMTM0MzM1NjExMCwzMTQ3MTkwMjQsMjEwNj
 EzNjE0OCwtNDQ5NTcxODUyLC0yMDg4NzQ2NjEyXX0=
 -->
