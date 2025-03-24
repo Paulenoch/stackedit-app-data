@@ -40,8 +40,8 @@ TreeMap会根据键的顺序自动进行排序，使用TreeMap存储哈希值与
 
 所以在服务器负载能力不一致的情况下，我们可以在服务端将服务器的负载能力写入到注册中心中，客户端在进行负载均衡时会在注册中心中获取各服务器的能力，并设置对应的虚拟节点的数量，来控制流量的分发。
 ## #### LRU适合作为负载均衡的一个实现吗？
-
+LRU的思想可以被借鉴用于负载均衡。例如可以设计一个基于请求历史的负载均衡算法，其中每个服务器都有一个“最近访问时间戳”，当新的请求到来时，可以选择“最久未被请求”的服务器进行处理。但这种做法通常不是最优的，因为它没有考虑到服务器的当前负载，并且还可能会出现 **部分某个时间被大量访问的节点之后无法再访问到**的问题。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2NzMyNTY4NCwzMTQ3MTkwMjQsMjEwNj
+eyJoaXN0b3J5IjpbLTk2MzUxNDI5MywzMTQ3MTkwMjQsMjEwNj
 EzNjE0OCwtNDQ5NTcxODUyLC0yMDg4NzQ2NjEyXX0=
 -->
