@@ -31,8 +31,14 @@ D：Durability：持久性：事务提交后，它对数据库的改变是持久
 AID是手段，C是目的
 
 # 7. 并发事务带来哪些问题
-- 脏读：
+- 脏读
+![输入图片说明](/imgs/2025-03-25/tWf2KgMQtOVcLbjw.png)
+- 丢失更改
+![输入图片说明](/imgs/2025-03-25/WPKYCyKRzOoGTiqE.png)
+- 不可重复读
+![输入图片说明](/imgs/2025-03-25/SrcPiadr8gZ3YSUO.png)
+- 幻读
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNjc2MzUzNDddfQ==
+eyJoaXN0b3J5IjpbLTIwMjYzODA2NzVdfQ==
 -->
