@@ -152,11 +152,23 @@ try {
 如果不想加锁的话，可以采用旁路缓存模式,先更新 db，后删除 cache
 
 理论上来说还是可能会出现数据不一致性的问题，不过概率非常小，因为缓存的写入速度是比数据库的写入速度快很多。举例：请求 1 先读数据 A，请求 2 随后写数据 A，并且数据 A 在请求 1 请求之前不在缓存中的话，也有可能产生数据不一致性的问题。
+在普通"更新数据库+删除缓存"模式下，可能出现以下时序问题：
+
+1.  线程A更新数据库（但还未完成）
+    
+2.  线程B读取缓存（未命中）→ 读取旧数据库数据 → 写入缓存
+    
+3.  线程A完成数据库更新并删除缓存
+    
+4.  结果：缓存中仍然是旧数据
+    
+
+延时双删通过第二次延迟删除，可以清除这种"中间状态"的脏数据。
 ##### 2.什么是延迟双删?
 
 延迟双删，如果是写操作，我们先把缓存中的数据删除，然后更新数据库，最后再延时删除缓存中的数据，其中这个延时多久不太好确定，在延时的过程中可能会出现脏数据，并不能保证强一致性，所以没有采用它。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjE0NTk4NDUzLC0xOTg4MTQ3NzksLTM5Mj
-E4ODU2MiwyMDQ3NDgxMzgzLDE1NjkwNTk2MzQsMjA4MzM4Nzcx
-NiwxNDk2NTMyNjA0XX0=
+eyJoaXN0b3J5IjpbLTE0NjA1MTE0NTIsLTE5ODgxNDc3OSwtMz
+kyMTg4NTYyLDIwNDc0ODEzODMsMTU2OTA1OTYzNCwyMDgzMzg3
+NzE2LDE0OTY1MzI2MDRdfQ==
 -->
