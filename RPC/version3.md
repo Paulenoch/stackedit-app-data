@@ -55,10 +55,11 @@ withRetryListener()：设置重试监听器，用来执行额外的处理工作 
 
 流程
 - 初始化标志变量：`canRetry`用于标记该服务是否可以重试，初始值为`false`
-- 获取服务白名单：通过Zookeeper客户端（client.getChildren())
+- 获取服务白名单：通过Zookeeper客户端（client.getChildren())获取/RETRY路径下的所有子节点，即所有被允许重试的服务名称
+- 遍历获取到的服务列表，若查到当前输入的`serviceName`说明服务在白名单中，设置`canRetry = true`
+- 返回`canRetry`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzNDUwNTQyNywxOTk5MTE0MDk5LDEyNj
-k4NTU2MjUsLTYzNDc2NTIyMiwtOTYzNTE0MjkzLDMxNDcxOTAy
-NCwyMTA2MTM2MTQ4LC00NDk1NzE4NTIsLTIwODg3NDY2MTJdfQ
-==
+eyJoaXN0b3J5IjpbNjE0MzM2NjgsMTk5OTExNDA5OSwxMjY5OD
+U1NjI1LC02MzQ3NjUyMjIsLTk2MzUxNDI5MywzMTQ3MTkwMjQs
+MjEwNjEzNjE0OCwtNDQ5NTcxODUyLC0yMDg4NzQ2NjEyXX0=
 -->
