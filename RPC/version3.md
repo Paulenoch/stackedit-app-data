@@ -52,8 +52,11 @@ withRetryListener()：设置重试监听器，用来执行额外的处理工作 
 可以设置一个白名单，服务端在注册节点时，将幂等性的服务注册在白名单中，客户端在请求服务前，先去白名单中查看该服务是否为幂等服务，如果是的话使用重试框架进行调用
 
 白名单可以存放在zookeeper中（充当配置中心的角色）
+
+流程
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5OTExNDA5OSwxMjY5ODU1NjI1LC02Mz
-Q3NjUyMjIsLTk2MzUxNDI5MywzMTQ3MTkwMjQsMjEwNjEzNjE0
-OCwtNDQ5NTcxODUyLC0yMDg4NzQ2NjEyXX0=
+eyJoaXN0b3J5IjpbLTMxMTE1ODA0MywxOTk5MTE0MDk5LDEyNj
+k4NTU2MjUsLTYzNDc2NTIyMiwtOTYzNTE0MjkzLDMxNDcxOTAy
+NCwyMTA2MTM2MTQ4LC00NDk1NzE4NTIsLTIwODg3NDY2MTJdfQ
+==
 -->
