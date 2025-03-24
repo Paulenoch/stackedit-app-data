@@ -13,7 +13,11 @@ netty是一个高性能的网络框架，可以实现高效的信息传输；抽
 流程：
 1. 客户端发起请求：
 - 客户端根据服务地址通过netty客户端API创建一个客户端Channel，连接到服务端的指定端口
-- 客户端将RPCRequest封装成请求信息，通过Netty的编码器jian
+- 客户端将RPCRequest封装成请求信息，通过Netty的编码器将消息序列化成字节流
+- 客户端将序列化后的字节流通过网络发送给服务端
+
+2. 服务端接受请求并处理
+- 服务端通过Netty服务端API监听指定端口，等待客户端的连接请求
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4NDIyNTQ4NywtNjY1MzQyMzFdfQ==
+eyJoaXN0b3J5IjpbLTE2OTkyNTQyMDUsLTY2NTM0MjMxXX0=
 -->
