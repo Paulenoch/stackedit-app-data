@@ -28,7 +28,11 @@ C：Consistency：一致性：执行事务前后，数据保持一致
 I：Isolation：隔离性：并发访问数据库时，各并发事务之间的数据库是独立的
 D：Durability：持久性：事务提交后，它对数据库的改变是持久的
 
-AID是手段，C是b
+AID是手段，C是目的
+
+# 7. 并发事务带来哪些问题
+- 脏读：
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzkwODQ5ODVdfQ==
+eyJoaXN0b3J5IjpbLTExNjc2MzUzNDddfQ==
 -->
