@@ -209,9 +209,18 @@ CAS 三大问题：
 
 解决幂等性问题有很多方法，比如:用防重token,设置提交按钮一段时间只能提交一次，使用唯一索引防止新增脏数据等等方法。
 
+### 2.幂等性校验具体流程
 
+生成订单时，为了防止重复提交，可以通过Redis结合防重Token和Lua脚本来实现幂等性校验。具体流程如下：
+
+1.  **生成Token**：用户发起请求时，服务端生成一个唯一的Token，这个Token可以是一个随机字符串或者包含时间戳等信息的凭证。
+2.  **存储Token**：将这个Token存入Redis中，以Token为键，可以设置一个过期时间来自动清理旧的Token，防止Redis内存溢出。
+3.  **传递Token**：将Token返回给客户端，客户端在后续的请求中需要携带这个Token，可以放在Header或者作为请求参数。
+4.  **校验Token**：服务端接收到请求后，从Redis中查询Token。这一步通常通过执行Lua脚本来完成，Lua脚本可以实现原子性的查询并删除操作，确保即使多个请求同时到达，也只有一个请求能够成功删除Token。
+5.  **处理请求**：如果Token存在且成功被删除，说明是第一次请求，服务器正常处理业务逻辑，如生成订单。如果Token不存在，说明是重复请求，服务器返回提示信息，如“请勿重复操作”。
+6.  **删除Token**：在处理完请求后，无论成功与否，都从Redis中删除该Token，避免后续的重复校验。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyNTgxNDkwNCwtMTk4ODE0Nzc5LC0zOT
-IxODg1NjIsMjA0NzQ4MTM4MywxNTY5MDU5NjM0LDIwODMzODc3
-MTYsMTQ5NjUzMjYwNF19
+eyJoaXN0b3J5IjpbLTE1ODExODI5NTcsLTE5ODgxNDc3OSwtMz
+kyMTg4NTYyLDIwNDc0ODEzODMsMTU2OTA1OTYzNCwyMDgzMzg3
+NzE2LDE0OTY1MzI2MDRdfQ==
 -->
