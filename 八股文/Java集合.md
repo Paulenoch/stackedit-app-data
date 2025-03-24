@@ -20,6 +20,9 @@ TreeMap：红黑树
 
 # 3. ConcurrentHashMap和Hashtable的区别
 `ConcurrentHashMap` 直接用 `Node` 数组+链表+红黑树的数据结构来实现，并发控制使用 `synchronized` 和 CAS 来操作。
+`synchronized` 只锁定当前链表或红黑二叉树的首节点，这样只要 hash 不冲突，就不会产生并发，就不会影响其他 Node 的读写，效率大幅提升。
+
+**`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MzM0NDkyNzJdfQ==
+eyJoaXN0b3J5IjpbMTEyNDI4Mzk4OF19
 -->
