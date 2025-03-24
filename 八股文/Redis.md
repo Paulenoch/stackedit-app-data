@@ -23,9 +23,10 @@ volatile/allkeys * lru/ttl/random
 后续加入lfu
 
 # 6. RDB持久化
-Redis通过创建snapshot来获得cun
+Redis通过创建snapshot来获得存储在内存里面的数据在某个时间点上的副本
 
-
+# 7. AOF持久化
+每执行一条更改Redis中的数据的命令，Redis将该命令写入到内存缓存`server.aof_buf`中，再更具`appendfsync`配置
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwMjM5NTIyOCwtMjA4ODc0NjYxMl19
+eyJoaXN0b3J5IjpbMzQ1MTg5OTgzLC0yMDg4NzQ2NjEyXX0=
 -->
