@@ -85,7 +85,8 @@ B+树，只有叶子节点存放key和data，其他内节点只存放key，叶�
 # 19. 如何更好地建立索引
 1. 选择合适的字段作为索引（不为null，频繁查询，where条件...)
 2. 尽可能建立联合索引而不是单列索引
-3. 
+3. 字符串类型使用前缀索引
+4. 索引失效（select*，查询条件不遵守最左匹配，在索引上计算，以%开头的模糊查询）
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTc0Nzc1NTIzXX0=
+eyJoaXN0b3J5IjpbLTEyOTIwNjQwNzNdfQ==
 -->
