@@ -1,7 +1,11 @@
+# 1. Nginx反向代理
+**nginx 反向代理的好处：**
 
+-   提高访问速度：因为nginx本身可以进行缓存，如果访问的同一接口，并且做了数据缓存，nginx就直接可把数据返回，不需要真正地访问服务端，从而提高访问速度。
+-   进行负载均衡
+-   保证后端服务安全：因为一般后台服务地址不会暴露，所以使用浏览器不能直接访问，可以把nginx作为请求访问的入口，请求到达nginx后转发到具体的服务中，从而保证后端服务的安全。
 
-
-> Written with [StackEdit中文版](https://stackedit.cn/).
+**
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDQwOTA1NjE5XX0=
+eyJoaXN0b3J5IjpbLTcxNzU0MTY5NF19
 -->
