@@ -5,7 +5,8 @@
 -   进行负载均衡
 -   保证后端服务安全：因为一般后台服务地址不会暴露，所以使用浏览器不能直接访问，可以把nginx作为请求访问的入口，请求到达nginx后转发到具体的服务中，从而保证后端服务的安全。
 
-**
+**负载均衡**
+nginx有很多负载均衡策略，比如轮询（默认），weight权重方式,url分配方式，我们项目用的是轮询方式，共有3台后端服务器
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxNzU0MTY5NF19
+eyJoaXN0b3J5IjpbMTQ5NjUzMjYwNF19
 -->
