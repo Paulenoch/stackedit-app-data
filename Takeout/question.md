@@ -220,9 +220,36 @@ CAS 三大问题：
 5.  **处理请求**：如果Token存在且成功被删除，说明是第一次请求，服务器正常处理业务逻辑，如生成订单。如果Token不存在，说明是重复请求，服务器返回提示信息，如“请勿重复操作”。
 6.  **删除Token**：在处理完请求后，无论成功与否，都从Redis中删除该Token，避免后续的重复校验。
 
-###
+### 3. Lua脚本
+
+Lua脚本的具体写法如下：
+```lua
+if redis.call('exists', KEYS[1]) == 1 then
+    return redis.call('del', KEYS[1])
+else
+    return 0
+end
+```
+
+这个Lua脚本的作用是检查Redis中是否存在指定的Token，如果存在则删除该Token并返回1，表示校验通过；如果不存在则返回0，表示校验失败。
+
+在Redis中执行Lua脚本可以使用`EVAL`命令，具体语法如下：
+
+```
+EVAL script numkeys key [key ...] arg [arg ...]
+```
+
+其中，`script`是要执行的Lua脚本，`numkeys`是脚本中使用到的键的数量，`key`是传入的键名，`arg`是传入的参数。
+
+例如，要执行上述Lua脚本，可以这样调用Redis命令：
+```
+
+EVAL "if redis.call('exists', KEYS[1]) == 1 then return redis.call('del', KEYS[1]) else return 0 end" 1 token_key
+```
+
+其中，`token_key`是要校验的Token的键名。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ5MzQyODc3MCwtMTk4ODE0Nzc5LC0zOT
-IxODg1NjIsMjA0NzQ4MTM4MywxNTY5MDU5NjM0LDIwODMzODc3
-MTYsMTQ5NjUzMjYwNF19
+eyJoaXN0b3J5IjpbLTE1NTIxNTQ1NzEsLTE5ODgxNDc3OSwtMz
+kyMTg4NTYyLDIwNDc0ODEzODMsMTU2OTA1OTYzNCwyMDgzMzg3
+NzE2LDE0OTY1MzI2MDRdfQ==
 -->
