@@ -166,8 +166,10 @@ try {
 #### 2.什么是延迟双删?
 
 延迟双删，如果是写操作，我们先把缓存中的数据删除，然后更新数据库，最后再延时删除缓存中的数据，其中这个延时多久不太好确定，在延时的过程中可能会出现脏数据，并不能保证强一致性，所以没有采用它。-   延迟时间需要大于"读数据库+写缓存"的耗时，但这个时间难以准确预估
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyNTIyNjc2NiwtMTk4ODE0Nzc5LC0zOT
+eyJoaXN0b3J5IjpbMTAxNTI2MTkzMCwtMTk4ODE0Nzc5LC0zOT
 IxODg1NjIsMjA0NzQ4MTM4MywxNTY5MDU5NjM0LDIwODMzODc3
 MTYsMTQ5NjUzMjYwNF19
 -->
