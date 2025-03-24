@@ -77,6 +77,11 @@ Redis 从 2.6 版本开始支持执行 Lua 脚本，它的功能和事务非常�
 解决：
 - Redis集群
 
+
+# 保证Redis服务高可用
+Redis Sentinel集群
+### 什么是Sentinel
+哨兵是Redis的一种运行模式
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjg1MzIzMzc2LC0yMDg4NzQ2NjEyXX0=
+eyJoaXN0b3J5IjpbMTg2MjA2MDQsLTIwODg3NDY2MTJdfQ==
 -->
