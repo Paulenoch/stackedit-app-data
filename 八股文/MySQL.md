@@ -48,7 +48,7 @@ AID是手段，C是目的
 - 可串行化：全部组织，所有的事务依次逐个执行，不互相干扰
 
 # 9. MVCC
-MVCC是一种并发版本控制机制，通过在每个数据行上维护多个版本的数据
+MVCC是一种并发版本控制机制，通过在每个数据行上维护多个版本的数据实现，当一个事务要修改数据库中数据时，MVCC 会为该事务创建一个数据快照，而不是直接修改实际的数据行。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTc1Mjg3Njg5XX0=
+eyJoaXN0b3J5IjpbMTU4MDA4NjIzNl19
 -->
