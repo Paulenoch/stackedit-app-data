@@ -107,7 +107,8 @@ A调用B，B调用C，若此时C故障，B无法取得C的响应而一直在等�
 ### recordFailure()
 若处于`HALF_OPEN`状态，失败后切换到`OPEN`状态
 若请求失败次数超过阈值，切换到`OPEN`状态
+![输入图片说明](/imgs/2025-03-24/jGNpBf4NxufoUu7T.png)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxNDQ1NjM3NDgsLTE1MTQ2MzA0OTIsLT
-E2NjMyMTM2MDIsODkyMTEzNDA1XX0=
+eyJoaXN0b3J5IjpbMTg2MTE0NTQwOSwtMjE0NDU2Mzc0OCwtMT
+UxNDYzMDQ5MiwtMTY2MzIxMzYwMiw4OTIxMTM0MDVdfQ==
 -->
