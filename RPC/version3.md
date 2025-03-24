@@ -61,9 +61,11 @@ withRetryListener()：设置重试监听器，用来执行额外的处理工作 
 
 注册中心中`client.create().creatingParentsIfNeeded().withMode(CreateMode.EPHEMERAL).forPath(path)`
 withMode(CreateMode.EPHEMERAL)表示设置的节点类型为临时节点，当客户端与Zookeeper链接断开后，会自动删除这个节点
+
+![输入图片说明](/imgs/2025-03-24/9YvOzse1Ate2SjPb.jpeg)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAwMjgxMzMxMSwxOTk5MTE0MDk5LDEyNj
-k4NTU2MjUsLTYzNDc2NTIyMiwtOTYzNTE0MjkzLDMxNDcxOTAy
-NCwyMTA2MTM2MTQ4LC00NDk1NzE4NTIsLTIwODg3NDY2MTJdfQ
-==
+eyJoaXN0b3J5IjpbLTY2NzkzMjk2NiwxMDAyODEzMzExLDE5OT
+kxMTQwOTksMTI2OTg1NTYyNSwtNjM0NzY1MjIyLC05NjM1MTQy
+OTMsMzE0NzE5MDI0LDIxMDYxMzYxNDgsLTQ0OTU3MTg1MiwtMj
+A4ODc0NjYxMl19
 -->
