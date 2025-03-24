@@ -24,7 +24,11 @@ MySQL存储引擎采用插件式架构，存储引擎基于表，而不是数据
 
 # 6. 事务四大特性
 A：Atomicity：原子性：事务是最小的执行单位，要么都执行要么都不执行
-C：Consistency：一致性：执行事务前后，shu'ju'b
+C：Consistency：一致性：执行事务前后，数据保持一致
+I：Isolation：隔离性：并发访问数据库时，各并发事务之间的数据库是独立的
+D：Durability：持久性：事务提交后，它对数据库的改变是持久的
+
+AID是手段，C是b
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3OTY4Mjk2MDVdfQ==
+eyJoaXN0b3J5IjpbLTE5NzkwODQ5ODVdfQ==
 -->
