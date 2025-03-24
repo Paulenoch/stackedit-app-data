@@ -35,8 +35,32 @@ nginx有很多负载均衡策略，比如轮询（默认），weight权重方式
 对于同一时刻有大量并发读操作和较少写操作类型的应用来说，将数据库拆分为主库和从库，主库就负责处理事务性的增删改操作，从库负责处理查询操作，能够有效的避免由数据更新导致的行锁（innodb引擎支持的就是行锁），使得整个系统的性能得到极大改善。
 
 Sharding-JDBC介绍Sharding-JDBC定位为轻量级java框架，在java的JDBC层提供的额外服务。它使用客户端直连数据库，以jar包形式提供服务，无需额外部署和依赖，可理解为增强版的JDBC驱动，完全兼容JDBC和各种ORM框架。使用Sharding-JDBC可以在程序中轻松的实现数据库读写分离,优点在于数据源完全有Sharding托管，写操作自动执行master库，读操作自动执行slave库。不需要程序员在程序中关注这个实现了。
+```java
+spring:
+  shardingsphere:
+    datasource:
+      names: master,slave1,slave2
+      master:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://master_ip:3306/db
+        username: root
+        password: password
+      slave1:
+        # 类似配置...
+      slave2:
+        # 类似配置...
+    masterslave:
+      load-balance-algorithm-type: round_robin # 轮询
+      name: ms
+      master-data-source-name: master
+      slave-data-source-names: slave1,slave2
+    props:
+      sql.show: true
+```
 
-# 4. 使用Redis，采用一主两从＋哨兵的集群方案
+# 4. 使用Redis，采用一主两
+从＋哨兵的集群方案
 
 ### 4.1 为什么用Redis
 频繁的访问数据库导致数据库压力大，系统的性能下降，用户体验感差。因此使用Redis对数据进行缓存，从而减小数据库的压力，在数据更新时删除缓存，从而保证数据库和缓存的一致性，同时有效提高系统的性能和访问速度。
@@ -65,7 +89,7 @@ Sharding-JDBC介绍Sharding-JDBC定位为轻量级java框架，在java的JDBC层
 
 其实排他锁底层使用也是setnx，保证了同时只能有一个线程操作锁
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5ODgxNDc3OSwtMzkyMTg4NTYyLDIwND
-c0ODEzODMsMTU2OTA1OTYzNCwyMDgzMzg3NzE2LDE0OTY1MzI2
-MDRdfQ==
+eyJoaXN0b3J5IjpbLTE0NDYyNjkyNzgsLTE5ODgxNDc3OSwtMz
+kyMTg4NTYyLDIwNDc0ODEzODMsMTU2OTA1OTYzNCwyMDgzMzg3
+NzE2LDE0OTY1MzI2MDRdfQ==
 -->
