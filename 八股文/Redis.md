@@ -98,6 +98,9 @@ runid：前两项一样，选runid最小的
 通过部署多台Redis主节点，同时提供读写服务，缓存的数据库相对均匀地分布在这些主节点上，客户端的请求通过路由规则转发到目标master上
 
 为保证高可用，每台master配备一多个slave
+
+### Redis Cluster是如何分片的
+采用哈希槽分区，每一个键值对都属于一个哈希槽
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ1MTgwMTQxNywtMjA4ODc0NjYxMl19
+eyJoaXN0b3J5IjpbMTY4NzYyMjEyOCwtMjA4ODc0NjYxMl19
 -->
