@@ -101,8 +101,13 @@ A调用B，B调用C，若此时C故障，B无法取得C的响应而一直在等�
 若处于CLOSED状态，接收请求
 
 ### recordSusccess()
-若处于`HALF_OPEN`状态，增加成功技术，如果
+若处于`HALF_OPEN`状态，增加成功计数，如果计数超过阈值，切换回`CLOSED`状态
+若不处于`HALF_OPEN`状态，直接重置计数器
+
+### recordFailure()
+若处于`HALF_OPEN`状态，失败后切换到`OPEN`状态
+若请求失败次数超过阈值，直接
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjUyMDYxNzE3LC0xNTE0NjMwNDkyLC0xNj
-YzMjEzNjAyLDg5MjExMzQwNV19
+eyJoaXN0b3J5IjpbLTEzMTQwNzU2MzEsLTE1MTQ2MzA0OTIsLT
+E2NjMyMTM2MDIsODkyMTEzNDA1XX0=
 -->
