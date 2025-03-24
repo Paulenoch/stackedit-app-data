@@ -15,7 +15,14 @@ step4：设置对象头
 step5：执行init方法
 
 # 3. 对象的访问定位
-句柄：
+句柄：Java 堆中将会划分出一块内存来作为句柄池，reference 中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与对象类型数据各自的具体地址信息。
+
+直接指针：reference 中存储的直接就是对象的地址。
+
+# 4. 堆空间的基本结构，什么情况下对象进入老年代
+![输入图片说明](/imgs/2025-03-25/JgLtsq5dub1TnuwM.png)
+
+大部分情况，对象首先在Edenqu'yu'fen'b
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjQzNjAwNzddfQ==
+eyJoaXN0b3J5IjpbLTE5MTcyNDkzNjJdfQ==
 -->
