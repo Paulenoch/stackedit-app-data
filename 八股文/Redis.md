@@ -48,8 +48,17 @@ Redis 从 2.6 版本开始支持执行 Lua 脚本，它的功能和事务非常�
 一个key对应的value占用的内存比较大/一个 key 的访问次数比较多且明显多于其他 key
 处理方案
 - 分割bigkey，手动清理，采用合适的数据结构，开启lazy-free
-- 读写分离，使用Redistribution
+- 读写分离，使用Redis Cluster，二级缓存
+
+# 12. 如何避免大量key集中过期
+给key设置随机过期时间+开启lazy-free
+
+# 13. Redis内存碎片
+产生原因：
+**Redis 存储数据的时候向操作系统申请的内存空间可能会大于数据实际需要的存储空间。**
+**频繁修改 Redis 中的数据也会产生内存碎片。**
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5NDI5NDU1OCwtMjA4ODc0NjYxMl19
+eyJoaXN0b3J5IjpbLTIwNDA4MzkxOTYsLTIwODg3NDY2MTJdfQ
+==
 -->
