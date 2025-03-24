@@ -20,6 +20,11 @@ MySQL存储引擎采用插件式架构，存储引擎基于表，而不是数据
 6. 索引实现不一样：InnoDB 引擎中，其数据文件本身就是索引文件。相比 MyISAM，索引文件和数据文件是分离的
 
 # 5. 什么是事务
+逻辑上的一组操作，要么都执行要么都不执行
+
+# 6. 事务四大特性
+A：Atomicity：原子性：事务是最小的执行单位，要么都执行要么都不执行
+C：Consistency：一致性：执行事务前后，shu'ju'b
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjI2MDQ3MDQ1XX0=
+eyJoaXN0b3J5IjpbLTE3OTY4Mjk2MDVdfQ==
 -->
