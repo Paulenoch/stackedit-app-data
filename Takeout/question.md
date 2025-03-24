@@ -95,8 +95,7 @@ spring:
       sql.show: true
 ```
 
-# 4. 使用Redis，采用一主两
-从＋哨兵的集群方案
+# 4. 使用Redis，采用一主两从＋哨兵的集群方案
 
 ### 4.1 为什么用Redis
 频繁的访问数据库导致数据库压力大，系统的性能下降，用户体验感差。因此使用Redis对数据进行缓存，从而减小数据库的压力，在数据更新时删除缓存，从而保证数据库和缓存的一致性，同时有效提高系统的性能和访问速度。
@@ -125,7 +124,7 @@ spring:
 
 其实排他锁底层使用也是setnx，保证了同时只能有一个线程操作锁
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzk1Mjk0ODMsLTE5ODgxNDc3OSwtMz
+eyJoaXN0b3J5IjpbLTEyNjIyNDY5NDEsLTE5ODgxNDc3OSwtMz
 kyMTg4NTYyLDIwNDc0ODEzODMsMTU2OTA1OTYzNCwyMDgzMzg3
 NzE2LDE0OTY1MzI2MDRdfQ==
 -->
