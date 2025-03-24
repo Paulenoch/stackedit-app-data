@@ -14,6 +14,9 @@ HashMap：数组+链表/数组+红黑树（数组长度不满64先扩容数组�
 LinkedHashMap：在HashMap的基础上增加了一条双向链表，可以保持键值对插入的顺序
 HashTable：数组+链表
 TreeMap：红黑树
+
+# 2. HashMap为什么线程不安全
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTcwOTkyMF19
+eyJoaXN0b3J5IjpbLTE1ODI4MTM1OTVdfQ==
 -->
