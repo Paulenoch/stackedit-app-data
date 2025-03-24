@@ -123,8 +123,40 @@ spring:
 那这个排他锁是如何保证读写、读读互斥的呢？
 
 其实排他锁底层使用也是setnx，保证了同时只能有一个线程操作锁
+```java
+RReadWriteLock rwLock = redisson.getReadWriteLock("myLock");
+
+// 获取读锁(共享锁)
+RLock readLock = rwLock.readLock();
+try {
+    readLock.lock();
+    // 执行读操作
+    // 多个线程可以同时进入此代码块
+} finally {
+    readLock.unlock();
+}
+
+// 获取写锁(排他锁)
+RLock writeLock = rwLock.writeLock();
+try {
+    writeLock.lock();
+    // 执行写操作
+    // 同一时间只有一个线程可以进入此代码块
+} finally {
+    writeLock.unlock();
+}
+```
+
+### 2. 旁路缓存
+
+如果不想加锁的话，可以采用旁路缓存模式,先更新 db，后删除 cache
+
+理论上来说还是可能会出现数据不一致性的问题，不过概率非常小，因为缓存的写入速度是比数据库的写入速度快很多。举例：请求 1 先读数据 A，请求 2 随后写数据 A，并且数据 A 在请求 1 请求之前不在缓存中的话，也有可能产生数据不一致性的问题。
+##### 2.什么是延迟双删?
+
+延迟双删，如果是写操作，我们先把缓存中的数据删除，然后更新数据库，最后再延时删除缓存中的数据，其中这个延时多久不太好确定，在延时的过程中可能会出现脏数据，并不能保证强一致性，所以没有采用它。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2MjE5NjIzOCwtMTk4ODE0Nzc5LC0zOT
-IxODg1NjIsMjA0NzQ4MTM4MywxNTY5MDU5NjM0LDIwODMzODc3
-MTYsMTQ5NjUzMjYwNF19
+eyJoaXN0b3J5IjpbNjE0NTk4NDUzLC0xOTg4MTQ3NzksLTM5Mj
+E4ODU2MiwyMDQ3NDgxMzgzLDE1NjkwNTk2MzQsMjA4MzM4Nzcx
+NiwxNDk2NTMyNjA0XX0=
 -->
