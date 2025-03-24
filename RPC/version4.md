@@ -28,8 +28,14 @@ RPC是解决分布式系统通信问题的框架，分布式系统的一大特�
 
 若`curCapacity>0`，直接返回true
 
+若桶无剩余，如果距离上一次的请求的时间大于RATE的时间，计算这段时间间隔中生成的令牌，如果>2,桶容量加上（计算的令牌-1） 如果==1，就不做操作（因为这一次操作要消耗一个令牌）
+保持桶内令牌容量<=10
+刷新时间戳为本次请求
+
+若小于RATE时间，返回false
+
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTU3NDY2NDIsODkyMTEzNDA1XX0=
+eyJoaXN0b3J5IjpbNzg2MTIzMzksODkyMTEzNDA1XX0=
 -->
