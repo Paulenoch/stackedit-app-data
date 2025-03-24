@@ -36,7 +36,12 @@
 TreeMap会根据键的顺序自动进行排序，使用TreeMap存储哈希值与虚拟节点之间的映射时，哈希值会始终保持有序，因为我们需要按照哈希值的大小顺序来查找最近的节点，TreeMap底层通过红黑树实现有序性。当根据请求的哈希值查找该映射到哪个虚拟节点时，可以通过tailMap()方法找到所有大于等于该哈希值的虚拟节点，快速获取到最近的一个虚拟节点
 
 ## 当各个服务器的负载能力不一致时，该怎么设置负载均衡算法，来保证各服务器接收到的流量是合适的呢？
+在一致性哈希算法中，使用虚拟节点对真实节点进行映射，并且能通过设置虚拟节点的个数 来控制该节点接收到请求的概率。
+
+所以在服务器负载能力不一致的情况下，我们可以在服务端将服务器的负载能力写入到注册中心中，客户端在进行负载均衡时会在注册中心中获取各服务器的能力，并设置对应的虚拟节点的数量，来控制流量的分发。
+## #### LRU适合作为负载均衡的一个实现吗？
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMjk3OTczMTUsMzE0NzE5MDI0LDIxMD
-YxMzYxNDgsLTQ0OTU3MTg1MiwtMjA4ODc0NjYxMl19
+eyJoaXN0b3J5IjpbMTA2NzMyNTY4NCwzMTQ3MTkwMjQsMjEwNj
+EzNjE0OCwtNDQ5NTcxODUyLC0yMDg4NzQ2NjEyXX0=
 -->
