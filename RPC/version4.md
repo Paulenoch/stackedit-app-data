@@ -40,10 +40,12 @@ RPC是解决分布式系统通信问题的框架，分布式系统的一大特�
 
 # V4.1 调用端熔断保护
 ![输入图片说明](/imgs/2025-03-24/OVyhLb4c2s2lgCup.png)
-A调用B，B调用C，若此时C故障，B无法取得C的xi
+A调用B，B调用C，若此时C故障，B无法取得C的响应而一直在等待，此时A还在一直频繁调用B，会导致B宕机
+
+在一个服务作为调用端调用另外一个服务时，为了防止被调用的服务出现问题而影响到作为调用端的这个服务，这个服务也需要进行自我保护。而最有效的自我保护方式就是熔断。
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4ODQ3NTY5LDg5MjExMzQwNV19
+eyJoaXN0b3J5IjpbLTE2NjMyMTM2MDIsODkyMTEzNDA1XX0=
 -->
