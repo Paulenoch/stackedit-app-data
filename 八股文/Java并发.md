@@ -85,7 +85,13 @@ public class DeadLockDemo {
 ![输入图片说明](/imgs/2025-03-25/dYPtrQed7KL0wNF8.png)
 
 # 8. synchronized关键字
+可以保证被它修饰的方法或者代码块在任意时刻只能有一个线程执行
 
+
+
+# 9. volatile关键字
+在 Java 中，`volatile` 关键字可以保证变量的可见性，如果我们将变量声明为 **`volatile`** ，这就指示 JVM，这个变量是共享且不稳定的，每次使用它都到主存中进行读取。
+不能保证数据的原子性
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3NTg5NTI0OTVdfQ==
+eyJoaXN0b3J5IjpbMTQ3MjA1NjY3Ml19
 -->
