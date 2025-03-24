@@ -43,6 +43,9 @@ Redis 从 2.6 版本开始支持执行 Lua 脚本，它的功能和事务非常�
 
 如果想要让 Lua 脚本中的命令全部执行，必须保证语句语法和命令都是对的。
 另外，Redis 7.0 新增了 [Redis functions](https://redis.io/docs/manual/programmability/functions-intro/) 特性，你可以将 Redis functions 看作是比 Lua 更强大的脚本。
+
+# 11. 什么是Big Key/Hot Key/
+一个key对应的value占用的内存比较大
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTU4NjYyMDE2LC0yMDg4NzQ2NjEyXX0=
+eyJoaXN0b3J5IjpbMTkzMTYwNDY3LC0yMDg4NzQ2NjEyXX0=
 -->
