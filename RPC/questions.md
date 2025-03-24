@@ -18,6 +18,10 @@ netty是一个高性能的网络框架，可以实现高效的信息传输；抽
 
 2. 服务端接受请求并处理
 - 服务端通过Netty服务端API监听指定端口，等待客户端的连接请求
+- 接收到连接请求后，通过Netty的解码器将接收到的字节流反序列化成请求信息
+- 响应同上
+
+## 3. 为什么会出现占包
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2OTkyNTQyMDUsLTY2NTM0MjMxXX0=
+eyJoaXN0b3J5IjpbLTE4NjQzNDQ0MTcsLTY2NTM0MjMxXX0=
 -->
