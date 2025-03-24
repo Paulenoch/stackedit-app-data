@@ -98,7 +98,10 @@ binlog是逻辑日志，记录语句的原始逻辑，记录了数据库中的�
 InnoDB独有，让MySQL拥有了崩溃恢复能力，记录某个数据页上做了什么修改。在事务提交时按照刷盘策略刷到磁盘上去
 
 # 22. 页修改后为什么不直接刷盘
-性能差，InnoDB页大小一般为16KB，
+性能差，InnoDB页大小一般为16KB，频繁IO对磁盘压力大
+
+# 23. undo log如何保证事物的原子性
+每一个事务对数据的修改都会记录到undo log，可以用于回滚，属于逻辑日志，记录的是SQL语句
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3OTQ1NzM2NzVdfQ==
+eyJoaXN0b3J5IjpbLTQ2NDA2MDQzOF19
 -->
