@@ -55,7 +55,8 @@ MVCC是一种并发版本控制机制，通过在每个数据行上维护多个�
 - 间隙锁：锁定一个范围不包括记录本身
 - 临键锁：锁定一个范围包括记录本身，解决幻读问题（避免插入新纪录）
 
-
+# 11. 意向锁有什么作用
+快速判断能否对某个表使用表锁
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NzI4MjAwMDBdfQ==
+eyJoaXN0b3J5IjpbMTc5MDAxMjI5Ml19
 -->
