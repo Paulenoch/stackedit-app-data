@@ -58,7 +58,9 @@ Redis 从 2.6 版本开始支持执行 Lua 脚本，它的功能和事务非常�
 **Redis 存储数据的时候向操作系统申请的内存空间可能会大于数据实际需要的存储空间。**
 **频繁修改 Redis 中的数据也会产生内存碎片。**
 
+# 14. 缓存穿透
+大量请求的key不在缓存中，导致请求直接落在数据库上
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDA4MzkxOTYsLTIwODg3NDY2MTJdfQ
-==
+eyJoaXN0b3J5IjpbNjUzNDA5NTQyLC0yMDg4NzQ2NjEyXX0=
 -->
