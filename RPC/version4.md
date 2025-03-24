@@ -35,10 +35,11 @@ RPC是解决分布式系统通信问题的框架，分布式系统的一大特�
 若小于RATE时间，返回false
 
 ## RateLimitProvider
-维护了一个rateLimit
+维护了一个`rateLimitMap`，用于存储每个接口的速率限制器实例
+`getLimitMap()`根据接口名称返回相应的接口速率限制器类型
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ2NTMwMDQ3MCw4OTIxMTM0MDVdfQ==
+eyJoaXN0b3J5IjpbLTIwOTExMDk0NzYsODkyMTEzNDA1XX0=
 -->
