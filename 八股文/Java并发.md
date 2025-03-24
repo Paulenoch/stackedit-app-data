@@ -76,11 +76,12 @@ public class DeadLockDemo {
 
 # 6. 并发编程的三个重要特性
 - 原子性：
-- 可见性：当一个线程对共享变量进行了修改，那么另外的线程都是立即可以看到修改后的最新值。
-在 Java 中，可以借助`synchronized`、`volatile` 以及各种 `Lock` 实现可见性。
-如果我们将变量声明为 `volatile` ，这就指示 JVM，这个变量是共享且不稳定的，每次使用它都到主存中进行读取。
+- 可见性：当一个线程对共享变量进行了修改，那么另外的线程都是立即可以看到修改后的最新值。在 Java 中，可以借助`synchronized`、`volatile` 以及各种 `Lock` 实现可见性。如果我们将变量声明为 `volatile` ，这就指示 JVM，这个变量是共享且不稳定的，每次使用它都到主存中进行读取。
+- 有序性：`volatile` 关键字可以禁止指令进行重排序优化
 
+# 7. 为什么要有JMM（Java内存模型）
+抽象了线程和主内存的关系；规定了从java源代码到CPU可执行指令这个转化过程要遵守的
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA1ODcwNTQ0MV19
+eyJoaXN0b3J5IjpbNjU1MzI1MjQzXX0=
 -->
