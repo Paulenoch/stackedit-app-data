@@ -7,6 +7,9 @@
 
 **负载均衡**
 nginx有很多负载均衡策略，比如轮询（默认），weight权重方式,url分配方式，我们项目用的是轮询方式，共有3台后端服务器
+
+# 2. 实现布隆过滤器解决缓存穿透问题
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ5NjUzMjYwNF19
+eyJoaXN0b3J5IjpbLTExOTU0NTUwNjQsMTQ5NjUzMjYwNF19
 -->
