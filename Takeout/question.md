@@ -174,8 +174,11 @@ try {
 "UPDATE goods SET stock = stock - 1, version = version + 1 WHERE id = #{id} AND stock > 0 AND version = #{version}
 //当商品的库存大于0且版本号与传入的版本号相同时，将库存减1，并将版本号加1。
 ```
+### 2.CAS法实现乐观锁
+
+CAS用库存量代替版本号，在执行操作时判断 where 用的库存量和在最初查询的时候，是否相等。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk1NDM3ODYsLTE5ODgxNDc3OSwtMzkyMT
-g4NTYyLDIwNDc0ODEzODMsMTU2OTA1OTYzNCwyMDgzMzg3NzE2
-LDE0OTY1MzI2MDRdfQ==
+eyJoaXN0b3J5IjpbLTIwNDkxMzIzMDcsLTE5ODgxNDc3OSwtMz
+kyMTg4NTYyLDIwNDc0ODEzODMsMTU2OTA1OTYzNCwyMDgzMzg3
+NzE2LDE0OTY1MzI2MDRdfQ==
 -->
