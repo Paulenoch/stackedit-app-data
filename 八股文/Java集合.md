@@ -10,7 +10,10 @@ PriorityQueue：Object[]数组实现小顶堆
 DelayQueue：PriorityQueue
 ArrayDeque：可扩容动态双向数组
 
-HashMap：数组+链表/数组+红黑树（数组chang'd
+HashMap：数组+链表/数组+红黑树（数组长度不满64先扩容数组，大于等于64后链表转红黑树）
+LinkedHashMap：在HashMap的基础上增加了一条双向链表，可以保持键值对插入的顺序
+HashTable：数组+链表
+TreeMap：hong'hei
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODM2ODc1MjkxXX0=
+eyJoaXN0b3J5IjpbMjA2NzQ5MDM4MV19
 -->
