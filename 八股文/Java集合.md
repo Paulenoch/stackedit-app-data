@@ -7,7 +7,10 @@ LinkedHashSet：基于LinkedHashMap
 TreeSet：红黑树
 
 PriorityQueue：Object[]数组实现小顶堆
-De
+DelayQueue：PriorityQueue
+ArrayDeque：可扩容动态双向数组
+
+HashMap：数组+链表/数组+红黑树（数组chang'd
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzk5MTMzNjEwXX0=
+eyJoaXN0b3J5IjpbODM2ODc1MjkxXX0=
 -->
