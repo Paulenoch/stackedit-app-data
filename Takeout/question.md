@@ -267,8 +267,20 @@ jwt的优点:
 10.  可以在令牌（token）中自定义内容，容易扩展。
 11.  使用非对称加密和签名技术，安全性高。
 12.  资源服务使用JWT，可不依赖认证服务即可完成授权。
+
+### 8.2 ThreadLocal
+#### 1.什么是ThreadLocal
+
+ThreadLocal为每个线程提供单独一份存储空间，具有线程隔离的效果，只有在线程内才能获取到对应的值，线程外则不能访问。
+
+#### 2. ThreadLocal的实现原理
+
+在ThreadLocal中有一个内部类叫做ThreadLocalMap，类似于HashMap
+
+ThreadLocal 使用一个 ThreadLocalMap 来存储每个线程的变量副本，其中键为 ThreadLocal 实例，值为对应线程的变量副本。当一个线程创建一个 ThreadLocal 变量时，实际上是在当前线程的 ThreadLocalMap 中存储了一个键值对。当一个线程访问 ThreadLocal 变量时，实际上是在访问该线程自己的变量副本，而不是共享变量。这样可以保证线程之间的数据隔离，避免了线程安全问题。
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzY1ODI3OTM1LC0xOTg4MTQ3NzksLTM5Mj
-E4ODU2MiwyMDQ3NDgxMzgzLDE1NjkwNTk2MzQsMjA4MzM4Nzcx
-NiwxNDk2NTMyNjA0XX0=
+eyJoaXN0b3J5IjpbLTE4MjMzNjk2NjEsLTE5ODgxNDc3OSwtMz
+kyMTg4NTYyLDIwNDc0ODEzODMsMTU2OTA1OTYzNCwyMDgzMzg3
+NzE2LDE0OTY1MzI2MDRdfQ==
 -->
