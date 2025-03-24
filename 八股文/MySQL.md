@@ -59,7 +59,11 @@ MVCC是一种并发版本控制机制，通过在每个数据行上维护多个�
 快速判断能否对某个表使用表锁
 
 # 12. 索引的底层实现
-B+树，只有叶子节点存放key和data，其他内节点只存放key
+B+树，只有叶子节点存放key和data，其他内节点只存放key，叶子节点有一条引用链指向相邻的叶子节点
+
+# 13. 主键索引和二级索引
+主键索引：主键列使用的
+二级索引（辅助索引）：叶子节点存储的s
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwMzk2NDExNF19
+eyJoaXN0b3J5IjpbLTE4MDQ2NTc5MTRdfQ==
 -->
