@@ -74,6 +74,13 @@ public class DeadLockDemo {
 
 无法避免ABA问题
 
+# 6. 并发编程的三个重要特性
+- 原子性：
+- 可见性：当一个线程对共享变量进行了修改，那么另外的线程都是立即可以看到修改后的最新值。
+在 Java 中，可以借助`synchronized`、`volatile` 以及各种 `Lock` 实现可见性。
+如果我们将变量声明为 `volatile` ，这就指示 JVM，这个变量是共享且不稳定的，每次使用它都到主存中进行读取。
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTg0MTg3Njc2XX0=
+eyJoaXN0b3J5IjpbMTA1ODcwNTQ0MV19
 -->
