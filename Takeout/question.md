@@ -39,7 +39,32 @@ binlog_format = ROW         # 推荐使用ROW格式
 binlog-do-db = 需要复制的数据库名 # 可选，指定复制哪些库
 ```
 从库配置
+```sql
+[mysqld]
+server-id = 2               # 不同于主库
+relay-log = mysql-relay-bin # 中继日志
+read_only = ON              # 从库设为只读(不影响super用户)
+```
+主库执行
+```sql
+CREATE USER 'repl'@'%' IDENTIFIED BY 'password';
+GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%';
+FLUSH PRIVILEGES;
 
+-- 查看主库状态，记录File和Position
+SHOW MASTER STATUS;
+```
+从库执行
+```sql
+CHANGE MASTER TO
+MASTER_HOST='master_ip',
+MASTER_USER='repl',
+MASTER_PASSWORD='password',
+MASTER_LOG_FILE='mysql-bin.000001', -- 主库SHOW MASTER STATUS结果
+MASTER_LOG_POS=120;                 -- 主库SHOW MASTER STATUS结果
+
+START SLAVE;
+```
 
 ### Sharding-JDBC怎么实现读写分离
 
@@ -100,7 +125,7 @@ spring:
 
 其实排他锁底层使用也是setnx，保证了同时只能有一个线程操作锁
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwMTc2MTk3MywtMTk4ODE0Nzc5LC0zOT
-IxODg1NjIsMjA0NzQ4MTM4MywxNTY5MDU5NjM0LDIwODMzODc3
-MTYsMTQ5NjUzMjYwNF19
+eyJoaXN0b3J5IjpbLTExNzk1Mjk0ODMsLTE5ODgxNDc3OSwtMz
+kyMTg4NTYyLDIwNDc0ODEzODMsMTU2OTA1OTYzNCwyMDgzMzg3
+NzE2LDE0OTY1MzI2MDRdfQ==
 -->
