@@ -208,8 +208,10 @@ CAS 三大问题：
 幂等性问题就是同一个接口，多次发出同一个请求，必须保证操作只执行一次。
 
 解决幂等性问题有很多方法，比如:用防重token,设置提交按钮一段时间只能提交一次，使用唯一索引防止新增脏数据等等方法。
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjI4Njk0Njg0LC0xOTg4MTQ3NzksLTM5Mj
-E4ODU2MiwyMDQ3NDgxMzgzLDE1NjkwNTk2MzQsMjA4MzM4Nzcx
-NiwxNDk2NTMyNjA0XX0=
+eyJoaXN0b3J5IjpbMTQyNTgxNDkwNCwtMTk4ODE0Nzc5LC0zOT
+IxODg1NjIsMjA0NzQ4MTM4MywxNTY5MDU5NjM0LDIwODMzODc3
+MTYsMTQ5NjUzMjYwNF19
 -->
