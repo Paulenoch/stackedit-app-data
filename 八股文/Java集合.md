@@ -16,7 +16,10 @@ HashTable：数组+链表
 TreeMap：红黑树
 
 # 2. HashMap为什么线程不安全
+在 `HashMap` 中，多个键值对可能会被分配到同一个桶（bucket），并以链表或红黑树的形式存储。多个线程对 `HashMap` 的 `put` 操作会导致线程不安全，具体来说会有数据覆盖的风险。
 
+# 3. ConcurrentHashMap和Hashtable的区别
+`ConcurrentHashMap` 直接用 `Node` 数组+链表+红黑树的数据结构来实现，并发控制使用 `synchronized` 和 CAS 来操作。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODI4MTM1OTVdfQ==
+eyJoaXN0b3J5IjpbLTE5MzM0NDkyNzJdfQ==
 -->
