@@ -95,7 +95,10 @@ A调用B，B调用C，若此时C故障，B无法取得C的响应而一直在等�
 
 **在调用端最顶层的ClientProxy上添加熔断逻辑**，在动态代理调用前进行检测，如果异常立即返回
 
+### allowRequest()
+若熔断器处于`OPEN`状态，检查自上次失败以来是否已经过了指定的重置时间，如果过了，会进入`HALF_OPEN`状态并允许请求
+若处于`HALF_OPEN`状态，yun
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTQ2MzA0OTIsLTE2NjMyMTM2MDIsOD
-kyMTEzNDA1XX0=
+eyJoaXN0b3J5IjpbMTQ0OTgxMjAwMiwtMTUxNDYzMDQ5MiwtMT
+Y2MzIxMzYwMiw4OTIxMTM0MDVdfQ==
 -->
