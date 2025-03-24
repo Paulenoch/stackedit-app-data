@@ -78,7 +78,7 @@ Redis 从 2.6 版本开始支持执行 Lua 脚本，它的功能和事务非常�
 - Redis集群
 
 
-# 保证Redis服务高可用
+# 17. 保证Redis服务高可用
 Redis Sentinel集群
 ### 什么是Sentinel，作用？
 哨兵是Redis的一种运行模式，监控所有redis节点，故障转移，通知，配置提供
@@ -87,7 +87,14 @@ Redis Sentinel集群
 主观下线：单个sentinel认为下线；客观下线：过半sentinel认为下线
 每个sentinel节点以固定频率向整个集群中的master和slave发送ping，如果发现master下线，开启故障转移
 
-### 如何选举中新的
+### 如何选举出新的master
+slave优先级
+复制进度：选出数据最完整的的slave
+runid：前两项一样，选runid最小的
+
+# 18. Redis Cluster
+解决缓存的数据量太大和bing'fa
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0ODkwMDg4MiwtMjA4ODc0NjYxMl19
+eyJoaXN0b3J5IjpbLTE0NTgzNzA4NTgsLTIwODg3NDY2MTJdfQ
+==
 -->
