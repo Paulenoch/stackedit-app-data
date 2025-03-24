@@ -7,6 +7,7 @@
 
 多个线程共享进程的**堆**和**方法区**资源，但每个线程有自己的**程序计数器**、**虚拟机栈**和**本地方法栈**
 
+
 # 2. 线程的生命周期和状态
 -   NEW: 初始状态，线程被创建出来但没有被调用 `start()` 。
 -   RUNNABLE: 运行状态，线程被调用了 `start()`等待运行的状态。
@@ -15,9 +16,7 @@
 -   TIME_WAITING：超时等待状态，可以在指定的时间后自行返回而不是像 WAITING 那样一直等待。
 -   TERMINATED：终止状态，表示该线程已经运行完毕。
 
-----------
-
-著作权归JavaGuide(javaguide.cn)所有 基于MIT协议 原文链接：https://javaguide.cn/java/concurrent/java-concurrent-questions-01.html
+# 3. 什么是线程死锁，如何避免
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyMzI0MTEzOF19
+eyJoaXN0b3J5IjpbLTkxNTA4OTQ0NF19
 -->
