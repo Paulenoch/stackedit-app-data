@@ -82,6 +82,10 @@ B+树，只有叶子节点存放key和data，其他内节点只存放key，叶�
 # 18. 索引下推
 存储引擎在索引遍历过程中，执行部分 `WHERE` 字句的判断条件，直接过滤掉不满足条件的记录，从而减少回表次数，提高查询效率。
 
+# 19. 如何更好地建立索引
+1. 选择合适的字段作为索引（不为null，频繁查询，where条件...)
+2. 尽可能建立联合索引而不是单列索引
+3. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIyOTcwNTEzN119
+eyJoaXN0b3J5IjpbNTc0Nzc1NTIzXX0=
 -->
