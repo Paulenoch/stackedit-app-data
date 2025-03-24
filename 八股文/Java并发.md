@@ -107,12 +107,17 @@ public class DeadLockDemo {
 ## 8.4 synchronized和ReentrantLock有什么区别和联系
 联系：
 - 二者都是可重入锁，指的是线程可以再次获取自己的内部锁
-- synchronized依赖于JVM（对象监视器monitor），ReentrantLock在APIcen
+- synchronized依赖于JVM（对象监视器monitor），ReentrantLock在API层面实现
+- 
+ReentrantLock新功能：
+- 等待可中断：当前线程在等待获取锁的过程中，如果其他线程中断当前线程「 `interrupt()` 」，当前线程就会抛出 `InterruptedException` 异常，可以捕捉该异常进行相应处理。
+- 公平锁
+- 支持超时：`ReentrantLock` 提供了 `tryLock(timeout)` 的方法，可以指定等待获取锁的最长等待时间，如果超过了等待时间，就会获取锁失败，不会一直等待。
 
 
 # 9. volatile关键字
 在 Java 中，`volatile` 关键字可以保证变量的可见性，如果我们将变量声明为 **`volatile`** ，这就指示 JVM，这个变量是共享且不稳定的，每次使用它都到主存中进行读取。
 不能保证数据的原子性
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzMjMzOTQyM119
+eyJoaXN0b3J5IjpbLTEzNDA5MTExNzddfQ==
 -->
