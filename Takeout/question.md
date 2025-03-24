@@ -20,6 +20,9 @@ nginx有很多负载均衡策略，比如轮询（默认），weight权重方式
 使用BitMap作为布隆过滤器，使用多个hash函数对key进行hash运算
 
 当布隆过滤器实际的数据存储量超过预期数据量之后，误判率也会随之上涨。但是布隆过滤器是不能删除已有元素的，在这里我们采取的方案是再创建一个布隆过滤器
+
+# MySQL主从复制，读写分离
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0NjgxMzYxMSwxNDk2NTMyNjA0XX0=
+eyJoaXN0b3J5IjpbMTMzNDIyNjEwMywxNDk2NTMyNjA0XX0=
 -->
