@@ -41,11 +41,15 @@ Sharding-JDBC介绍Sharding-JDBC定位为轻量级java框架，在java的JDBC层
 ### 4.1 为什么用Redis
 频繁的访问数据库导致数据库压力大，系统的性能下降，用户体验感差。因此使用Redis对数据进行缓存，从而减小数据库的压力，在数据更新时删除缓存，从而保证数据库和缓存的一致性，同时有效提高系统的性能和访问速度。
 
-### 为什么采用一主两从+哨兵
+### 4.2 为什么采用一主两从+哨兵
 单Redis的并发能力是有上限的，搭建主从集群实现读写分离。主节点负责写数据，从节点负责读数据（解决高并发问题）
 
 主数据库若崩溃。哨兵作为一个独立运行的进程，通过发送ping命令等待Redis服务器响应，从而监控运行的多个Redis实例。当检测到master宕机，会自动将slave切换成master。通过发布订阅模式通知其他slave修改配置文件，让它们切换master
+
+### 4.3 redis主从同步流程：
+1. 全量同步（第一次）
+2. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MTQ3OTM0OCwyMDgzMzg3NzE2LDE0OT
+eyJoaXN0b3J5IjpbMTU2OTA1OTYzNCwyMDgzMzg3NzE2LDE0OT
 Y1MzI2MDRdfQ==
 -->
