@@ -97,8 +97,12 @@ A调用B，B调用C，若此时C故障，B无法取得C的响应而一直在等�
 
 ### allowRequest()
 若熔断器处于`OPEN`状态，检查自上次失败以来是否已经过了指定的重置时间，如果过了，会进入`HALF_OPEN`状态并允许请求
-若处于`HALF_OPEN`状态，yun
+若处于`HALF_OPEN`状态，允许请求并记录该请求，判断是否应该恢复到`CLOSED`状态
+若处于CLOSED状态，接收请求
+
+### recordSusccess()
+若处于`HALF_OPEN`状态，增加成功技术，如果
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ0OTgxMjAwMiwtMTUxNDYzMDQ5MiwtMT
-Y2MzIxMzYwMiw4OTIxMTM0MDVdfQ==
+eyJoaXN0b3J5IjpbNjUyMDYxNzE3LC0xNTE0NjMwNDkyLC0xNj
+YzMjEzNjAyLDg5MjExMzQwNV19
 -->
