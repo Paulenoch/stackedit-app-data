@@ -48,8 +48,8 @@ Sharding-JDBC介绍Sharding-JDBC定位为轻量级java框架，在java的JDBC层
 
 ### 4.3 redis主从同步流程：
 1. 全量同步（第一次）
-- slave请求
+- slave请求mastertong'bu
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA0NzQ4MTM4MywxNTY5MDU5NjM0LDIwOD
-MzODc3MTYsMTQ5NjUzMjYwNF19
+eyJoaXN0b3J5IjpbMTg0MTg4NTkyOSwyMDQ3NDgxMzgzLDE1Nj
+kwNTk2MzQsMjA4MzM4NzcxNiwxNDk2NTMyNjA0XX0=
 -->
