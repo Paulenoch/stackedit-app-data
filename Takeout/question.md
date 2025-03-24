@@ -52,7 +52,13 @@ Sharding-JDBC介绍Sharding-JDBC定位为轻量级java框架，在java的JDBC层
 - master根据主从节点的replication id是否一样判断是否为第一次同步（若不一样说明是第一次同步，master会把自己的replication id和offset发给slave）
 - master执行bgsave，生成RDB文件后发给slave，slave先清空自己，再执行RDB文件
 - 若在RDB文件生成期间master发生了变化，master会把变化用命令的形式记录到AOF缓冲区，再将AOF日志文件发给slave
+
+2. 增量同步
+当从节点服务重启之后，数据就不一致了，所以这个时候，从节点会请求主节点同步数据，主节点还是判断不是第一次请求，不是第一次就获取从节点的offset值，然后主节点从命令日志中获取offset值之后的数据，发送给从节点进行数据同步
+
+# 如何解决数据一致性问题
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0NDc3MzgzMCwyMDQ3NDgxMzgzLDE1Nj
+eyJoaXN0b3J5IjpbLTM5MjE4ODU2MiwyMDQ3NDgxMzgzLDE1Nj
 kwNTk2MzQsMjA4MzM4NzcxNiwxNDk2NTMyNjA0XX0=
 -->
