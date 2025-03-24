@@ -21,7 +21,11 @@
 volatile/allkeys * lru/ttl/random
 
 后续加入lfu
+
+# 6. RDB持久化
+Redis通过创建snapshot来获得cun
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDMxNDc2NDEsLTIwODg3NDY2MTJdfQ
-==
+eyJoaXN0b3J5IjpbMTgwMjM5NTIyOCwtMjA4ODc0NjYxMl19
 -->
