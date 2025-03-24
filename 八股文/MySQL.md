@@ -73,7 +73,10 @@ B+树，只有叶子节点存放key和data，其他内节点只存放key，叶�
 需要查询的字段正好是索引的字段，直接根据索引可以查到数据，无需回表查询
 
 # 16. 联合索引
+使用表中的多个字段创建索引
 
+# 17. 最左前缀匹配原则
+shi
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwMDM3NDU0M119
+eyJoaXN0b3J5IjpbLTEwNjgyOTE1ODFdfQ==
 -->
