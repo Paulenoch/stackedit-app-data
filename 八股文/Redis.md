@@ -80,8 +80,12 @@ Redis 从 2.6 版本开始支持执行 Lua 脚本，它的功能和事务非常�
 
 # 保证Redis服务高可用
 Redis Sentinel集群
-### 什么是Sentinel
-哨兵是Redis的一种运行模式
+### 什么是Sentinel，作用？
+哨兵是Redis的一种运行模式，监控所有redis节点，故障转移，通知，配置提供
+
+### Sentinel如何检测节点是否下线
+主观下线：单个sentinel认为下线；客观下线：过半
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2MjA2MDQsLTIwODg3NDY2MTJdfQ==
+eyJoaXN0b3J5IjpbLTIwOTAwODg0NTgsLTIwODg3NDY2MTJdfQ
+==
 -->
