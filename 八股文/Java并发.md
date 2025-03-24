@@ -126,7 +126,14 @@ ReentrantLock新功能：
 每一个线程都有一个ThreadLocalMap
 
 # 12. 为什么要用线程池
-- 
+- 降低反复创建和销毁线程带来的消耗
+- 提高响应速度
+- 提高现成的客观理性
+
+# 13. 为什么不推荐使用内置线程池
+线程池参数不明确，如任务队列长度，县城最大数量等参数可能为无限大，带来隐患
+
+# 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwNzczMDI5MF19
+eyJoaXN0b3J5IjpbLTE1NjYzMTY2NDhdfQ==
 -->
