@@ -104,12 +104,15 @@ public class DeadLockDemo {
 -   **公平锁** : 锁被释放之后，先申请的线程先得到锁。性能较差一些，因为公平锁为了保证时间上的绝对顺序，上下文切换更频繁。
 -   **非公平锁**：锁被释放之后，后申请的线程可能会先获取到锁，是随机或者按照其他优先级排序的。性能更好，但可能会导致某些线程永远无法获取到锁。
 
-## 8.4 
+## 8.4 synchronized和ReentrantLock有什么区别和联系
+联系：
+- 二者都是可重入锁，指的是线程可以再次获取自己的内部锁
+- synchronized依赖于JVM（对象监视器monitor），ReentrantLock在APIcen
 
 
 # 9. volatile关键字
 在 Java 中，`volatile` 关键字可以保证变量的可见性，如果我们将变量声明为 **`volatile`** ，这就指示 JVM，这个变量是共享且不稳定的，每次使用它都到主存中进行读取。
 不能保证数据的原子性
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM1MTczMTIwMF19
+eyJoaXN0b3J5IjpbMTkzMjMzOTQyM119
 -->
