@@ -92,7 +92,10 @@ B+树，只有叶子节点存放key和data，其他内节点只存放key，叶�
 记录执行时间超过`long_query_time`的所有查询
 
 # 21. binlog
+binlog是逻辑日志，记录语句的原始逻辑，记录了数据库中的所有变化
 
+# 22. redo log
+InnoDB独有，让MySQL拥有
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMzc3NjI2NzNdfQ==
+eyJoaXN0b3J5IjpbNDU4Nzk4NDQzXX0=
 -->
