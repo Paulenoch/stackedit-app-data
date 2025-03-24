@@ -219,8 +219,10 @@ CAS 三大问题：
 4.  **校验Token**：服务端接收到请求后，从Redis中查询Token。这一步通常通过执行Lua脚本来完成，Lua脚本可以实现原子性的查询并删除操作，确保即使多个请求同时到达，也只有一个请求能够成功删除Token。
 5.  **处理请求**：如果Token存在且成功被删除，说明是第一次请求，服务器正常处理业务逻辑，如生成订单。如果Token不存在，说明是重复请求，服务器返回提示信息，如“请勿重复操作”。
 6.  **删除Token**：在处理完请求后，无论成功与否，都从Redis中删除该Token，避免后续的重复校验。
+
+###
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODExODI5NTcsLTE5ODgxNDc3OSwtMz
-kyMTg4NTYyLDIwNDc0ODEzODMsMTU2OTA1OTYzNCwyMDgzMzg3
-NzE2LDE0OTY1MzI2MDRdfQ==
+eyJoaXN0b3J5IjpbMTQ5MzQyODc3MCwtMTk4ODE0Nzc5LC0zOT
+IxODg1NjIsMjA0NzQ4MTM4MywxNTY5MDU5NjM0LDIwODMzODc3
+MTYsMTQ5NjUzMjYwNF19
 -->
