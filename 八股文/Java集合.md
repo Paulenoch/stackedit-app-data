@@ -13,7 +13,7 @@ ArrayDeque：可扩容动态双向数组
 HashMap：数组+链表/数组+红黑树（数组长度不满64先扩容数组，大于等于64后链表转红黑树）
 LinkedHashMap：在HashMap的基础上增加了一条双向链表，可以保持键值对插入的顺序
 HashTable：数组+链表
-TreeMap：hong'hei
+TreeMap：红黑树
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2NzQ5MDM4MV19
+eyJoaXN0b3J5IjpbLTEwNTcwOTkyMF19
 -->
