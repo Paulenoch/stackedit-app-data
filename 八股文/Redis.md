@@ -28,7 +28,13 @@ Redis通过创建snapshot来获得存储在内存里面的数据在某个时间�
 # 7. AOF持久化
 每执行一条更改Redis中的数据的命令，Redis将该命令写入到内存缓存`server.aof_buf`中，再更具`appendfsync`配置决定什么时候同步到硬盘中的AOF文件
 
-# 8. 
+# 8. 如何使用Redis事务
+通过MULTI, EXEC, DISCARD, WATCH等关键字
+
+# 9. Redis事务支持原子性嘛
+不支持，事务运行错误的情况下，只有错误的指令不会被执行，且Redis不支持回滚
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk1Mjk4MTUyNSwtMjA4ODc0NjYxMl19
+eyJoaXN0b3J5IjpbLTg2NDMxODc0OCwtMjA4ODc0NjYxMl19
 -->
