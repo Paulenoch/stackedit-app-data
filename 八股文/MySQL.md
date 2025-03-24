@@ -38,7 +38,9 @@ AID是手段，C是目的
 - 不可重复读
 ![输入图片说明](/imgs/2025-03-25/SrcPiadr8gZ3YSUO.png)
 - 幻读
+![输入图片说明](/imgs/2025-03-25/yNsL8VG4EP0Zh4wp.png)
 
+# SQL定义了na'xi
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMjYzODA2NzVdfQ==
+eyJoaXN0b3J5IjpbLTQwMDE1NDY2OV19
 -->
