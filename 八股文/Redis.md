@@ -93,8 +93,11 @@ slave优先级
 runid：前两项一样，选runid最小的
 
 # 18. Redis Cluster
-解决缓存的数据量太大和bing'fa
+解决缓存的数据量太大和并发量太大的问题
+
+通过部署多台Redis主节点，同时提供读写服务，缓存的数据库相对均匀地分布在这些主节点上，客户端的请求通过路由规则转发到目标master上
+
+为保证高可用，每台master配备一多个slave
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NTgzNzA4NTgsLTIwODg3NDY2MTJdfQ
-==
+eyJoaXN0b3J5IjpbMTQ1MTgwMTQxNywtMjA4ODc0NjYxMl19
 -->
