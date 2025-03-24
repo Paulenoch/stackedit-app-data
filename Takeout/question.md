@@ -30,12 +30,23 @@ nginx有很多负载均衡策略，比如轮询（默认），weight权重方式
 
 第三：从库重做中继日志中的事件，在slave库上做相应的更改。
 
+主库配置
+```sql
+[mysqld]
+server-id = 1               # 必须唯一
+log_bin = mysql-bin         # 开启二进制日志
+binlog_format = ROW         # 推荐使用ROW格式
+binlog-do-db = 需要复制的数据库名 # 可选，指定复制哪些库
+```
+从库配置
+
+
 ### Sharding-JDBC怎么实现读写分离
 
 对于同一时刻有大量并发读操作和较少写操作类型的应用来说，将数据库拆分为主库和从库，主库就负责处理事务性的增删改操作，从库负责处理查询操作，能够有效的避免由数据更新导致的行锁（innodb引擎支持的就是行锁），使得整个系统的性能得到极大改善。
 
 Sharding-JDBC介绍Sharding-JDBC定位为轻量级java框架，在java的JDBC层提供的额外服务。它使用客户端直连数据库，以jar包形式提供服务，无需额外部署和依赖，可理解为增强版的JDBC驱动，完全兼容JDBC和各种ORM框架。使用Sharding-JDBC可以在程序中轻松的实现数据库读写分离,优点在于数据源完全有Sharding托管，写操作自动执行master库，读操作自动执行slave库。不需要程序员在程序中关注这个实现了。
-```java
+```yml
 spring:
   shardingsphere:
     datasource:
@@ -89,7 +100,7 @@ spring:
 
 其实排他锁底层使用也是setnx，保证了同时只能有一个线程操作锁
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDYyNjkyNzgsLTE5ODgxNDc3OSwtMz
-kyMTg4NTYyLDIwNDc0ODEzODMsMTU2OTA1OTYzNCwyMDgzMzg3
-NzE2LDE0OTY1MzI2MDRdfQ==
+eyJoaXN0b3J5IjpbLTgwMTc2MTk3MywtMTk4ODE0Nzc5LC0zOT
+IxODg1NjIsMjA0NzQ4MTM4MywxNTY5MDU5NjM0LDIwODMzODc3
+MTYsMTQ5NjUzMjYwNF19
 -->
