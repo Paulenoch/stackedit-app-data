@@ -8,7 +8,12 @@
 - Netty的ChannelPipeline和ChannelHandler等组件构成了一个灵活的事件处理链，允许开发者在应用层自定义各种事件处理逻辑，如身份验证、消息加密、业务逻辑处理等
 
 ## 2. Netty在项目中的作用和执行流程
-netty是一个高性能的网络框架，可以实现高效的信息传输；抽象了Java NIO底层的f
+netty是一个高性能的网络框架，可以实现高效的信息传输；抽象了Java NIO底层的复杂性，提供了简单的API；提供各种组件处理网络数据
+
+流程：
+1. 客户端发起请求：
+- 客户端根据服务地址通过netty客户端API创建一个客户端Channel，连接到服务端的指定端口
+- 客户端将RPCRequest封装成请求信息，通过Netty的编码器jian
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2NDk0NDgwNywtNjY1MzQyMzFdfQ==
+eyJoaXN0b3J5IjpbMTA4NDIyNTQ4NywtNjY1MzQyMzFdfQ==
 -->
