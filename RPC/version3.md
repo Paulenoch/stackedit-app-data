@@ -27,6 +27,8 @@
         
     
     -   实现较为复杂，需要引入虚拟节点等技术来解决哈希偏斜问题。
+    - “虚拟节点”就是真实节点的复制品，一个真实的节点对应多个“虚拟节点”，这样使得我们的节点能尽可能的在环形Hash空间均匀分布，这样我们再根据虚拟节点找到真实节点，从而保证每个真实节点上分配到的请求是均衡的。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0OTU3MTg1MiwtMjA4ODc0NjYxMl19
+eyJoaXN0b3J5IjpbMjEwNjEzNjE0OCwtNDQ5NTcxODUyLC0yMD
+g4NzQ2NjEyXX0=
 -->
