@@ -22,7 +22,15 @@ step5：执行init方法
 # 4. 堆空间的基本结构，什么情况下对象进入老年代
 ![输入图片说明](/imgs/2025-03-25/JgLtsq5dub1TnuwM.png)
 
-大部分情况，对象首先在Edenqu'yu'fen'b
+大部分情况，对象首先在Eden区域分布
+长期存活的对象进入老年代
+大对象直接进入老年代
+
+# 5. 如何判断对象是否死亡
+引用计数法：给对象中添加一个引用计数器，每有一个地方引用它计数加一
+无法解决对象之间循环引用的问题
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTcyNDkzNjJdfQ==
+eyJoaXN0b3J5IjpbLTcyMzc5MTEyXX0=
 -->
