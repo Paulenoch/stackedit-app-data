@@ -7,7 +7,7 @@
 - Netty提供了丰富的协议支持如HTTP，WebSocket，SSL，Protobuf等，Netty通过编解码器，可以在应用层对数据进行编解码
 - Netty的ChannelPipeline和ChannelHandler等组件构成了一个灵活的事件处理链，允许开发者在应用层自定义各种事件处理逻辑，如身份验证、消息加密、业务逻辑处理等
 
-## 2. 
+## 2. Ne
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2NTM0MjMxXX0=
+eyJoaXN0b3J5IjpbLTg2MDQ2NDI3MCwtNjY1MzQyMzFdfQ==
 -->
