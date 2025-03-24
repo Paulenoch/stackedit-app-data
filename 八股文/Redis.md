@@ -101,6 +101,10 @@ runid：前两项一样，选runid最小的
 
 ### Redis Cluster是如何分片的
 采用哈希槽分区，每一个键值对都属于一个哈希槽
+
+### 节点之间如何通信
+Gossip协议
+![输入图片说明](/imgs/2025-03-25/hy5BibOnmpqkvNzi.png)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY4NzYyMjEyOCwtMjA4ODc0NjYxMl19
+eyJoaXN0b3J5IjpbLTk1NDY1NjQ5MywtMjA4ODc0NjYxMl19
 -->
