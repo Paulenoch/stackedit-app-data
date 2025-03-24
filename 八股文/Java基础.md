@@ -92,7 +92,9 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 
 
 
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU4NTQyNTA2NCw3NDg3MDg0OTUsLTEyND
-c2MzcwNTNdfQ==
+eyJoaXN0b3J5IjpbLTM4NjE3OTE5NiwxNTg1NDI1MDY0LDc0OD
+cwODQ5NSwtMTI0NzYzNzA1M119
 -->
