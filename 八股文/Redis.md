@@ -11,8 +11,9 @@
 # 3. 单线程如何监听大量的客户端连接
 通过IO多路复用，I/O 多路复用技术的使用让 Redis 不需要额外创建多余的线程来监听客户端的大量连接，降低了资源的消耗
 
-Red
+# 4. Redis为何给缓存数据设定过期时间，如何判断是否过期，过期数据删除策略？
+1. 缓存大小有限，短信验证码之类的功能也要设定过期时间
+2. 通过一个过期字典（hash表）保存过期时间
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTUyMTU4MTgsLTIwODg3NDY2MTJdfQ
-==
+eyJoaXN0b3J5IjpbNzM5NjEzMjk4LC0yMDg4NzQ2NjEyXX0=
 -->
