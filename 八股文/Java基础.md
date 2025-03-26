@@ -127,8 +127,16 @@ Java在编译期间，所有的泛型信息都会被擦除，动态地将泛型T
 ## 18. 什么是通配符，有什么作用
 通配符允许参数类型变化，解决泛型类型是固定的这一问题
 
+```java
+// 限制为Person的子类
+<? extends Person>
+// 限制为Manager的父类
+<? super Manager>
+```
 
-
+### 和泛型T的区别
+- T可以用于声明变量而?不行
+- T一般用于声明泛型类或方法，?yi'b
 
 
 
@@ -136,7 +144,8 @@ Java在编译期间，所有的泛型信息都会被擦除，动态地将泛型T
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTU0MDI4NzEsLTM2OTcxMDk4NCwtMTY2MT
-g1MzMzMSwxMTc3MjI1MDI3LDE4ODg4NDUzNzksLTM4NjE3OTE5
-NiwxNTg1NDI1MDY0LDc0ODcwODQ5NSwtMTI0NzYzNzA1M119
+eyJoaXN0b3J5IjpbLTE3MjY5NDQ0ODMsLTM2OTcxMDk4NCwtMT
+Y2MTg1MzMzMSwxMTc3MjI1MDI3LDE4ODg4NDUzNzksLTM4NjE3
+OTE5NiwxNTg1NDI1MDY0LDc0ODcwODQ5NSwtMTI0NzYzNzA1M1
+19
 -->
