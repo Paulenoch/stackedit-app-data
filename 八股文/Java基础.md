@@ -89,7 +89,16 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 -   字符串常量池中不存在 "abc"：会创建 2 个 字符串对象。一个在字符串常量池中，由 `ldc` 指令触发创建。一个在堆中，由 `new String()` 创建，并使用常量池中的 "abc" 进行初始化。
 -   字符串常量池中已存在 "abc"：会创建 1 个 字符串对象。该对象在堆中，由 `new String()` 创建，并使用常量池中的 "abc" 进行初始化。
 
-#
+## 15. 使用try-with-resource代替try-catch-finally
+在 `try-with-resources` 语句中，任何 catch 或 finally 块在声明的资源关闭后运行
+```java
+try (Scanner scanner = new Scanner(new File("test.txt"))) {
+	while (scanner.hasNext()) { 
+		System.out.println(scanner.nextLine()); 
+	} 
+} catch (FileNotFoundException fnfe) {
+ fnfe.printStackTrace(); }
+```
 
 
 
@@ -97,6 +106,6 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTA0MTc4OTA1LC0zODYxNzkxOTYsMTU4NT
+eyJoaXN0b3J5IjpbMTc0OTk3MDA4LC0zODYxNzkxOTYsMTU4NT
 QyNTA2NCw3NDg3MDg0OTUsLTEyNDc2MzcwNTNdfQ==
 -->
