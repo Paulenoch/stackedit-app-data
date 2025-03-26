@@ -49,7 +49,7 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 
 ### 自动拆装箱引起NPE问题
 ![输入图片说明](/imgs/2025-03-26/5QxvIDmZclPMxGeE.png)
-
+`flag ? 0 : i`这行代码中，0是基本数据类型int，返回数据时i会被强制拆箱成int类型，由于i的值是null，抛出了NPE异常
 
 ## 7. 静态变量有什么用
 它可以被类的所有实例共享，无论一个类创建了多少个对象，它们都共享同一份静态变量。也就是说，静态变量只会被分配一次内存，即使创建多个对象，这样可以节省内存。
@@ -121,7 +121,7 @@ Java 中将实参传递给方法（或函数）的方式是 **值传递**：
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTgzODQ1NTcsMTg4ODg0NTM3OSwtMz
-g2MTc5MTk2LDE1ODU0MjUwNjQsNzQ4NzA4NDk1LC0xMjQ3NjM3
-MDUzXX0=
+eyJoaXN0b3J5IjpbMTE3NzIyNTAyNywxODg4ODQ1Mzc5LC0zOD
+YxNzkxOTYsMTU4NTQyNTA2NCw3NDg3MDg0OTUsLTEyNDc2Mzcw
+NTNdfQ==
 -->
