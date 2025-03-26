@@ -123,7 +123,8 @@ Java在编译期间，所有的泛型信息都会被擦除，动态地将泛型T
 - 使用泛型可以在编译期间进行类型检测
 - 使用Object需要手动添加强制类型转换
 - 泛型可以使用自限定类型如T extends Comparable
-- 
+
+
 
 
 
@@ -132,7 +133,8 @@ Java在编译期间，所有的泛型信息都会被擦除，动态地将泛型T
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2OTcxMDk4NCwtMTY2MTg1MzMzMSwxMT
-c3MjI1MDI3LDE4ODg4NDUzNzksLTM4NjE3OTE5NiwxNTg1NDI1
-MDY0LDc0ODcwODQ5NSwtMTI0NzYzNzA1M119
+eyJoaXN0b3J5IjpbLTI1MTAyNDg3MSwtMzY5NzEwOTg0LC0xNj
+YxODUzMzMxLDExNzcyMjUwMjcsMTg4ODg0NTM3OSwtMzg2MTc5
+MTk2LDE1ODU0MjUwNjQsNzQ4NzA4NDk1LC0xMjQ3NjM3MDUzXX
+0=
 -->
