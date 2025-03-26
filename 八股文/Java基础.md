@@ -114,6 +114,11 @@ Java 中将实参传递给方法（或函数）的方式是 **值传递**：
 -   如果参数是基本类型的话，很简单，传递的就是基本类型的字面量值的拷贝，会创建副本。
 -   如果参数是引用类型，传递的就是实参所引用的对象在堆中地址值的拷贝，同样也会创建副本。
 
+## 17. 泛型擦除机制，为什么要擦除
+Java在编译期间，所有的泛型信息都会被擦除，动态地将泛型T擦除为Object，或将T extend xxx擦除为其限定类型xxx
+
+目的是为了引入泛型机制但不创建新的类型，
+
 
 
 
@@ -121,7 +126,7 @@ Java 中将实参传递给方法（或函数）的方式是 **值传递**：
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE3NzIyNTAyNywxODg4ODQ1Mzc5LC0zOD
-YxNzkxOTYsMTU4NTQyNTA2NCw3NDg3MDg0OTUsLTEyNDc2Mzcw
-NTNdfQ==
+eyJoaXN0b3J5IjpbNDg5MjIzOTk0LDExNzcyMjUwMjcsMTg4OD
+g0NTM3OSwtMzg2MTc5MTk2LDE1ODU0MjUwNjQsNzQ4NzA4NDk1
+LC0xMjQ3NjM3MDUzXX0=
 -->
