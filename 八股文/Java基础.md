@@ -236,9 +236,22 @@ public class JdkProxyFactory {
     }
 }
 ```
+5. 实际使用
+```java
+SmsService smsService = (SmsService) JdkProxyFactory.getProxy(new SmsServiceImpl());
+smsService.send("java");
+```
+控制台输出
+```
+before method send
+send message:java
+after method send
+```
+
+## 20. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1MTgyNzcyNSwtOTM4NDg1ODk2LC05MT
-k5MTUwOTUsLTM2OTcxMDk4NCwtMTY2MTg1MzMzMSwxMTc3MjI1
-MDI3LDE4ODg4NDUzNzksLTM4NjE3OTE5NiwxNTg1NDI1MDY0LD
-c0ODcwODQ5NSwtMTI0NzYzNzA1M119
+eyJoaXN0b3J5IjpbLTEwNzQwMDE5OTgsLTkzODQ4NTg5NiwtOT
+E5OTE1MDk1LC0zNjk3MTA5ODQsLTE2NjE4NTMzMzEsMTE3NzIy
+NTAyNywxODg4ODQ1Mzc5LC0zODYxNzkxOTYsMTU4NTQyNTA2NC
+w3NDg3MDg0OTUsLTEyNDc2MzcwNTNdfQ==
 -->
