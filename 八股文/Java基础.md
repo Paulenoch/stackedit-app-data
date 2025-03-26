@@ -183,8 +183,15 @@ public interface InvocationHandler {
 1.  **proxy** :动态生成的代理类
 2.  **method** : 与代理类对象调用的方法相对应
 3.  **args** : 当前 method 方法的参数
+
+### 代码示例：
+1. 定义发送短信的接口
+```
+public interface SmsService {
+    String send(String message);
+}
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0MDg2OTU2NiwtOTM4NDg1ODk2LC05MT
+eyJoaXN0b3J5IjpbLTc5NTkzMTMyNywtOTM4NDg1ODk2LC05MT
 k5MTUwOTUsLTM2OTcxMDk4NCwtMTY2MTg1MzMzMSwxMTc3MjI1
 MDI3LDE4ODg4NDUzNzksLTM4NjE3OTE5NiwxNTg1NDI1MDY0LD
 c0ODcwODQ5NSwtMTI0NzYzNzA1M119
