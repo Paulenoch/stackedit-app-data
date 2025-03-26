@@ -119,6 +119,12 @@ Java在编译期间，所有的泛型信息都会被擦除，动态地将泛型T
 
 目的是为了引入泛型机制但不创建新的类型，减少虚拟机的运行开销
 
+### 既然要擦除，为什么要用泛型不用Object
+- 使用泛型可以在编译期间进行类型检测
+- 使用Object需要手动添加强制类型转换
+- 泛型可以使用自限定类型如T extends Comparable
+- 
+
 
 
 
@@ -126,7 +132,7 @@ Java在编译期间，所有的泛型信息都会被擦除，动态地将泛型T
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjE4NTMzMzEsMTE3NzIyNTAyNywxOD
-g4ODQ1Mzc5LC0zODYxNzkxOTYsMTU4NTQyNTA2NCw3NDg3MDg0
-OTUsLTEyNDc2MzcwNTNdfQ==
+eyJoaXN0b3J5IjpbLTM2OTcxMDk4NCwtMTY2MTg1MzMzMSwxMT
+c3MjI1MDI3LDE4ODg4NDUzNzksLTM4NjE3OTE5NiwxNTg1NDI1
+MDY0LDc0ODcwODQ5NSwtMTI0NzYzNzA1M119
 -->
