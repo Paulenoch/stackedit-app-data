@@ -164,10 +164,28 @@ void testMethod(Person<?> p) {
         ......
     }
 ```
-此方法共有3个参数：loader: 类加载器，用于加载
+此方法共有3个参数：
+1.  **loader** :类加载器，用于加载代理对象。
+2.  **interfaces** : 被代理类实现的一些接口；
+3.  **h** : 实现了 `InvocationHandler` 接口的对象；
+
+要实现动态代理的话，还必须需要实现`InvocationHandler` 来自定义处理逻辑。 当我们的动态代理对象调用一个方法时，这个方法的调用就会被转发到实现`InvocationHandler` 接口类的 `invoke` 方法来调用
+```java
+public interface InvocationHandler {
+
+    /**
+     * 当你使用代理对象调用方法的时候实际会调用到这个方法
+     */
+    public Object invoke(Object proxy, Method method, Object[] args)
+        throws Throwable;
+}
+```
+1.  **proxy** :动态生成的代理类
+2.  **method** : 与代理类对象调用的方法相对应
+3.  **args** : 当前 method 方法的参数
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkzODQ4NTg5NiwtOTE5OTE1MDk1LC0zNj
-k3MTA5ODQsLTE2NjE4NTMzMzEsMTE3NzIyNTAyNywxODg4ODQ1
-Mzc5LC0zODYxNzkxOTYsMTU4NTQyNTA2NCw3NDg3MDg0OTUsLT
-EyNDc2MzcwNTNdfQ==
+eyJoaXN0b3J5IjpbLTI0MDg2OTU2NiwtOTM4NDg1ODk2LC05MT
+k5MTUwOTUsLTM2OTcxMDk4NCwtMTY2MTg1MzMzMSwxMTc3MjI1
+MDI3LDE4ODg4NDUzNzksLTM4NjE3OTE5NiwxNTg1NDI1MDY0LD
+c0ODcwODQ5NSwtMTI0NzYzNzA1M119
 -->
