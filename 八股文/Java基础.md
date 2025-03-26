@@ -97,8 +97,11 @@ try (Scanner scanner = new Scanner(new File("test.txt"))) {
 		System.out.println(scanner.nextLine()); 
 	} 
 } catch (FileNotFoundException fnfe) {
- fnfe.printStackTrace(); }
+ fnfe.printStackTrace(); 
+}
 ```
+通过使用分号分隔，可以在`try-with-resources`块中声明多个资源。
+-   不要把异常定义为静态变量，因为这样会导致异常栈信息错乱。每次手动抛出异常，我们都需要手动 new 一个异常对象抛出。
 
 
 
@@ -106,6 +109,6 @@ try (Scanner scanner = new Scanner(new File("test.txt"))) {
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0OTk3MDA4LC0zODYxNzkxOTYsMTU4NT
-QyNTA2NCw3NDg3MDg0OTUsLTEyNDc2MzcwNTNdfQ==
+eyJoaXN0b3J5IjpbLTY2NjE4ODE5NywtMzg2MTc5MTk2LDE1OD
+U0MjUwNjQsNzQ4NzA4NDk1LC0xMjQ3NjM3MDUzXX0=
 -->
