@@ -140,7 +140,15 @@ Java在编译期间，所有的泛型信息都会被擦除，动态地将泛型T
 - T在编译期间会被擦除为限定类型或Object，通配符用于捕获具体类型
 
 ### 什么是无界通配符
-无界通配符可以接受任何泛型类型数据，用于实现不依赖具体类型参数的简单方法，可以捕获参数并交由
+无界通配符可以接受任何泛型类型数据，用于实现不依赖具体类型参数的简单方法，可以捕获参数并交由泛型方法进行处理
+```java
+void testMethod(Person<?> p) {
+	//泛型方法自行处理
+}
+```
+
+### List<?>和List有区别吗
+List《
 
 
 
@@ -148,8 +156,8 @@ Java在编译期间，所有的泛型信息都会被擦除，动态地将泛型T
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTEzNTcwNTg3LC0zNjk3MTA5ODQsLTE2Nj
-E4NTMzMzEsMTE3NzIyNTAyNywxODg4ODQ1Mzc5LC0zODYxNzkx
-OTYsMTU4NTQyNTA2NCw3NDg3MDg0OTUsLTEyNDc2MzcwNTNdfQ
-==
+eyJoaXN0b3J5IjpbMTQwMTIwOTE1NSwtMzY5NzEwOTg0LC0xNj
+YxODUzMzMxLDExNzcyMjUwMjcsMTg4ODg0NTM3OSwtMzg2MTc5
+MTk2LDE1ODU0MjUwNjQsNzQ4NzA4NDk1LC0xMjQ3NjM3MDUzXX
+0=
 -->
