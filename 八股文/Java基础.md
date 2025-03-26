@@ -136,7 +136,11 @@ Java在编译期间，所有的泛型信息都会被擦除，动态地将泛型T
 
 ### 和泛型T的区别
 - T可以用于声明变量而?不行
-- T一般用于声明泛型类或方法，?yi'b
+- T一般用于声明泛型类或方法，?一般用于泛型方法的调用代码和形参
+- T在编译期间会被擦除为限定类型或Object，通配符用于捕获具体类型
+
+### 什么是无界通配符
+无界通配符可以接受任何泛型类型数据，用于实现不依赖具体类型参数的简单方法，可以捕获参数并交由
 
 
 
@@ -144,8 +148,8 @@ Java在编译期间，所有的泛型信息都会被擦除，动态地将泛型T
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MjY5NDQ0ODMsLTM2OTcxMDk4NCwtMT
-Y2MTg1MzMzMSwxMTc3MjI1MDI3LDE4ODg4NDUzNzksLTM4NjE3
-OTE5NiwxNTg1NDI1MDY0LDc0ODcwODQ5NSwtMTI0NzYzNzA1M1
-19
+eyJoaXN0b3J5IjpbNTEzNTcwNTg3LC0zNjk3MTA5ODQsLTE2Nj
+E4NTMzMzEsMTE3NzIyNTAyNywxODg4ODQ1Mzc5LC0zODYxNzkx
+OTYsMTU4NTQyNTA2NCw3NDg3MDg0OTUsLTEyNDc2MzcwNTNdfQ
+==
 -->
