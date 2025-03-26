@@ -47,6 +47,10 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 拆箱：```int n = i.intValue()```
 如果频繁拆装箱的话，也会严重影响系统的性能。我们应该尽量避免不必要的拆装箱操作。
 
+### 自动拆装箱引起NPE问题
+![输入图片说明](/imgs/2025-03-26/5QxvIDmZclPMxGeE.png)
+
+
 ## 7. 静态变量有什么用
 它可以被类的所有实例共享，无论一个类创建了多少个对象，它们都共享同一份静态变量。也就是说，静态变量只会被分配一次内存，即使创建多个对象，这样可以节省内存。
 静态变量是通过类名来访问的，例如`StaticVariableExample.staticVar`（如果被 `private`关键字修饰就无法这样访问了）。
@@ -117,6 +121,7 @@ Java 中将实参传递给方法（或函数）的方式是 **值传递**：
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg4ODg0NTM3OSwtMzg2MTc5MTk2LDE1OD
-U0MjUwNjQsNzQ4NzA4NDk1LC0xMjQ3NjM3MDUzXX0=
+eyJoaXN0b3J5IjpbLTIwOTgzODQ1NTcsMTg4ODg0NTM3OSwtMz
+g2MTc5MTk2LDE1ODU0MjUwNjQsNzQ4NzA4NDk1LC0xMjQ3NjM3
+MDUzXX0=
 -->
