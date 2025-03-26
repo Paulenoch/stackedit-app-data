@@ -267,10 +267,13 @@ public interface Override extends Annotation{
 -   **编译期直接扫描**：编译器在编译 Java 代码的时候扫描对应的注解并处理，比如某个方法使用`@Override` 注解，编译器在编译的时候就会检测当前的方法是否重写了父类对应的方法。
 -   **运行期通过反射处理**：像框架中自带的注解(比如 Spring 框架的 `@Value`、`@Component`)都是通过反射来进行处理的
 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODk2MDQzODYsLTEwNzQwMDE5OTgsLT
-kzODQ4NTg5NiwtOTE5OTE1MDk1LC0zNjk3MTA5ODQsLTE2NjE4
-NTMzMzEsMTE3NzIyNTAyNywxODg4ODQ1Mzc5LC0zODYxNzkxOT
-YsMTU4NTQyNTA2NCw3NDg3MDg0OTUsLTEyNDc2MzcwNTNdfQ==
+## 21. SPI
+SPI 即 Service Provider Interface ，字面意思就是：“服务提供者的接口”，专门提供给服务提供者或者扩展框架功能的开发者去使用的一个接口。
 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMjUxODIwNzg5LC0xNjg5NjA0Mzg2LC0xMD
+c0MDAxOTk4LC05Mzg0ODU4OTYsLTkxOTkxNTA5NSwtMzY5NzEw
+OTg0LC0xNjYxODUzMzMxLDExNzcyMjUwMjcsMTg4ODg0NTM3OS
+wtMzg2MTc5MTk2LDE1ODU0MjUwNjQsNzQ4NzA4NDk1LC0xMjQ3
+NjM3MDUzXX0=
 -->
