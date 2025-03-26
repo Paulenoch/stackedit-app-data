@@ -186,12 +186,24 @@ public interface InvocationHandler {
 
 ### 代码示例：
 1. 定义发送短信的接口
-```
+```java
 public interface SmsService {
     String send(String message);
 }
+```
+2. 实现发送短信的接口
+```java
+public class SmsServiceImpl implements SmsService {
+    public String send(String message) {
+        System.out.println("send message:" + message);
+        return message;
+    }
+}
+```
+3. 定义一个jdk动态类
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5NTkzMTMyNywtOTM4NDg1ODk2LC05MT
+eyJoaXN0b3J5IjpbLTE4NjE5NDA2MSwtOTM4NDg1ODk2LC05MT
 k5MTUwOTUsLTM2OTcxMDk4NCwtMTY2MTg1MzMzMSwxMTc3MjI1
 MDI3LDE4ODg4NDUzNzksLTM4NjE3OTE5NiwxNTg1NDI1MDY0LD
 c0ODcwODQ5NSwtMTI0NzYzNzA1M119
