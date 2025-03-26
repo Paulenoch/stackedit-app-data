@@ -124,6 +124,9 @@ Java在编译期间，所有的泛型信息都会被擦除，动态地将泛型T
 - 使用Object需要手动添加强制类型转换
 - 泛型可以使用自限定类型如T extends Comparable
 
+## 18. 什么是通配符，有什么作用
+通配符允许参数类型变化，解决泛型类型是固定的这一问题
+
 
 
 
@@ -133,8 +136,7 @@ Java在编译期间，所有的泛型信息都会被擦除，动态地将泛型T
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1MTAyNDg3MSwtMzY5NzEwOTg0LC0xNj
-YxODUzMzMxLDExNzcyMjUwMjcsMTg4ODg0NTM3OSwtMzg2MTc5
-MTk2LDE1ODU0MjUwNjQsNzQ4NzA4NDk1LC0xMjQ3NjM3MDUzXX
-0=
+eyJoaXN0b3J5IjpbOTU0MDI4NzEsLTM2OTcxMDk4NCwtMTY2MT
+g1MzMzMSwxMTc3MjI1MDI3LDE4ODg4NDUzNzksLTM4NjE3OTE5
+NiwxNTg1NDI1MDY0LDc0ODcwODQ5NSwtMTI0NzYzNzA1M119
 -->
