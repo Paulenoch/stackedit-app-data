@@ -151,16 +151,22 @@ void testMethod(Person<?> p) {
 `List<?> list`表示list是持有某种特定类型的list，但不知道具体类型，此时直接添加元素会报错
 `List list`表示list持有的元素类型是object，可以添加任何类型的对象
 
-## 
+## 19. 动态代理
+**在 Java 动态代理机制中 `InvocationHandler` 接口和 `Proxy` 类是核心。**
 
-
-
-
-
-
+`Proxy` 类中使用频率最高的方法是：`newProxyInstance()` ，这个方法主要用来生成一个代理对象。
+```java
+    public static Object newProxyInstance(ClassLoader loader,
+                                          Class<?>[] interfaces,
+                                          InvocationHandler h)
+        throws IllegalArgumentException
+    {
+        ......
+    }
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMTg3MzUyNDUsLTkxOTkxNTA5NSwtMz
-Y5NzEwOTg0LC0xNjYxODUzMzMxLDExNzcyMjUwMjcsMTg4ODg0
-NTM3OSwtMzg2MTc5MTk2LDE1ODU0MjUwNjQsNzQ4NzA4NDk1LC
-0xMjQ3NjM3MDUzXX0=
+eyJoaXN0b3J5IjpbNzg5OTAyNzg5LC05MTk5MTUwOTUsLTM2OT
+cxMDk4NCwtMTY2MTg1MzMzMSwxMTc3MjI1MDI3LDE4ODg4NDUz
+NzksLTM4NjE3OTE5NiwxNTg1NDI1MDY0LDc0ODcwODQ5NSwtMT
+I0NzYzNzA1M119
 -->
