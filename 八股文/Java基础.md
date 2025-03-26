@@ -104,7 +104,7 @@ try (Scanner scanner = new Scanner(new File("test.txt"))) {
 
 不要把异常定义为静态变量，因为这样会导致异常栈信息错乱。每次手动抛出异常，我们都需要手动 new 一个异常对象抛出。
 
-
+## 16. 
 
 
 
@@ -112,6 +112,6 @@ try (Scanner scanner = new Scanner(new File("test.txt"))) {
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5MTUxNDUzNiwtMzg2MTc5MTk2LDE1OD
-U0MjUwNjQsNzQ4NzA4NDk1LC0xMjQ3NjM3MDUzXX0=
+eyJoaXN0b3J5IjpbMzc2ODAyNDc3LC0zODYxNzkxOTYsMTU4NT
+QyNTA2NCw3NDg3MDg0OTUsLTEyNDc2MzcwNTNdfQ==
 -->
