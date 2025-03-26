@@ -117,7 +117,7 @@ Java 中将实参传递给方法（或函数）的方式是 **值传递**：
 ## 17. 泛型擦除机制，为什么要擦除
 Java在编译期间，所有的泛型信息都会被擦除，动态地将泛型T擦除为Object，或将T extend xxx擦除为其限定类型xxx
 
-目的是为了引入泛型机制但不创建新的类型，
+目的是为了引入泛型机制但不创建新的类型，减少虚拟机的运行开销
 
 
 
@@ -126,7 +126,7 @@ Java在编译期间，所有的泛型信息都会被擦除，动态地将泛型T
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDg5MjIzOTk0LDExNzcyMjUwMjcsMTg4OD
-g0NTM3OSwtMzg2MTc5MTk2LDE1ODU0MjUwNjQsNzQ4NzA4NDk1
-LC0xMjQ3NjM3MDUzXX0=
+eyJoaXN0b3J5IjpbLTE2NjE4NTMzMzEsMTE3NzIyNTAyNywxOD
+g4ODQ1Mzc5LC0zODYxNzkxOTYsMTU4NTQyNTA2NCw3NDg3MDg0
+OTUsLTEyNDc2MzcwNTNdfQ==
 -->
