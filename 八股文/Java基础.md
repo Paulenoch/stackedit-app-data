@@ -151,7 +151,7 @@ void testMethod(Person<?> p) {
 `List<?> list`表示list是持有某种特定类型的list，但不知道具体类型，此时直接添加元素会报错
 `List list`表示list持有的元素类型是object，可以添加任何类型的对象
 
-
+## 
 
 
 
@@ -159,8 +159,8 @@ void testMethod(Person<?> p) {
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxOTkxNTA5NSwtMzY5NzEwOTg0LC0xNj
-YxODUzMzMxLDExNzcyMjUwMjcsMTg4ODg0NTM3OSwtMzg2MTc5
-MTk2LDE1ODU0MjUwNjQsNzQ4NzA4NDk1LC0xMjQ3NjM3MDUzXX
-0=
+eyJoaXN0b3J5IjpbLTEwMTg3MzUyNDUsLTkxOTkxNTA5NSwtMz
+Y5NzEwOTg0LC0xNjYxODUzMzMxLDExNzcyMjUwMjcsMTg4ODg0
+NTM3OSwtMzg2MTc5MTk2LDE1ODU0MjUwNjQsNzQ4NzA4NDk1LC
+0xMjQ3NjM3MDUzXX0=
 -->
