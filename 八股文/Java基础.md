@@ -104,7 +104,12 @@ try (Scanner scanner = new Scanner(new File("test.txt"))) {
 
 不要把异常定义为静态变量，因为这样会导致异常栈信息错乱。每次手动抛出异常，我们都需要手动 new 一个异常对象抛出。
 
-## 16. 
+## 16. 值传递
+Java 中将实参传递给方法（或函数）的方式是 **值传递**：
+
+-   如果参数是基本类型的话，很简单，传递的就是基本类型的字面量值的拷贝，会创建副本。
+-   如果参数是引用类型，传递的就是实参所引用的对象在堆中地址值的拷贝，同样也会创建副本。
+
 
 
 
@@ -112,6 +117,6 @@ try (Scanner scanner = new Scanner(new File("test.txt"))) {
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzc2ODAyNDc3LC0zODYxNzkxOTYsMTU4NT
-QyNTA2NCw3NDg3MDg0OTUsLTEyNDc2MzcwNTNdfQ==
+eyJoaXN0b3J5IjpbMTg4ODg0NTM3OSwtMzg2MTc5MTk2LDE1OD
+U0MjUwNjQsNzQ4NzA4NDk1LC0xMjQ3NjM3MDUzXX0=
 -->
