@@ -248,10 +248,29 @@ send message:java
 after method send
 ```
 
-## 20. 
+## 20. 注解
+注解本质是一个继承了`Annotation` 的特殊接口：
+```java
+@Target(ElementType.METHOD) // 指定被修饰的注解可以应用在哪些Java元素上。
+@Retention(RetentionPolicy.SOURCE) // 指定被修饰的注解的保留策略（生命周期）
+public @interface Override {
+
+}
+
+public interface Override extends Annotation{
+
+}
+```
+### 注解的解析方法
+注解只有被解析之后才会生效，常见的解析方法有两种：
+
+-   **编译期直接扫描**：编译器在编译 Java 代码的时候扫描对应的注解并处理，比如某个方法使用`@Override` 注解，编译器在编译的时候就会检测当前的方法是否重写了父类对应的方法。
+-   **运行期通过反射处理**：像框架中自带的注解(比如 Spring 框架的 `@Value`、`@Component`)都是通过反射来进行处理的
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzQwMDE5OTgsLTkzODQ4NTg5NiwtOT
-E5OTE1MDk1LC0zNjk3MTA5ODQsLTE2NjE4NTMzMzEsMTE3NzIy
-NTAyNywxODg4ODQ1Mzc5LC0zODYxNzkxOTYsMTU4NTQyNTA2NC
-w3NDg3MDg0OTUsLTEyNDc2MzcwNTNdfQ==
+eyJoaXN0b3J5IjpbLTE2ODk2MDQzODYsLTEwNzQwMDE5OTgsLT
+kzODQ4NTg5NiwtOTE5OTE1MDk1LC0zNjk3MTA5ODQsLTE2NjE4
+NTMzMzEsMTE3NzIyNTAyNywxODg4ODQ1Mzc5LC0zODYxNzkxOT
+YsMTU4NTQyNTA2NCw3NDg3MDg0OTUsLTEyNDc2MzcwNTNdfQ==
+
 -->
