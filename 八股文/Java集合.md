@@ -1,6 +1,25 @@
 # 1. 各集合框架底层实现
 ## ArrayList
-di'cObject[]数组，
+底层是Object[]数组，支持快速随机访问，适用于频繁的查找工作，线程不安全
+
+可以添加null值，但不建议因为无意义，而且会让代码难以维护
+
+### ArrayList和Link
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 LinkedList：双向列表
 
 HashSet：基于HashMap实现
@@ -25,5 +44,5 @@ TreeMap：红黑树
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA1ODEyNTEzMywxMTI0MjgzOTg4XX0=
+eyJoaXN0b3J5IjpbMTk1OTE2ODc3MywxMTI0MjgzOTg4XX0=
 -->
