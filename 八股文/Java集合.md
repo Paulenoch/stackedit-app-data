@@ -39,6 +39,11 @@
 
 从性能的角度上，选用 `ArrayDeque` 来实现队列要比 `LinkedList` 更好。此外，`ArrayDeque` 也可以用于实现栈。
 
+### PriorityQueue
+-   `PriorityQueue` 利用了二叉堆的数据结构来实现的，底层使用可变长的数组来存储数据
+-   `PriorityQueue` 通过堆元素的上浮和下沉，实现了在 O(logn) 的时间复杂度内插入元素和删除堆顶元素。
+-   `PriorityQueue` 是非线程安全的，且不支持存储 `NULL` 和 `non-comparable` 的对象。
+-   `PriorityQueue` 默认是小顶堆，但可以接收一个 `Comparator` 作为构造参数，从而来自定义元素优先级的先后。
 
 
 
@@ -59,6 +64,6 @@
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYwMzk3Mjc1OCwyMDA0ODQzOTU1LC0xNj
+eyJoaXN0b3J5IjpbLTM2MDAwMzcyOSwyMDA0ODQzOTU1LC0xNj
 cyNTkxMjMsMTEyNDI4Mzk4OF19
 -->
