@@ -28,6 +28,9 @@
 -   `HashSet`、`LinkedHashSet` 和 `TreeSet` 的主要区别在于底层数据结构不同。`HashSet` 的底层数据结构是哈希表（基于 `HashMap` 实现）。`LinkedHashSet` 的底层数据结构是链表和哈希表，元素的插入和取出顺序满足 FIFO（先入先出）。`TreeSet` 底层数据结构是红黑树，元素是有序的，排序的方式有自然排序和定制排序。
 -   底层数据结构不同又导致这三者的应用场景不同。`HashSet` 用于不需要保证元素插入和取出顺序的场景，`LinkedHashSet` 用于保证元素的插入和取出顺序满足 FIFO 的场景，`TreeSet` 用于支持对元素自定义排序规则的场景。
 
+## Queue
+### ArrayDeque和LinkedList的qi
+
 
 
 
@@ -47,6 +50,6 @@
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMjkzMDE0NjcsMjAwNDg0Mzk1NSwtMT
+eyJoaXN0b3J5IjpbLTE2OTQ4MTg3NzUsMjAwNDg0Mzk1NSwtMT
 Y3MjU5MTIzLDExMjQyODM5ODhdfQ==
 -->
