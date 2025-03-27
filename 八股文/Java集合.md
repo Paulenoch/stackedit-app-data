@@ -4,7 +4,10 @@
 
 可以添加null值，但不建议因为无意义，而且会让代码难以维护
 
-### ArrayList和Link
+### ArrayList和LinkedList对比
+- 二者都线程不安全
+- ArrayList是Object[]数组，LinkedList是双向列表
+- LinkedList不支持kuai'su'sui'j
 
 
 
@@ -44,5 +47,5 @@ TreeMap：红黑树
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1OTE2ODc3MywxMTI0MjgzOTg4XX0=
+eyJoaXN0b3J5IjpbOTI3OTk5ODQ5LDExMjQyODM5ODhdfQ==
 -->
