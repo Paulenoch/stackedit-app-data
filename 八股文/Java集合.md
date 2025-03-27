@@ -1,4 +1,4 @@
-# 1. 各集合框架底层实现
+
 ## List
 底层是Object[]数组，支持快速随机访问，适用于频繁的查找工作，线程不安全
 
@@ -18,7 +18,10 @@
 ### 集合中的 fail-fast 和 fail-safe 是什么
 快速失败的思想即针对可能发生的异常进行提前表明故障并停止运行，通过尽早的发现和停止错误，降低故障系统级联的风险。
 
-
+## Set
+### 无序性和不可重复性的含义是什么
+-   无序性不等于随机性 ，无序性是指存储的数据在底层数组中并非按照数组索引的顺序添加 ，而是根据数据的哈希值决定的
+-   不可重复性是指添加的元素按照 `equals()` 判断时 ，返回 false，需要同时重写 `equals()` 方法和 `hashCode()` 方法
 
 
 
@@ -57,6 +60,6 @@ TreeMap：红黑树
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwNDg0Mzk1NSwtMTY3MjU5MTIzLDExMj
-QyODM5ODhdfQ==
+eyJoaXN0b3J5IjpbLTEwNzU3NjA0OTksMjAwNDg0Mzk1NSwtMT
+Y3MjU5MTIzLDExMjQyODM5ODhdfQ==
 -->
