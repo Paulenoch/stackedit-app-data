@@ -45,6 +45,11 @@
 -   `PriorityQueue` 是非线程安全的，且不支持存储 `NULL` 和 `non-comparable` 的对象。
 -   `PriorityQueue` 默认是小顶堆，但可以接收一个 `Comparator` 作为构造参数，从而来自定义元素优先级的先后。
 
+### BlockingQueue
+`BlockingQueue` （阻塞队列）是一个接口，继承自 `Queue`。`BlockingQueue`阻塞的原因是其支持当队列没有元素时一直阻塞，直到有元素；还支持如果队列已满，一直等到队列可以放入新元素时再放入。
+`BlockingQueue` 常用于生产者-消费者模型中，生产者线程会向队列中添加数据，而消费者线程会从队列中取出数据进行处理。
+![输入图片说明](/imgs/2025-03-28/NHj0lQPFl45VVquQ.png)
+
 
 
 
@@ -64,6 +69,6 @@
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM2MDAwMzcyOSwyMDA0ODQzOTU1LC0xNj
-cyNTkxMjMsMTEyNDI4Mzk4OF19
+eyJoaXN0b3J5IjpbLTExMDgxMzkzMDAsMjAwNDg0Mzk1NSwtMT
+Y3MjU5MTIzLDExMjQyODM5ODhdfQ==
 -->
