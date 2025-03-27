@@ -23,6 +23,10 @@
 -   无序性不等于随机性 ，无序性是指存储的数据在底层数组中并非按照数组索引的顺序添加 ，而是根据数据的哈希值决定的
 -   不可重复性是指添加的元素按照 `equals()` 判断时 ，返回 false，需要同时重写 `equals()` 方法和 `hashCode()` 方法
 
+### 比较HashSet、LinkedHashSet和TreeSet
+-   `HashSet`、`LinkedHashSet` 和 `TreeSet` 都是 `Set` 接口的实现类，都能保证元素唯一，并且都不是线程安全的。
+-   `HashSet`、`LinkedHashSet` 和 `TreeSet` 的主要区别在于底层数据结构不同。`HashSet` 的底层数据结构是哈希表（基于 `HashMap` 实现）。`LinkedHashSet` 的底层数据结构是链表和哈希表，元素的插入和取出顺序满足 FIFO（先入先出）。`TreeSet` 底层数据结构是红黑树，元素是有序的，排序的方式有自然排序和定制排序。
+-   底层数据结构不同又导致这三者的应用场景不同。`HashSet` 用于不需要保证元素插入和取出顺序的场景，`LinkedHashSet` 用于保证元素的插入和取出顺序满足 FIFO 的场景，`TreeSet` 用于支持对元素自定义排序规则的场景。
 
 
 
@@ -33,23 +37,6 @@
 
 
 
-
-
-
-LinkedList：双向列表
-
-HashSet：基于HashMap实现
-LinkedHashSet：基于LinkedHashMap
-TreeSet：红黑树
-
-PriorityQueue：Object[]数组实现小顶堆
-DelayQueue：PriorityQueue
-ArrayDeque：可扩容动态双向数组
-
-HashMap：数组+链表/数组+红黑树（数组长度不满64先扩容数组，大于等于64后链表转红黑树）
-LinkedHashMap：在HashMap的基础上增加了一条双向链表，可以保持键值对插入的顺序
-HashTable：数组+链表
-TreeMap：红黑树
 
 # 2. HashMap为什么线程不安全
 在 `HashMap` 中，多个键值对可能会被分配到同一个桶（bucket），并以链表或红黑树的形式存储。多个线程对 `HashMap` 的 `put` 操作会导致线程不安全，具体来说会有数据覆盖的风险。
@@ -60,6 +47,6 @@ TreeMap：红黑树
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzU3NjA0OTksMjAwNDg0Mzk1NSwtMT
+eyJoaXN0b3J5IjpbLTEwMjkzMDE0NjcsMjAwNDg0Mzk1NSwtMT
 Y3MjU5MTIzLDExMjQyODM5ODhdfQ==
 -->
