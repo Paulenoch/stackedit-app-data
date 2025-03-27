@@ -14,7 +14,7 @@
 以无参数构造方法创建 `ArrayList` 时，实际上初始化赋值的是一个空数组。当真正对数组进行添加元素操作时，才真正分配容量。即向数组中添加第一个元素时，数组容量扩为 10。
 
 `int newCapacity = oldCapacity + (oldCapacity >> 1)`,所以 ArrayList 每次扩容之后容量都会变为原来的 1.5 倍左右（oldCapacity 为偶数就是 1.5 倍，否则是 1.5 倍左右）
-
+	
 
 
 
@@ -54,5 +54,6 @@ TreeMap：红黑树
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NzI1OTEyMywxMTI0MjgzOTg4XX0=
+eyJoaXN0b3J5IjpbNTMyNjEyMjEsLTE2NzI1OTEyMywxMTI0Mj
+gzOTg4XX0=
 -->
