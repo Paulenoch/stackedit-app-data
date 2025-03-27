@@ -29,7 +29,16 @@
 -   底层数据结构不同又导致这三者的应用场景不同。`HashSet` 用于不需要保证元素插入和取出顺序的场景，`LinkedHashSet` 用于保证元素的插入和取出顺序满足 FIFO 的场景，`TreeSet` 用于支持对元素自定义排序规则的场景。
 
 ## Queue
-### ArrayDeque和LinkedList的qi
+### ArrayDeque和LinkedList的区别
+`ArrayDeque` 和 `LinkedList` 都实现了 `Deque` 接口，两者都具有队列的功能，但两者有什么区别呢？
+
+-   `ArrayDeque` 是基于可变长的数组和双指针来实现，而 `LinkedList` 则通过链表来实现。
+-   `ArrayDeque` 不支持存储 `NULL` 数据，但 `LinkedList` 支持。
+-   `ArrayDeque` 插入时可能存在扩容过程, 不过均摊后的插入操作依然为 O(1)。虽然 `LinkedList` 不需要扩容，但是每次插入数据时均需要申请新的堆空间，均摊性能相比更慢。
+    
+
+从性能的角度上，选用 `ArrayDeque` 来实现队列要比 `LinkedList` 更好。此外，`ArrayDeque` 也可以用于实现栈。
+
 
 
 
@@ -50,6 +59,6 @@
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2OTQ4MTg3NzUsMjAwNDg0Mzk1NSwtMT
-Y3MjU5MTIzLDExMjQyODM5ODhdfQ==
+eyJoaXN0b3J5IjpbMTYwMzk3Mjc1OCwyMDA0ODQzOTU1LC0xNj
+cyNTkxMjMsMTEyNDI4Mzk4OF19
 -->
