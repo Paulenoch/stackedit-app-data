@@ -1,5 +1,6 @@
 # 1. 各集合框架底层实现
-ArrayList：Object[]数组，
+## ArrayList
+di'cObject[]数组，
 LinkedList：双向列表
 
 HashSet：基于HashMap实现
@@ -24,5 +25,5 @@ TreeMap：红黑树
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyNDI4Mzk4OF19
+eyJoaXN0b3J5IjpbMjA1ODEyNTEzMywxMTI0MjgzOTg4XX0=
 -->
