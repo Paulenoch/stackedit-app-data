@@ -1,5 +1,5 @@
 # 1. 各集合框架底层实现
-## ArrayList
+## List
 底层是Object[]数组，支持快速随机访问，适用于频繁的查找工作，线程不安全
 
 可以添加null值，但不建议因为无意义，而且会让代码难以维护
@@ -15,6 +15,9 @@
 
 `int newCapacity = oldCapacity + (oldCapacity >> 1)`,所以 ArrayList 每次扩容之后容量都会变为原来的 1.5 倍左右（oldCapacity 为偶数就是 1.5 倍，否则是 1.5 倍左右）
 	
+### 集合中的 fail-fast 和 fail-safe 是什么
+快速失败的思想即针对可能发生的异常进行提前表明故障并停止运行，通过尽早的发现和停止错误，降低故障系统级联的风险。
+
 
 
 
@@ -54,6 +57,6 @@ TreeMap：红黑树
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTMyNjEyMjEsLTE2NzI1OTEyMywxMTI0Mj
-gzOTg4XX0=
+eyJoaXN0b3J5IjpbMjAwNDg0Mzk1NSwtMTY3MjU5MTIzLDExMj
+QyODM5ODhdfQ==
 -->
