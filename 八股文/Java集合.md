@@ -7,7 +7,9 @@
 ### ArrayList和LinkedList对比
 - 二者都线程不安全
 - ArrayList是Object[]数组，LinkedList是双向列表
-- LinkedList不支持kuai'su'sui'j
+- LinkedList不支持快速随机访问
+- `ArrayList` 的空间浪费主要体现在在 list 列表的结尾会预留一定的容量空间，而 LinkedList 的空间花费则体现在它的每一个元素都需要消耗比 ArrayList 更多的空间（因为要存放直接后继和直接前驱以及数据）
+
 
 
 
@@ -47,5 +49,5 @@ TreeMap：红黑树
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTI3OTk5ODQ5LDExMjQyODM5ODhdfQ==
+eyJoaXN0b3J5IjpbMTYxMzkyOTkwMiwxMTI0MjgzOTg4XX0=
 -->
