@@ -10,7 +10,8 @@
 - LinkedList不支持快速随机访问
 - `ArrayList` 的空间浪费主要体现在在 list 列表的结尾会预留一定的容量空间，而 LinkedList 的空间花费则体现在它的每一个元素都需要消耗比 ArrayList 更多的空间（因为要存放直接后继和直接前驱以及数据）
 
-### Arra
+### ArrayList扩容机制
+以无参数构造方法创建 `ArrayList` 时，实际上初始化赋值的是一个空数组。当真正对数组进行添加元素操作时，才真正分配容量。即向数组中添加第一个元素时，数组容量扩为 10。
 
 
 
@@ -50,5 +51,5 @@ TreeMap：红黑树
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTI5ODc5MDcsMTEyNDI4Mzk4OF19
+eyJoaXN0b3J5IjpbLTkyODcwNTM3OSwxMTI0MjgzOTg4XX0=
 -->
