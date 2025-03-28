@@ -65,6 +65,16 @@ HashMap 通过 key 的 `hashcode` 经过扰动函数处理过后得到 hash 值�
 
 `HashMap` 中的扰动函数（`hash` 方法）是用来优化哈希值的分布。通过对原始的 `hashCode()` 进行额外处理，扰动函数可以减小由于糟糕的 `hashCode()` 实现导致的碰撞，从而提高数据的分布均匀性。
 
+当链表长度大于阈值（默认为 8）（将链表转换成红黑树前会判断，如果当前数组的长度小于 64，那么会选择先进行数组扩容，而不是转换为红黑树）时，将链表转化为红黑树。
+
+### 为什么选择阈值 8 和 64
+
+1.  泊松分布表明，链表长度达到 8 的概率极低（小于千万分之一）。在绝大多数情况下，链表长度都不会超过 8。阈值设置为 8，可以保证性能和空间效率的平衡。
+2.  数组长度阈值 64 同样是经过实践验证的经验值。在小数组中扩容成本低，优先扩容可以避免过早引入红黑树。数组大小达到 64 时，冲突概率较高，此时红黑树的性能优势开始显现。
+
+----------
+
+著作权归JavaGuide(javaguide.cn)所有 基于MIT协议 原文链接：https://javaguide.cn/java/collection/java-collection-questions-02.html
 
 
 
@@ -77,6 +87,6 @@ HashMap 通过 key 的 `hashcode` 经过扰动函数处理过后得到 hash 值�
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MDE5NTA1MjUsLTExMDgxMzkzMDAsMj
-AwNDg0Mzk1NSwtMTY3MjU5MTIzLDExMjQyODM5ODhdfQ==
+eyJoaXN0b3J5IjpbOTMwOTA3NTEwLC0xMTA4MTM5MzAwLDIwMD
+Q4NDM5NTUsLTE2NzI1OTEyMywxMTI0MjgzOTg4XX0=
 -->
