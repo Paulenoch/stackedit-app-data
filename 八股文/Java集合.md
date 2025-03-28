@@ -73,7 +73,10 @@ HashMap 通过 key 的 `hashcode` 经过扰动函数处理过后得到 hash 值�
 2.  数组长度阈值 64 同样是经过实践验证的经验值。在小数组中扩容成本低，优先扩容可以避免过早引入红黑树。数组大小达到 64 时，冲突概率较高，此时红黑树的性能优势开始显现。
 
 ### HashMap的长度为什么是2的幂次方
-计算出哈希值之后需要对数组的长度进行取模运算，得到的余数才能用来要存放的位置也就是对应的数组下标。若此时数组长度为2的幂次方
+计算出哈希值之后需要对数组的长度进行取模运算，得到的余数才能用来要存放的位置也就是对应的数组下标。若此时数组长度为2的幂次方，取余(%)操作中如果除数是 2 的幂次则等价于与其除数减一的与(&)操作，提高运算速度
+
+长度是 2 的幂次方，可以让 `HashMap` 在扩容的时候更均匀。例如:
+
 
 
 
@@ -86,6 +89,6 @@ HashMap 通过 key 的 `hashcode` 经过扰动函数处理过后得到 hash 值�
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODYzODExMDAsLTExMDgxMzkzMDAsMj
-AwNDg0Mzk1NSwtMTY3MjU5MTIzLDExMjQyODM5ODhdfQ==
+eyJoaXN0b3J5IjpbMTE2NTIwMDU2OSwtMTEwODEzOTMwMCwyMD
+A0ODQzOTU1LC0xNjcyNTkxMjMsMTEyNDI4Mzk4OF19
 -->
