@@ -61,6 +61,9 @@
 当把对象加入`HashSet`时，`HashSet` 会先计算对象的`hashcode`值来判断对象加入的位置，同时也会与其他加入的对象的 `hashcode` 值作比较，如果没有相符的 `hashcode`，`HashSet` 会假设对象没有重复出现。但是如果发现有相同 `hashcode` 值的对象，这时会调用`equals()`方法来检查 `hashcode` 相等的对象是否真的相同。如果两者相同，`HashSet` 就不会让加入操作成功。
 
 ## HashMap的底层实现
+HashMap 通过 key 的 `hashcode` 经过扰动函数处理过后得到 hash 值，然后通过 `(n - 1) & hash` 判断当前元素存放的位置（这里的 n 指的是数组的长度），如果当前位置存在元素的话，就判断该元素与要存入的元素的 hash 值以及 key 是否相同，如果相同的话，直接覆盖，不相同就通过拉链法解决冲突。
+
+`HashMap` 中的扰动函数（`hash` 方法）是用来优化哈希值的分布。通过对原始的 `hashCode()` 进行额外处理，扰动函数可以减小由于糟糕的 `hashCode()` 实现导致的碰撞，从而提高数据的分布均匀性。
 
 
 
@@ -74,6 +77,6 @@
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcyODEyNzI2NywtMTEwODEzOTMwMCwyMD
-A0ODQzOTU1LC0xNjcyNTkxMjMsMTEyNDI4Mzk4OF19
+eyJoaXN0b3J5IjpbLTE0MDE5NTA1MjUsLTExMDgxMzkzMDAsMj
+AwNDg0Mzk1NSwtMTY3MjU5MTIzLDExMjQyODM5ODhdfQ==
 -->
