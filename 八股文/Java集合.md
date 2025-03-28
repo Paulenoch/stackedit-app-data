@@ -76,7 +76,32 @@ HashMap 通过 key 的 `hashcode` 经过扰动函数处理过后得到 hash 值�
 计算出哈希值之后需要对数组的长度进行取模运算，得到的余数才能用来要存放的位置也就是对应的数组下标。若此时数组长度为2的幂次方，取余(%)操作中如果除数是 2 的幂次则等价于与其除数减一的与(&)操作，提高运算速度
 
 长度是 2 的幂次方，可以让 `HashMap` 在扩容的时候更均匀。例如:
+当数组从 `oldCap`（旧容量）扩容到 `newCap = 2 * oldCap` 时，每个键的新位置由以下步骤决定：
 
+#### (1) **哈希值的二进制位分析**
+
+假设旧容量为 `oldCap = 16`（二进制 `10000`），扩容后 `newCap = 32`（二进制 `100000`）。  
+键的哈希值为 `hash`，其二进制格式如下（以 5 位为例）：
+
+
+`hash = ... XXXXX （最后 5 位）`
+
+#### (2) **新增的最高有效位**
+
+旧容量的索引计算方式为：  
+`oldIndex = (oldCap - 1) & hash`  
+此时 `oldCap - 1 = 15`（二进制 `1111`），仅取哈希值的低 4 位。
+
+扩容后，新容量的索引计算为：  
+`newIndex = (newCap - 1) & hash`  
+此时 `newCap - 1 = 31`（二进制 `11111`），取哈希值的低 5 位。
+
+**关键点**：  
+新增的第 5 位（原哈希值的第 5 位，即 `oldCap` 对应的位）决定了键是否需要移动：
+
+-   **如果第 5 位为 `0`**：新索引 = 原索引（留在原位置）。
+    
+-   **如果第 5 位为 `1`**：新索引 = 原索引 + 旧容量（移动到新位置）。
 
 
 
@@ -89,6 +114,6 @@ HashMap 通过 key 的 `hashcode` 经过扰动函数处理过后得到 hash 值�
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE2NTIwMDU2OSwtMTEwODEzOTMwMCwyMD
+eyJoaXN0b3J5IjpbMTQyMTAxNjUwMywtMTEwODEzOTMwMCwyMD
 A0ODQzOTU1LC0xNjcyNTkxMjMsMTEyNDI4Mzk4OF19
 -->
