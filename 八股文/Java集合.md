@@ -118,8 +118,37 @@ HashMap 通过 key 的 `hashcode` 经过扰动函数处理过后得到 hash 值�
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 
-## ConcurrentHashMap为什么Key和Value不
+## ConcurrentHashMap为什么Key和Value不能为null
+`ConcurrentHashMap` 的 key 和 value 不能为 null 主要是为了避免二义性。null 是一个特殊的值，表示没有对象或没有引用。如果你用 null 作为键，那么你就无法区分这个键是否存在于 `ConcurrentHashMap` 中，还是根本没有这个键。同样，如果你用 null 作为值，那么你就无法区分这个值是否是真正存储在 `ConcurrentHashMap` 中的，还是因为找不到对应的键而返回的。
+
+拿 get 方法取值来说，返回的结果为 null 存在两种情况：
+
+-   值没有在集合中 ；
+-   值本身就是 null。
+
+这也就是二义性的由来。
+
+## ConcurrentHashMap可以保证复合操作的原子性吗
+不能
+```java
+// 线程 A
+if (!map.containsKey(key)) {
+map.put(key, value);
+}
+// 线程 B
+if (!map.containsKey(key)) {
+map.put(key, anotherValue);
+}
+```
+如果线程 A 和 B 的执行顺序是这样：
+
+1.  线程 A 判断 map 中不存在 key
+2.  线程 B 判断 map 中不存在 key
+3.  线程 B 将 (key, anotherValue) 插入 map
+4.  线程 A 将 (key, value) 插入 map
+
+那么最终的结果是 (key, value)，而不是预期的 (key, anotherValue)。这就是复合操作的非原子性导致的问题。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzUyNjM1NjE1LC0xMTA4MTM5MzAwLDIwMD
+eyJoaXN0b3J5IjpbODE2NjA2OTE2LC0xMTA4MTM5MzAwLDIwMD
 Q4NDM5NTUsLTE2NzI1OTEyMywxMTI0MjgzOTg4XX0=
 -->
