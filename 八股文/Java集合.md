@@ -103,6 +103,10 @@ HashMap 通过 key 的 `hashcode` 经过扰动函数处理过后得到 hash 值�
     
 -   **如果第 5 位为 `1`**：新索引 = 原索引 + 旧容量（移动到新位置）。
 
+这一机制使得扩容时的数据迁移时间复杂度为 **O(n)**（遍历所有键值对），但分摊到每次操作仍是 **O(1)**。
+
+扩容完成后，所有查找直接基于新数组的长度重新计算索引，无需额外判断。该机制确保键总能被正确映射到新位置，无论其是否在扩容时移动过。
+
 
 
 ## 2. HashMap为什么线程不安全
@@ -113,7 +117,9 @@ HashMap 通过 key 的 `hashcode` 经过扰动函数处理过后得到 hash 值�
 `synchronized` 只锁定当前链表或红黑二叉树的首节点，这样只要 hash 不冲突，就不会产生并发，就不会影响其他 Node 的读写，效率大幅提升。
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
+
+## ConcurrentHashMap为什么Key和Value不
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyMTAxNjUwMywtMTEwODEzOTMwMCwyMD
-A0ODQzOTU1LC0xNjcyNTkxMjMsMTEyNDI4Mzk4OF19
+eyJoaXN0b3J5IjpbMzUyNjM1NjE1LC0xMTA4MTM5MzAwLDIwMD
+Q4NDM5NTUsLTE2NzI1OTEyMywxMTI0MjgzOTg4XX0=
 -->
