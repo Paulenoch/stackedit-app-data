@@ -72,9 +72,8 @@ HashMap 通过 key 的 `hashcode` 经过扰动函数处理过后得到 hash 值�
 1.  泊松分布表明，链表长度达到 8 的概率极低（小于千万分之一）。在绝大多数情况下，链表长度都不会超过 8。阈值设置为 8，可以保证性能和空间效率的平衡。
 2.  数组长度阈值 64 同样是经过实践验证的经验值。在小数组中扩容成本低，优先扩容可以避免过早引入红黑树。数组大小达到 64 时，冲突概率较高，此时红黑树的性能优势开始显现。
 
-----------
-
-著作权归JavaGuide(javaguide.cn)所有 基于MIT协议 原文链接：https://javaguide.cn/java/collection/java-collection-questions-02.html
+### HashMap的长度为什么是2的幂次方
+计算出哈希值之后需要对数组的长度进行取模运算，得到的余数才能用来要存放的位置也就是对应的数组下标。若此时数组长度为2的幂次方
 
 
 
@@ -87,6 +86,6 @@ HashMap 通过 key 的 `hashcode` 经过扰动函数处理过后得到 hash 值�
 
 **`Hashtable`(同一把锁)** :使用 `synchronized` 来保证线程安全，效率非常低下。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTMwOTA3NTEwLC0xMTA4MTM5MzAwLDIwMD
-Q4NDM5NTUsLTE2NzI1OTEyMywxMTI0MjgzOTg4XX0=
+eyJoaXN0b3J5IjpbLTE1ODYzODExMDAsLTExMDgxMzkzMDAsMj
+AwNDg0Mzk1NSwtMTY3MjU5MTIzLDExMjQyODM5ODhdfQ==
 -->
