@@ -148,7 +148,9 @@ map.put(key, anotherValue);
 4.  线程 A 将 (key, value) 插入 map
 
 那么最终的结果是 (key, value)，而不是预期的 (key, anotherValue)。这就是复合操作的非原子性导致的问题。
+
+`ConcurrentHashMap` 提供了一些原子性的复合操作，如 `putIfAbsent`、`compute`、`computeIfAbsent` 、`computeIfPresent`、`merge`等。这些方法都可以接受一个函数作为参数，根据给定的 key 和 value 来计算一个新的 value，并且将其更新到 map 中。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODE2NjA2OTE2LC0xMTA4MTM5MzAwLDIwMD
+eyJoaXN0b3J5IjpbMzIxMTMyODQ5LC0xMTA4MTM5MzAwLDIwMD
 Q4NDM5NTUsLTE2NzI1OTEyMywxMTI0MjgzOTg4XX0=
 -->
