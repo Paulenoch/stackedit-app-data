@@ -41,8 +41,6 @@ Redis 从 2.6 版本开始支持执行 Lua 脚本，它的功能和事务非常�
 
 不过，如果 Lua 脚本运行时出错并中途结束，出错之后的命令是不会被执行的。并且，出错之前执行的命令是无法被撤销的，无法实现类似关系型数据库执行失败可以回滚的那种原子性效果。因此，**严格来说的话，通过 Lua 脚本来批量执行 Redis 命令实际也是不完全满足原子性的。**
 
-如果想要让 Lua 脚本中的命令全部执行，必须保证语句语法和命令都是对的。
-另外，Redis 7.0 新增了 [Redis functions](https://redis.io/docs/manual/programmability/functions-intro/) 特性，你可以将 Redis functions 看作是比 Lua 更强大的脚本。
 
 # 11. 什么是Big Key/Hot Key/
 一个key对应的value占用的内存比较大/一个 key 的访问次数比较多且明显多于其他 key
@@ -106,5 +104,6 @@ runid：前两项一样，选runid最小的
 Gossip协议
 ![输入图片说明](/imgs/2025-03-25/hy5BibOnmpqkvNzi.png)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk1NDY1NjQ5MywtMjA4ODc0NjYxMl19
+eyJoaXN0b3J5IjpbMjg5Nzg1NDI4LC05NTQ2NTY0OTMsLTIwOD
+g3NDY2MTJdfQ==
 -->
