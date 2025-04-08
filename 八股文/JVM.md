@@ -1,5 +1,38 @@
 # 1. 运行时数据区
 ![输入图片说明](/imgs/2025-03-25/sOyOJsJGPSPUHAkO.png)
+### 1. **程序计数器（Program Counter Register）**
+
+-   **作用**：线程私有，用于存储当前线程所执行的字节码的行号指示器。
+    
+-   **特点**：
+    
+    -   每个线程一个独立的程序计数器。
+        
+    -   如果线程正在执行的是一个 native 方法，则计数器值为空（Undefined）。
+        
+    -   这是唯一一个不会出现 OutOfMemoryError 的区域。
+
+### 2. **Java 虚拟机栈（Java Virtual Machine Stack）**
+
+-   **作用**：线程私有，生命周期与线程一致。用于存储方法的局部变量表、操作数栈、动态链接、方法返回地址等。
+    
+-   **特点**：
+    
+    -   每个方法执行时都会创建一个栈帧（Stack Frame），用于存储局部变量等信息。
+        
+    -   如果线程请求的栈深度超过了虚拟机栈的最大深度，会抛出 `StackOverflowError`。
+        
+    -   如果内存无法申请足够空间时，会抛出 `OutOfMemoryError`。
+### 3. **本地方法栈（Native Method Stack）**
+
+-   **作用**：与 Java 虚拟机栈类似，但用于为虚拟机使用到的 native 方法服务。
+    
+-   **特点**：
+    
+    -   HotSpot JVM 通常直接将本地方法栈与 Java 虚拟机栈合并。
+        
+    -   同样可能抛出 `StackOverflowError` 或 `OutOfMemoryError`。
+
 
 # 2. 对象的创建
 Step1:类加载检查
@@ -60,5 +93,5 @@ step5：执行init方法
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODAyNDQ2NDYzXX0=
+eyJoaXN0b3J5IjpbLTE1NzE2NjYzNjQsODAyNDQ2NDYzXX0=
 -->
