@@ -27,8 +27,16 @@ AOP 的目的是将横切关注点（如日志记录、事务管理、权限控�
 
 # SpringBoot自动装配
 
-没有
+没有 Spring Boot 的情况下，如果我们需要引入第三方依赖，需要手动配置，非常麻烦。但是，Spring Boot 中，我们直接引入一个 starter 即可。比如你想要在项目中使用 redis 的话，直接在项目中引入对应的 starter 即可。
+
+引入 starter 之后，我们通过少量注解和一些简单的配置就能使用第三方组件提供的功能了。
+
+在我看来，自动装配可以简单理解为：**通过注解或者一些简单的配置就能在 Spring Boot 的帮助下实现某块功能。**
+
+SpringBoot的核心注解`@SpringBootApplication`
+由`@Configuration`、`@EnableAutoConfiguration`、`@ComponentScan` 组成
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNzUwNzEyMDcsNTAwMTc0NDI1LDE3MT
+eyJoaXN0b3J5IjpbLTEyMTIyNTcxNDQsNTAwMTc0NDI1LDE3MT
 I3NTU5OTFdfQ==
 -->
