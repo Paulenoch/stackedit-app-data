@@ -133,7 +133,60 @@ ReentrantLock新功能：
 # 13. 为什么不推荐使用内置线程池
 线程池参数不明确，如任务队列长度，县城最大数量等参数可能为无限大，带来隐患
 
-# 14
+# 14. 线程池的参数
+-   **`corePoolSize`（核心线程数）**
+    
+    -   线程池中始终保留的线程数量（即使处于空闲状态，也不会被回收，除非 `allowCoreThreadTimeOut(true)` 被设置）。
+        
+    -   超过这个数目的任务会放入队列，除非当前线程数还没达到 `maximumPoolSize`。
+        
+-   **`maximumPoolSize`（最大线程数）**
+    
+    -   线程池能创建的最大线程数。
+        
+    -   当队列满了，而且线程数小于这个值时，会创建新线程来处理任务。
+        
+-   **`keepAliveTime`（线程存活时间）**
+    
+    -   非核心线程在空闲状态下保持多长时间后会被回收。
+        
+    -   如果 `allowCoreThreadTimeOut(true)`，那么核心线程也会按照这个规则回收。
+        
+-   **`unit`（时间单位）**
+    
+    -   与 `keepAliveTime` 配合使用，指定时间单位（如：`TimeUnit.SECONDS`）。
+        
+-   **`workQueue`（任务队列）**
+    
+    -   用于保存等待执行的任务的阻塞队列。
+        
+    -   常用的实现：
+        
+        -   `ArrayBlockingQueue`：有界队列。
+            
+        -   `LinkedBlockingQueue`：无界队列（实际有上限，但很大）。
+            
+        -   `SynchronousQueue`：不存储任务，提交的任务必须直接交给线程执行。
+            
+-   **`threadFactory`（线程工厂）**
+    
+    -   用于创建新线程。可以自定义线程名、是否为守护线程等。
+        
+    -   通常使用 `Executors.defaultThreadFactory()`。
+        
+-   **`handler`（拒绝策略）**
+    
+    -   当线程池和队列都满了，无法接收新任务时，使用的拒绝策略。常见策略包括：
+        
+        -   `AbortPolicy`：抛出异常（默认）。
+            
+        -   `CallerRunsPolicy`：由调用者线程来执行该任务。
+            
+        -   `DiscardPolicy`：直接丢弃任务，不抛异常。
+            
+        -   `DiscardOldestPolicy`：丢弃队列中最老的任务，然后尝试执行新任务。
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjk5NzIzMjIxLC0xNTY2MzE2NjQ4XX0=
+eyJoaXN0b3J5IjpbMTUxNTA4Mzc2MSwtMTU2NjMxNjY0OF19
 -->
