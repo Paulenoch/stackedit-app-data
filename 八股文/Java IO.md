@@ -19,8 +19,14 @@ IO描述了计算机系统与外部设备之间通信的过程
 可以看作IO多路复用模型，
 同步非阻塞IO种，程序会一直发起调用，等待数据从内核空间拷贝到用户空间的这段时间内，线程依旧是阻塞的，直到拷贝完成，通过轮询操作，避免了一直阻塞，十分消耗CPU资源
 
-IO多路复用模型中，线程首先发起select调用，询问内核数据是否准备就绪，等内核把数据准备好后，线程再发起read调用，read调用的过程中依旧是阻塞的。减少了对CPU资源的xiao
+IO多路复用模型中，线程首先发起select调用，询问内核数据是否准备就绪，等内核把数据准备好后，线程再发起read调用，read调用的过程中依旧是阻塞的。减少了对CPU资源的消耗
+
+Java中的NIO，有一个Selector
+![输入图片说明](/imgs/2025-04-08/6un2xKfKQmErsjmw.png)
+
+## AIO
+异步IO，基于事件和回调机制，应用操作后会直接返回，不会堵塞，当
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODM0ODE4MzIzXX0=
+eyJoaXN0b3J5IjpbLTEyMDA2MDYyMTRdfQ==
 -->
