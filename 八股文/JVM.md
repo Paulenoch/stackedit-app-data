@@ -32,7 +32,42 @@
     -   HotSpot JVM 通常直接将本地方法栈与 Java 虚拟机栈合并。
         
     -   同样可能抛出 `StackOverflowError` 或 `OutOfMemoryError`。
+### 4. **Java 堆（Heap）**
 
+-   **作用**：JVM 所管理的内存中最大的一块，所有对象实例和数组都在这里分配。
+    
+-   **特点**：
+    
+    -   所有线程共享。
+        
+    -   是垃圾回收器（GC）管理的主要区域，因此也叫“GC 堆”。
+        
+    -   按照 GC 策略，堆通常会进一步划分为：**新生代（Young Generation）** 和 **老年代（Old Generation）**。
+        
+    -   新生代还可以再细分为 Eden 区、Survivor0、Survivor1。
+        
+    -   如果堆中没有内存可用且无法扩展，则抛出 `OutOfMemoryError`。
+
+### 5. **方法区（Method Area）**
+
+-   **作用**：用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等。
+    
+-   **特点**：
+    
+    -   所有线程共享。
+        
+    -   在 JDK 8 之前由永久代（PermGen）实现；JDK 8 开始被移除，改为元空间（Metaspace）。
+        
+    -   方法区也可能发生 `OutOfMemoryError`。
+### 6. **运行时常量池（Runtime Constant Pool）**
+
+-   **作用**：方法区的一部分，用于存放编译期生成的各种字面量和符号引用。
+    
+-   **特点**：
+    
+    -   也支持动态生成常量，如调用 `String.intern()`。
+        
+    -   如果常量池过大导致内存不足，会抛出 `OutOfMemoryError`。
 
 # 2. 对象的创建
 Step1:类加载检查
@@ -93,5 +128,5 @@ step5：执行init方法
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzE2NjYzNjQsODAyNDQ2NDYzXX0=
+eyJoaXN0b3J5IjpbLTEyNTI5MDc3NzcsODAyNDQ2NDYzXX0=
 -->
