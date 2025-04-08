@@ -149,10 +149,13 @@ JVM 中内置了三个重要的 `ClassLoader`：
 -   双亲委派模型要求除了顶层的启动类加载器外，其余的类加载器都应有自己的父类加载器。
 -   `ClassLoader` 实例会在试图亲自查找类或资源之前，将搜索类或资源的任务委托给其父类加载器。
 
+目的：避免类的重复加载和防止核心 API 被篡改
 
+### 打破双亲委派模型方法
+Tomcat 服务器为了能够优先加载 Web 应用目录下的类，然后再加载其他目录下的类，就自定义了类加载器 `WebAppClassLoader` 来打破双亲委托机制。
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTM5MTQyOTgsLTc2MjYwMjQ1LDEwMzY5Mj
-Y1ODgsLTEyNTI5MDc3NzcsODAyNDQ2NDYzXX0=
+eyJoaXN0b3J5IjpbLTU0NzA2NjMxLC03NjI2MDI0NSwxMDM2OT
+I2NTg4LC0xMjUyOTA3Nzc3LDgwMjQ0NjQ2M119
 -->
