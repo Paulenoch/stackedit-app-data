@@ -11,7 +11,14 @@ IoC 的思想就是将原本在程序中手动创建对象的控制权，交由 
 
 Bean 代指的就是那些被 IoC 容器所管理的对象。
 
-### Bean
+### Bean的生命周期
+实例化——属性赋值——初始化——销毁
+![输入图片说明](/imgs/2025-04-08/6LcooDzFRf5DpS3l.png)
+
+### 注入Bean的方式
+1. 构造函数注入：通过类的构造函数注入
+2. Setter注入：通过类的Setter方法注入
+3. Field（字段）注入，直接在类的字段上使用
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjQ3OTE2NzQsMTcxMjc1NTk5MV19
+eyJoaXN0b3J5IjpbLTE2NTk2NzkxNTgsMTcxMjc1NTk5MV19
 -->
