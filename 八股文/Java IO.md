@@ -16,8 +16,9 @@ IO描述了计算机系统与外部设备之间通信的过程
 程序发起调用后，会一直阻塞，直到内核把数据拷贝到用户空间
 
 ## NIO
-IOduo
+可以看作IO多路复用模型，
+同步非阻塞IO种，程序会一直发起调用，等待数据从内核空间拷贝到用户空间的这段时间内，线程依旧是阻塞的，直到拷贝完成，通过轮询操作，bi'mian'le'yi
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzg5NjY0NDJdfQ==
+eyJoaXN0b3J5IjpbLTE3ODk4MTI2NzBdfQ==
 -->
