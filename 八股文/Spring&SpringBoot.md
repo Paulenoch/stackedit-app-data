@@ -10,6 +10,8 @@ IoC 的思想就是将原本在程序中手动创建对象的控制权，交由 
 # Spring Bean
 
 Bean 代指的就是那些被 IoC 容器所管理的对象。
+
+### Bean
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcxMjc1NTk5MV19
+eyJoaXN0b3J5IjpbLTEyMjQ3OTE2NzQsMTcxMjc1NTk5MV19
 -->
