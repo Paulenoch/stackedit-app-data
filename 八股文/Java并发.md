@@ -186,7 +186,8 @@ ReentrantLock新功能：
             
         -   `DiscardOldestPolicy`：丢弃队列中最老的任务，然后尝试执行新任务。
 
-
+# 15. 线程池处理任务的流程
+提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUxNTA4Mzc2MSwtMTU2NjMxNjY0OF19
+eyJoaXN0b3J5IjpbNzg0MzE3MzY1LC0xNTY2MzE2NjQ4XX0=
 -->
