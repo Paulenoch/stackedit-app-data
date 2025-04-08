@@ -138,11 +138,21 @@ JVM 启动的时候，并不会一次性加载所有的类，而是根据需要�
 
 对于已经加载的类会被放在 `ClassLoader` 中。在类加载的时候，系统会首先判断当前类是否被加载过。已经被加载的类会直接返回，否则才会尝试加载。也就是说，对于一个类加载器来说，相同二进制名称的类只会被加载一次。
 
+JVM 中内置了三个重要的 `ClassLoader`：
+
+1.  **`BootstrapClassLoader`(启动类加载器)**：最顶层的加载类，由 C++实现，通常表示为 null，并且没有父级，主要用来加载 JDK 内部的核心类库（ `%JAVA_HOME%/lib`目录下的 `rt.jar`、`resources.jar`、`charsets.jar`等 jar 包和类）以及被 `-Xbootclasspath`参数指定的路径下的所有类。
+2.  **`ExtensionClassLoader`(扩展类加载器)**：主要负责加载 `%JRE_HOME%/lib/ext` 目录下的 jar 包和类以及被 `java.ext.dirs` 系统变量所指定的路径下的所有类。
+3.  **`AppClassLoader`(应用程序类加载器)**：面向我们用户的加载器，负责加载当前应用 classpath 下的所有 jar 包和类。
+
+# 双亲委派模型
+-   `ClassLoader` 类使用委托模型来搜索类和资源。
+-   双亲委派模型要求除了顶层的启动类加载器外，其余的类加载器都应有自己的父类加载器。
+-   `ClassLoader` 实例会在试图亲自查找类或资源之前，将搜索类或资源的任务委托给其父类加载器。
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY0ODU0Nzc2MSwtNzYyNjAyNDUsMTAzNj
-kyNjU4OCwtMTI1MjkwNzc3Nyw4MDI0NDY0NjNdfQ==
+eyJoaXN0b3J5IjpbOTM5MTQyOTgsLTc2MjYwMjQ1LDEwMzY5Mj
+Y1ODgsLTEyNTI5MDc3NzcsODAyNDQ2NDYzXX0=
 -->
