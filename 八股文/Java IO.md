@@ -25,8 +25,8 @@ Java中的NIO，有一个Selector
 ![输入图片说明](/imgs/2025-04-08/6un2xKfKQmErsjmw.png)
 
 ## AIO
-异步IO，基于事件和回调机制，应用操作后会直接返回，不会堵塞，当
+异步IO，基于事件和回调机制，应用操作后会直接返回，不会堵塞，当内核操作完成，操作系统通知相应的线程进行后续的操作
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDA2MDYyMTRdfQ==
+eyJoaXN0b3J5IjpbMTczNTkxMDQ5OV19
 -->
