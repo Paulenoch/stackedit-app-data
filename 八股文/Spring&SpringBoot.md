@@ -7,7 +7,9 @@ IoC 的思想就是将原本在程序中手动创建对象的控制权，交由 
 
 在 Spring 中， IoC 容器是 Spring 用来实现 IoC 的载体， IoC 容器实际上就是个 Map（key，value），Map 中存放的是各种对象。
 
+# Spring Bean
 
+Bean 代指的就是那些被 IoC 容器所管理的对象。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMjIxOTUwNDVdfQ==
+eyJoaXN0b3J5IjpbMTcxMjc1NTk5MV19
 -->
