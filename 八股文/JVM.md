@@ -128,11 +128,21 @@ step5：执行init方法
 
 # 类加载的过程
 加载——连接——初始化
+-   类加载器是一个负责加载类的对象，用于实现类加载过程中的加载这一步。
+-   每个 Java 类都有一个引用指向加载它的 `ClassLoader`。
+-   数组类不是通过 `ClassLoader` 创建的（数组类没有对应的二进制字节流），是由 JVM 直接生成的。
+
+类加载器的主要作用就是动态加载 Java 类的字节码（ `.class` 文件）到 JVM 中（在内存中生成一个代表该类的 `Class` 对象）
+
+JVM 启动的时候，并不会一次性加载所有的类，而是根据需要去动态加载。也就是说，大部分类在具体用到的时候才会去加载，这样对内存更加友好。
+
+对于已经加载的类会被放在 `ClassLoader` 中。在类加载的时候，系统会首先判断当前类是否被加载过。已经被加载的类会直接返回，否则才会尝试加载。也就是说，对于一个类加载器来说，相同二进制名称的类只会被加载一次。
+
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2MjYwMjQ1LDEwMzY5MjY1ODgsLTEyNT
-I5MDc3NzcsODAyNDQ2NDYzXX0=
+eyJoaXN0b3J5IjpbLTY0ODU0Nzc2MSwtNzYyNjAyNDUsMTAzNj
+kyNjU4OCwtMTI1MjkwNzc3Nyw4MDI0NDY0NjNdfQ==
 -->
