@@ -78,7 +78,7 @@ step2：分配内存
 
 step3：初始化零值
 
-step4：设置对象头
+step4：设置对象头：例如这个对象是哪个类的实例、如何才能找到类的元数据信息、对象的哈希码、对象的 GC 分代年龄等信息。 **这些信息存放在对象头中**
 
 step5：执行init方法
 
@@ -128,5 +128,6 @@ step5：执行init方法
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTI5MDc3NzcsODAyNDQ2NDYzXX0=
+eyJoaXN0b3J5IjpbMTAzNjkyNjU4OCwtMTI1MjkwNzc3Nyw4MD
+I0NDY0NjNdfQ==
 -->
