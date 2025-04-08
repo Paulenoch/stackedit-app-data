@@ -18,7 +18,13 @@ Bean 代指的就是那些被 IoC 容器所管理的对象。
 ### 注入Bean的方式
 1. 构造函数注入：通过类的构造函数注入
 2. Setter注入：通过类的Setter方法注入
-3. Field（字段）注入，直接在类的字段上使用
+3. Field（字段）注入，直接在类的字段上使用注解（@Autowired，@Resource）注入
+
+推荐构造函数注入：依赖完整性，不可变，初始化保证，测试便利
+
+# Spring AOP
+AOP 的目的是将横切关注点（如日志记录、事务管理、权限控制、接口限流、接口幂等等）从核心业务逻辑中分离出来，通过动态代理、字节码操作等技术，实现代码的复用和解耦，提高代码的可维护性和可扩展性。OOP 的目的是将业务逻辑按照对象的属性和行为进行封装，通过类、对象、继承、多态等概念，实现代码的模块化和层次化（也能实现代码的复用），提高代码的可读性和可维护性。
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NTk2NzkxNTgsMTcxMjc1NTk5MV19
+eyJoaXN0b3J5IjpbNTAwMTc0NDI1LDE3MTI3NTU5OTFdfQ==
 -->
