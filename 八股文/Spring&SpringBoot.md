@@ -25,6 +25,10 @@ Bean 代指的就是那些被 IoC 容器所管理的对象。
 # Spring AOP
 AOP 的目的是将横切关注点（如日志记录、事务管理、权限控制、接口限流、接口幂等等）从核心业务逻辑中分离出来，通过动态代理、字节码操作等技术，实现代码的复用和解耦，提高代码的可维护性和可扩展性。OOP 的目的是将业务逻辑按照对象的属性和行为进行封装，通过类、对象、继承、多态等概念，实现代码的模块化和层次化（也能实现代码的复用），提高代码的可读性和可维护性。
 
+# SpringBoot自动装配
+
+没有
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTAwMTc0NDI1LDE3MTI3NTU5OTFdfQ==
+eyJoaXN0b3J5IjpbLTEzNzUwNzEyMDcsNTAwMTc0NDI1LDE3MT
+I3NTU5OTFdfQ==
 -->
