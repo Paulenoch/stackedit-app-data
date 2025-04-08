@@ -35,8 +35,11 @@ AOP 的目的是将横切关注点（如日志记录、事务管理、权限控�
 
 SpringBoot的核心注解`@SpringBootApplication`
 由`@Configuration`、`@EnableAutoConfiguration`、`@ComponentScan` 组成
+-   `@EnableAutoConfiguration`：启用 SpringBoot 的自动配置机制
+-   `@Configuration`：允许在上下文中注册额外的 bean 或导入其他配置类
+-   `@ComponentScan`：扫描被`@Component` (`@Service`,`@Controller`)注解的 bean，注解默认会扫描启动类所在的包下所有的类 ，可以自定义不扫描某些 bean。如下图所示，容器中将排除`TypeExcludeFilter`和`AutoConfigurationExcludeFilter`。
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMTIyNTcxNDQsNTAwMTc0NDI1LDE3MT
-I3NTU5OTFdfQ==
+eyJoaXN0b3J5IjpbLTg4NjcxNjcyNyw1MDAxNzQ0MjUsMTcxMj
+c1NTk5MV19
 -->
