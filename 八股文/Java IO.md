@@ -6,7 +6,18 @@ IO描述了计算机系统与外部设备之间通信的过程
 
 用户空间的程序不能直接访问内核空间，想要进行IO操作时，只能发起系统调用请求操作系统帮忙完成
 
-应用发起IO调用后，经历liang'g'b
+应用发起IO调用后，经历两个步骤：
+1. 内核等待IO设备准备好数据
+2. 内核将数据从内核空间拷贝到用户空间
+
+
+# 3种常见的IO模型
+## BIO 同步阻塞IO
+程序发起调用后，会一直阻塞，直到内核把数据拷贝到用户空间
+
+## NIO
+IOduo
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNDMwMzMyNTNdfQ==
+eyJoaXN0b3J5IjpbLTExNzg5NjY0NDJdfQ==
 -->
