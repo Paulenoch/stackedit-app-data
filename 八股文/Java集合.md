@@ -51,11 +51,6 @@
 ![输入图片说明](/imgs/2025-03-28/NHj0lQPFl45VVquQ.png)
 
 
-
-
-
-
-
 # HashMap
 ## HashSet如何检查是否重复
 当把对象加入`HashSet`时，`HashSet` 会先计算对象的`hashcode`值来判断对象加入的位置，同时也会与其他加入的对象的 `hashcode` 值作比较，如果没有相符的 `hashcode`，`HashSet` 会假设对象没有重复出现。但是如果发现有相同 `hashcode` 值的对象，这时会调用`equals()`方法来检查 `hashcode` 相等的对象是否真的相同。如果两者相同，`HashSet` 就不会让加入操作成功。
@@ -151,6 +146,7 @@ map.put(key, anotherValue);
 
 `ConcurrentHashMap` 提供了一些原子性的复合操作，如 `putIfAbsent`、`compute`、`computeIfAbsent` 、`computeIfPresent`、`merge`等。这些方法都可以接受一个函数作为参数，根据给定的 key 和 value 来计算一个新的 value，并且将其更新到 map 中。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzIxMTMyODQ5LC0xMTA4MTM5MzAwLDIwMD
-Q4NDM5NTUsLTE2NzI1OTEyMywxMTI0MjgzOTg4XX0=
+eyJoaXN0b3J5IjpbOTg4Mzg3NjcxLDMyMTEzMjg0OSwtMTEwOD
+EzOTMwMCwyMDA0ODQzOTU1LC0xNjcyNTkxMjMsMTEyNDI4Mzk4
+OF19
 -->
