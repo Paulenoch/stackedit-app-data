@@ -181,6 +181,13 @@ semaphore.release();
 # 11. ThreadLocal原理
 每一个线程都有一个ThreadLocalMap
 
+# ThreadLocal内存泄漏问题
+-   **key 是弱引用**：`ThreadLocalMap` 中的 key 是 `ThreadLocal` 的弱引用 (`WeakReference<ThreadLocal<?>>`)。 这意味着，如果 `ThreadLocal` 实例不再被任何强引用指向，垃圾回收器会在下次 GC 时回收该实例，导致 `ThreadLocalMap` 中对应的 key 变为 `null`。
+-   **value 是强引用**：即使 `key` 被 GC 回收，`value` 仍然被 `ThreadLocalMap.Entry` 强引用存在，无法被 GC 回收。
+
+在使用完 `ThreadLocal` 后，务必调用 `remove()` 方法。 这是最安全和最推荐的做法。 `remove()` 方法会从 `ThreadLocalMap` 中显式地移除对应的 entry，彻底解决内存泄漏的风险。 即使将 `ThreadLocal` 定义为 `static final`，也强烈建议在每次使用后调用 `remove()`。
+
+
 # 12. 为什么要用线程池
 - 降低反复创建和销毁线程带来的消耗
 - 提高响应速度
@@ -245,7 +252,7 @@ semaphore.release();
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNjc0NjExODYsMjEwMTM3NDMzLDU4MT
-UxMTkzOCwtMTQxMjcxNTM4OCwxMTU0Mjg3NTE0LDc4NDMxNzM2
-NSwtMTU2NjMxNjY0OF19
+eyJoaXN0b3J5IjpbMjM4OTUyOTM3LC0xMTY3NDYxMTg2LDIxMD
+EzNzQzMyw1ODE1MTE5MzgsLTE0MTI3MTUzODgsMTE1NDI4NzUx
+NCw3ODQzMTczNjUsLTE1NjYzMTY2NDhdfQ==
 -->
