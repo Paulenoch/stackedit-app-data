@@ -60,6 +60,8 @@ MVCC是一种并发版本控制机制，通过在每个数据行上维护多个�
 
 # 12. 索引的底层实现
 B+树，只有叶子节点存放key和data，其他内节点只存放key，叶子节点有一条引用链指向相邻的叶子节点
+B+树通过**高阶（即每个节点包含大量子节点）**，极大减少了树的高度，从而减少磁盘IO次数。
+范围查询（比如 `SELECT * FROM user WHERE id BETWEEN 1000 AND 2000`）时，可以**从一个叶子节点顺序遍历到另一个叶子节点**，非常高效。
 
 # 13. 主键索引和二级索引
 - 主键索引：主键列使用的
@@ -103,5 +105,5 @@ InnoDB独有，让MySQL拥有了崩溃恢复能力，记录某个数据页上做
 # 23. undo log如何保证事物的原子性
 每一个事务对数据的修改都会记录到undo log，可以用于回滚，属于逻辑日志，记录的是SQL语句
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2NDA2MDQzOF19
+eyJoaXN0b3J5IjpbLTQ5NTA5OTc4NSwtNDY0MDYwNDM4XX0=
 -->
