@@ -265,10 +265,22 @@ semaphore.release();
             
         -   `DiscardOldestPolicy`：丢弃队列中最老的任务，然后尝试执行新任务。
 
+# 核心线程会被回收吗
+默认不会，这是为了减少创建线程的开销，因为核心线程通常是要长期保持活跃的。
+可以考虑将 `allowCoreThreadTimeOut(boolean value)` 方法的参数设置为 `true`，这样就会回收空闲（时间间隔由 `keepAliveTime` 指定）的核心线程了。
+
+# 线程池的拒绝策略
+-   `ThreadPoolExecutor.AbortPolicy`：抛出 `RejectedExecutionException`来拒绝新任务的处理。
+-   `ThreadPoolExecutor.CallerRunsPolicy`：调用执行者自己的线程运行任务，也就是直接在调用`execute`方法的线程中运行(`run`)被拒绝的任务，如果执行程序已关闭，则会丢弃该任务。因此这种策略会降低对于新任务提交速度，影响程序的整体性能。如果你的应用程序可以承受此延迟并且你要求任何一个任务请求都要被执行的话，你可以选择这个策略。
+-   `ThreadPoolExecutor.DiscardPolicy`：不处理新任务，直接丢弃掉。
+-   `ThreadPoolExecutor.DiscardOldestPolicy`：此策略将丢弃最早的未处理的任务请求。
+
+
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTAxODgwMDI1LDIzODk1MjkzNywtMTE2Nz
-Q2MTE4NiwyMTAxMzc0MzMsNTgxNTExOTM4LC0xNDEyNzE1Mzg4
-LDExNTQyODc1MTQsNzg0MzE3MzY1LC0xNTY2MzE2NjQ4XX0=
+eyJoaXN0b3J5IjpbLTE1NjEyMzIyMiw5MDE4ODAwMjUsMjM4OT
+UyOTM3LC0xMTY3NDYxMTg2LDIxMDEzNzQzMyw1ODE1MTE5Mzgs
+LTE0MTI3MTUzODgsMTE1NDI4NzUxNCw3ODQzMTczNjUsLTE1Nj
+YzMTY2NDhdfQ==
 -->
