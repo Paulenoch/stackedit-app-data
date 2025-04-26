@@ -140,9 +140,14 @@ CLH 锁通过引入一个队列来组织并发竞争的线程，对自旋锁进�
 -   每个线程会作为一个节点加入到队列中，并通过自旋监控前一个线程节点的状态，而不是直接竞争共享变量。
 -   线程按顺序排队，确保公平性，从而避免了 “饥饿” 问题。
 
-----------
+AQS（AbstractQueuedSynchronizer）在 CLH 锁的基础上进一步优化，形成了其内部的 **CLH 队列变体**。主要改进点有以下两方面：
 
-著作权归JavaGuide(javaguide.cn)所有 基于MIT协议 原文链接：https://javaguide.cn/java/concurrent/aqs.html
+1.  **自旋 + 阻塞**： CLH 锁使用纯自旋方式等待锁的释放，但大量的自旋操作会占用过多的 CPU 资源。AQS 引入了 **自旋 + 阻塞** 的混合机制：
+    -   如果线程获取锁失败，会先短暂自旋尝试获取锁；
+    -   如果仍然失败，则线程会进入阻塞状态，等待被唤醒，从而减少 CPU 的浪费。
+2.  **单向队列改为双向队列**：CLH 锁使用单向队列，节点只知道前驱节点的状态，而当某个节点释放锁时，需要通过队列唤醒后续节点。AQS 将队列改为 **双向队列**，新增了 `next` 指针，使得节点不仅知道前驱节点，也可以直接唤醒后继节点，从而简化了队列操作，提高了唤醒效率。
+
+
 
 # 10. ThreadLocal有什么用
 ![输入图片说明](/imgs/2025-03-25/dGCdkDkakSuK3a1X.png)
@@ -214,6 +219,6 @@ CLH 锁通过引入一个队列来组织并发竞争的线程，对自旋锁进�
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODI2MzQzMSwtMTQxMjcxNTM4OCwxMTU0Mj
-g3NTE0LDc4NDMxNzM2NSwtMTU2NjMxNjY0OF19
+eyJoaXN0b3J5IjpbLTM3MTUwNjUxMCwtMTQxMjcxNTM4OCwxMT
+U0Mjg3NTE0LDc4NDMxNzM2NSwtMTU2NjMxNjY0OF19
 -->
