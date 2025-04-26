@@ -275,12 +275,20 @@ semaphore.release();
 -   `ThreadPoolExecutor.DiscardPolicy`：不处理新任务，直接丢弃掉。
 -   `ThreadPoolExecutor.DiscardOldestPolicy`：此策略将丢弃最早的未处理的任务请求。
 
-# 线程池中线程异常后
+# 线程池中线程异常后，销毁还是复用
+简单来说：使用`execute()`时，未捕获异常导致线程终止，线程池创建新线程替代；使用`submit()`时，异常被封装在`Future`中，线程继续复用。
+
+这种设计允许`submit()`提供更灵活的错误处理机制，因为它允许调用者决定如何处理异常，而`execute()`则适用于那些不需要关注执行结果的场景。
+
+# 如何设定线程池的大小
+-   **CPU 密集型任务(N+1)：** 这种任务消耗的主要是 CPU 资源，可以将线程数设置为 N（CPU 核心数）+1。比 CPU 核心数多出来的一个线程是为了防止线程偶发的缺页中断，或者其它原因导致的任务暂停而带来的影响。一旦任务暂停，CPU 就会处于空闲状态，而在这种情况下多出来的一个线程就可以充分利用 CPU 的空闲时间。
+-   **I/O 密集型任务(2N)：** 这种任务应用起来，系统会用大部分的时间来处理 I/O 交互，而线程在处理 I/O 的时间段内不会占用 CPU 来处理，这时就可以将 CPU 交出给其它线程使用。因此在 I/O 密集型任务的应用中，我们可以多配置一些线程，具体的计算方法是 2N。
+
 
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4NjQ3OTQ2Miw5MDE4ODAwMjUsMjM4OT
+eyJoaXN0b3J5IjpbMTk2ODAxNzQwNCw5MDE4ODAwMjUsMjM4OT
 UyOTM3LC0xMTY3NDYxMTg2LDIxMDEzNzQzMyw1ODE1MTE5Mzgs
 LTE0MTI3MTUzODgsMTE1NDI4NzUxNCw3ODQzMTczNjUsLTE1Nj
 YzMTY2NDhdfQ==
