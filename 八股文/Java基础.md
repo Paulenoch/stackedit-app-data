@@ -77,7 +77,9 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 - 接口和抽象类都不能直接实例化，只能被实现（接口）或继承（抽象类）后才能创建具体的对象。
 - 接口和抽象类都可以包含抽象方法。抽象方法没有方法体，必须在子类或实现类中实现。
 区别：
-
+-   **设计目的**：接口主要用于对类的行为进行约束，你实现了某个接口就具有了对应的行为。抽象类主要用于代码复用，强调的是所属关系。
+-  **继承和实现**：一个类只能继承一个类（包括抽象类），因为 Java 不支持多继承。但一个类可以实现多个接口，一个接口也可以继承多个其他接口。
+- 
 
 ## 11. 浅拷贝、深拷贝、引用拷贝![输入图片说明](/imgs/2025-03-24/SClMMUPEIQC2oFRf.png)
 
@@ -279,7 +281,7 @@ SPI 即 Service Provider Interface ，字面意思就是：“服务提供者的
 
 SPI 将服务接口和具体的服务实现分离开来，将服务调用方和服务实现者解耦，能够提升程序的扩展性、可维护性。修改或者替换服务实现并不需要修改调用方。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkzNjkxNzM5OCwtMzEzMzk0MzY4LC0xNj
+eyJoaXN0b3J5IjpbLTgyMzI4MzU0NSwtMzEzMzk0MzY4LC0xNj
 g5NjA0Mzg2LC0xMDc0MDAxOTk4LC05Mzg0ODU4OTYsLTkxOTkx
 NTA5NSwtMzY5NzEwOTg0LC0xNjYxODUzMzMxLDExNzcyMjUwMj
 csMTg4ODg0NTM3OSwtMzg2MTc5MTk2LDE1ODU0MjUwNjQsNzQ4
