@@ -126,6 +126,12 @@ ReentrantLock新功能：
 在 Java 中，`volatile` 关键字可以保证变量的可见性，如果我们将变量声明为 **`volatile`** ，这就指示 JVM，这个变量是共享且不稳定的，每次使用它都到主存中进行读取。
 不能保证数据的原子性
 
+# AQS
+`AbstractQueuedSynchronizer` ，翻译过来的意思就是抽象队列同步器
+AQS 就是一个抽象类，主要用来构建锁和同步器。
+简单来说，AQS 是一个抽象类，为同步器提供了通用的 **执行框架**。它定义了 **资源获取和释放的通用流程**，而具体的资源获取逻辑则由具体同步器通过重写模板方法来实现。 因此，可以将 AQS 看作是同步器的 **基础“底座”**，而同步器则是基于 AQS 实现的 **具体“应用”**。
+
+
 # 10. ThreadLocal有什么用
 ![输入图片说明](/imgs/2025-03-25/dGCdkDkakSuK3a1X.png)
 
@@ -196,6 +202,6 @@ ReentrantLock新功能：
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE1NDI4NzUxNCw3ODQzMTczNjUsLTE1Nj
-YzMTY2NDhdfQ==
+eyJoaXN0b3J5IjpbLTE0MTI3MTUzODgsMTE1NDI4NzUxNCw3OD
+QzMTczNjUsLTE1NjYzMTY2NDhdfQ==
 -->
