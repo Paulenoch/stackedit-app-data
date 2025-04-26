@@ -275,11 +275,12 @@ semaphore.release();
 -   `ThreadPoolExecutor.DiscardPolicy`：不处理新任务，直接丢弃掉。
 -   `ThreadPoolExecutor.DiscardOldestPolicy`：此策略将丢弃最早的未处理的任务请求。
 
+# 线程池中线程异常后
 
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjEyMzIyMiw5MDE4ODAwMjUsMjM4OT
+eyJoaXN0b3J5IjpbMTE4NjQ3OTQ2Miw5MDE4ODAwMjUsMjM4OT
 UyOTM3LC0xMTY3NDYxMTg2LDIxMDEzNzQzMyw1ODE1MTE5Mzgs
 LTE0MTI3MTUzODgsMTE1NDI4NzUxNCw3ODQzMTczNjUsLTE1Nj
 YzMTY2NDhdfQ==
