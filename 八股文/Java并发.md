@@ -161,7 +161,16 @@ AQS 中的 `waitStatus` 状态类似于 **状态机** ，通过不同状态来�
 # AQS常用同步工具类
 
 ### Semaphore
+```java
+// 初始共享资源数量
+final Semaphore semaphore = new Semaphore(5);
+// 获取1个许可
+semaphore.acquire();
+// 释放1个许可
+semaphore.release();
+```
 
+### Countd
 
 # 10. ThreadLocal有什么用
 ![输入图片说明](/imgs/2025-03-25/dGCdkDkakSuK3a1X.png)
@@ -233,7 +242,7 @@ AQS 中的 `waitStatus` 状态类似于 **状态机** ，通过不同状态来�
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEwMTM3NDMzLDU4MTUxMTkzOCwtMTQxMj
-cxNTM4OCwxMTU0Mjg3NTE0LDc4NDMxNzM2NSwtMTU2NjMxNjY0
-OF19
+eyJoaXN0b3J5IjpbLTE1NDkwMDkxMDgsMjEwMTM3NDMzLDU4MT
+UxMTkzOCwtMTQxMjcxNTM4OCwxMTU0Mjg3NTE0LDc4NDMxNzM2
+NSwtMTU2NjMxNjY0OF19
 -->
