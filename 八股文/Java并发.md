@@ -19,6 +19,9 @@
 # 为什么要使用多线程
 线程可以比作是轻量级的进程，是程序执行的最小单位，线程间的切换和调度的成本远远小于进程。另外，多核 CPU 时代意味着多个线程可以同时运行，这减少了线程上下文切换的开销。
 
+# 单核CPU上运行多线程效率一定高吗
+对于CPU密集型线程，效率低下，多个线程同时运行会导致频繁的线程切换，增加了系统的开销
+对于IO密集型线程，效率高，
 
 # 3. 什么是线程死锁，如何避免
 ```java
@@ -193,6 +196,6 @@ ReentrantLock新功能：
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI0MTQxMTEwOSw3ODQzMTczNjUsLTE1Nj
-YzMTY2NDhdfQ==
+eyJoaXN0b3J5IjpbLTE2NTIwNDgzMjUsNzg0MzE3MzY1LC0xNT
+Y2MzE2NjQ4XX0=
 -->
