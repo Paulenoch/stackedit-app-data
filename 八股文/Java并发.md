@@ -187,6 +187,7 @@ semaphore.release();
 
 在使用完 `ThreadLocal` 后，务必调用 `remove()` 方法。 这是最安全和最推荐的做法。 `remove()` 方法会从 `ThreadLocalMap` 中显式地移除对应的 entry，彻底解决内存泄漏的风险。 即使将 `ThreadLocal` 定义为 `static final`，也强烈建议在每次使用后调用 `remove()`。
 
+# 如何ku
 
 # 12. 为什么要用线程池
 - 降低反复创建和销毁线程带来的消耗
@@ -252,7 +253,7 @@ semaphore.release();
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjM4OTUyOTM3LC0xMTY3NDYxMTg2LDIxMD
-EzNzQzMyw1ODE1MTE5MzgsLTE0MTI3MTUzODgsMTE1NDI4NzUx
-NCw3ODQzMTczNjUsLTE1NjYzMTY2NDhdfQ==
+eyJoaXN0b3J5IjpbMjM3MzQxNjI5LDIzODk1MjkzNywtMTE2Nz
+Q2MTE4NiwyMTAxMzc0MzMsNTgxNTExOTM4LC0xNDEyNzE1Mzg4
+LDExNTQyODc1MTQsNzg0MzE3MzY1LC0xNTY2MzE2NjQ4XX0=
 -->
