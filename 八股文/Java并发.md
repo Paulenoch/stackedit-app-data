@@ -196,12 +196,18 @@ semaphore.release();
 -   **局限性**：对于线程池的场景不适用（线程复用，子线程只继承一次值，后续不会更新）。
 
 - TransmittableThreadLocal
+`TransmittableThreadLocal`（简称TTL）是阿里巴巴开源的一个库，专门用于跨线程池传递`ThreadLocal`的上下文信息。
 
+### 特点：
+
+-   支持线程池场景，解决了`InheritableThreadLocal`的不足。
+    
+-   性能和扩展性良好，广泛用于生产环境。
 
 # 12. 为什么要用线程池
 - 降低反复创建和销毁线程带来的消耗
 - 提高响应速度
-- 提高现成的客观理性
+- 提高线程的可管理性
 
 # 13. 为什么不推荐使用内置线程池
 线程池参数不明确，如任务队列长度，县城最大数量等参数可能为无限大，带来隐患
@@ -262,7 +268,7 @@ semaphore.release();
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2Njk4NTk0MywyMzg5NTI5MzcsLTExNj
-c0NjExODYsMjEwMTM3NDMzLDU4MTUxMTkzOCwtMTQxMjcxNTM4
-OCwxMTU0Mjg3NTE0LDc4NDMxNzM2NSwtMTU2NjMxNjY0OF19
+eyJoaXN0b3J5IjpbOTAxODgwMDI1LDIzODk1MjkzNywtMTE2Nz
+Q2MTE4NiwyMTAxMzc0MzMsNTgxNTExOTM4LC0xNDEyNzE1Mzg4
+LDExNTQyODc1MTQsNzg0MzE3MzY1LC0xNTY2MzE2NjQ4XX0=
 -->
