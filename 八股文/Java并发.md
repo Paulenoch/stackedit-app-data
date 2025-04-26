@@ -133,7 +133,16 @@ AQS 就是一个抽象类，主要用来构建锁和同步器。
 
 # AQS为什么使用CLH锁队列的变体
 CLH锁是一种自旋锁的优化实现
+自旋锁通过线程不断对一个原子变量执行 `compareAndSet`（简称 `CAS`）操作来尝试获取锁。在高并发场景下，多个线程会同时竞争同一个原子变量，容易造成某个线程的 `CAS` 操作长时间失败，从而导致 **“饥饿”问题**（某些线程可能永远无法获取锁）。
 
+CLH 锁通过引入一个队列来组织并发竞争的线程，对自旋锁进行了改进：
+
+-   每个线程会作为一个节点加入到队列中，并通过自旋监控前一个线程节点的状态，而不是直接竞争共享变量。
+-   线程按顺序排队，确保公平性，从而避免了 “饥饿” 问题。
+
+----------
+
+著作权归JavaGuide(javaguide.cn)所有 基于MIT协议 原文链接：https://javaguide.cn/java/concurrent/aqs.html
 
 # 10. ThreadLocal有什么用
 ![输入图片说明](/imgs/2025-03-25/dGCdkDkakSuK3a1X.png)
@@ -205,6 +214,6 @@ CLH锁是一种自旋锁的优化实现
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyNjI4MzY0NCwtMTQxMjcxNTM4OCwxMT
-U0Mjg3NTE0LDc4NDMxNzM2NSwtMTU2NjMxNjY0OF19
+eyJoaXN0b3J5IjpbODI2MzQzMSwtMTQxMjcxNTM4OCwxMTU0Mj
+g3NTE0LDc4NDMxNzM2NSwtMTU2NjMxNjY0OF19
 -->
