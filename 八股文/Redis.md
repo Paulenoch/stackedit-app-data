@@ -68,6 +68,8 @@ Redis 从 2.6 版本开始支持执行 Lua 脚本，它的功能和事务非常�
 解决：
 - 提前预热
 - 加锁，设置互斥锁保证只有一个请求能查询数据库并更新缓存
+- 热点Key永不过期
+- 逻辑过期，缓存里不仅存数据，还存一个**过期时间戳**，查询时如果逻辑上未过期，直接返回；如果逻辑上过期，后台异步更新，但仍返回旧数据。
 
 # 16. 缓存雪崩
 **缓存在同一时间大面积的失效，导致大量的请求都直接落到了数据库上，对数据库造成了巨大的压力**
@@ -104,6 +106,6 @@ runid：前两项一样，选runid最小的
 Gossip协议
 ![输入图片说明](/imgs/2025-03-25/hy5BibOnmpqkvNzi.png)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjg5Nzg1NDI4LC05NTQ2NTY0OTMsLTIwOD
-g3NDY2MTJdfQ==
+eyJoaXN0b3J5IjpbLTQzODY4OTQ4NCwyODk3ODU0MjgsLTk1ND
+Y1NjQ5MywtMjA4ODc0NjYxMl19
 -->
