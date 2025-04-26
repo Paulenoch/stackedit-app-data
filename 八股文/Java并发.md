@@ -21,7 +21,7 @@
 
 # 单核CPU上运行多线程效率一定高吗
 对于CPU密集型线程，效率低下，多个线程同时运行会导致频繁的线程切换，增加了系统的开销
-对于IO密集型线程，效率高，
+对于IO密集型线程，效率高，多个线程同时运行可以利用 CPU 在等待 IO 时的空闲时间
 
 # 3. 什么是线程死锁，如何避免
 ```java
@@ -196,6 +196,6 @@ ReentrantLock新功能：
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NTIwNDgzMjUsNzg0MzE3MzY1LC0xNT
-Y2MzE2NjQ4XX0=
+eyJoaXN0b3J5IjpbMTE1NDI4NzUxNCw3ODQzMTczNjUsLTE1Nj
+YzMTY2NDhdfQ==
 -->
