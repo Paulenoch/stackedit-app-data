@@ -16,6 +16,10 @@
 -   TIME_WAITING：超时等待状态，可以在指定的时间后自行返回而不是像 WAITING 那样一直等待。
 -   TERMINATED：终止状态，表示该线程已经运行完毕。
 
+# 为什么要使用多线程
+线程可以比作是轻量级的进程，是程序执行的最小单位，线程间的切换和调度的成本远远小于进程。另外，多核 CPU 时代意味着多个线程可以同时运行，这减少了线程上下文切换的开销。
+
+
 # 3. 什么是线程死锁，如何避免
 ```java
 public class DeadLockDemo {
@@ -189,5 +193,6 @@ ReentrantLock新功能：
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzg0MzE3MzY1LC0xNTY2MzE2NjQ4XX0=
+eyJoaXN0b3J5IjpbMTI0MTQxMTEwOSw3ODQzMTczNjUsLTE1Nj
+YzMTY2NDhdfQ==
 -->
