@@ -158,6 +158,11 @@ AQS 中的 `waitStatus` 状态类似于 **状态机** ，通过不同状态来�
 -   状态 `CANCELLED` ：如果一个节点在队列中等待获取锁锁时，因为某种原因失败了，该节点的状态就会变为 `CANCELLED` ，表明取消获取锁，这种状态的节点是异常的，无法被唤醒，也无法唤醒后继节点。
     ![输入图片说明](/imgs/2025-04-26/vCYTTT3W8qZzVDQX.png)
 
+# AQS常用同步工具类
+
+### Semaphore
+
+
 # 10. ThreadLocal有什么用
 ![输入图片说明](/imgs/2025-03-25/dGCdkDkakSuK3a1X.png)
 
@@ -228,6 +233,7 @@ AQS 中的 `waitStatus` 状态类似于 **状态机** ，通过不同状态来�
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTgxNTExOTM4LC0xNDEyNzE1Mzg4LDExNT
-QyODc1MTQsNzg0MzE3MzY1LC0xNTY2MzE2NjQ4XX0=
+eyJoaXN0b3J5IjpbMjEwMTM3NDMzLDU4MTUxMTkzOCwtMTQxMj
+cxNTM4OCwxMTU0Mjg3NTE0LDc4NDMxNzM2NSwtMTU2NjMxNjY0
+OF19
 -->
