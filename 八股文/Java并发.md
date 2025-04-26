@@ -170,7 +170,10 @@ semaphore.acquire();
 semaphore.release();
 ```
 
-### Countd
+### CountDownLatch
+`CountDownLatch` 允许 `count` 个线程阻塞在一个地方，直至所有线程的任务都执行完毕。
+当线程调用 `countDown()` 时，其实使用了`tryReleaseShared`方法以 CAS 的操作来减少 `state`，直至 `state` 为 0 。当 `state` 为 0 时，表示所有的线程都调用了 `countDown` 方法，那么在 `CountDownLatch` 上等待的线程就会被唤醒并继续执行。
+
 
 # 10. ThreadLocal有什么用
 ![输入图片说明](/imgs/2025-03-25/dGCdkDkakSuK3a1X.png)
@@ -242,7 +245,7 @@ semaphore.release();
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NDkwMDkxMDgsMjEwMTM3NDMzLDU4MT
+eyJoaXN0b3J5IjpbLTExNjc0NjExODYsMjEwMTM3NDMzLDU4MT
 UxMTkzOCwtMTQxMjcxNTM4OCwxMTU0Mjg3NTE0LDc4NDMxNzM2
 NSwtMTU2NjMxNjY0OF19
 -->
