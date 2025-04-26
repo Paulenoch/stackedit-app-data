@@ -187,7 +187,16 @@ semaphore.release();
 
 在使用完 `ThreadLocal` 后，务必调用 `remove()` 方法。 这是最安全和最推荐的做法。 `remove()` 方法会从 `ThreadLocalMap` 中显式地移除对应的 entry，彻底解决内存泄漏的风险。 即使将 `ThreadLocal` 定义为 `static final`，也强烈建议在每次使用后调用 `remove()`。
 
-# 如何ku
+# 如何跨线程传递ThreadLocal的值
+- InheritableThreadLocal
+-   JDK 自带方案，继承自`ThreadLocal`。
+    
+-   在父线程创建子线程时，会自动把父线程中的`InheritableThreadLocal`值传递给子线程。
+    
+-   **局限性**：对于线程池的场景不适用（线程复用，子线程只继承一次值，后续不会更新）。
+
+- TransmittableThreadLocal
+
 
 # 12. 为什么要用线程池
 - 降低反复创建和销毁线程带来的消耗
@@ -253,7 +262,7 @@ semaphore.release();
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjM3MzQxNjI5LDIzODk1MjkzNywtMTE2Nz
-Q2MTE4NiwyMTAxMzc0MzMsNTgxNTExOTM4LC0xNDEyNzE1Mzg4
-LDExNTQyODc1MTQsNzg0MzE3MzY1LC0xNTY2MzE2NjQ4XX0=
+eyJoaXN0b3J5IjpbLTE2Njk4NTk0MywyMzg5NTI5MzcsLTExNj
+c0NjExODYsMjEwMTM3NDMzLDU4MTUxMTkzOCwtMTQxMjcxNTM4
+OCwxMTU0Mjg3NTE0LDc4NDMxNzM2NSwtMTU2NjMxNjY0OF19
 -->
