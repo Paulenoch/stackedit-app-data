@@ -147,7 +147,16 @@ AQS（AbstractQueuedSynchronizer）在 CLH 锁的基础上进一步优化，形�
     -   如果仍然失败，则线程会进入阻塞状态，等待被唤醒，从而减少 CPU 的浪费。
 2.  **单向队列改为双向队列**：CLH 锁使用单向队列，节点只知道前驱节点的状态，而当某个节点释放锁时，需要通过队列唤醒后续节点。AQS 将队列改为 **双向队列**，新增了 `next` 指针，使得节点不仅知道前驱节点，也可以直接唤醒后继节点，从而简化了队列操作，提高了唤醒效率。
 
+# AQS中节点的不同状态
 
+AQS 中的 `waitStatus` 状态类似于 **状态机** ，通过不同状态来表明 Node 节点的不同含义，并且根据不同操作，来控制状态之间的流转。
+
+-   状态 `0` ：新节点加入队列之后，初始状态为 `0` 。
+    
+-   状态 `SIGNAL` ：当有新的节点加入队列，此时新节点的前继节点状态就会由 `0` 更新为 `SIGNAL` ，表示前继节点释放锁之后，需要对新节点进行唤醒操作。如果唤醒 `SIGNAL` 状态节点的后续节点，就会将 `SIGNAL` 状态更新为 `0` 。即通过清除 `SIGNAL` 状态，表示已经执行了唤醒操作。
+    
+-   状态 `CANCELLED` ：如果一个节点在队列中等待获取锁锁时，因为某种原因失败了，该节点的状态就会变为 `CANCELLED` ，表明取消获取锁，这种状态的节点是异常的，无法被唤醒，也无法唤醒后继节点。
+    ![输入图片说明](/imgs/2025-04-26/vCYTTT3W8qZzVDQX.png)
 
 # 10. ThreadLocal有什么用
 ![输入图片说明](/imgs/2025-03-25/dGCdkDkakSuK3a1X.png)
@@ -219,6 +228,6 @@ AQS（AbstractQueuedSynchronizer）在 CLH 锁的基础上进一步优化，形�
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3MTUwNjUxMCwtMTQxMjcxNTM4OCwxMT
-U0Mjg3NTE0LDc4NDMxNzM2NSwtMTU2NjMxNjY0OF19
+eyJoaXN0b3J5IjpbNTgxNTExOTM4LC0xNDEyNzE1Mzg4LDExNT
+QyODc1MTQsNzg0MzE3MzY1LC0xNTY2MzE2NjQ4XX0=
 -->
