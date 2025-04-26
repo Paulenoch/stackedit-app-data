@@ -72,6 +72,13 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 	-   多态不能调用“只在子类存在但在父类不存在”的方法；
 	-   如果子类重写了父类的方法，真正执行的是子类重写的方法，如果子类没有重写父类的方法，执行的是父类的方法。
 
+## 接口与抽象类
+共同点
+- 接口和抽象类都不能直接实例化，只能被实现（接口）或继承（抽象类）后才能创建具体的对象。
+- 接口和抽象类都可以包含抽象方法。抽象方法没有方法体，必须在子类或实现类中实现。
+区别：
+
+
 ## 11. 浅拷贝、深拷贝、引用拷贝![输入图片说明](/imgs/2025-03-24/SClMMUPEIQC2oFRf.png)
 
 ## 12. hashcode()
@@ -272,9 +279,9 @@ SPI 即 Service Provider Interface ，字面意思就是：“服务提供者的
 
 SPI 将服务接口和具体的服务实现分离开来，将服务调用方和服务实现者解耦，能够提升程序的扩展性、可维护性。修改或者替换服务实现并不需要修改调用方。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxMzM5NDM2OCwtMTY4OTYwNDM4NiwtMT
-A3NDAwMTk5OCwtOTM4NDg1ODk2LC05MTk5MTUwOTUsLTM2OTcx
-MDk4NCwtMTY2MTg1MzMzMSwxMTc3MjI1MDI3LDE4ODg4NDUzNz
-ksLTM4NjE3OTE5NiwxNTg1NDI1MDY0LDc0ODcwODQ5NSwtMTI0
-NzYzNzA1M119
+eyJoaXN0b3J5IjpbLTkzNjkxNzM5OCwtMzEzMzk0MzY4LC0xNj
+g5NjA0Mzg2LC0xMDc0MDAxOTk4LC05Mzg0ODU4OTYsLTkxOTkx
+NTA5NSwtMzY5NzEwOTg0LC0xNjYxODUzMzMxLDExNzcyMjUwMj
+csMTg4ODg0NTM3OSwtMzg2MTc5MTk2LDE1ODU0MjUwNjQsNzQ4
+NzA4NDk1LC0xMjQ3NjM3MDUzXX0=
 -->
