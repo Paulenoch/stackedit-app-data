@@ -39,7 +39,28 @@ SpringBoot的核心注解`@SpringBootApplication`
 -   `@Configuration`：允许在上下文中注册额外的 bean 或导入其他配置类
 -   `@ComponentScan`：扫描被`@Component` (`@Service`,`@Controller`)注解的 bean，注解默认会扫描启动类所在的包下所有的类 ，可以自定义不扫描某些 bean。如下图所示，容器中将排除`TypeExcludeFilter`和`AutoConfigurationExcludeFilter`。
 
+# Spring框架中哪些功能依赖反射实现
+### 1. **依赖注入（Dependency Injection）**
+
+-   Spring在容器启动时，会扫描Bean定义，然后**通过反射实例化对象（调用构造方法）**。
+    
+-   给对象**注入字段（Field）**、**调用Setter方法**，也是通过反射来访问和修改私有成员的。
+
+### 2. **AOP（面向切面编程，Aspect Oriented Programming）**
+
+-   Spring AOP 需要**动态代理对象**，而生成代理时（尤其是基于JDK动态代理或者CGLIB字节码增强）需要通过反射调用原方法。
+    
+-   方法拦截（MethodInterceptor）也是通过反射调用目标方法。
+
+### 3. **事务管理（@Transactional）**
+
+-   Spring事务是基于AOP实现的，本质上也是通过反射**拦截方法调用**，在调用目标方法前后进行事务管理（开启事务、提交、回滚）。
+
+### 6. **注解处理（@Autowired, @Qualifier, @Value, @Component, @Service 等）**
+
+-   Spring使用反射去**读取类、方法、字段上的注解**，然后根据注解的元数据做各种自动化处理，比如自动注入、条件装配。
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg4NjcxNjcyNyw1MDAxNzQ0MjUsMTcxMj
-c1NTk5MV19
+eyJoaXN0b3J5IjpbNzc2MDI1ODU5LC04ODY3MTY3MjcsNTAwMT
+c0NDI1LDE3MTI3NTU5OTFdfQ==
 -->
