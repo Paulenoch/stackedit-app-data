@@ -60,7 +60,20 @@ SpringBoot的核心注解`@SpringBootApplication`
 
 -   Spring使用反射去**读取类、方法、字段上的注解**，然后根据注解的元数据做各种自动化处理，比如自动注入、条件装配。
 
+# SpringAOP中，动态代理的两种实现方式
+### 1. **JDK动态代理**
+
+-   基于**接口**进行代理。
+    
+-   代理对象会**实现目标对象的接口**，然后通过`InvocationHandler`来拦截方法调用。
+
+### 2. **CGLIB动态代理**
+
+-   基于**继承（子类化）**进行代理。
+    
+-   CGLIB通过**生成目标类的子类**，重写方法来实现拦截。
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzc2MDI1ODU5LC04ODY3MTY3MjcsNTAwMT
-c0NDI1LDE3MTI3NTU5OTFdfQ==
+eyJoaXN0b3J5IjpbMTgzNjAyNDY5NiwtODg2NzE2NzI3LDUwMD
+E3NDQyNSwxNzEyNzU1OTkxXX0=
 -->
