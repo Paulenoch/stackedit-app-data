@@ -59,7 +59,10 @@
 -   智能交互前端请求**数据查询组件**执行SQL。
     
     -   数据查询组件返回SQL执行结果和数据。
+
+
+# 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwODMwODU5MzgsLTIwODg3NDY2MTJdfQ
-==
+eyJoaXN0b3J5IjpbLTE3Mzk4NTA5MTcsLTIwODMwODU5MzgsLT
+IwODg3NDY2MTJdfQ==
 -->
