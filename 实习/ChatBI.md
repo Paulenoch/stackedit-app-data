@@ -61,8 +61,33 @@
     -   数据查询组件返回SQL执行结果和数据。
 
 
-# 
+## 基于模板生成SQL
+![输入图片说明](/imgs/2025-05-27/cwxTpnqi2cx1e8g0.png)
+### 流程详解
+
+1.  **样例问题检索**
+    
+    -   系统首先会根据用户输入，去知识库里检索最相近的“样例问题”。
+        
+    -   用到的技术包括：关键词检索、向量检索、置信度设置等。
+        
+2.  **样例模板参数提取**
+    
+    -   找到合适的样例问题后，系统会抽取用户输入中的参数（比如日期、产品名、地区等）。
+        
+    -   并将这些参数映射到SQL模板需要的变量上。
+        
+3.  **SQL模板参数替换**
+    
+    -   用前面提取到的参数替换掉SQL模板中的占位符，形成完整的SQL语句。
+        
+4.  **输出SQL语句**
+    
+    -   最终生成标准的SQL语句，可以直接用于数据库查询。
+
+## 基于表模型生成SQL
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3Mzk4NTA5MTcsLTIwODMwODU5MzgsLT
-IwODg3NDY2MTJdfQ==
+eyJoaXN0b3J5IjpbMjg0MTQ1MDksLTIwODMwODU5MzgsLTIwOD
+g3NDY2MTJdfQ==
 -->
