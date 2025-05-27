@@ -210,7 +210,7 @@ semaphore.release();
 - 提高线程的可管理性
 
 # 13. 为什么不推荐使用内置线程池
-线程池参数不明确，如任务队列长度，xian'cheng最大数量等参数可能为无限大，带来隐患
+线程池参数不明确，如任务队列长度，线程最大数量等参数可能为无限大，带来隐患
 
 # 14. 线程池的参数
 -   **`corePoolSize`（核心线程数）**
@@ -288,7 +288,7 @@ semaphore.release();
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzNTU2MTg3LDE5NjgwMTc0MDQsOTAxOD
+eyJoaXN0b3J5IjpbMTc1Mzc4MjA3LDE5NjgwMTc0MDQsOTAxOD
 gwMDI1LDIzODk1MjkzNywtMTE2NzQ2MTE4NiwyMTAxMzc0MzMs
 NTgxNTExOTM4LC0xNDEyNzE1Mzg4LDExNTQyODc1MTQsNzg0Mz
 E3MzY1LC0xNTY2MzE2NjQ4XX0=
