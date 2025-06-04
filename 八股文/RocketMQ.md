@@ -22,7 +22,7 @@
 ## 消息分类
 - 普通消息
 - 定时消息：定时消息仅支持在 MessageType 为 Delay 的主题内使用，即定时消息只能发送至类型为定时消息的主题中，发送的消息的类型必须和主题的类型一致
-  -   消息被发送到服务端，和普通消息不同的是，服务端不会直接构建消息索引，而是会将定时消息**单独存储在定时存储系统中**，等待定时时刻到达。定时时刻到达后，服务端将消息重新写入普通存储引擎，对下游消费者可见，等待消费者消费的状态。
+  -   消息被发送到服务端，和普通消息不同的是，服务端不会直接构建消息索引，而是会将定时消息**单独存储在定时存储系统中**，等待定时时刻到达。定时时刻到达后，服务端将消息重新写入普通存储引擎，对下游消费者可见，等待消费者消费的状态。如果将大量定时消息的定时时间设置为同一时刻，则到达该时刻后会有大量消息同时需要被处理，会造成系统压力过大，导致消息分发延迟，影响定时精度。
 - 
 
 
@@ -30,7 +30,7 @@
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1Nzg1Mjg0MjMsODU0MDkwNjY4LC02ND
-g2OTQyMTQsMTE5ODYwNTk4OCwtMjA4ODc0NjYxMiwtMjA4ODc0
-NjYxMl19
+eyJoaXN0b3J5IjpbLTIwMzE4ODc5Nyw4NTQwOTA2NjgsLTY0OD
+Y5NDIxNCwxMTk4NjA1OTg4LC0yMDg4NzQ2NjEyLC0yMDg4NzQ2
+NjEyXX0=
 -->
