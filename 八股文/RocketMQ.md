@@ -19,11 +19,20 @@
 
 - 消费者通过 `NameServer` 获取所有 `Broker` 的路由信息后，向 `Broker` 发送 `Pull` 请求来获取消息数据。`Consumer` 可以以两种模式启动—— **广播（Broadcast）和集群（Cluster）**。广播模式下，一条消息会发送给 **同一个消费组中的所有消费者** ，集群模式下消息只会发送给一个消费者。
 
-##消息分类
+## 消息分类
+- 普通消息
+- 定时消息：定时消息仅支持在 MessageType 为 Delay 的主题内使用，即定时消息只能发送至类型为定时消息的主题中，发送的消息的类型必须和主题的类型一致
+  -   消息被发送到服务端，和普通消息不同的是，服务端不会直接构建消息索引，而是会将定时消息**单独存储在定时存储系统中**，等待定时时刻到达。
+-   待消费：定时时刻到达后，服务端将消息重新写入普通存储引擎，对下游消费者可见，等待消费者消费的状态。
+
+----------
+
+著作权归JavaGuide(javaguide.cn)所有 基于MIT协议 原文链接：https://javaguide.cn/high-performance/message-queue/rocketmq-questions.html
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODU0MDkwNjY4LC02NDg2OTQyMTQsMTE5OD
-YwNTk4OCwtMjA4ODc0NjYxMiwtMjA4ODc0NjYxMl19
+eyJoaXN0b3J5IjpbLTEyNDA0MjY4NjYsODU0MDkwNjY4LC02ND
+g2OTQyMTQsMTE5ODYwNTk4OCwtMjA4ODc0NjYxMiwtMjA4ODc0
+NjYxMl19
 -->
