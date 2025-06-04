@@ -19,11 +19,11 @@
 
 - 消费者通过 `NameServer` 获取所有 `Broker` 的路由信息后，向 `Broker` 发送 `Pull` 请求来获取消息数据。`Consumer` 可以以两种模式启动—— **广播（Broadcast）和集群（Cluster）**。广播模式下，一条消息会发送给 **同一个消费组中的所有消费者** ，集群模式下消息只会发送给一个消费者。
 
-
+##消息分类
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQwODcwMzk3NiwtNjQ4Njk0MjE0LDExOT
-g2MDU5ODgsLTIwODg3NDY2MTIsLTIwODg3NDY2MTJdfQ==
+eyJoaXN0b3J5IjpbODU0MDkwNjY4LC02NDg2OTQyMTQsMTE5OD
+YwNTk4OCwtMjA4ODc0NjYxMiwtMjA4ODc0NjYxMl19
 -->
