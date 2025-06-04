@@ -25,14 +25,12 @@
   -   消息被发送到服务端，和普通消息不同的是，服务端不会直接构建消息索引，而是会将定时消息**单独存储在定时存储系统中**，等待定时时刻到达。
 -   待消费：定时时刻到达后，服务端将消息重新写入普通存储引擎，对下游消费者可见，等待消费者消费的状态。
 
-----------
 
-著作权归JavaGuide(javaguide.cn)所有 基于MIT协议 原文链接：https://javaguide.cn/high-performance/message-queue/rocketmq-questions.html
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDA0MjY4NjYsODU0MDkwNjY4LC02ND
-g2OTQyMTQsMTE5ODYwNTk4OCwtMjA4ODc0NjYxMiwtMjA4ODc0
-NjYxMl19
+eyJoaXN0b3J5IjpbLTk3ODAzMzg4MSw4NTQwOTA2NjgsLTY0OD
+Y5NDIxNCwxMTk4NjA1OTg4LC0yMDg4NzQ2NjEyLC0yMDg4NzQ2
+NjEyXX0=
 -->
