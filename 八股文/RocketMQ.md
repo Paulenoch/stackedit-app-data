@@ -46,6 +46,12 @@
         
     -   如果网络等原因导致生产者没反馈成功/失败，Broker会“回查”生产者，问消息到底该提交还是回滚。
 
+## 如何解决消息堆积的问题
+产生消息堆积的根源其实就只有两个——生产者生产太快或者消费者消费太慢。
+
+我们可以从多个角度去思考解决这个问题，当流量到峰值的时候是因为生产者生产太快，我们可以使用一些 **限流降级** 的方法，当然你也可以增加多个消费者实例去水平扩展增加消费能力来匹配生产的激增。如果消费者消费过慢的话，我们可以先检查 **是否是消费者出现了大量的消费错误** ，或者打印一下日志查看是否是哪一个线程卡死，出现了锁资源不释放等等的问题。
+
+
 
 
 
@@ -53,7 +59,7 @@
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMzNzU5OTM5OSw5MDQzNjc5NzIsMzUwOT
-U1NjgsODU0MDkwNjY4LC02NDg2OTQyMTQsMTE5ODYwNTk4OCwt
-MjA4ODc0NjYxMiwtMjA4ODc0NjYxMl19
+eyJoaXN0b3J5IjpbLTExMTg2Mzk5NTcsLTMzNzU5OTM5OSw5MD
+QzNjc5NzIsMzUwOTU1NjgsODU0MDkwNjY4LC02NDg2OTQyMTQs
+MTE5ODYwNTk4OCwtMjA4ODc0NjYxMiwtMjA4ODc0NjYxMl19
 -->
