@@ -113,7 +113,11 @@ step5：执行init方法
 
 被判定为需要执行的对象将会被放在一个队列中进行第二次标记，除非这个对象与引用链上的任何一个对象建立关联，否则就会被真的回收。
 
-# 7. 垃圾收集算法，各自的特点
+
+# 垃圾回收算法
+ - 标记-清除：
+ ![输入图片说明](/imgs/2025-09-18/CCl2CfuwiEfOGH3G.png)
+# 7. 垃圾收集器，各自的特点
 - Serial：单线程收集器，工作室必须暂停其他所有工作线程
 - ParNew：Serial的多线程版本
 - Paallel Scavenge：关注点是吞吐量（高效率的利用 CPU）
@@ -156,6 +160,7 @@ Tomcat 服务器为了能够优先加载 Web 应用目录下的类，然后再�
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU0NzA2NjMxLC03NjI2MDI0NSwxMDM2OT
-I2NTg4LC0xMjUyOTA3Nzc3LDgwMjQ0NjQ2M119
+eyJoaXN0b3J5IjpbLTE2MDEwODkwODYsLTU0NzA2NjMxLC03Nj
+I2MDI0NSwxMDM2OTI2NTg4LC0xMjUyOTA3Nzc3LDgwMjQ0NjQ2
+M119
 -->
