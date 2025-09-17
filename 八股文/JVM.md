@@ -121,8 +121,10 @@ step5：执行init方法
 - 复制：将内存分为大小相同的两块，每次使用其中的一块。当这一块的内存使用完后，就将还存活的对象复制到另一块去，然后再把使用的空间一次清理掉。**可用内存变小**如果存活对象数量比较大，复制性能会变得很差。
 ![输入图片说明](/imgs/2025-09-18/BStYupEU4xC1GkM1.png)
 
-- 标记-整理：标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象回收，而是让所有存活的对象向一端移动，然后直接清理掉端边界以外的内存。
+- 标记-整理：标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象回收，而是让所有存活的对象向一端移动，然后直接清理掉端边界以外的内存。由于多了整理这一步，因此效率也不高，适合老年代这种垃圾回收频率不是很高的场景。
+![输入图片说明](/imgs/2025-09-18/UZWjm764kEs0qa7f.png)
 
+- 分代收集算法：根据各个年代的特点选择合适的垃圾收集算法。新生代（复制），老年代（标记清除，标记整理）
 # 7. 垃圾收集器，各自的特点
 - Serial：单线程收集器，工作室必须暂停其他所有工作线程
 - ParNew：Serial的多线程版本
@@ -166,7 +168,7 @@ Tomcat 服务器为了能够优先加载 Web 应用目录下的类，然后再�
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzMzkwNDk0MywtNTQ3MDY2MzEsLTc2Mj
-YwMjQ1LDEwMzY5MjY1ODgsLTEyNTI5MDc3NzcsODAyNDQ2NDYz
-XX0=
+eyJoaXN0b3J5IjpbLTU1ODkwNTAyLC01NDcwNjYzMSwtNzYyNj
+AyNDUsMTAzNjkyNjU4OCwtMTI1MjkwNzc3Nyw4MDI0NDY0NjNd
+fQ==
 -->
