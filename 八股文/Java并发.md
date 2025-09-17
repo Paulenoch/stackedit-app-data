@@ -121,6 +121,16 @@ ReentrantLock新功能：
 - 公平锁
 - 支持超时：`ReentrantLock` 提供了 `tryLock(timeout)` 的方法，可以指定等待获取锁的最长等待时间，如果超过了等待时间，就会获取锁失败，不会一直等待。
 
+# 可重入锁
+可重入锁（Reentrant Lock），也称为递归锁（Recursive Lock），是一种允许同一个线程多次获取同一把锁而不会导致死锁的同步机制。
+
+想象一个场景：一个线程已经获得了某个资源的锁，但在持有锁的期间，它又一次尝试获取这把锁。
+
+-   对于**不可重入锁**：线程会立即被阻塞，因为它尝试获取一个已经被自己持有的锁。这会导致线程自己将自己锁死，即**死锁**。
+    
+-   对于**可重入锁**：线程可以成功地再次获取这把锁，而不会被阻塞。
+
+
 
 # 9. volatile关键字
 在 Java 中，`volatile` 关键字可以保证变量的可见性，如果我们将变量声明为 **`volatile`** ，这就指示 JVM，这个变量是共享且不稳定的，每次使用它都到主存中进行读取。
@@ -288,8 +298,8 @@ semaphore.release();
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1Mzc4MjA3LDE5NjgwMTc0MDQsOTAxOD
-gwMDI1LDIzODk1MjkzNywtMTE2NzQ2MTE4NiwyMTAxMzc0MzMs
-NTgxNTExOTM4LC0xNDEyNzE1Mzg4LDExNTQyODc1MTQsNzg0Mz
-E3MzY1LC0xNTY2MzE2NjQ4XX0=
+eyJoaXN0b3J5IjpbMTA5NDQ4MjQ2MSwxNzUzNzgyMDcsMTk2OD
+AxNzQwNCw5MDE4ODAwMjUsMjM4OTUyOTM3LC0xMTY3NDYxMTg2
+LDIxMDEzNzQzMyw1ODE1MTE5MzgsLTE0MTI3MTUzODgsMTE1ND
+I4NzUxNCw3ODQzMTczNjUsLTE1NjYzMTY2NDhdfQ==
 -->
