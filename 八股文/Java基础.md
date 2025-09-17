@@ -82,7 +82,9 @@ Java 基本数据类型的包装类型的大部分都用到了缓存机制来提
 - 
 
 ## 11. 浅拷贝、深拷贝、引用拷贝![输入图片说明](/imgs/2025-03-24/SClMMUPEIQC2oFRf.png)
-
+- 浅拷贝：引用拷贝是创建一个新的引用变量，并让这个新的引用变量指向**堆内存中已存在的同一个对象**。它只复制了引用的地址，而不是对象的内容。两个引用变量指向同一个内存地址。通过任何一个引用修改对象的状态，都会影响到另一个引用。
+- 浅拷贝：创建一个新对象，然后将原始对象中的字段值**逐一复制**到新对象中。原始对象和拷贝对象有不同的内存地址。对于字段是**基本数据类型**（如 `int`, `double`）的，会直接复制其值，修改一个对象的值不会影响另一个。对于字段是**引用数据类型**（如 `String`, `Array`, 自定义对象）的，只会复制其**引用的地址**。这意味着原始对象和拷贝对象内部的引用字段会指向堆内存中的同一个对象。
+- 深拷贝：
 ## 12. hashcode()
 `hashCode()` 的作用是获取哈希码（`int` 整数），也称为散列码。这个哈希码的作用是确定该对象在哈希表中的索引位置
 
@@ -281,9 +283,9 @@ SPI 即 Service Provider Interface ，字面意思就是：“服务提供者的
 
 SPI 将服务接口和具体的服务实现分离开来，将服务调用方和服务实现者解耦，能够提升程序的扩展性、可维护性。修改或者替换服务实现并不需要修改调用方。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgyMzI4MzU0NSwtMzEzMzk0MzY4LC0xNj
-g5NjA0Mzg2LC0xMDc0MDAxOTk4LC05Mzg0ODU4OTYsLTkxOTkx
-NTA5NSwtMzY5NzEwOTg0LC0xNjYxODUzMzMxLDExNzcyMjUwMj
-csMTg4ODg0NTM3OSwtMzg2MTc5MTk2LDE1ODU0MjUwNjQsNzQ4
-NzA4NDk1LC0xMjQ3NjM3MDUzXX0=
+eyJoaXN0b3J5IjpbMTI5MTg2NTI1OCwtODIzMjgzNTQ1LC0zMT
+MzOTQzNjgsLTE2ODk2MDQzODYsLTEwNzQwMDE5OTgsLTkzODQ4
+NTg5NiwtOTE5OTE1MDk1LC0zNjk3MTA5ODQsLTE2NjE4NTMzMz
+EsMTE3NzIyNTAyNywxODg4ODQ1Mzc5LC0zODYxNzkxOTYsMTU4
+NTQyNTA2NCw3NDg3MDg0OTUsLTEyNDc2MzcwNTNdfQ==
 -->
