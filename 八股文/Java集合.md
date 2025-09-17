@@ -69,6 +69,7 @@ HashMap 通过 key 的 `hashcode` 经过扰动函数处理过后得到 hash 值�
 ### 为什么从红黑树退化回链表的阈值选择 **6**
 主要是为了**防止在临界点上频繁地进行链表和红黑树的转换，这被称为“抖动”（Thrashing）**。
 
+
 ### HashMap的长度为什么是2的幂次方
 计算出哈希值之后需要对数组的长度进行取模运算，得到的余数才能用来要存放的位置也就是对应的数组下标。若此时数组长度为2的幂次方，取余(%)操作中如果除数是 2 的幂次则等价于与其除数减一的与(&)操作，提高运算速度
 
@@ -148,7 +149,7 @@ map.put(key, anotherValue);
 
 `ConcurrentHashMap` 提供了一些原子性的复合操作，如 `putIfAbsent`、`compute`、`computeIfAbsent` 、`computeIfPresent`、`merge`等。这些方法都可以接受一个函数作为参数，根据给定的 key 和 value 来计算一个新的 value，并且将其更新到 map 中。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwNzUxNTAzMiwxMDkwMjU2MjA4LDk4OD
+eyJoaXN0b3J5IjpbMTQ2OTU1NDM0NiwxMDkwMjU2MjA4LDk4OD
 M4NzY3MSwzMjExMzI4NDksLTExMDgxMzkzMDAsMjAwNDg0Mzk1
 NSwtMTY3MjU5MTIzLDExMjQyODM5ODhdfQ==
 -->
