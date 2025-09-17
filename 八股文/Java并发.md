@@ -130,6 +130,21 @@ ReentrantLock新功能：
     
 -   对于**可重入锁**：线程可以成功地再次获取这把锁，而不会被阻塞。
 
+### 可重入锁的工作原理
+
+可重入锁的实现原理非常巧妙，它主要依赖于两个核心概念：
+
+1.  **锁的持有者（Owner）**：锁内部会记录当前是哪个线程持有了它。
+    
+2.  **持有计数器（Hold Count）**：一个与锁关联的计数器，初始值为0。
+    
+    -   当一个线程**第一次**获取锁时，系统会记录下该线程为锁的持有者，并将计数器设置为1。
+        
+    -   当该线程**再次**（即重入）获取这把锁时，由于系统发现锁的持有者就是当前线程，所以不会阻塞，而是简单地将计数器加1。
+        
+    -   当线程**释放锁**（unlock）时，计数器会减1。
+        
+    -   只有当计数器减到0时，这把锁才会被真正释放，其他等待的线程才有机会获取它。
 
 
 # 9. volatile关键字
@@ -298,8 +313,8 @@ semaphore.release();
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA5NDQ4MjQ2MSwxNzUzNzgyMDcsMTk2OD
-AxNzQwNCw5MDE4ODAwMjUsMjM4OTUyOTM3LC0xMTY3NDYxMTg2
-LDIxMDEzNzQzMyw1ODE1MTE5MzgsLTE0MTI3MTUzODgsMTE1ND
-I4NzUxNCw3ODQzMTczNjUsLTE1NjYzMTY2NDhdfQ==
+eyJoaXN0b3J5IjpbMjkxNDMyNTAzLDE3NTM3ODIwNywxOTY4MD
+E3NDA0LDkwMTg4MDAyNSwyMzg5NTI5MzcsLTExNjc0NjExODYs
+MjEwMTM3NDMzLDU4MTUxMTkzOCwtMTQxMjcxNTM4OCwxMTU0Mj
+g3NTE0LDc4NDMxNzM2NSwtMTU2NjMxNjY0OF19
 -->
