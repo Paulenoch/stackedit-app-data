@@ -48,7 +48,9 @@ AID是手段，C是目的
 - 可串行化：全部组织，所有的事务依次逐个执行，不互相干扰
 
 # 9. MVCC
-MVCC是一种并发版本控制机制，通过在每个数据行上维护多个版本的数据实现，当一个事务要修改数据库中数据时，MVCC 会为该事务创建一个数据快照，而不是直接修改实际的数据行。
+**MVCC的目标**：通过保存数据的多个历史版本，让不同事务在访问同一行数据时，能够看到自己应该看到的版本，从而实现**读写不加锁**
+MVCC的实现依赖于三个核心组件：**隐藏字段**、**Undo Log（撤销日志）和Read View（读视图）**。
+
 
 # 10. InnoDB有哪几类行锁
 - 记录锁：单个行记录上的锁
@@ -105,5 +107,6 @@ InnoDB独有，让MySQL拥有了崩溃恢复能力，记录某个数据页上做
 # 23. undo log如何保证事物的原子性
 每一个事务对数据的修改都会记录到undo log，可以用于回滚，属于逻辑日志，记录的是SQL语句
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5NTA5OTc4NSwtNDY0MDYwNDM4XX0=
+eyJoaXN0b3J5IjpbMTM0NDc2NTIxNCwtNDk1MDk5Nzg1LC00Nj
+QwNjA0MzhdfQ==
 -->
