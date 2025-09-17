@@ -6,7 +6,7 @@
 
 ### ArrayList和LinkedList对比
 - 二者都线程不安全
-- ArrayList是Object[]数组，LinkedList是双向列表
+- ArrayList是Object[]数组，LinkedList是双向链表
 - LinkedList不支持快速随机访问
 - `ArrayList` 的空间浪费主要体现在在 list 列表的结尾会预留一定的容量空间，而 LinkedList 的空间花费则体现在它的每一个元素都需要消耗比 ArrayList 更多的空间（因为要存放直接后继和直接前驱以及数据）
 
@@ -146,7 +146,7 @@ map.put(key, anotherValue);
 
 `ConcurrentHashMap` 提供了一些原子性的复合操作，如 `putIfAbsent`、`compute`、`computeIfAbsent` 、`computeIfPresent`、`merge`等。这些方法都可以接受一个函数作为参数，根据给定的 key 和 value 来计算一个新的 value，并且将其更新到 map 中。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTg4Mzg3NjcxLDMyMTEzMjg0OSwtMTEwOD
-EzOTMwMCwyMDA0ODQzOTU1LC0xNjcyNTkxMjMsMTEyNDI4Mzk4
-OF19
+eyJoaXN0b3J5IjpbMTA5MDI1NjIwOCw5ODgzODc2NzEsMzIxMT
+MyODQ5LC0xMTA4MTM5MzAwLDIwMDQ4NDM5NTUsLTE2NzI1OTEy
+MywxMTI0MjgzOTg4XX0=
 -->
