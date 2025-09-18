@@ -46,6 +46,7 @@ DLX，全称为 `Dead-Letter-Exchange`，死信交换器，死信邮箱。当消
 # RabbitMQ消息如何传输
 由于 TCP 链接的创建和销毁开销较大，且并发数受系统资源限制，会造成性能瓶颈，所以 RabbitMQ 使用信道的方式来传输数据。信道（Channel）是生产者、消费者与 RabbitMQ 通信的渠道，信道是建立在 TCP 链接上的虚拟链接，且每条 TCP 链接上的信道数量没有限制。就是说 RabbitMQ 在一条 TCP 链接上建立成百上千个信道来达到多个线程处理，这个 TCP 被多个线程共享，每个信道在 RabbitMQ 都有唯一的 ID，保证了信道私有性，每个信道对应一个线程使用。
 
+# Rabbit
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NzcyNTM2NjldfQ==
+eyJoaXN0b3J5IjpbOTgwNjM3MTM4LC0xNjc3MjUzNjY5XX0=
 -->
