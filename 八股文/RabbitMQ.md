@@ -34,7 +34,17 @@ direct 类型的 Exchange 路由规则也很简单，它会把消息路由到那
 -   路由键为 “java.rabbitmq.demo” 的消息只会路由到 Queue1 中；
 -   路由键为 “java.util.concurrent” 的消息将会被丢弃或者返回给生产者（需要设置 mandatory 参数），因为它没有匹配任何路由键。
 
+# 死信队列
+DLX，全称为 `Dead-Letter-Exchange`，死信交换器，死信邮箱。当消息在一个队列中变成死信 (`dead message`) 之后，它能被重新发送到另一个交换器中，这个交换器就是 DLX，绑定 DLX 的队列就称之为死信队列。
+
+**导致的死信的几种原因**：
+
+-   消息被拒（`Basic.Reject /Basic.Nack`) 且 `requeue = false`。
+-   消息 TTL 过期。
+-   队列满了，无法再添加。
+
+# RabbitMQ消息如何传输
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxNTUwNTg4Nl19
+eyJoaXN0b3J5IjpbLTg4MDQ0NDk2MF19
 -->
