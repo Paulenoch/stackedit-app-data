@@ -10,7 +10,31 @@ RabbitMQ 中通过 **Binding(绑定)** 将 **Exchange(交换器)** 与 **Queue(�
 ![输入图片说明](/imgs/2025-09-18/CTTrYzcV3AVmjfAk.png)
 
 # Broker
+对于 RabbitMQ 来说，一个 RabbitMQ Broker 可以简单地看作一个 RabbitMQ 服务节点，或者 RabbitMQ 服务实例。大多数情况下也可以将一个 RabbitMQ Broker 看作一台 RabbitMQ 服务器。
+
+# Exchange Types
+**1、fanout**
+
+fanout 类型的 Exchange 路由规则非常简单，它会把所有发送到该 Exchange 的消息路由到所有与它绑定的 Queue 中，不需要做任何判断操作，所以 fanout 类型是所有的交换机类型里面速度最快的。fanout 类型常用来广播消息。
+
+**2、direct**
+
+direct 类型的 Exchange 路由规则也很简单，它会把消息路由到那些 Bindingkey 与 RoutingKey 完全匹配的 Queue 中。
+
+**3、topic**
+-   RoutingKey 为一个点号“．”分隔的字符串（被点号“．”分隔开的每一段独立的字符串称为一个单词），如 “com.rabbitmq.client”、“java.util.concurrent”、“com.hidden.client”;
+-   BindingKey 和 RoutingKey 一样也是点号“．”分隔的字符串；
+-   BindingKey 中可以存在两种特殊字符串“*”和“#”，用于做模糊匹配，其中“*”用于匹配一个单词，“#”用于匹配多个单词(可以是零个)。
+![输入图片说明](/imgs/2025-09-18/7NZBg7qRiagncMfr.png)
+以上图为例：
+
+-   路由键为 “com.rabbitmq.client” 的消息会同时路由到 Queue1 和 Queue2;
+-   路由键为 “com.hidden.client” 的消息只会路由到 Queue2 中；
+-   路由键为 “com.hidden.demo” 的消息只会路由到 Queue2 中；
+-   路由键为 “java.rabbitmq.demo” 的消息只会路由到 Queue1 中；
+-   路由键为 “java.util.concurrent” 的消息将会被丢弃或者返回给生产者（需要设置 mandatory 参数），因为它没有匹配任何路由键。
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5ODM3MTQ5MzVdfQ==
+eyJoaXN0b3J5IjpbLTkxNTUwNTg4Nl19
 -->
