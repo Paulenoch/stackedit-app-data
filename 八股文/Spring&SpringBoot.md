@@ -74,10 +74,17 @@ SpringBoot的核心注解`@SpringBootApplication`
 -   CGLIB通过**生成目标类的子类**，重写方法来实现拦截。
 
 # Spring事务失效
-**核心原因：方法自调用（Self-Invocation）**
+**方法自调用（Self-Invocation）**
 
 这是最常见也是最典型的AOP注解失效场景。当一个Bean的内部方法A调用同一个Bean的另一个被注解（如 `@Transactional`）的方法B时，这个调用是通过 `this` 关键字直接发生的，绕过了Spring的代理对象。因此，方法B的增强逻辑（如事务）不会被执行。
+解决方案：**注入自身代理对象**：将Bean自身注入，并使用注入的代理对象来调用方法。
+
+-   **方法的访问权限问题**：`@Transactional` 等AOP注解所修饰的方法必须是 `public` 的。因为代理机制无法拦截 `private`、`protected` 或 `default` 权限的方法。
+    
+-   **方法被 `final` 修饰**：如果一个方法被 `final` 修饰，它将无法被子类（CGLIB代理）重写，因此AOP增强会失效。同理，如果类被 `final` 修饰，整个类都无法被代理。
+    
+-   **异常被内部 `try-catch` 捕获**：在使用 `@Transactional` 时，如果方法内部将异常捕获并且没有重新抛出，Spring的事务管理器将无法感知到异常，从而导致事务不会回滚。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjU4NDIwNzgsMTgzNjAyNDY5NiwtOD
-g2NzE2NzI3LDUwMDE3NDQyNSwxNzEyNzU1OTkxXX0=
+eyJoaXN0b3J5IjpbNDEzMDY3Mzk2LDE4MzYwMjQ2OTYsLTg4Nj
+cxNjcyNyw1MDAxNzQ0MjUsMTcxMjc1NTk5MV19
 -->
