@@ -73,7 +73,11 @@ SpringBoot的核心注解`@SpringBootApplication`
     
 -   CGLIB通过**生成目标类的子类**，重写方法来实现拦截。
 
+# Spring事务失效
+**核心原因：方法自调用（Self-Invocation）**
+
+这是最常见也是最典型的AOP注解失效场景。当一个Bean的内部方法A调用同一个Bean的另一个被注解（如 `@Transactional`）的方法B时，这个调用是通过 `this` 关键字直接发生的，绕过了Spring的代理对象。因此，方法B的增强逻辑（如事务）不会被执行。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgzNjAyNDY5NiwtODg2NzE2NzI3LDUwMD
-E3NDQyNSwxNzEyNzU1OTkxXX0=
+eyJoaXN0b3J5IjpbLTE0NjU4NDIwNzgsMTgzNjAyNDY5NiwtOD
+g2NzE2NzI3LDUwMDE3NDQyNSwxNzEyNzU1OTkxXX0=
 -->
