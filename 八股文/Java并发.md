@@ -312,9 +312,14 @@ semaphore.release();
 
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
+
+# thread.sleep()和thread.wait()的区别
+都是暂停线程执行，sleep()没有释放锁，wait()释放了锁
+wait调用后线程不会自动苏醒，需要别的线程调用同一个对象上的notify或notifyAll方法
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjkxNDMyNTAzLDE3NTM3ODIwNywxOTY4MD
-E3NDA0LDkwMTg4MDAyNSwyMzg5NTI5MzcsLTExNjc0NjExODYs
-MjEwMTM3NDMzLDU4MTUxMTkzOCwtMTQxMjcxNTM4OCwxMTU0Mj
-g3NTE0LDc4NDMxNzM2NSwtMTU2NjMxNjY0OF19
+eyJoaXN0b3J5IjpbLTk0NzM2MTIzNiwyOTE0MzI1MDMsMTc1Mz
+c4MjA3LDE5NjgwMTc0MDQsOTAxODgwMDI1LDIzODk1MjkzNywt
+MTE2NzQ2MTE4NiwyMTAxMzc0MzMsNTgxNTExOTM4LC0xNDEyNz
+E1Mzg4LDExNTQyODc1MTQsNzg0MzE3MzY1LC0xNTY2MzE2NjQ4
+XX0=
 -->
