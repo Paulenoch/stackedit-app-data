@@ -284,10 +284,13 @@ public interface Override extends Annotation{
 SPI 即 Service Provider Interface ，字面意思就是：“服务提供者的接口”，专门提供给服务提供者或者扩展框架功能的开发者去使用的一个接口。
 
 SPI 将服务接口和具体的服务实现分离开来，将服务调用方和服务实现者解耦，能够提升程序的扩展性、可维护性。修改或者替换服务实现并不需要修改调用方。
+
+# Error与Exception
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyOTEwNDAwLC04MjMyODM1NDUsLTMxMz
-M5NDM2OCwtMTY4OTYwNDM4NiwtMTA3NDAwMTk5OCwtOTM4NDg1
-ODk2LC05MTk5MTUwOTUsLTM2OTcxMDk4NCwtMTY2MTg1MzMzMS
-wxMTc3MjI1MDI3LDE4ODg4NDUzNzksLTM4NjE3OTE5NiwxNTg1
-NDI1MDY0LDc0ODcwODQ5NSwtMTI0NzYzNzA1M119
+eyJoaXN0b3J5IjpbLTg5NjQ0ODIwLDE0MjkxMDQwMCwtODIzMj
+gzNTQ1LC0zMTMzOTQzNjgsLTE2ODk2MDQzODYsLTEwNzQwMDE5
+OTgsLTkzODQ4NTg5NiwtOTE5OTE1MDk1LC0zNjk3MTA5ODQsLT
+E2NjE4NTMzMzEsMTE3NzIyNTAyNywxODg4ODQ1Mzc5LC0zODYx
+NzkxOTYsMTU4NTQyNTA2NCw3NDg3MDg0OTUsLTEyNDc2MzcwNT
+NdfQ==
 -->
