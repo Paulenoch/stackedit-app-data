@@ -10,6 +10,8 @@
 - LinkedList不支持快速随机访问
 - `ArrayList` 的空间浪费主要体现在在 list 列表的结尾会预留一定的容量空间，而 LinkedList 的空间花费则体现在它的每一个元素都需要消耗比 ArrayList 更多的空间（因为要存放直接后继和直接前驱以及数据）
 
+### 线程安全的List
+CopyOnWriteArrayList：写写互斥，qi'ta'chan
 ### ArrayList扩容机制
 以无参数构造方法创建 `ArrayList` 时，实际上初始化赋值的是一个空数组。当真正对数组进行添加元素操作时，才真正分配容量。即向数组中添加第一个元素时，数组容量扩为 10。
 
@@ -149,7 +151,8 @@ map.put(key, anotherValue);
 
 `ConcurrentHashMap` 提供了一些原子性的复合操作，如 `putIfAbsent`、`compute`、`computeIfAbsent` 、`computeIfPresent`、`merge`等。这些方法都可以接受一个函数作为参数，根据给定的 key 和 value 来计算一个新的 value，并且将其更新到 map 中。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ2OTU1NDM0NiwxMDkwMjU2MjA4LDk4OD
-M4NzY3MSwzMjExMzI4NDksLTExMDgxMzkzMDAsMjAwNDg0Mzk1
-NSwtMTY3MjU5MTIzLDExMjQyODM5ODhdfQ==
+eyJoaXN0b3J5IjpbLTIwOTE2NzI3NjAsMTQ2OTU1NDM0NiwxMD
+kwMjU2MjA4LDk4ODM4NzY3MSwzMjExMzI4NDksLTExMDgxMzkz
+MDAsMjAwNDg0Mzk1NSwtMTY3MjU5MTIzLDExMjQyODM5ODhdfQ
+==
 -->
