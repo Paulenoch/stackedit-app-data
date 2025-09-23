@@ -3,7 +3,8 @@
 - List：双向链表
 - Set：HashSet
 - Hash：HashMap
-- ZSet：类似Set，加了一个权重参数score，使元素能按照score排序，
+- ZSet：类似Set，加了一个权重参数score，使元素能按照score排序，数据量较大时同时使用skiplist和hashtable实现
+
 
 # 2. Redis单线程模型了解吗
 对于读写命令，在 Redis 4.0 版本之后引入了多线程来执行一些大键值对的异步删除操作，Redis 6.0 版本之后引入了多线程来处理网络请求（提高网络 IO 读写性能）
@@ -106,6 +107,6 @@ runid：前两项一样，选runid最小的
 Gossip协议
 ![输入图片说明](/imgs/2025-03-25/hy5BibOnmpqkvNzi.png)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkwNDY2MzAxNywtNDM4Njg5NDg0LDI4OT
+eyJoaXN0b3J5IjpbMTE4MTY0Nzk1NCwtNDM4Njg5NDg0LDI4OT
 c4NTQyOCwtOTU0NjU2NDkzLC0yMDg4NzQ2NjEyXX0=
 -->
