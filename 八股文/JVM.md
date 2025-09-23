@@ -324,11 +324,15 @@ JVM向操作系统申请创建新的线程时，如果操作系统无法再为�
 #### 排查步骤
 1. 开启内存快照（Heap Dump）
 2. 分析Heap Dump文件，使用**Eclipse Memory Analyzer (MAT)**，功能最强大的Java堆分析工具。它可以快速计算出对象的 retained size（如果该对象被回收，能释放多少内存），并自动检测内存泄漏嫌疑。
-3. 结合
+3. 分析日志：哪个区域OOM，检查GC日志是否有异常
+
+# 频繁FullGC排查
+可能原因：对象存活率高，内存泄漏，堆结构不合理
+
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjk5MzI4NTUsNjM3ODIyOTc3LC01NT
-g5MDUwMiwtNTQ3MDY2MzEsLTc2MjYwMjQ1LDEwMzY5MjY1ODgs
-LTEyNTI5MDc3NzcsODAyNDQ2NDYzXX0=
+eyJoaXN0b3J5IjpbNDI5MTM5Njk5LDYzNzgyMjk3NywtNTU4OT
+A1MDIsLTU0NzA2NjMxLC03NjI2MDI0NSwxMDM2OTI2NTg4LC0x
+MjUyOTA3Nzc3LDgwMjQ0NjQ2M119
 -->
