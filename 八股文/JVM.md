@@ -260,9 +260,72 @@ JVM 中内置了三个重要的 `ClassLoader`：
 ### 打破双亲委派模型方法
 Tomcat 服务器为了能够优先加载 Web 应用目录下的类，然后再加载其他目录下的类，就自定义了类加载器 `WebAppClassLoader` 来打破双亲委托机制。
 
+### 双亲委派的好处
+![输入图片说明](/imgs/2025-09-23/oEenGkwkROj1kqsB.png)
+
+# OOM与排查
+### 一、 OOM发生的JVM内存区域
+
+JVM的内存结构主要分为几个部分，其中大部分都可能发生OOM。
+
+#### 1. Java堆 (Java Heap Space)
+
+这是**最常见**的OOM发生区域。堆是JVM管理的最大的内存区域，用于存放几乎所有的对象实例和数组。当应用程序持续创建新对象，而垃圾收集器（GC）又无法回收足够的空间时，就会抛出 `java.lang.OutOfMemoryError: Java heap space`。
+
+**常见原因：**
+
+-   **内存泄漏 (Memory Leak)**：这是最主要的原因。对象在使用完毕后，仍然被某个生命周期很长的对象持有引用，导致GC无法回收它们。例如，静态集合类（如 `static HashMap`）中缓存了大量对象，但没有及时清理。
+    
+-   **数据量过大**：一次性从数据库查询或从文件读取大量数据到内存中，超出了堆的容量。例如，`SELECT * FROM a_very_large_table` 然后将结果全部加载到一个 `List` 中。
+    
+-   **堆空间设置不合理**：通过 `-Xms` 和 `-Xmx` 参数设置的堆空间过小，无法满足程序正常运行的需求。
+    
+-   **Finalizer滥用**：对象重写了 `finalize()` 方法，并且该方法执行缓慢或阻塞，导致 `Finalizer` 队列中的对象堆积，无法被及时回收。
+    
+
+#### 2. 元空间 (Metaspace) / 永久代 (Permanent Generation - JDK 8之前)
+
+这个区域主要存储类的元数据信息，如类名、方法信息、字段信息、常量池等。在JDK 8及以后，永久代被元空间取代。
+
+当系统中需要加载的类过多，或者动态生成的类（如使用CGLIB等字节码技术）过多，超出了元空间的大小时，会抛出 `java.lang.OutOfMemoryError: Metaspace` (JDK 8+) 或 `java.lang.OutOfMemoryError: PermGen space` (JDK 7-)。
+
+**常见原因：**
+
+-   **动态类加载过多**：大量使用反射、动态代理（CGLIB）、JSP（每个JSP文件会被编译成一个类）等技术，导致运行时生成了大量的类。
+    
+-   **加载的第三方库过多**：应用程序依赖的jar包非常多，导致加载的类数量巨大。
+    
+-   **元空间设置过小**：通过 `-XX:MaxMetaspaceSize` (或 `-XX:MaxPermSize`) 设置的元空间容量不足。
+    
+
+#### 3. 虚拟机栈 (JVM Stacks)
+
+每个线程都有一个私有的虚拟机栈，用于存储**栈帧**（Stack Frame）。每次方法调用都会创建一个栈帧，用于存放局部变量、操作数栈、方法出口等信息。
+
+如果线程中进行了深度过大的递归调用，或者方法内的局部变量过大，导致栈空间被耗尽，会抛出 `java.lang.StackOverflowError`。这虽然不是典型的OOM，但本质上也是一种内存耗尽。
+
+**常见原因：**
+
+-   **无限递归**：方法无限地调用自身，没有终止条件。这是最常见的原因。
+    
+-   **方法调用链过长**：程序的方法调用层次非常深。
+    
+
+#### 4. 本地方法栈 (Native Method Stacks)
+
+与虚拟机栈类似，但它服务于 `native` 方法。这部分内存溢出比较罕见。
+
+#### 5. 无法创建更多线程 (Unable to create new native thread)
+
+JVM向操作系统申请创建新的线程时，如果操作系统无法再为新线程分配内存（因为每个线程都需要一定的栈空间），JVM就会抛出 `java.lang.OutOfMemoryError: unable to create new native thread`。
+
+这严格来说不是JVM内部的某个区域内存不足，而是**JVM进程可用的总内存**受到了操作系统的限制。
+
+
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjM3ODIyOTc3LC01NTg5MDUwMiwtNTQ3MD
-Y2MzEsLTc2MjYwMjQ1LDEwMzY5MjY1ODgsLTEyNTI5MDc3Nzcs
-ODAyNDQ2NDYzXX0=
+eyJoaXN0b3J5IjpbLTEwMDQ0NDc1NjEsNjM3ODIyOTc3LC01NT
+g5MDUwMiwtNTQ3MDY2MzEsLTc2MjYwMjQ1LDEwMzY5MjY1ODgs
+LTEyNTI5MDc3NzcsODAyNDQ2NDYzXX0=
 -->
