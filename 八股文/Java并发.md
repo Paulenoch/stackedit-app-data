@@ -528,11 +528,18 @@ public class Main {
         
     -   **公平性**：可以实现相对公平的锁竞争，等待时间最长的线程通常会优先被唤醒。
 
-锁的信息存在
+**锁的信息存在对象头的Mark Word中**
+-   **无锁时**：存储对象的哈希码（`hashCode()`）和GC分代年龄。
+    
+-   **偏向锁时**：存储持有该锁的**线程ID**。当同一个线程再次访问时，只需检查这个ID即可，无需额外操作。
+    
+-   **轻量级锁时**：存储一个指向持有锁的线程栈中**锁记录（Lock Record）的指针**。
+    
+-   **重量级锁时**：存储一个指向与该对象关联的**Monitor对象的指针**。这个Monitor对象才是真正实现线程阻塞和唤醒的核心。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgwNjYxNDA3MCwxNDE2MTAxODgwLDI5MT
-QzMjUwMywxNzUzNzgyMDcsMTk2ODAxNzQwNCw5MDE4ODAwMjUs
-MjM4OTUyOTM3LC0xMTY3NDYxMTg2LDIxMDEzNzQzMyw1ODE1MT
-E5MzgsLTE0MTI3MTUzODgsMTE1NDI4NzUxNCw3ODQzMTczNjUs
-LTE1NjYzMTY2NDhdfQ==
+eyJoaXN0b3J5IjpbMTUyMjY1MzQ5LDE0MTYxMDE4ODAsMjkxND
+MyNTAzLDE3NTM3ODIwNywxOTY4MDE3NDA0LDkwMTg4MDAyNSwy
+Mzg5NTI5MzcsLTExNjc0NjExODYsMjEwMTM3NDMzLDU4MTUxMT
+kzOCwtMTQxMjcxNTM4OCwxMTU0Mjg3NTE0LDc4NDMxNzM2NSwt
+MTU2NjMxNjY0OF19
 -->
