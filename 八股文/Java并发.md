@@ -440,11 +440,97 @@ public class Main {
 # CountDownLatch和CyclicBarrier
 ![输入图片说明](/imgs/2025-09-24/zJzi6TApfabgNbWW.png)
 
-# Synchron
+# Synchronized锁升级过程
+### 锁的四种状态
+
+1.  **无锁状态（Unlocked）**：对象没有被任何线程锁定。
+    
+2.  **偏向锁（Biased Lock）**：适用于只有一个线程访问同步代码块的场景。
+    
+3.  **轻量级锁（Lightweight Lock）**：适用于多个线程交替执行同步代码块，且同步时间很短的场景。
+    
+4.  **重量级锁（Heavyweight Lock）**：适用于多个线程同时竞争锁，且同步时间较长的场景。
+    
+
+**重要提示：** 锁的升级是单向的，只能从低级别向高级别升级，不能降级（但在GC的STW阶段，锁状态可能会被重置）。
+
+### Synchronized锁升级详细过程
+
+#### 1. 偏向锁 (Biased Locking)
+
+-   **目的**：消除在无竞争情况下同步操作的开销，提高程序性能。当一个线程反复获取同一个锁时，偏向锁能带来最大优势。
+    
+-   **升级过程**：
+    
+    1.  当一个线程首次访问`synchronized`代码块时，锁对象处于“可偏向”状态（Mark Word中偏向锁标志位为1，线程ID为空）。
+        
+    2.  JVM使用CAS（Compare-And-Swap）操作，尝试将该线程的ID记录到锁对象的Mark Word中。
+        
+    3.  如果CAS成功，该线程就持有了锁的偏向锁。此时，Mark Word会存储持有锁的线程ID。
+        
+    4.  当该线程再次进入同一个同步代码块时，它只需检查Mark Word中存储的线程ID是否是自己的ID。如果是，则无需再进行任何同步操作（如CAS），直接获得锁，从而极大地提高了效率。
+        
+-   **锁撤销与升级**： 当有**另一个线程**尝试获取这个偏向锁时，偏向模式就会结束。
+    
+    1.  JVM会暂停持有偏向锁的线程（这个暂停操作需要等到一个**全局安全点 - Safepoint**）。
+        
+    2.  JVM检查持有偏向锁的线程是否仍然存活：
+        
+        -   如果线程已死，则将锁对象状态设置为**无锁**状态，然后其他线程可以开始竞争。
+            
+        -   如果线程还活着，并且**仍在同步代码块内**，则将偏向锁升级为**轻量级锁**。原持有偏向锁的线程和当前竞争的线程都将基于轻量级锁的机制继续执行。
+            
+        -   如果线程还活着，但**已经退出同步代码块**，则将锁对象恢复到**无锁**状态，然后让其他线程基于轻量级锁的方式去竞争。
+            
+
+#### 2. 轻量级锁 (Lightweight Locking)
+
+-   **目的**：在线程交替执行同步代码，且几乎没有实际冲突的情况下，避免调用操作系统层面的重量级互斥量（Mutex）所带来的性能损耗。其核心思想是自旋（Spinning）。
+    
+-   **升级过程**：
+    
+    1.  当锁从偏向锁升级或一个线程在无锁状态下尝试获取锁而发现有竞争时，会进入轻量级锁状态。
+        
+    2.  JVM会在当前线程的栈帧中创建一个名为**锁记录（Lock Record）**的空间，用于拷贝锁对象Mark Word的副本（称为Displaced Mark Word）。
+        
+    3.  线程尝试使用CAS操作，将锁对象的Mark Word更新为指向这个Lock Record的指针。
+        
+    4.  如果CAS成功，该线程就获得了轻量级锁。锁对象的Mark Word从存储对象哈希码或线程ID，变成了指向线程栈中Lock Record的指针。
+        
+-   **自旋与锁升级**：
+    
+    1.  如果CAS操作失败，说明有其他线程已经持有了该轻量级锁。
+        
+    2.  这时，尝试获取锁的线程**不会立即阻塞**，而是会进行**自旋**，即执行一个空循环，默认自旋10次左右（JVM会动态调整自旋次数），期待持有锁的线程能很快释放锁。
+        
+    3.  如果在自旋期间成功获取了锁，那么锁的状态仍然是轻量级锁。
+        
+    4.  如果自旋了一定次数后仍然没有获取到锁，或者在自旋过程中有新的线程也来竞争这个锁，那么JVM就会认为当前锁的竞争已经非常激烈。此时，轻量级锁就会膨胀（Inflate）为**重量级锁**。
+        
+
+#### 3. 重量级锁 (Heavyweight Locking)
+
+-   **目的**：处理激烈的锁竞争情况，当多个线程长时间等待同一把锁时，通过挂起和唤醒线程来避免CPU空转。
+    
+-   **升级过程**：
+    
+    1.  当轻量级锁膨胀后，锁的状态就变为了重量级锁。
+        
+    2.  此时，锁对象的Mark Word会被修改为指向一个**Monitor**对象的指针。Monitor是JVM层面实现的对象，它依赖于操作系统底层的**互斥量（Mutex Lock）**来实现。
+        
+    3.  所有尝试获取该锁但失败的线程，都会被放入Monitor的等待队列中，并进入**阻塞（Blocked）**状态。它们不再消耗CPU时间。
+        
+    4.  当持有锁的线程释放锁时，它会唤醒等待队列中的一个或多个线程，被唤醒的线程将重新参与锁的竞争。
+        
+-   **特点**：
+    
+    -   **性能开销大**：线程的阻塞和唤醒需要在用户态和内核态之间进行切换，这个过程非常耗时。
+        
+    -   **公平性**：可以实现相对公平的锁竞争，等待时间最长的线程通常会优先被唤醒。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NzAzMjgzMzMsMTQxNjEwMTg4MCwyOT
-E0MzI1MDMsMTc1Mzc4MjA3LDE5NjgwMTc0MDQsOTAxODgwMDI1
-LDIzODk1MjkzNywtMTE2NzQ2MTE4NiwyMTAxMzc0MzMsNTgxNT
-ExOTM4LC0xNDEyNzE1Mzg4LDExNTQyODc1MTQsNzg0MzE3MzY1
-LC0xNTY2MzE2NjQ4XX0=
+eyJoaXN0b3J5IjpbMTc2NjY5MzQwMywxNDE2MTAxODgwLDI5MT
+QzMjUwMywxNzUzNzgyMDcsMTk2ODAxNzQwNCw5MDE4ODAwMjUs
+MjM4OTUyOTM3LC0xMTY3NDYxMTg2LDIxMDEzNzQzMyw1ODE1MT
+E5MzgsLTE0MTI3MTUzODgsMTE1NDI4NzUxNCw3ODQzMTczNjUs
+LTE1NjYzMTY2NDhdfQ==
 -->
