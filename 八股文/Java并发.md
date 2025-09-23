@@ -527,8 +527,10 @@ public class Main {
     -   **性能开销大**：线程的阻塞和唤醒需要在用户态和内核态之间进行切换，这个过程非常耗时。
         
     -   **公平性**：可以实现相对公平的锁竞争，等待时间最长的线程通常会优先被唤醒。
+
+锁的信息存在
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc2NjY5MzQwMywxNDE2MTAxODgwLDI5MT
+eyJoaXN0b3J5IjpbMTgwNjYxNDA3MCwxNDE2MTAxODgwLDI5MT
 QzMjUwMywxNzUzNzgyMDcsMTk2ODAxNzQwNCw5MDE4ODAwMjUs
 MjM4OTUyOTM3LC0xMTY3NDYxMTg2LDIxMDEzNzQzMyw1ODE1MT
 E5MzgsLTE0MTI3MTUzODgsMTE1NDI4NzUxNCw3ODQzMTczNjUs
