@@ -170,10 +170,14 @@ B+树通过**高阶（即每个节点包含大量子节点）**，极大减少�
 记录执行时间超过`long_query_time`的所有查询
 
 # 21. binlog
-binlog是逻辑日志，记录语句的原始逻辑，记录了数据库中的所有变化
+binlog是逻辑日志，记录语句的原始逻辑，记录了数据库中的所有变化，属于MySQL Service层
+数据库的主从备份依靠binlog
 
 # 22. redo log
 InnoDB独有，让MySQL拥有了崩溃恢复能力，记录某个数据页上做了什么修改。在事务提交时按照刷盘策略刷到磁盘上去
+
+# undo log
+
 
 # 22. 页修改后为什么不直接刷盘
 性能差，InnoDB页大小一般为16KB，频繁IO对磁盘压力大
@@ -254,6 +258,6 @@ _<center>二叉树“高瘦”，B+树“矮胖”，后者大大减少了I/O次
         
     -   这个过程不再需要回溯到父节点，大大提高了范围查询和排序操作的效率。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYxODM0ODI4MCwzOTI1ODU1ODksLTQ5NT
-A5OTc4NSwtNDY0MDYwNDM4XX0=
+eyJoaXN0b3J5IjpbOTA5NTAyMjM0LC02MTgzNDgyODAsMzkyNT
+g1NTg5LC00OTUwOTk3ODUsLTQ2NDA2MDQzOF19
 -->
