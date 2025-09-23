@@ -177,6 +177,10 @@ binlog是逻辑日志，记录语句的原始逻辑，记录了数据库中的�
 InnoDB独有，让MySQL拥有了崩溃恢复能力，记录某个数据页上做了什么修改。在事务提交时按照刷盘策略刷到磁盘上去
 
 # undo log
+每一个事务对数据的修改都会被记录到 undo log ，当执行事务过程中出现错误或者需要执行回滚操作的话，MySQL 可以利用 undo log 将数据恢复到事务开始之前的状态。
+
+undo log 属于逻辑日志，记录的是 SQL 语句，比如说事务执行一条 DELETE 语句，那 undo log 就会记录一条相对应的 INSERT 语句。同时，undo log 的信息也会被记录到 redo log 中，因为 undo log 也要实现持久性保护。并且，undo-log 本身是会被删除清理的，例如 INSERT 操作，在事务提交之后就可以清除掉了；UPDATE/DELETE 操作在事务提交不会立即删除，会加入 history list，由后台线程 purge 进行清理。
+另外，`MVCC` 的实现依赖于：**隐藏字段、Read View、undo log**。
 
 
 # 22. 页修改后为什么不直接刷盘
@@ -258,6 +262,6 @@ _<center>二叉树“高瘦”，B+树“矮胖”，后者大大减少了I/O次
         
     -   这个过程不再需要回溯到父节点，大大提高了范围查询和排序操作的效率。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTA5NTAyMjM0LC02MTgzNDgyODAsMzkyNT
-g1NTg5LC00OTUwOTk3ODUsLTQ2NDA2MDQzOF19
+eyJoaXN0b3J5IjpbMTA5MTUxNDc2NCwtNjE4MzQ4MjgwLDM5Mj
+U4NTU4OSwtNDk1MDk5Nzg1LC00NjQwNjA0MzhdfQ==
 -->
