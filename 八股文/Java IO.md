@@ -21,6 +21,9 @@ IO描述了计算机系统与外部设备之间通信的过程
 
 IO多路复用模型中，线程首先发起select调用，询问内核数据是否准备就绪，等内核把数据准备好后，线程再发起read调用，read调用的过程中依旧是阻塞的。减少了对CPU资源的消耗
 
+select调用：内核提供的系统调用，支持一次查询多个系统调用的可用状态，几乎所有的操作系统都支持
+epoll调用：
+
 Java中的NIO，有一个Selector
 ![输入图片说明](/imgs/2025-04-08/6un2xKfKQmErsjmw.png)
 
@@ -28,5 +31,5 @@ Java中的NIO，有一个Selector
 异步IO，基于事件和回调机制，应用操作后会直接返回，不会堵塞，当内核操作完成，操作系统通知相应的线程进行后续的操作
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTczNTkxMDQ5OV19
+eyJoaXN0b3J5IjpbLTE5MzUwMDM3NDgsMTczNTkxMDQ5OV19
 -->
