@@ -424,12 +424,31 @@ Export to Sheets
     
 -   `ClassCastException`：当试图将对象强制转换为不是实例的子类时，抛出该异常。
 
+# Object类
+`Object` 类是Java语言中一个非常特殊的类，它是**所有类的根**。无论你创建任何一个类，如果它没有明确地指定父类（使用 `extends` 关键字），那么它就默认继承自 `Object` 类。
+
+这意味着Java中的每一个对象（包括数组）都拥有 `Object` 类中定义的方法。
+
+### `Object` 类的主要方法详解
+
+`Object` 类中的方法虽然不多，但都非常重要。下面我们逐一介绍最核心的几个方法。
+
+#### 1. `public String toString()`
+
+-   **功能**：返回该对象的字符串表示。
+    
+-   **默认实现**：`Object` 类中 `toString()` 的默认实现返回一个格式为 `类名@哈希码的十六进制表示` 的字符串。例如 `java.lang.Object@15db9742`。
+    
+-   **重写建议**：这个默认输出通常没什么实际意义。因此，在自定义类中，**强烈建议重写（Override）`toString()` 方法**，以便提供一个清晰、有意义的字符串描述。这对于日志记录、调试和打印对象信息非常有用。
+
+
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgyNTA3MDg5MSwtODk2NDQ4MjAsMTQyOT
-EwNDAwLC04MjMyODM1NDUsLTMxMzM5NDM2OCwtMTY4OTYwNDM4
-NiwtMTA3NDAwMTk5OCwtOTM4NDg1ODk2LC05MTk5MTUwOTUsLT
-M2OTcxMDk4NCwtMTY2MTg1MzMzMSwxMTc3MjI1MDI3LDE4ODg4
-NDUzNzksLTM4NjE3OTE5NiwxNTg1NDI1MDY0LDc0ODcwODQ5NS
-wtMTI0NzYzNzA1M119
+eyJoaXN0b3J5IjpbLTEwMDY4MzExMTYsMTgyNTA3MDg5MSwtOD
+k2NDQ4MjAsMTQyOTEwNDAwLC04MjMyODM1NDUsLTMxMzM5NDM2
+OCwtMTY4OTYwNDM4NiwtMTA3NDAwMTk5OCwtOTM4NDg1ODk2LC
+05MTk5MTUwOTUsLTM2OTcxMDk4NCwtMTY2MTg1MzMzMSwxMTc3
+MjI1MDI3LDE4ODg4NDUzNzksLTM4NjE3OTE5NiwxNTg1NDI1MD
+Y0LDc0ODcwODQ5NSwtMTI0NzYzNzA1M119
 -->
