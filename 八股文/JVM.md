@@ -321,11 +321,14 @@ JVM向操作系统申请创建新的线程时，如果操作系统无法再为�
 
 这严格来说不是JVM内部的某个区域内存不足，而是**JVM进程可用的总内存**受到了操作系统的限制。
 
-
+#### 排查步骤
+1. 开启内存快照（Heap Dump）
+2. 分析Heap Dump文件，使用**Eclipse Memory Analyzer (MAT)**，功能最强大的Java堆分析工具。它可以快速计算出对象的 retained size（如果该对象被回收，能释放多少内存），并自动检测内存泄漏嫌疑。
+3. 结合
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMDQ0NDc1NjEsNjM3ODIyOTc3LC01NT
+eyJoaXN0b3J5IjpbLTEyMjk5MzI4NTUsNjM3ODIyOTc3LC01NT
 g5MDUwMiwtNTQ3MDY2MzEsLTc2MjYwMjQ1LDEwMzY5MjY1ODgs
 LTEyNTI5MDc3NzcsODAyNDQ2NDYzXX0=
 -->
