@@ -494,15 +494,9 @@ Export to Sheets
 -   **注意**：这些方法都必须在 `synchronized` 代码块或 `synchronized` 方法中调用，否则会抛出 `IllegalMonitorStateException`。
     
 
-#### 7. `protected void finalize()`
-
--   **功能**：在垃圾收集器确定该对象没有更多引用时，由垃圾收集器调用此方法。
-    
--   **现状**：这个方法**已被废弃 (deprecated)**。不推荐使用它来释放资源，因为它被调用的时机不确定，甚至可能不被调用。现在，资源释放应该使用 `try-with-resources` 语句或 `finally` 块来确保执行。
-
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ3MDUzMTg3NywxODI1MDcwODkxLC04OT
+eyJoaXN0b3J5IjpbLTc3NTI5NTAxNiwxODI1MDcwODkxLC04OT
 Y0NDgyMCwxNDI5MTA0MDAsLTgyMzI4MzU0NSwtMzEzMzk0MzY4
 LC0xNjg5NjA0Mzg2LC0xMDc0MDAxOTk4LC05Mzg0ODU4OTYsLT
 kxOTkxNTA5NSwtMzY5NzEwOTg0LC0xNjYxODUzMzMxLDExNzcy
