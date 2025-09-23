@@ -24,6 +24,7 @@ IO多路复用模型中，线程首先发起select调用，询问内核数据是
 select调用：内核提供的系统调用，支持一次查询多个系统调用的可用状态，几乎所有的操作系统都支持
 epoll调用：linux2.6内核，select调用的增强版本，优化了效率
 
+
 Java中的NIO，有一个Selector
 ![输入图片说明](/imgs/2025-04-08/6un2xKfKQmErsjmw.png)
 
@@ -31,5 +32,5 @@ Java中的NIO，有一个Selector
 异步IO，基于事件和回调机制，应用操作后会直接返回，不会堵塞，当内核操作完成，操作系统通知相应的线程进行后续的操作
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5OTE0MDY1NSwxNzM1OTEwNDk5XX0=
+eyJoaXN0b3J5IjpbLTEyNTc2MDQ2NzMsMTczNTkxMDQ5OV19
 -->
