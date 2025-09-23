@@ -286,11 +286,150 @@ SPI 即 Service Provider Interface ，字面意思就是：“服务提供者的
 SPI 将服务接口和具体的服务实现分离开来，将服务调用方和服务实现者解耦，能够提升程序的扩展性、可维护性。修改或者替换服务实现并不需要修改调用方。
 
 # Error与Exception
+好的，我们来详细讲解一下Java中的 `Error` 和 `Exception`。
+
+简单来说，`Error` 和 `Exception` 都继承自 `Throwable` 类，它们都是Java中异常处理机制的一部分，代表程序运行时出现的非正常情况。但它们之间有着本质的区别，主要体现在**谁来处理**和**是否应该被处理**上。
+
+----------
+
+### 核心区别概览
+
+特性
+
+Error (错误)
+
+Exception (异常)
+
+**定义**
+
+表示**严重**的、程序自身**无法恢复**的问题。
+
+表示程序运行时可能出现的、**可以被处理**的非正常情况。
+
+**来源**
+
+通常由JVM（Java虚拟机）或底层硬件引发。
+
+通常由程序代码的逻辑错误、外部资源问题或用户输入错误引发。
+
+**处理方式**
+
+**不应该**也**不推荐**被捕获 (`try-catch`)。
+
+**应该**被捕获 (`try-catch`) 或声明抛出 (`throws`)，以便程序能够优雅地处理。
+
+**典型例子**
+
+`OutOfMemoryError` (内存溢出), `StackOverflowError` (栈溢出)
+
+`NullPointerException` (空指针), `IOException` (IO异常), `SQLException` (数据库异常)
+
+**恢复可能性**
+
+几乎不可能恢复，程序通常会因此终止。
+
+程序可以通过 `try-catch` 块捕获并从中恢复，继续执行。
+
+Export to Sheets
+
+----------
+
+### Throwable 类继承结构
+
+为了更好地理解它们的关系，我们先看一下Java中的异常继承结构图：
+
+```
+                    java.lang.Throwable
+                        /         \
+                       /           \
+                 java.lang.Error   java.lang.Exception
+                                       /           \
+                                      /             \
+                             Checked Exception    RuntimeException (Unchecked)
+                             (编译时异常)             (运行时异常)
+```
+
+从图中可以看出：
+
+1.  `Error` 和 `Exception` 是兄弟关系，都直接继承自 `Throwable`。
+    
+2.  `Exception` 又分为两大类：**Checked Exception** 和 **Unchecked Exception** (`RuntimeException` 及其子类)。
+    
+
+下面我们分别详细介绍。
+
+### 1. Error (错误)
+
+`Error` 表示的是应用程序无法控制和处理的严重问题。这些问题通常与JVM的内部状态或底层资源耗尽有关。当 `Error` 发生时，程序通常会崩溃，因为这些问题已经超出了应用程序能够处理的范畴。
+
+**主要特点：**
+
+-   **严重性**：问题非常严重，通常是灾难性的。
+    
+-   **不可恢复性**：程序无法通过代码逻辑来恢复运行。
+    
+-   **无需捕获**：Java编译器不要求你必须捕获 `Error` 或其任何子类。捕获它也没有意义，因为你无法解决根本问题。
+    
+
+**常见例子：**
+
+-   `StackOverflowError`：栈溢出错误。通常是由于无限递归调用导致的，方法调用层次太深，占满了虚拟机栈。
+    
+-   `OutOfMemoryError`：内存溢出错误。当JVM无法再为新对象分配内存时抛出，比如创建了过多的对象，而垃圾回收器又无法回收足够的空间。
+    
+-   `NoClassDefFoundError`：类定义未找到错误。在编译时类存在，但在运行时JVM在类路径中找不到该类的定义。
+    
+
+### 2. Exception (异常)
+
+`Exception` 表示的是程序本身可以预料到并处理的问题。它通常是由程序的逻辑错误或外部环境问题（如文件不存在、网络中断）引起的。Java的异常处理机制主要是为 `Exception` 服务的。
+
+`Exception` 分为两类：
+
+#### A. Checked Exception (编译时异常)
+
+**定义**：除了 `RuntimeException` 及其子类之外的所有 `Exception` 都是编译时异常。Java编译器会**强制**要求程序员处理这类异常。
+
+**处理方式**：必须在代码中显式地处理，二者选一：
+
+1.  **捕获处理**：使用 `try...catch` 语句块捕获并处理。
+    
+2.  **声明抛出**：使用 `throws` 关键字在方法签名中声明，将处理责任交给方法的调用者。
+    
+
+如果不处理，代码将无法通过编译。这种机制强制开发者去关注和处理那些可预见的外部问题。
+
+**常见例子：**
+
+-   `IOException`：处理输入输出时可能发生的异常，如读写文件失败。
+    
+-   `SQLException`：与数据库交互时可能发生的异常。
+    
+-   `ClassNotFoundException`：当尝试加载一个不存在的类时抛出。
+    
+
+#### B. Unchecked Exception (运行时异常)
+
+**定义**：`RuntimeException` 类及其所有子类的总称。这类异常通常是由程序中的逻辑错误（Bugs）引起的。
+
+**处理方式**：Java编译器**不要求**程序员必须处理。你可以选择捕获，也可以不处理。因为这类异常的出现往往意味着代码本身有问题，最佳实践是修复代码逻辑，而不是到处捕获它们。
+
+**常见例子：**
+
+-   `NullPointerException`：当尝试调用一个 `null` 对象的方法或访问其属性时抛出。
+    
+-   `ArrayIndexOutOfBoundsException`：访问数组时，使用了非法的索引（小于0或大于等于数组长度）。
+    
+-   `IllegalArgumentException`：向方法传递了一个不合法或不适当的参数。
+    
+-   `ClassCastException`：当试图将对象强制转换为不是实例的子类时，抛出该异常。
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5NjQ0ODIwLDE0MjkxMDQwMCwtODIzMj
-gzNTQ1LC0zMTMzOTQzNjgsLTE2ODk2MDQzODYsLTEwNzQwMDE5
-OTgsLTkzODQ4NTg5NiwtOTE5OTE1MDk1LC0zNjk3MTA5ODQsLT
-E2NjE4NTMzMzEsMTE3NzIyNTAyNywxODg4ODQ1Mzc5LC0zODYx
-NzkxOTYsMTU4NTQyNTA2NCw3NDg3MDg0OTUsLTEyNDc2MzcwNT
-NdfQ==
+eyJoaXN0b3J5IjpbMTgyNTA3MDg5MSwtODk2NDQ4MjAsMTQyOT
+EwNDAwLC04MjMyODM1NDUsLTMxMzM5NDM2OCwtMTY4OTYwNDM4
+NiwtMTA3NDAwMTk5OCwtOTM4NDg1ODk2LC05MTk5MTUwOTUsLT
+M2OTcxMDk4NCwtMTY2MTg1MzMzMSwxMTc3MjI1MDI3LDE4ODg4
+NDUzNzksLTM4NjE3OTE5NiwxNTg1NDI1MDY0LDc0ODcwODQ5NS
+wtMTI0NzYzNzA1M119
 -->
