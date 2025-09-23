@@ -441,14 +441,71 @@ Export to Sheets
     
 -   **重写建议**：这个默认输出通常没什么实际意义。因此，在自定义类中，**强烈建议重写（Override）`toString()` 方法**，以便提供一个清晰、有意义的字符串描述。这对于日志记录、调试和打印对象信息非常有用。
 
+#### 2. `public boolean equals(Object obj)`
 
+-   **功能**：比较当前对象与指定的 `obj` 对象是否 "相等"。
+    
+-   **默认实现**：在 `Object` 类中，`equals()` 的默认行为是比较两个对象的**内存地址**是否相同，等价于 `==` 操作符。
+    
+-   **重写建议**：默认的地址比较通常不是我们想要的 "逻辑相等"。例如，我们可能认为两个 `Person` 对象只要它们的 `name` 和 `age` 相同，就应该被视为相等。因此，**当需要比较对象的内容而不是地址时，必须重写 `equals()` 方法**。
+
+#### 3. `public int hashCode()`
+
+-   **功能**：返回该对象的哈希码（hash code）值，它是一个 `int` 类型的整数。
+    
+-   **作用**：主要用于提高基于哈希的集合（如 `HashMap`, `HashSet`, `Hashtable`）的性能。这些集合通过哈希码来快速定位对象在内存中的存储位置。
+    
+-   **`hashCode()` 与 `equals()` 的黄金法则**：
+    
+    > **如果重写了 `equals()` 方法，就必须重写 `hashCode()` 方法。**
+    
+-   **为什么？** 规定如下：
+    
+    1.  如果两个对象根据 `equals()` 方法比较是相等的，那么调用这两个对象的 `hashCode()` 方法必须返回相同的整数结果。
+        
+    2.  如果两个对象根据 `equals()` 方法比较是不相等的，它们的 `hashCode()` 返回值**可以**相同，也可以不同。但为了性能，最好让不相等的对象产生不同的哈希码，以减少哈希冲突。
+        
+
+**如果不遵守这个法则，会导致 `HashSet`、`HashMap` 等集合无法正常工作。**
+
+#### 5. `protected Object clone()`
+
+-   **功能**：创建并返回当前对象的一个副本（克隆）。
+    
+-   **实现**：这是一个 `protected` 方法，意味着不是所有类都能直接调用它。想要一个类的对象能被克隆，该类必须：
+    
+    1.  实现 `Cloneable` 接口（这是一个标记接口，没有方法）。
+        
+    2.  重写 `clone()` 方法并将其访问修饰符改为 `public`。
+        
+-   **深拷贝与浅拷贝**：`Object` 类的 `clone()` 方法执行的是**浅拷贝**，即它只复制对象本身和其中的基本数据类型字段，而不复制引用的对象。如果需要**深拷贝**（即引用的对象也被复制），则需要在 `clone()` 方法中编写额外的逻辑。
+    
+
+#### 6. 线程相关方法 (`wait()`, `notify()`, `notifyAll()`)
+
+-   **功能**：这三个方法是Java多线程编程中用于线程间通信和协作的关键工具，它们与对象的锁（监视器锁，`synchronized`）紧密相关。
+    
+-   **`wait()`**：使当前线程进入等待状态，并释放它所持有的对象锁，直到其他线程调用该对象的 `notify()` 或 `notifyAll()` 方法。
+    
+-   **`notify()`**：唤醒在该对象上等待的**单个**线程。
+    
+-   **`notifyAll()`**：唤醒在该对象上等待的**所有**线程。
+    
+-   **注意**：这些方法都必须在 `synchronized` 代码块或 `synchronized` 方法中调用，否则会抛出 `IllegalMonitorStateException`。
+    
+
+#### 7. `protected void finalize()`
+
+-   **功能**：在垃圾收集器确定该对象没有更多引用时，由垃圾收集器调用此方法。
+    
+-   **现状**：这个方法**已被废弃 (deprecated)**。不推荐使用它来释放资源，因为它被调用的时机不确定，甚至可能不被调用。现在，资源释放应该使用 `try-with-resources` 语句或 `finally` 块来确保执行。
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMDY4MzExMTYsMTgyNTA3MDg5MSwtOD
-k2NDQ4MjAsMTQyOTEwNDAwLC04MjMyODM1NDUsLTMxMzM5NDM2
-OCwtMTY4OTYwNDM4NiwtMTA3NDAwMTk5OCwtOTM4NDg1ODk2LC
-05MTk5MTUwOTUsLTM2OTcxMDk4NCwtMTY2MTg1MzMzMSwxMTc3
-MjI1MDI3LDE4ODg4NDUzNzksLTM4NjE3OTE5NiwxNTg1NDI1MD
-Y0LDc0ODcwODQ5NSwtMTI0NzYzNzA1M119
+eyJoaXN0b3J5IjpbLTQ3MDUzMTg3NywxODI1MDcwODkxLC04OT
+Y0NDgyMCwxNDI5MTA0MDAsLTgyMzI4MzU0NSwtMzEzMzk0MzY4
+LC0xNjg5NjA0Mzg2LC0xMDc0MDAxOTk4LC05Mzg0ODU4OTYsLT
+kxOTkxNTA5NSwtMzY5NzEwOTg0LC0xNjYxODUzMzMxLDExNzcy
+MjUwMjcsMTg4ODg0NTM3OSwtMzg2MTc5MTk2LDE1ODU0MjUwNj
+QsNzQ4NzA4NDk1LC0xMjQ3NjM3MDUzXX0=
 -->
