@@ -197,7 +197,10 @@ DLX，全称为 `Dead-Letter-Exchange`，死信交换器，死信邮箱。当消
     -   每个业务标识对应一个内存队列，并由一个单独的线程负责处理。
         
     -   这种方案将顺序性的保证从Broker端转移到了消费者端，实现起来更复杂，需要处理好分布式锁和消费者故障转移的问题。
+
+# 如何解决消息堆积
+1. 提高消费者的消费能力，
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzE0NzMxNjk2LC0yNjgzMDk2OTQsLTE2Nz
-cyNTM2NjldfQ==
+eyJoaXN0b3J5IjpbMTA3NDQ4NzU5Miw3MTQ3MzE2OTYsLTI2OD
+MwOTY5NCwtMTY3NzI1MzY2OV19
 -->
