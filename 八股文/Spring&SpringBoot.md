@@ -23,6 +23,8 @@ Bean 代指的就是那些被 IoC 容器所管理的对象。
 推荐构造函数注入：依赖完整性，不可变，初始化保证，测试便利
 
 # Spring IOC容器的创建
+1. 加载配置文件，配置文件包含了应用程序中各个Bean的定义及它们之间的依赖关系
+2. 实例化容器：IOC容器会实例化并初始化自身，这个阶段容器会读取配置文件中的Bean定义，并根据这些定义
 # Spring AOP
 AOP 的目的是将横切关注点（如日志记录、事务管理、权限控制、接口限流、接口幂等等）从核心业务逻辑中分离出来，通过动态代理、字节码操作等技术，实现代码的复用和解耦，提高代码的可维护性和可扩展性。OOP 的目的是将业务逻辑按照对象的属性和行为进行封装，通过类、对象、继承、多态等概念，实现代码的模块化和层次化（也能实现代码的复用），提高代码的可读性和可维护性。
 
@@ -86,7 +88,7 @@ SpringBoot的核心注解`@SpringBootApplication`
     
 -   **异常被内部 `try-catch` 捕获**：在使用 `@Transactional` 时，如果方法内部将异常捕获并且没有重新抛出，Spring的事务管理器将无法感知到异常，从而导致事务不会回滚。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwMjc5MTU4MSw0MTMwNjczOTYsMTgzNj
-AyNDY5NiwtODg2NzE2NzI3LDUwMDE3NDQyNSwxNzEyNzU1OTkx
-XX0=
+eyJoaXN0b3J5IjpbMTMzMDY4OTc4LDQxMzA2NzM5NiwxODM2MD
+I0Njk2LC04ODY3MTY3MjcsNTAwMTc0NDI1LDE3MTI3NTU5OTFd
+fQ==
 -->
