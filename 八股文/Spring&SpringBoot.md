@@ -94,9 +94,10 @@ SpringBoot的核心注解`@SpringBootApplication`
 -   **异常被内部 `try-catch` 捕获**：在使用 `@Transactional` 时，如果方法内部将异常捕获并且没有重新抛出，Spring的事务管理器将无法感知到异常，从而导致事务不会回滚。
 
 # Spring中事务传播行为
-
+它定义了**当一个带有事务配置的方法被另一个方法调用时，事务应该如何传播和管理**
+简单来说，就是当方法 A 调用方法 B，而 A 和 B 都可能配置了事务时，Spring 需要一套规则来决定 B 方法应该运行在哪个事务中——是加入 A 的事务，还是开启一个自己的新事务，或者以非事务方式运行等等。这些规则通过在 `@Transactional` 注解的 `propagation` 属性中设置。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODAzMjQ1NzgsNDEzMDY3Mzk2LDE4Mz
-YwMjQ2OTYsLTg4NjcxNjcyNyw1MDAxNzQ0MjUsMTcxMjc1NTk5
-MV19
+eyJoaXN0b3J5IjpbNjIyNjMzODksNDEzMDY3Mzk2LDE4MzYwMj
+Q2OTYsLTg4NjcxNjcyNyw1MDAxNzQ0MjUsMTcxMjc1NTk5MV19
+
 -->
