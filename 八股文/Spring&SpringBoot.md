@@ -28,7 +28,8 @@ Bean 代指的就是那些被 IoC 容器所管理的对象。
 3. 实例化Bean：容器根据配置文件中Bean定义，利用反射机制实例化Bean对象
 4. 注入依赖：Bean对象被实例化之后，根据配置文件中的依赖关系，将相应的依赖注入Bean中
 5. 初始化Bean，调用Bean的初始化方法
-6. 
+6. 容器就绪
+
 # Spring AOP
 AOP 的目的是将横切关注点（如日志记录、事务管理、权限控制、接口限流、接口幂等等）从核心业务逻辑中分离出来，通过动态代理、字节码操作等技术，实现代码的复用和解耦，提高代码的可维护性和可扩展性。OOP 的目的是将业务逻辑按照对象的属性和行为进行封装，通过类、对象、继承、多态等概念，实现代码的模块化和层次化（也能实现代码的复用），提高代码的可读性和可维护性。
 
@@ -91,8 +92,11 @@ SpringBoot的核心注解`@SpringBootApplication`
 -   **方法被 `final` 修饰**：如果一个方法被 `final` 修饰，它将无法被子类（CGLIB代理）重写，因此AOP增强会失效。同理，如果类被 `final` 修饰，整个类都无法被代理。
     
 -   **异常被内部 `try-catch` 捕获**：在使用 `@Transactional` 时，如果方法内部将异常捕获并且没有重新抛出，Spring的事务管理器将无法感知到异常，从而导致事务不会回滚。
+
+# Spring中事务传播行为
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4ODg2Mzg5MCw0MTMwNjczOTYsMTgzNj
-AyNDY5NiwtODg2NzE2NzI3LDUwMDE3NDQyNSwxNzEyNzU1OTkx
-XX0=
+eyJoaXN0b3J5IjpbLTEyODAzMjQ1NzgsNDEzMDY3Mzk2LDE4Mz
+YwMjQ2OTYsLTg4NjcxNjcyNyw1MDAxNzQ0MjUsMTcxMjc1NTk5
+MV19
 -->
