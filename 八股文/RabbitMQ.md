@@ -199,8 +199,9 @@ DLX，全称为 `Dead-Letter-Exchange`，死信交换器，死信邮箱。当消
     -   这种方案将顺序性的保证从Broker端转移到了消费者端，实现起来更复杂，需要处理好分布式锁和消费者故障转移的问题。
 
 # 如何解决消息堆积
-1. 提高消费者的消费能力，
+1. 提高消费者的消费能力，用多线程消费任务
+2. 扩大队列容积，可以使用Rabbit惰性队列：接收到消息后直接存入磁盘而非内存，当消费消息时加载消息到内存
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA3NDQ4NzU5Miw3MTQ3MzE2OTYsLTI2OD
+eyJoaXN0b3J5IjpbMTQ0NzE0MjgzNSw3MTQ3MzE2OTYsLTI2OD
 MwOTY5NCwtMTY3NzI1MzY2OV19
 -->
