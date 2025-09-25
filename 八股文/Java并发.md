@@ -313,6 +313,9 @@ semaphore.release();
 # 15. 线程池处理任务的流程
 提交任务——核心池是否已满——等待队列是否已满——最大线程池是否已满——依据拒绝策略处理
 
+# 线程池的核心线程都是空闲的，任务队列为空，额外线程也空闲，此时新的任务进来会调用会怎么处理
+这个新任务会被放入任务队列（Work Queue）中，然后一个空闲的核心线程会立即从队列中取出该任务并执行它。
+
 # thread.sleep()和thread.wait()的区别
 都是暂停线程执行，sleep()没有释放锁，wait()释放了锁
 wait调用后线程不会自动苏醒，需要别的线程调用同一个对象上的notify或notifyAll方法
@@ -537,9 +540,9 @@ public class Main {
     
 -   **重量级锁时**：存储一个指向与该对象关联的**Monitor对象的指针**。这个Monitor对象才是真正实现线程阻塞和唤醒的核心。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUyMjY1MzQ5LDE0MTYxMDE4ODAsMjkxND
-MyNTAzLDE3NTM3ODIwNywxOTY4MDE3NDA0LDkwMTg4MDAyNSwy
-Mzg5NTI5MzcsLTExNjc0NjExODYsMjEwMTM3NDMzLDU4MTUxMT
-kzOCwtMTQxMjcxNTM4OCwxMTU0Mjg3NTE0LDc4NDMxNzM2NSwt
-MTU2NjMxNjY0OF19
+eyJoaXN0b3J5IjpbLTk2ODI0OTEwOCwxNTIyNjUzNDksMTQxNj
+EwMTg4MCwyOTE0MzI1MDMsMTc1Mzc4MjA3LDE5NjgwMTc0MDQs
+OTAxODgwMDI1LDIzODk1MjkzNywtMTE2NzQ2MTE4NiwyMTAxMz
+c0MzMsNTgxNTExOTM4LC0xNDEyNzE1Mzg4LDExNTQyODc1MTQs
+Nzg0MzE3MzY1LC0xNTY2MzE2NjQ4XX0=
 -->
