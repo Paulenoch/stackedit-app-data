@@ -184,8 +184,14 @@ Redis 从 2.6 版本开始支持执行 Lua 脚本，它的功能和事务非常�
 
 当你尝试删除一个元素时，你可能会想把这些位置的 bit 重新设置为 0。但问题在于，**这些 bit 位可能被其他元素共享**。如果你强行设置为 0，就会导致其他本应存在的元素被“误删”，从而产生**错误否定（False Negative）**，这是布隆过滤器绝对不能容忍的（它可以容忍错误肯定，但不能容忍错误否定）。
 
-方案一：定期重建 (最常用、最简单)
-方案二：使用支持删除的布隆过滤器变种 (Counting Bloom Filter)
+1. 方案一：定期重建 (最常用、最简单)
+2. 方案二：使用支持删除的布隆过滤器变种 ：计数布隆过滤器(Counting Bloom Filter)
+-   **空间占用更大**：相比于只占 1 bit 的标准布隆过滤器，一个计数器需要 4 位、8 位或更多，导致内存消耗是前者的数倍。
+    
+-   实现更复杂，需要考虑计数器溢出等边界问题。
+    
+-   现成的、经过生产环境检验的库相对较少（例如，Google Guava 提供的 BloomFilter 就不是 Counting 类型的）。
+3. 通过订阅 Binlog 进行实时同步 (架构复杂)
 
 # 15. 缓存击穿
 请求的 key 对应的是 **热点数据**，该数据 **存在于数据库中，但不存在于缓存中（通常是因为缓存中的那份数据已经过期）**。这就可能会导致瞬时大量的请求直接打到了数据库上
@@ -231,7 +237,7 @@ runid：前两项一样，选runid最小的
 Gossip协议
 ![输入图片说明](/imgs/2025-03-25/hy5BibOnmpqkvNzi.png)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMjExMTg0MjEsLTIwOTIwNDc2MTQsLT
-QzODY4OTQ4NCwyODk3ODU0MjgsLTk1NDY1NjQ5MywtMjA4ODc0
-NjYxMl19
+eyJoaXN0b3J5IjpbMzM3MjAyMTQ0LC0yMDkyMDQ3NjE0LC00Mz
+g2ODk0ODQsMjg5Nzg1NDI4LC05NTQ2NTY0OTMsLTIwODg3NDY2
+MTJdfQ==
 -->
