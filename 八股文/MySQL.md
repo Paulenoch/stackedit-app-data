@@ -147,6 +147,14 @@ B+树通过**高阶（即每个节点包含大量子节点）**，极大减少�
 -   聚簇索引（聚集索引）：索引结构和数据一起存放的索引，InnoDB 中的主键索引就属于聚簇索引。
 -   非聚簇索引（非聚集索引）：索引结构和数据分开存放的索引，二级索引（辅助索引）就属于非聚簇索引。
 
+# 聚簇索引是哪一列
+因此，每张 InnoDB 表**有且只有一个**聚簇索引。
+-   **主键 (PRIMARY KEY)**：如果表定义了主键，那么主键就是聚簇索引。
+    
+-   **第一个唯一非空索引 (UNIQUE NOT NULL Index)**：如果表没有定义主键，InnoDB 会选择第一个所有列都定义为 `NOT NULL` 的 `UNIQUE` 索引作为聚簇索引。
+    
+-   **隐藏的内部列 (GEN_CLUST_INDEX)**：如果以上两者都不存在，InnoDB 会在内部自动创建一个名为 `GEN_CLUST_INDEX` 的隐藏聚簇索引，它建立在一个包含行 ID 值的 6 字节的隐藏列上。这个索引对用户是不可见的。
+
 # 15. 覆盖索引
 需要查询的字段正好是索引的字段，直接根据索引可以查到数据，无需回表查询
 
@@ -262,6 +270,7 @@ _<center>二叉树“高瘦”，B+树“矮胖”，后者大大减少了I/O次
         
     -   这个过程不再需要回溯到父节点，大大提高了范围查询和排序操作的效率。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA5MTUxNDc2NCwtNjE4MzQ4MjgwLDM5Mj
-U4NTU4OSwtNDk1MDk5Nzg1LC00NjQwNjA0MzhdfQ==
+eyJoaXN0b3J5IjpbLTgyMjA2NzI4NiwxMDkxNTE0NzY0LC02MT
+gzNDgyODAsMzkyNTg1NTg5LC00OTUwOTk3ODUsLTQ2NDA2MDQz
+OF19
 -->
