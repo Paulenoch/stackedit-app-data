@@ -194,8 +194,21 @@ SpringBoot的核心注解`@SpringBootApplication`
 -   **场景**：适用于那些复杂的、可部分回滚的业务场景。例如，一个批量插入用户的操作，其中某个用户因为数据格式问题插入失败，你希望只回滚这一个用户的插入操作，而不影响其他已经成功的用户。
     
 -   **注意**：`NESTED` 行为依赖于数据库驱动是否支持**保存点（Savepoint）** 功能。大多数主流数据库（如 Oracle, SQL Server, PostgreSQL）都支持，但 MySQL 的某些存储引擎（如 MyISAM）则不支持。
+
+# Spring中的Bean是单例的还是多例的
+### 1. 单例 (Singleton) - 默认作用域
+
+当一个 Bean 的作用域被定义为单例时，**Spring IoC 容器中只会存在这一个 Bean 的实例**。无论你通过什么方式（如 `@Autowired` 注入或 `context.getBean()` 获取）请求这个 Bean，得到的都是指向**同一个**对象的引用。
+
+**特点：**
+
+-   **全局唯一**：在整个应用的生命周期中，容器只创建一次该 Bean 的实例。
+    
+-   **性能开销小**：由于不需要频繁创建和销毁对象，所以资源占用较少。
+    
+-   **线程不安全（如果 Bean 有状态）**：因为所有线程共享同一个实例，如果 Bean 中存在可变的成员变量（即有状态的 Bean），在多线程环境下可能会引发线程安全问题。因此，绝大部分 Service、DAO (Repository)、Controller 等都是无状态的，非常适合设计为单例。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzc5Njc4NjA2LDQxMzA2NzM5NiwxODM2MD
-I0Njk2LC04ODY3MTY3MjcsNTAwMTc0NDI1LDE3MTI3NTU5OTFd
-fQ==
+eyJoaXN0b3J5IjpbLTE2MTg4MTc1NzUsNzc5Njc4NjA2LDQxMz
+A2NzM5NiwxODM2MDI0Njk2LC04ODY3MTY3MjcsNTAwMTc0NDI1
+LDE3MTI3NTU5OTFdfQ==
 -->
