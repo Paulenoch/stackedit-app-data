@@ -207,8 +207,27 @@ SpringBoot的核心注解`@SpringBootApplication`
 -   **性能开销小**：由于不需要频繁创建和销毁对象，所以资源占用较少。
     
 -   **线程不安全（如果 Bean 有状态）**：因为所有线程共享同一个实例，如果 Bean 中存在可变的成员变量（即有状态的 Bean），在多线程环境下可能会引发线程安全问题。因此，绝大部分 Service、DAO (Repository)、Controller 等都是无状态的，非常适合设计为单例。
+
+### 2. 多例 (Prototype)
+
+当一个 Bean 的作用域被定义为多例时，**每次向 Spring 容器请求获取该 Bean 时，容器都会创建一个全新的实例**。
+
+**特点：**
+
+-   **每次请求都创建新实例**：每次注入或调用 `getBean()` 都会返回一个新的对象。
+    
+-   **性能开销相对较大**：因为需要频繁地创建对象，会带来一定的性能和内存开销。
+    
+-   **线程安全（实例级别）**：每个线程获取到的都是自己的实例，因此不存在多个线程共享一个实例导致的线程安全问题。
+    
+-   **Spring 不管理其完整生命周期**：Spring 创建并初始化多例 Bean 后，就将其交给客户端代码，之后不再跟踪其销毁过程。也就是说，`@PreDestroy` 这样的销毁回调方法不会被自动调用。
+    
+
+**适用场景：** 当你需要一个**有状态**的 Bean 时，例如记录每个用户的购物车信息、处理某个具体的任务状态等，多例模式是理想的选择。
+
+**如何配置：** 需要使用 `@Scope("prototype")` 注解显式声明。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTg4MTc1NzUsNzc5Njc4NjA2LDQxMz
-A2NzM5NiwxODM2MDI0Njk2LC04ODY3MTY3MjcsNTAwMTc0NDI1
-LDE3MTI3NTU5OTFdfQ==
+eyJoaXN0b3J5IjpbOTU3NTE2NTkzLDc3OTY3ODYwNiw0MTMwNj
+czOTYsMTgzNjAyNDY5NiwtODg2NzE2NzI3LDUwMDE3NDQyNSwx
+NzEyNzU1OTkxXX0=
 -->
