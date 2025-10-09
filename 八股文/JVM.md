@@ -76,7 +76,7 @@ Step1:类加载检查
 
 step2：分配内存
 
-step3：初始化零值
+step3：将分配到的内存初始化零值
 
 step4：设置对象头：例如这个对象是哪个类的实例、如何才能找到类的元数据信息、对象的哈希码、对象的 GC 分代年龄等信息。 **这些信息存放在对象头中**
 
@@ -332,7 +332,7 @@ JVM向操作系统申请创建新的线程时，如果操作系统无法再为�
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDI5MTM5Njk5LDYzNzgyMjk3NywtNTU4OT
-A1MDIsLTU0NzA2NjMxLC03NjI2MDI0NSwxMDM2OTI2NTg4LC0x
-MjUyOTA3Nzc3LDgwMjQ0NjQ2M119
+eyJoaXN0b3J5IjpbMTg1MDQ5MzM5NSw0MjkxMzk2OTksNjM3OD
+IyOTc3LC01NTg5MDUwMiwtNTQ3MDY2MzEsLTc2MjYwMjQ1LDEw
+MzY5MjY1ODgsLTEyNTI5MDc3NzcsODAyNDQ2NDYzXX0=
 -->
