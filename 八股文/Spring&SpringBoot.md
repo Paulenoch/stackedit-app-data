@@ -33,6 +33,32 @@ Bean 代指的就是那些被 IoC 容器所管理的对象。
 # Spring AOP
 AOP 的目的是将横切关注点（如日志记录、事务管理、权限控制、接口限流、接口幂等等）从核心业务逻辑中分离出来，通过动态代理、字节码操作等技术，实现代码的复用和解耦，提高代码的可维护性和可扩展性。OOP 的目的是将业务逻辑按照对象的属性和行为进行封装，通过类、对象、继承、多态等概念，实现代码的模块化和层次化（也能实现代码的复用），提高代码的可读性和可维护性。
 
+### Spring AOP 的工作原理：动态代理
+
+Spring AOP 不会去修改你写的原始代码（`.java` 文件）或字节码（`.class` 文件）。它是在**运行时**，动态地为你创建出一个**代理 (Proxy)** 对象。
+
+这个代理对象看起来和你的原始对象一模一样（有相同的方法），但它内部包含了切面的逻辑。当你调用这个代理对象的方法时，它会先执行切面中的通知逻辑，然后再去调用你原始对象的核心方法。
+
+Spring A-OP 使用两种技术来创建动态代理：
+
+1.  **JDK 动态代理 (JDK Dynamic Proxy)**
+    
+    -   这是 Java 官方提供的代理技术。
+        
+    -   **要求**：目标对象**必须实现一个或多个接口**。
+        
+    -   Spring 会创建一个实现了相同接口的代理类。
+        
+2.  **CGLIB 代理 (CGLIB Proxy)**
+    
+    -   一个第三方的代码生成库。
+        
+    -   **要求**：如果目标对象**没有实现任何接口**，Spring 就会使用 CGLIB。
+        
+    -   它通过**继承**目标对象来创建代理类。所以如果你的类是 `final` 的，它就无法被代理。
+        
+
+在 Spring Boot 2.x 之后，默认的代理方式配置成了 CGLIB。
 # SpringBoot自动装配
 
 没有 Spring Boot 的情况下，如果我们需要引入第三方依赖，需要手动配置，非常麻烦。但是，Spring Boot 中，我们直接引入一个 starter 即可。比如你想要在项目中使用 redis 的话，直接在项目中引入对应的 starter 即可。
@@ -227,7 +253,7 @@ SpringBoot的核心注解`@SpringBootApplication`
 
 **如何配置：** 需要使用 `@Scope("prototype")` 注解显式声明。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTU3NTE2NTkzLDc3OTY3ODYwNiw0MTMwNj
-czOTYsMTgzNjAyNDY5NiwtODg2NzE2NzI3LDUwMDE3NDQyNSwx
-NzEyNzU1OTkxXX0=
+eyJoaXN0b3J5IjpbMTE2MTQ5MzI3Nyw5NTc1MTY1OTMsNzc5Nj
+c4NjA2LDQxMzA2NzM5NiwxODM2MDI0Njk2LC04ODY3MTY3Mjcs
+NTAwMTc0NDI1LDE3MTI3NTU5OTFdfQ==
 -->
