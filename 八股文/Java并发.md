@@ -321,124 +321,74 @@ semaphore.release();
 wait调用后线程不会自动苏醒，需要别的线程调用同一个对象上的notify或notifyAll方法
 
 # 创建线程的方式
-1. 继承Thread类
-```java
-/**
- * 方式一：通过继承 Thread 类创建线程
- */
-class MyThread extends Thread {
-    @Override
-    public void run() {
-        System.out.println("Hello from MyThread! - Running in thread: " + Thread.currentThread().getName());
-    }
-}
+### 方式一：继承 `Thread` 类 (最直观但不推荐)
 
-public class Main {
-    public static void main(String[] args) {
-        // 创建线程对象
-        MyThread thread1 = new MyThread();
-        // 启动线程
-        thread1.start(); 
+这是最基本、最直观的方式。你创建一个类，让它直接“成为”一个线程。
 
-        System.out.println("Main thread finished. - Running in thread: " + Thread.currentThread().getName());
-    }
-}
-```
+**实现步骤：**
 
-2. 实现Runnable接口
-```java
-/**
- * 方式二：通过实现 Runnable 接口创建线程
- */
-class MyRunnable implements Runnable {
-    @Override
-    public void run() {
-        System.out.println("Hello from MyRunnable! - Running in thread: " + Thread.currentThread().getName());
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        // 1. 创建一个任务对象
-        MyRunnable myTask = new MyRunnable();
-        // 2. 创建一个线程对象，并将任务传递给它
-        Thread thread2 = new Thread(myTask);
-        // 3. 启动线程
-        thread2.start();
-
-        System.out.println("Main thread finished. - Running in thread: " + Thread.currentThread().getName());
-    }
-}
-```
-
-#### 3. 使用 `ExecutorService` 和 `Callable` / `Future`
-
-这种方式不仅能创建线程，还能有效管理线程生命周期，并能获取线程的执行结果。
-
--   **`ExecutorService`**：一个线程池，负责管理和复用线程，避免了频繁创建和销毁线程带来的性能开销。
+1.  创建一个类，并让它**继承** `java.lang.Thread` 类。
     
--   **`Callable<V>`**：类似于 `Runnable`，但它的 `call()` 方法**可以有返回值**，并且**可以抛出异常**。
+2.  **重写 (Override)** `run()` 方法。这个方法就是线程启动后要执行的任务代码。
     
--   **`Future<V>`**：代表一个异步计算的结果。你可以通过 `Future` 对象检查任务是否完成，并获取其返回值。
+3.  创建这个子类的对象。
     
+4.  调用该对象的 `start()` 方法来启动线程（**注意**：不是直接调用 `run()` 方法！调用 `start()` 才会创建一个新的执行线程，然后由 JVM 去调用 `run()` 方法）。
 
-**步骤：**
+### 方式二：实现 `Runnable` 接口 (推荐的经典方式)
 
-1.  创建一个类实现 `Callable<V>` 接口，`V` 是返回值的类型。
+这种方式将“任务”和“执行任务的线程”解耦，是更符合面向对象设计原则的方式。
+
+**实现步骤：**
+
+1.  创建一个类，并让它**实现** `java.lang.Runnable` 接口。
     
-2.  在 `call()` 方法中实现业务逻辑，并返回结果。
+2.  实现接口中唯一的 `run()` 方法，在这里编写线程要执行的任务。
     
-3.  通过 `Executors` 工厂类创建一个 `ExecutorService`（线程池）。
+3.  创建一个 `Runnable` 的实现类对象（也就是你创建的那个任务对象）。
     
-4.  调用线程池的 `submit()` 方法，将 `Callable` 实例提交进去，该方法会返回一个 `Future` 对象。
+4.  创建一个 `Thread` 对象，并将上一步创建的 `Runnable` 对象作为参数传给 `Thread` 的构造函数。
     
-5.  通过 `future.get()` 方法阻塞等待并获取线程的执行结果。
+5.  调用 `Thread` 对象的 `start()` 方法。
+
+### 方式三：实现 `Callable` 接口 (带返回值的进阶版)
+
+`Runnable` 的 `run()` 方法是没有返回值的 (`void`)，也不能抛出受检异常。如果你的线程任务执行完后需要一个结果，或者任务中可能会抛出异常需要处理，那么 `Callable` 就是更好的选择。
+
+**实现步骤：**
+
+1.  创建一个类，实现 `java.util.concurrent.Callable` 接口。它是一个泛型接口，你需要指定 `call()` 方法的返回值类型。
     
-6.  关闭线程池 (`executor.shutdown()`)。
+2.  实现 `call()` 方法，这个方法可以有返回值，也可以抛出异常。
     
+3.  创建 `Callable` 的实现类对象。
+    
+4.  `Callable` 不能直接被 `Thread` 使用，需要借助一个“未来任务”`FutureTask` 来包装。`FutureTask` 同时实现了 `Runnable` 和 `Future` 接口。
+    
+5.  创建 `FutureTask` 对象，并将 `Callable` 对象作为参数传入。
+    
+6.  创建 `Thread` 对象，并将 `FutureTask` 对象作为参数传入。
+    
+7.  启动线程。
+    
+8.  通过 `FutureTask` 对象的 `get()` 方法来**获取线程执行的返回值**。注意，`get()` 方法会**阻塞**，直到线程执行完毕并返回结果。
 
-**代码示例：**
+### 方式四：使用线程池 (企业级开发首选)
 
-Java
+在实际开发中，我们很少会手动 `new Thread()`。因为频繁地创建和销毁线程会消耗大量系统资源。更专业的做法是使用**线程池 (Thread Pool)**。
 
-```java
-import java.util.concurrent.*;
+线程池就像一个“员工池”，里面预先创建好了一定数量的线程。当有任务来时，就从池里取一个空闲的线程去执行任务，任务执行完后，线程不会被销毁，而是回到池里等待下一个任务。
 
-/**
- * 方式三：使用 Callable 和 FutureTask 创建线程
- */
-class MyCallable implements Callable<String> {
-    @Override
-    public String call() throws Exception {
-        System.out.println("MyCallable is working... - Running in thread: " + Thread.currentThread().getName());
-        Thread.sleep(2000); // 模拟耗时操作
-        return "Task finished successfully!";
-    }
-}
+**实现步骤：**
 
-public class Main {
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        // 1. 创建一个固定大小的线程池
-        ExecutorService executor = Executors.newFixedThreadPool(2);
+1.  使用 `Executors` 工厂类创建一个线程池对象（`ExecutorService`）。
+    
+2.  创建你的任务（可以是 `Runnable` 或 `Callable` 的实现类）。
+    
+3.  调用线程池的 `submit()` (提交任务) 或 `execute()` (执行任务) 方法，把任务交给线程池。
+    
+4.  当不再需要线程池时，调用 `shutdown()` 方法关闭线程池。
 
-        // 2. 创建一个 Callable 任务
-        MyCallable myTask = new MyCallable();
-
-        // 3. 提交任务到线程池，并获取 Future 对象
-        Future<String> future = executor.submit(myTask);
-
-        System.out.println("Main thread continues to do other things...");
-
-        // 4. 阻塞等待并获取任务结果
-        String result = future.get();
-        System.out.println("Result from callable: " + result);
-
-        // 5. 关闭线程池
-        executor.shutdown();
-    }
-}
-```
-![输入图片说明](/imgs/2025-09-24/f9oKqDYABQ8JfdCX.png)
 
 # CountDownLatch和CyclicBarrier
 ![输入图片说明](/imgs/2025-09-24/zJzi6TApfabgNbWW.png)
@@ -540,9 +490,9 @@ public class Main {
     
 -   **重量级锁时**：存储一个指向与该对象关联的**Monitor对象的指针**。这个Monitor对象才是真正实现线程阻塞和唤醒的核心。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk2ODI0OTEwOCwxNTIyNjUzNDksMTQxNj
-EwMTg4MCwyOTE0MzI1MDMsMTc1Mzc4MjA3LDE5NjgwMTc0MDQs
-OTAxODgwMDI1LDIzODk1MjkzNywtMTE2NzQ2MTE4NiwyMTAxMz
-c0MzMsNTgxNTExOTM4LC0xNDEyNzE1Mzg4LDExNTQyODc1MTQs
-Nzg0MzE3MzY1LC0xNTY2MzE2NjQ4XX0=
+eyJoaXN0b3J5IjpbLTc1NjA5OTg3LC05NjgyNDkxMDgsMTUyMj
+Y1MzQ5LDE0MTYxMDE4ODAsMjkxNDMyNTAzLDE3NTM3ODIwNywx
+OTY4MDE3NDA0LDkwMTg4MDAyNSwyMzg5NTI5MzcsLTExNjc0Nj
+ExODYsMjEwMTM3NDMzLDU4MTUxMTkzOCwtMTQxMjcxNTM4OCwx
+MTU0Mjg3NTE0LDc4NDMxNzM2NSwtMTU2NjMxNjY0OF19
 -->
