@@ -166,7 +166,7 @@ B+树通过**高阶（即每个节点包含大量子节点）**，极大减少�
 最左匹配原则会一直向右匹配，直到遇到范围查询（如 >、<）为止。对于 >=、<=、BETWEEN 以及前缀匹配 LIKE 的范围查询，不会停止匹配
 
 # 18. 索引下推
-存储引擎在索引遍历过程中，执行部分 `WHERE` 字句的判断条件，直接过滤掉不满足条件的记录，从而减少回表次数，提高查询效率。
+索引下推（ICP）是指，在联合索引的场景下，如果 `WHERE` 子句中的某些条件虽然不能用于索引的快速定位（因为它不符合最左前缀的连续规则），但**这些条件涉及的列恰好也包含在联合索引中**，那么 MySQL **不会**立刻回表去取数据行，而是会先在**索引内部**就用这些条件对数据进行一轮过滤。
 
 # 19. 如何更好地建立索引
 1. 选择合适的字段作为索引（不为null，频繁查询，where条件...)
@@ -270,7 +270,7 @@ _<center>二叉树“高瘦”，B+树“矮胖”，后者大大减少了I/O次
         
     -   这个过程不再需要回溯到父节点，大大提高了范围查询和排序操作的效率。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgyMjA2NzI4NiwxMDkxNTE0NzY0LC02MT
-gzNDgyODAsMzkyNTg1NTg5LC00OTUwOTk3ODUsLTQ2NDA2MDQz
-OF19
+eyJoaXN0b3J5IjpbNDg2Mjk3MTAxLC04MjIwNjcyODYsMTA5MT
+UxNDc2NCwtNjE4MzQ4MjgwLDM5MjU4NTU4OSwtNDk1MDk5Nzg1
+LC00NjQwNjA0MzhdfQ==
 -->
