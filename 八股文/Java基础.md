@@ -667,9 +667,7 @@ public class SingletonDCL {
 
 **特点**：写法简单、线程安全、实现了懒加载。
 
-Java
-
-```
+```java
 // 静态内部类单例
 public class SingletonStaticInnerClass {
 
@@ -705,9 +703,7 @@ public class SingletonStaticInnerClass {
 
 **特点**：代码最简洁、天然防止反射和反序列化攻击、绝对的线程安全。
 
-Java
-
-```
+```java
 // 枚举单例
 public enum SingletonEnum {
     INSTANCE; // 定义一个枚举元素，它本身就是单例的实例
@@ -732,11 +728,11 @@ public enum SingletonEnum {
         
     -   **防止反射攻击**：普通的单例模式可以通过反射强行调用私有构造函数来创建新实例，而枚举类则在底层阻止了这种行为。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyMjMyNTA5MSwtNzc1Mjk1MDE2LDE4Mj
-UwNzA4OTEsLTg5NjQ0ODIwLDE0MjkxMDQwMCwtODIzMjgzNTQ1
-LC0zMTMzOTQzNjgsLTE2ODk2MDQzODYsLTEwNzQwMDE5OTgsLT
-kzODQ4NTg5NiwtOTE5OTE1MDk1LC0zNjk3MTA5ODQsLTE2NjE4
-NTMzMzEsMTE3NzIyNTAyNywxODg4ODQ1Mzc5LC0zODYxNzkxOT
-YsMTU4NTQyNTA2NCw3NDg3MDg0OTUsLTEyNDc2MzcwNTNdfQ==
+eyJoaXN0b3J5IjpbLTIxMjkzNjk4ODUsLTc3NTI5NTAxNiwxOD
+I1MDcwODkxLC04OTY0NDgyMCwxNDI5MTA0MDAsLTgyMzI4MzU0
+NSwtMzEzMzk0MzY4LC0xNjg5NjA0Mzg2LC0xMDc0MDAxOTk4LC
+05Mzg0ODU4OTYsLTkxOTkxNTA5NSwtMzY5NzEwOTg0LC0xNjYx
+ODUzMzMxLDExNzcyMjUwMjcsMTg4ODg0NTM3OSwtMzg2MTc5MT
+k2LDE1ODU0MjUwNjQsNzQ4NzA4NDk1LC0xMjQ3NjM3MDUzXX0=
 
 -->
