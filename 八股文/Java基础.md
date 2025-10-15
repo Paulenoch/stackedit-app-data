@@ -534,10 +534,7 @@ Export to Sheets
 “饿汉式”就像一个急性子，不管你用不用，它在类加载的时候就立刻把实例创建好了。
 
 **特点**：天生就是线程安全的，但可能会造成资源浪费。
-
-Java
-
-```
+```java
 // 饿汉式单例
 public class SingletonEager {
 
@@ -579,9 +576,8 @@ public class SingletonEager {
 
 **特点**：实现了懒加载，但在多线程环境下有问题。
 
-Java
 
-```
+```java
 // 懒汉式单例 - 线程不安全
 public class SingletonLazyUnsafe {
 
@@ -618,9 +614,7 @@ public class SingletonLazyUnsafe {
 
 **特点**：兼顾了懒加载、线程安全和性能。
 
-Java
-
-```
+```java
 // 懒汉式单例 - 双重校验锁 (DCL)
 public class SingletonDCL {
 
@@ -738,10 +732,11 @@ public enum SingletonEnum {
         
     -   **防止反射攻击**：普通的单例模式可以通过反射强行调用私有构造函数来创建新实例，而枚举类则在底层阻止了这种行为。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDcyMDIxNjc1LC03NzUyOTUwMTYsMTgyNT
-A3MDg5MSwtODk2NDQ4MjAsMTQyOTEwNDAwLC04MjMyODM1NDUs
-LTMxMzM5NDM2OCwtMTY4OTYwNDM4NiwtMTA3NDAwMTk5OCwtOT
-M4NDg1ODk2LC05MTk5MTUwOTUsLTM2OTcxMDk4NCwtMTY2MTg1
-MzMzMSwxMTc3MjI1MDI3LDE4ODg4NDUzNzksLTM4NjE3OTE5Ni
-wxNTg1NDI1MDY0LDc0ODcwODQ5NSwtMTI0NzYzNzA1M119
+eyJoaXN0b3J5IjpbMTkyMjMyNTA5MSwtNzc1Mjk1MDE2LDE4Mj
+UwNzA4OTEsLTg5NjQ0ODIwLDE0MjkxMDQwMCwtODIzMjgzNTQ1
+LC0zMTMzOTQzNjgsLTE2ODk2MDQzODYsLTEwNzQwMDE5OTgsLT
+kzODQ4NTg5NiwtOTE5OTE1MDk1LC0zNjk3MTA5ODQsLTE2NjE4
+NTMzMzEsMTE3NzIyNTAyNywxODg4ODQ1Mzc5LC0zODYxNzkxOT
+YsMTU4NTQyNTA2NCw3NDg3MDg0OTUsLTEyNDc2MzcwNTNdfQ==
+
 -->
