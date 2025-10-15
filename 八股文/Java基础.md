@@ -494,12 +494,254 @@ Export to Sheets
 -   **注意**：这些方法都必须在 `synchronized` 代码块或 `synchronized` 方法中调用，否则会抛出 `IllegalMonitorStateException`。
     
 
+# 单例模式
+### 1. 什么是单例模式？
 
+单例模式是一种**创建型设计模式**，它的核心思想是：**确保一个类在任何情况下都绝对只有一个实例，并提供一个全局访问点来获取这个唯一的实例。**
+
+你可以把它想象成一个国家只有一个皇帝，或者你的电脑里只有一个回收站。无论你在哪里需要它，你得到的都是同一个对象。
+
+### 2. 为什么要使用单例模式？
+
+使用单例模式主要有以下几个目的：
+
+-   **保证唯一性**：对于某些需要全局唯一的对象（比如网站的计数器、应用程序的日志对象、数据库连接池），使用单例模式可以确保它们不会被重复创建。
+    
+-   **节省资源**：如果一个对象的创建需要消耗大量资源（比如读取配置文件、依赖其他设备），那么只创建一个实例可以避免不必要的性能和内存开销。
+    
+-   **提供全局访问点**：可以方便地在程序的任何地方访问到这个唯一的实例，而不需要传来传去。
+    
+
+### 3. 单例模式的核心要点
+
+要实现一个单例模式，通常需要遵循以下几个要点：
+
+1.  **私有化构造函数**：为了防止外部通过 `new` 关键字随意创建实例，必须将构造函数声明为 `private`。
+    
+2.  **持有私有静态实例**：在类的内部创建一个该类自身的 `private static` 实例。
+    
+3.  **提供公共静态方法**：提供一个 `public static` 方法（通常命名为 `getInstance()`），作为外部获取这个唯一实例的入口。
+    
+
+### 4. 单例模式的几种经典实现方式（Java示例）
+
+接下来，我会用 Java 代码为你展示几种最常见的实现方式，并解释它们的优缺点。
+
+----------
+
+#### 方式一：饿汉式（Eager Initialization）
+
+“饿汉式”就像一个急性子，不管你用不用，它在类加载的时候就立刻把实例创建好了。
+
+**特点**：天生就是线程安全的，但可能会造成资源浪费。
+
+Java
+
+```
+// 饿汉式单例
+public class SingletonEager {
+
+    // 1. 在类加载时就直接创建实例
+    private static final SingletonEager INSTANCE = new SingletonEager();
+
+    // 2. 私有化构造函数
+    private SingletonEager() {
+        // 防止外部 new
+    }
+
+    // 3. 提供全局公共的访问方法
+    public static SingletonEager getInstance() {
+        return INSTANCE;
+    }
+
+    public void showMessage() {
+        System.out.println("这是一个饿汉式单例！");
+    }
+}
+```
+
+-   **优点**：
+    
+    -   实现简单。
+        
+    -   线程安全：因为 JVM 在类加载时就完成了实例化，这个过程是线程安全的。
+        
+-   **缺点**：
+    
+    -   没有实现**懒加载（Lazy Loading）**。如果这个单例对象从始至终都没有被使用，那么它占用的内存就浪费了。
+        
+
+----------
+
+#### 方式二：懒汉式（Lazy Initialization） - 线程不安全
+
+“懒汉式”就像一个拖延症，只有在第一次需要它的时候，它才去创建实例。
+
+**特点**：实现了懒加载，但在多线程环境下有问题。
+
+Java
+
+```
+// 懒汉式单例 - 线程不安全
+public class SingletonLazyUnsafe {
+
+    private static SingletonLazyUnsafe instance;
+
+    private SingletonLazyUnsafe() {
+        // 私有化构造函数
+    }
+
+    public static SingletonLazyUnsafe getInstance() {
+        // 只有在第一次调用时才创建实例
+        if (instance == null) {
+            instance = new SingletonLazyUnsafe();
+        }
+        return instance;
+    }
+}
+```
+
+-   **优点**：
+    
+    -   实现了懒加载，节约了内存。
+        
+-   **缺点**：
+    
+    -   **线程不安全**：想象一下，有两个线程（线程A和线程B）同时执行 `getInstance()` 方法，并且都判断 `instance == null` 为 `true`。那么它们两个都会去 `new` 一个实例，这就破坏了单例的唯一性。**这种写法在多线程环境中是绝对不能使用的。**
+        
+
+----------
+
+#### 方式三：懒汉式 - 双重校验锁（Double-Checked Locking, DCL）
+
+为了解决懒汉式的线程安全问题，同时又想保持高性能，双重校验锁（DCL）出现了。这是面试中的高频考点。
+
+**特点**：兼顾了懒加载、线程安全和性能。
+
+Java
+
+```
+// 懒汉式单例 - 双重校验锁 (DCL)
+public class SingletonDCL {
+
+    // 1. 使用 volatile 关键字确保可见性和有序性
+    private static volatile SingletonDCL instance;
+
+    private SingletonDCL() {
+        // 私有化构造函数
+    }
+
+    public static SingletonDCL getInstance() {
+        // 第一次检查：如果实例已经存在，直接返回，避免不必要的同步开销
+        if (instance == null) {
+            // 同步代码块，确保只有一个线程能进入
+            synchronized (SingletonDCL.class) {
+                // 第二次检查：防止多个线程同时通过第一次检查，在这里等待后重复创建实例
+                if (instance == null) {
+                    // 创建实例
+                    instance = new SingletonDCL();
+                }
+            }
+        }
+        return instance;
+    }
+}
+```
+
+**代码解释**：
+
+1.  **`volatile` 关键字**：这是一个关键点！它有两个作用：① 保证多线程之间 `instance` 变量的可见性。② **禁止指令重排序**。因为 `instance = new SingletonDCL()` 这行代码在底层不是原子操作，它大概分为三步：
+    
+    -   a. 为 `instance` 分配内存空间。
+        
+    -   b. 初始化 `instance` 对象。
+        
+    -   c. 将 `instance` 变量指向分配的内存地址。 如果没有 `volatile`，JVM 可能会进行指令重排序，执行顺序变成 a -> c -> b。这时，如果线程A执行了 a 和 c，但还没执行 b，线程B进来了，它会发现 `instance` 已经不为 `null` 了，于是直接返回一个**尚未完全初始化**的对象，使用时就会出错。`volatile` 可以防止这种情况发生。
+        
+2.  **两次 `if (instance == null)` 检查**：
+    
+    -   **第一次检查**是为了性能。如果实例已经创建了，就没必要再进入耗费性能的 `synchronized` 同步代码块了。
+        
+    -   **第二次检查**是为了线程安全。如果两个线程都通过了第一次检查，那么第一个线程进入同步块创建实例，第二个线程在外面等待。当第一个线程出来后，第二个线程再进去，此时如果不进行第二次检查，它就会再次创建一个新的实例。
+        
+
+----------
+
+#### 方式四：静态内部类（Static Inner Class）
+
+这是一种非常推荐的实现方式，它利用了 JVM 的类加载机制来保证线程安全和懒加载。
+
+**特点**：写法简单、线程安全、实现了懒加载。
+
+Java
+
+```
+// 静态内部类单例
+public class SingletonStaticInnerClass {
+
+    private SingletonStaticInnerClass() {
+        // 私有化构造函数
+    }
+
+    // 1. 定义一个私有静态内部类来持有单例实例
+    private static class SingletonHolder {
+        private static final SingletonStaticInnerClass INSTANCE = new SingletonStaticInnerClass();
+    }
+
+    // 2. 公共的获取实例方法
+    public static SingletonStaticInnerClass getInstance() {
+        // 当第一次调用 getInstance() 时，JVM 才会加载 SingletonHolder 类，并初始化 INSTANCE
+        return SingletonHolder.INSTANCE;
+    }
+}
+```
+
+-   **优点**：
+    
+    -   **懒加载**：只有在调用 `getInstance()` 方法时，JVM 才会加载 `SingletonHolder` 类，从而实例化 `INSTANCE`。
+        
+    -   **线程安全**：类的静态变量初始化过程是由 JVM 保证线程安全的，所以这种方式既优雅又安全。
+        
+
+----------
+
+#### 方式五：枚举（Enum）
+
+这是《Effective Java》作者 Joshua Bloch 极力推荐的方式，也是最简单、最安全的方式。
+
+**特点**：代码最简洁、天然防止反射和反序列化攻击、绝对的线程安全。
+
+Java
+
+```
+// 枚举单例
+public enum SingletonEnum {
+    INSTANCE; // 定义一个枚举元素，它本身就是单例的实例
+
+    public void showMessage() {
+        System.out.println("这是一个枚举单例！");
+    }
+}
+
+// 使用方式
+// SingletonEnum singleton = SingletonEnum.INSTANCE;
+// singleton.showMessage();
+```
+
+-   **优点**：
+    
+    -   **代码超级简单**。
+        
+    -   **线程安全**：由 JVM 保证。
+        
+    -   **防止反序列化创建新对象**：普通的单例模式在序列化后，再反序列化回来，会得到一个新的对象，破坏了单例。而枚举类默认解决了这个问题。
+        
+    -   **防止反射攻击**：普通的单例模式可以通过反射强行调用私有构造函数来创建新实例，而枚举类则在底层阻止了这种行为。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3NTI5NTAxNiwxODI1MDcwODkxLC04OT
-Y0NDgyMCwxNDI5MTA0MDAsLTgyMzI4MzU0NSwtMzEzMzk0MzY4
-LC0xNjg5NjA0Mzg2LC0xMDc0MDAxOTk4LC05Mzg0ODU4OTYsLT
-kxOTkxNTA5NSwtMzY5NzEwOTg0LC0xNjYxODUzMzMxLDExNzcy
-MjUwMjcsMTg4ODg0NTM3OSwtMzg2MTc5MTk2LDE1ODU0MjUwNj
-QsNzQ4NzA4NDk1LC0xMjQ3NjM3MDUzXX0=
+eyJoaXN0b3J5IjpbNDcyMDIxNjc1LC03NzUyOTUwMTYsMTgyNT
+A3MDg5MSwtODk2NDQ4MjAsMTQyOTEwNDAwLC04MjMyODM1NDUs
+LTMxMzM5NDM2OCwtMTY4OTYwNDM4NiwtMTA3NDAwMTk5OCwtOT
+M4NDg1ODk2LC05MTk5MTUwOTUsLTM2OTcxMDk4NCwtMTY2MTg1
+MzMzMSwxMTc3MjI1MDI3LDE4ODg4NDUzNzksLTM4NjE3OTE5Ni
+wxNTg1NDI1MDY0LDc0ODcwODQ5NSwtMTI0NzYzNzA1M119
 -->
