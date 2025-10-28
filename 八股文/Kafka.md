@@ -199,7 +199,7 @@ Kafka 允许生产者在发送消息前对数据进行压缩。常见的压缩�
 # Kafka幂等
 **幂等性（Idempotence）** 就是为了解决这个问题。它指的是对于同一个操作，执行一次和执行多次，最终产生的结果是完全相同的。在 Kafka 中，幂等性保证了即使生产者重试发送消息，这条消息在 Broker 的分区（Partition）中也**只会被写入一次**。
 
-### 2. Kafka 实现幂等性的核心机制
+### Kafka 实现幂等性的核心机制
 
 Kafka 的幂等性实现是基于两个关键的技术：
 
@@ -280,6 +280,6 @@ Kafka 的幂等性实现是基于两个关键的技术：
 
 如果你需要实现跨多个分区的原子性写入（要么都成功，要么都失败），那么你就需要使用更强大的功能——**Kafka 事务（Transactions）**。而幂等性，正是实现 Kafka 事务的基础。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODAyMDYwNzAzLDE0NTUxNjA3MzUsODQ3OD
-Q0NjI3XX0=
+eyJoaXN0b3J5IjpbMTc2NzY0MTk3OSwxNDU1MTYwNzM1LDg0Nz
+g0NDYyN119
 -->
