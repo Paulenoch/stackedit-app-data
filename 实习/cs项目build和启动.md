@@ -18,7 +18,7 @@ mkdir -p internal/spex/gen1/go
 
 ### 3. 编译项目
 
-spkit build
+wo
 
 # 会生成 bin/user 或 bin/xxx 可执行文件
 
@@ -70,5 +70,5 @@ curl http://localhost:9091/路径
 
 直接复制命令执行即可！
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgxNjY0OTk4NV19
+eyJoaXN0b3J5IjpbLTEyNjYwOTQ5MjIsMTgxNjY0OTk4NV19
 -->
