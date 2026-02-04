@@ -19,6 +19,8 @@
     -   Contact tag（快照）（Contact是一次用户进线行为）
         
     -   Case tag（快照）（Case是围绕一个问题的处理单元，可能包含多个Contact，会被分配/升级/关闭）
+    - ![用户标签会变化，但业务记录不能变化，否则可能昨天Case里用户是VIP，今天打开历史Case变成普通用户](/imgs/2026-02-04/T8LOsya9dfzYs5DQ.png)
+
         
 5.  Agent Console 展示：
     
@@ -26,5 +28,5 @@
         
     -   promote_message（当 Agent 看到这个标签时，该怎么理解 / 怎么行动）
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0NzEyMzE5NF19
+eyJoaXN0b3J5IjpbMTA4NTY4OTA5OF19
 -->
