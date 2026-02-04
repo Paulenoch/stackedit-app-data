@@ -4,9 +4,9 @@
     
 2.  对每个 tag：
     
-    -   查 UPP：在不在某个 segment？
+    -   查 UPP（用户画像平台）：在不在某个 segment？
         
-    -   查 SOP：有没有某些 tag？
+    -   查 SOP（卖家运营平台，）这个用户是否被运营 / 风控打过某个 tag？：有没有某些 tag？
         
     -   查 CS Criteria：数值是否达标？
         
@@ -24,7 +24,7 @@
     
     -   tag 名字 + 颜色
         
-    -   promote_message
+    -   promote_message（当 Agent 看到这个标签时，该怎么理解 / 怎么行动）
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2OTUxMDg2N119
+eyJoaXN0b3J5IjpbLTkzNjA2NDMwXX0=
 -->
