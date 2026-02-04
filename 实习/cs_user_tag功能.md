@@ -8,7 +8,7 @@
         
     -   查 SOP（卖家运营平台，）这个用户是否被运营 / 风控打过某个 tag？：有没有某些 tag？
         
-    -   查 CS Criteria：数值是否达标？
+    -   查 CS Criteria：数值是否达标？（最近 3 天咨询次数/最近 3 天成交金额）
         
 3.  命中 → 得到 tag_id 列表
     
@@ -16,9 +16,9 @@
     
     -   User tag（可刷新）
         
-    -   Contact tag（快照）
+    -   Contact tag（快照）（Contact是一次用户进线行为）
         
-    -   Case tag（快照）
+    -   Case tag（快照）（Case是围绕一个问题的处理单元，可能包含多个Contact，会被分配/升级/关闭）
         
 5.  Agent Console 展示：
     
@@ -26,5 +26,5 @@
         
     -   promote_message（当 Agent 看到这个标签时，该怎么理解 / 怎么行动）
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkzNjA2NDMwXX0=
+eyJoaXN0b3J5IjpbMjE0NzEyMzE5NF19
 -->
