@@ -261,62 +261,6 @@ message CsUserTag {
 
 ```
 
-  
-
-#### 计算流程
-
-  
-
-```
-
-GetCSUserTagList(cs_user_id, refresh=true)
-
-│
-
-├─ 1. 限流检查 (Redis SetNX, 10s/用户)
-
-│ └─ 被限流 → 跳过计算，走「读取已有数据」逻辑
-
-│
-
-├─ 2. 获取用户基本信息 (shopee_user_id, shop_id, region 等)
-
-│
-
-├─ 3. 根据 tenant_id + region 获取可用 DataSource 列表
-
-│ 配置路径: CsUserTagCriteria.AvailableDataSource[tenantID][region]
-
-│ DataSource 类型:
-
-│ ├─ UserProfilePlatform (UPP) → 调 UPP 接口查用户画像
-
-│ ├─ SellerOperationPlatform (SOP) → 调 SOP 接口查店铺标签
-
-│ ├─ CSUserProfile → 查 CS 系统内用户属性
-
-│ └─ CSSystem → 查 CS 系统数据
-
-│
-
-├─ 4. 并发计算: 每个 DataSource 的 Processor 独立 Prepare + Calc
-
-│
-
-├─ 5. 聚合结果: 根据 MatchLogic (satisfy_any / satisfy_all / 表达式)
-
-│
-
-├─ 6. 对比现有 Tag，找出新增/删除的 Tag → 写入 DB
-
-│
-
-└─ 7. 返回最终 Tag ID 列表 → 查 Tag 定义 → 返回 CsUserTag 列表
-
-```
-
-  
-
 #### 调用示例
 
   
@@ -423,9 +367,9 @@ optional bool refresh_cs_user_tags_with_rate_limited = 2; // 设为 false，仅�
 
 {
 
-"cs_user_id": 12345,
+	"cs_user_id": 12345,
 
-"refresh_cs_user_tags_with_rate_limited": false
+	"refresh_cs_user_tags_with_rate_limited": false
 
 }
 
@@ -435,13 +379,13 @@ optional bool refresh_cs_user_tags_with_rate_limited = 2; // 设为 false，仅�
 
 {
 
-"tag_list": [
+	"tag_list": [
 
-{ "id": 100, "english_name": "VIP User", "local_name": "VIP用户", "priority": 10 },
+		{ "id": 100, "english_name": "VIP User", "local_name": "VIP用户", "priority": 10 },
 
-{ "id": 103, "english_name": "High Value", "local_name": "高价值客户", "priority": 8 }
+		{ "id": 103, "english_name": "High Value", "local_name": "高价值客户", "priority": 8 }
 
-]
+	]
 
 }
 
@@ -520,5 +464,5 @@ optional bool refresh_cs_user_tags_with_rate_limited = 2; // 设为 false，仅�
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwOTc0NTEyNTJdfQ==
+eyJoaXN0b3J5IjpbOTQ5MzQwOTg0XX0=
 -->
