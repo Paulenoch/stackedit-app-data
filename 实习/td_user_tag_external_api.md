@@ -339,9 +339,9 @@ message CsUserTag {
 
 message GetCSUserTagListRequest {
 
-optional int64 cs_user_id = 1; // 必填，CS 用户 ID
+	optional int64 cs_user_id = 1; // 必填，CS 用户 ID
 
-optional bool refresh_cs_user_tags_with_rate_limited = 2; // 设为 false，仅查询不计算
+	optional bool refresh_cs_user_tags_with_rate_limited = 2; // 设为 false，仅查询不计算
 
 }
 
@@ -464,5 +464,5 @@ optional bool refresh_cs_user_tags_with_rate_limited = 2; // 设为 false，仅�
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTQ5MzQwOTg0XX0=
+eyJoaXN0b3J5IjpbMTExMTU3NzUyOCw5NDkzNDA5ODRdfQ==
 -->
