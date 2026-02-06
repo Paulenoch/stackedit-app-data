@@ -153,31 +153,31 @@ message Pagination {
 
 {
 
-"cs_user_tag_configs": [
+	"cs_user_tag_configs": [
 
-{
+	{
 
-"id": 100,
+		"id": 100,
 
-"tag_local_name": "VIP用户",
+		"tag_local_name": "VIP用户",
 
-"tag_english_name": "VIP User",
+		"tag_english_name": "VIP User",
 
-"priority": 10,
+		"priority": 10,
 
-"visibility": true,
+		"visibility": true,
 
-"color_background": "#FF5733",
+		"color_background": "#FF5733",
 
-"color_text": "#FFFFFF",
+		"color_text": "#FFFFFF",
 
-"status_flag": 1
+		"status_flag": 1
 
-}
+	}
 
-],
+	],
 
-"pagination": { "page": 1, "size": 50, "total": 12 }
+	"pagination": { "page": 1, "size": 50, "total": 12 }
 
 }
 
@@ -217,13 +217,13 @@ message Pagination {
 
 message GetCSUserTagListRequest {
 
-optional int64 cs_user_id = 1; // 必填，CS 用户 ID
+	optional int64 cs_user_id = 1; // 必填，CS 用户 ID
 
-optional bool refresh_cs_user_tags_with_rate_limited = 2; // 是否触发实时计算
+	optional bool refresh_cs_user_tags_with_rate_limited = 2; // 是否触发实时计算
 
-// true = 触发计算（带限流，同一用户 10s 内只计算一次）
+	// true = 触发计算（带限流，同一用户 10s 内只计算一次）
 
-// false = 仅读取已有 tag（等同接口3）
+	// false = 仅读取已有 tag（等同接口3）
 
 }
 
@@ -239,9 +239,9 @@ optional bool refresh_cs_user_tags_with_rate_limited = 2; // 是否触发实时�
 
 message GetCSUserTagListResponse {
 
-optional string error_msg = 10000;
+	optional string error_msg = 10000;
 
-repeated CsUserTag tag_list = 1; // 用户的 Tag 列表
+	repeated CsUserTag tag_list = 1; // 用户的 Tag 列表
 
 }
 
@@ -249,13 +249,13 @@ repeated CsUserTag tag_list = 1; // 用户的 Tag 列表
 
 message CsUserTag {
 
-optional int64 id = 1; // Tag ID
+	optional int64 id = 1; // Tag ID
 
-optional string english_name = 2; // 英文名称
+	optional string english_name = 2; // 英文名称
 
-optional int64 priority = 3; // 优先级
+	optional int64 priority = 3; // 优先级
 
-optional string local_name = 4; // 本地名称
+	optional string local_name = 4; // 本地名称
 
 }
 
@@ -327,9 +327,9 @@ GetCSUserTagList(cs_user_id, refresh=true)
 
 {
 
-"cs_user_id": 12345,
+	"cs_user_id": 12345,
 
-"refresh_cs_user_tags_with_rate_limited": true
+	"refresh_cs_user_tags_with_rate_limited": true
 
 }
 
@@ -339,13 +339,13 @@ GetCSUserTagList(cs_user_id, refresh=true)
 
 {
 
-"tag_list": [
+	"tag_list": [
 
-{ "id": 100, "english_name": "VIP User", "local_name": "VIP用户", "priority": 10 },
+		{ "id": 100, "english_name": "VIP User", "local_name": "VIP用户", "priority": 10 },
 
-{ "id": 103, "english_name": "High Value", "local_name": "高价值客户", "priority": 8 }
+		{ "id": 103, "english_name": "High Value", "local_name": "高价值客户", "priority": 8 }
 
-]
+	]
 
 }
 
@@ -520,5 +520,5 @@ optional bool refresh_cs_user_tags_with_rate_limited = 2; // 设为 false，仅�
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzE0OTQ2NTJdfQ==
+eyJoaXN0b3J5IjpbLTEwOTc0NTEyNTJdfQ==
 -->
