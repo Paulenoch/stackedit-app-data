@@ -517,6 +517,8 @@ optional bool refresh_cs_user_tags_with_rate_limited = 2; // 设为 false，仅�
 - [ ] 与 Smart-KB/Chatbot 确认：Function 返回值格式要求「逗号分隔字符串」还是「结构化列表」（当前返回结构化 tag_list，若需要逗号串可加薄封装）
 
 - [ ] 是否需要支持调用方在请求中指定 DataSource（当前由服务端配置决定）
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2OTAzMTJdfQ==
+eyJoaXN0b3J5IjpbNjk3MTQ4Mzg4XX0=
 -->
