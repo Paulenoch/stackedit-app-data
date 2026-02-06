@@ -49,11 +49,11 @@ User 项目需要向外部系统（Smart-KB、Chatbot Taskflow、SOP Issue/Solut
 
 message GetCsUserTagConfigListRequest {
 
-repeated int64 tag_id_list = 1; // 可选，指定要查询的 Tag ID 列表；为空则查全部
+	repeated int64 tag_id_list = 1; // 可选，指定要查询的 Tag ID 列表；为空则查全部
 
-repeated int32 status_flag = 2; // 可选，过滤状态（1=启用，2=禁用）；为空则返回启用+禁用
+	repeated int32 status_flag = 2; // 可选，过滤状态（1=启用，2=禁用）；为空则返回启用+禁用
 
-optional Pageable pageable = 100; // 可选，分页参数
+	optional Pageable pageable = 100; // 可选，分页参数
 
 }
 
@@ -61,9 +61,9 @@ optional Pageable pageable = 100; // 可选，分页参数
 
 message Pageable {
 
-optional int32 page = 1; // 页码，从1开始，默认1
+	optional int32 page = 1; // 页码，从1开始，默认1
 
-optional int32 size_ = 2; // 每页数量，默认200，最大200
+	optional int32 size_ = 2; // 每页数量，默认200，最大200
 
 }
 
@@ -79,11 +79,11 @@ optional int32 size_ = 2; // 每页数量，默认200，最大200
 
 message GetCsUserTagConfigListResponse {
 
-optional string error_msg = 10000;
+	optional string error_msg = 10000;
 
-repeated CsUserTagConfig cs_user_tag_configs = 1;
+	repeated CsUserTagConfig cs_user_tag_configs = 1;
 
-optional Pagination pagination = 100;
+	optional Pagination pagination = 100;
 
 }
 
@@ -91,27 +91,27 @@ optional Pagination pagination = 100;
 
 message CsUserTagConfig {
 
-optional int64 id = 1; // Tag ID
+	optional int64 id = 1; // Tag ID
 
-optional string tag_local_name = 2; // 本地名称
+	optional string tag_local_name = 2; // 本地名称
 
-optional string tag_english_name = 3; // 英文名称
+	optional string tag_english_name = 3; // 英文名称
 
-optional int64 priority = 4; // 优先级
+	optional int64 priority = 4; // 优先级
 
-optional string description = 5; // 描述
+	optional string description = 5; // 描述
 
-optional string promote_message = 6; // 推广消息
+	optional string promote_message = 6; // 推广消息
 
-repeated string user_type_label = 7; // 用户类型标签（如 "seller", "buyer"）
+	repeated string user_type_label = 7; // 用户类型标签（如 "seller", "buyer"）
 
-optional bool visibility = 8; // 是否可见
+	optional bool visibility = 8; // 是否可见
 
-optional string color_background = 9; // 背景颜色
+	optional string color_background = 9; // 背景颜色
 
-optional string color_text = 10; // 文字颜色
+	optional string color_text = 10; // 文字颜色
 
-optional int32 status_flag = 11; // 状态（1=启用，2=禁用）
+	optional int32 status_flag = 11; // 状态（1=启用，2=禁用）
 
 }
 
@@ -119,11 +119,11 @@ optional int32 status_flag = 11; // 状态（1=启用，2=禁用）
 
 message Pagination {
 
-optional int32 page = 1;
+	optional int32 page = 1;
 
-optional int32 size = 2;
+	optional int32 size = 2;
 
-optional int64 total = 3;
+	optional int64 total = 3;
 
 }
 
@@ -141,9 +141,9 @@ optional int64 total = 3;
 
 {
 
-"status_flag": [1],
+	"status_flag": [1],
 
-"pageable": { "page": 1, "size_": 50 }
+	"pageable": { "page": 1, "size_": 50 }
 
 }
 
@@ -520,5 +520,5 @@ optional bool refresh_cs_user_tags_with_rate_limited = 2; // 设为 false，仅�
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjk3MTQ4Mzg4XX0=
+eyJoaXN0b3J5IjpbLTE1NzE0OTQ2NTJdfQ==
 -->
