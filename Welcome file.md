@@ -5,8 +5,9 @@ Wu Dong 大佬，关于CS User给ChatBot User Tag提供支持这个需求有几�
 
 这三个能力需要的接口目前User中已经有了，想要确定的是
 1. 2和3功能ChatBot传给我们的统一为ShopeeID
-2. 
+2. 我们目前返回的的Tag list包含每个tag的具体对象信息，是否需要这些对象信息还是只需要tag的名字
+3. 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzc1NDgyMTgxLDQ0NTM2Njc3Myw4NTg1MT
-EzNjNdfQ==
+eyJoaXN0b3J5IjpbLTEyNzMzOTU5NTUsMzc1NDgyMTgxLDQ0NT
+M2Njc3Myw4NTg1MTEzNjNdfQ==
 -->
