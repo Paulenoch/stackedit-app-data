@@ -5,9 +5,9 @@ Wu Dong 大佬，关于CS User给ChatBot User Tag提供支持这个需求有几�
 
 这三个能力需要的接口目前User中已经有了，想要确定的是
 1. 2和3功能ChatBot传给我们的统一为ShopeeID
-2. 我们目前返回的的Tag list包含每个tag的具体对象信息，是否需要这些对象信息还是只需要tag的名字
-3.PM 
+2. 我们目前返回的的Tag list包含每个tag的对象信息，是否需要这些具体的对象信息还是只需要tag的名字
+3. PM文档中提到的“为避免给CS自身的用户体系带来较大影响，CS会根据chatbot请求的用户是否进线过CS来判断是否把用户标签落表，若未进线过CS则仅给chatbot提供查询结果，不落表” ，判断用户是否进过线是由ChatBot判断还是CS判断
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAwNzM5ODAyNiwtMTI3MzM5NTk1NSwzNz
+eyJoaXN0b3J5IjpbLTY2MDc0NzA2MywtMTI3MzM5NTk1NSwzNz
 U0ODIxODEsNDQ1MzY2NzczLDg1ODUxMTM2M119
 -->
