@@ -4,11 +4,13 @@
 约 11.04 GB / 2970 万 key
     
 ## cs-tocauth:user_info_cache:token
-约 9.41 GB / 1146 万 key，dan
+约 9.41 GB / 1146 万 key，单个key远大于chat_access_token
     
--   `casetracking:392348641336307168:`：约 5.43 GB / 6879 万 key，单 key 很小，但 key 数极大，说明**对象太碎**。
+## casetracking:392348641336307168
+约 5.43 GB / 6879 万 key，单 key 很小，但 key 数极大
     
--   `chat:session:qp_msg:`：约 1.45 GB / 46.7 万 key，平均每个 key 比较大，说明这里更像是**value 过胖**。
+## chat:session:qp_msg:
+约 1.45 GB / 46.7 万 key，平均每个 key 比较大
     
 # cs_inhouse_user_all_ctl_live
 ## 1-user:tag:v2:live
@@ -23,7 +25,7 @@
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzA3NTYwNTcsMzYzNjgxNDQsLTE0MD
-Q5MTE0NTAsLTEyMzQyNjc2NjMsMjA5MjY1NTM0NCwtMTE2MzY2
-MjUxOCwtMTEyNjg4OTg4OSw5MzQzODk2MjJdfQ==
+eyJoaXN0b3J5IjpbODA5MDYwMDcxLDM2MzY4MTQ0LC0xNDA0OT
+ExNDUwLC0xMjM0MjY3NjYzLDIwOTI2NTUzNDQsLTExNjM2NjI1
+MTgsLTExMjY4ODk4ODksOTM0Mzg5NjIyXX0=
 -->
