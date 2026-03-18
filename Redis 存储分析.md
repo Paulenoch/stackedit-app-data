@@ -1,8 +1,7 @@
 
 # cs_inhouse_channel_all_ctl_live
-`cs_inhouse_channel_all_ctl_live` 总量约 33.5 GB，`string` 就占了约 92.4%。最重的几个前缀是：
-
--   `channel_chat_chat_access_token.live.`：约 11.04 GB / 2970 万 key，是第一大头。
+## channel_chat_chat_access_token.live.
+约 11.04 GB / 2970 万 key，是第一大头。
     
 -   `cs-tocauth:user_info_cache:token:`：约 9.41 GB / 1146 万 key，也是绝对优先级。
     
@@ -23,6 +22,7 @@
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMzQyNjc2NjMsMjA5MjY1NTM0NCwtMT
-E2MzY2MjUxOCwtMTEyNjg4OTg4OSw5MzQzODk2MjJdfQ==
+eyJoaXN0b3J5IjpbLTE0MDQ5MTE0NTAsLTEyMzQyNjc2NjMsMj
+A5MjY1NTM0NCwtMTE2MzY2MjUxOCwtMTEyNjg4OTg4OSw5MzQz
+ODk2MjJdfQ==
 -->
