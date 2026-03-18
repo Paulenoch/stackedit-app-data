@@ -1,9 +1,10 @@
 
 # cs_inhouse_channel_all_ctl_live
 ## channel_chat_chat_access_token.live.
-约 11.04 GB / 2970 万 key，是第一大头。
+约 11.04 GB / 2970 万 key
     
--   `cs-tocauth:user_info_cache:token:`：约 9.41 GB / 1146 万 key，也是绝对优先级。
+## cs-tocauth:user_info_cache:token
+约 9.41 GB / 1146 万 key，
     
 -   `casetracking:392348641336307168:`：约 5.43 GB / 6879 万 key，单 key 很小，但 key 数极大，说明**对象太碎**。
     
@@ -22,7 +23,7 @@
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MDQ5MTE0NTAsLTEyMzQyNjc2NjMsMj
-A5MjY1NTM0NCwtMTE2MzY2MjUxOCwtMTEyNjg4OTg4OSw5MzQz
-ODk2MjJdfQ==
+eyJoaXN0b3J5IjpbMzYzNjgxNDQsLTE0MDQ5MTE0NTAsLTEyMz
+QyNjc2NjMsMjA5MjY1NTM0NCwtMTE2MzY2MjUxOCwtMTEyNjg4
+OTg4OSw5MzQzODk2MjJdfQ==
 -->
