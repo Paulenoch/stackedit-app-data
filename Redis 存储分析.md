@@ -17,10 +17,11 @@
 ## 1-match_
 约 1.27 GB / 890 万 key。
     
-##   `1-user_info_str_live:`：约 388 MB / 104 万 key。同一个 user 同时存在带 region 和不带 region 的两份缓存
+## 1-user_info_str_live
+约 388 MB / 104 万 key。同一个 user 同时存在带 region 和不带 region 的两份缓存
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1MjYzNzM0NywtMTE2MzY2MjUxOCwtMT
+eyJoaXN0b3J5IjpbMTExODkzOTM2NywtMTE2MzY2MjUxOCwtMT
 EyNjg4OTg4OSw5MzQzODk2MjJdfQ==
 -->
