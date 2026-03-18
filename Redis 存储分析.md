@@ -4,7 +4,7 @@
 约 11.04 GB / 2970 万 key
     
 ## cs-tocauth:user_info_cache:token
-约 9.41 GB / 1146 万 key，
+约 9.41 GB / 1146 万 key，dan
     
 -   `casetracking:392348641336307168:`：约 5.43 GB / 6879 万 key，单 key 很小，但 key 数极大，说明**对象太碎**。
     
@@ -23,7 +23,7 @@
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzYzNjgxNDQsLTE0MDQ5MTE0NTAsLTEyMz
-QyNjc2NjMsMjA5MjY1NTM0NCwtMTE2MzY2MjUxOCwtMTEyNjg4
-OTg4OSw5MzQzODk2MjJdfQ==
+eyJoaXN0b3J5IjpbLTExNzA3NTYwNTcsMzYzNjgxNDQsLTE0MD
+Q5MTE0NTAsLTEyMzQyNjc2NjMsMjA5MjY1NTM0NCwtMTE2MzY2
+MjUxOCwtMTEyNjg4OTg4OSw5MzQzODk2MjJdfQ==
 -->
