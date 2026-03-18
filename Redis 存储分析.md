@@ -11,13 +11,14 @@
 -   `chat:session:qp_msg:`：约 1.45 GB / 46.7 万 key，平均每个 key 比较大，说明这里更像是**value 过胖**。
     
 # cs_inhouse_user_all_ctl_live
--   `1-user:tag:v2:live:`：约 5.87 GB / 1.01 亿 key，占整个集群的 72% 左右，是首要目标。
+## 1-user:tag:v2:live:`：约 5.87 GB / 1.01 亿 key，占整个集群的 72% 左右
     
 -   `1-match_`：约 1.27 GB / 890 万 key。
     
--   `1-user_info_str_live:`：约 388 MB / 104 万 key。这个前缀虽然没前两个大，但从 top key 可以直接看到**同一个 user 同时存在带 region 和不带 region 的两份缓存**，很像重复缓存。
+-   `1-user_info_str_live:`：约 388 MB / 104 万 key。同一个 user 同时存在带 region 和不带 region 的两份缓存
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMwOTQ3NTczNSwtMTEyNjg4OTg4OSw5Mz
-QzODk2MjJdfQ==
+eyJoaXN0b3J5IjpbMTQyNTY3NDg1LC0xMTI2ODg5ODg5LDkzND
+M4OTYyMl19
 -->
