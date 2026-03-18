@@ -16,12 +16,13 @@
     
 ## 1-match_
 1-match_channel_live/1-match_shopee_user_alive 约 1.27 GB / 890 万 key。
+若是匹配结果缓存，可考虑缩短TTL
 
 ## 1-user_info_str_live
 约 388 MB / 104 万 key。同一个 user 同时存在带 region 和不带 region 的两份缓存
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA5MjY1NTM0NCwtMTE2MzY2MjUxOCwtMT
-EyNjg4OTg4OSw5MzQzODk2MjJdfQ==
+eyJoaXN0b3J5IjpbLTEyMzQyNjc2NjMsMjA5MjY1NTM0NCwtMT
+E2MzY2MjUxOCwtMTEyNjg4OTg4OSw5MzQzODk2MjJdfQ==
 -->
