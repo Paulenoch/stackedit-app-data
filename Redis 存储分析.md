@@ -15,13 +15,13 @@
 约 5.87 GB / 1.01 亿 key，占整个集群的 72% 左右
     
 ## 1-match_
-1-match_channel_live/1-match_约 1.27 GB / 890 万 key。
-    
+1-match_channel_live/1-match_shopee_user_alive 约 1.27 GB / 890 万 key。
+
 ## 1-user_info_str_live
 约 388 MB / 104 万 key。同一个 user 同时存在带 region 和不带 region 的两份缓存
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0ODYyMTE5ODYsLTExNjM2NjI1MTgsLT
-ExMjY4ODk4ODksOTM0Mzg5NjIyXX0=
+eyJoaXN0b3J5IjpbMjA5MjY1NTM0NCwtMTE2MzY2MjUxOCwtMT
+EyNjg4OTg4OSw5MzQzODk2MjJdfQ==
 -->
