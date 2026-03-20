@@ -1,9 +1,9 @@
 
 # cs_inhouse_channel_all_ctl_live
-## channel_chat_chat_access_token.live.
+- channel_chat_chat_access_token.live.
 约 11.04 GB / 2970 万 key
     
-## cs-tocauth:user_info_cache:token
+- cs-tocauth:user_info_cache:token
 约 9.41 GB / 1146 万 key，单个key远大于chat_access_token
     
 ## casetracking:392348641336307168
@@ -25,7 +25,7 @@
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODA5MDYwMDcxLDM2MzY4MTQ0LC0xNDA0OT
-ExNDUwLC0xMjM0MjY3NjYzLDIwOTI2NTUzNDQsLTExNjM2NjI1
-MTgsLTExMjY4ODk4ODksOTM0Mzg5NjIyXX0=
+eyJoaXN0b3J5IjpbODEwNDM4NTE5LDgwOTA2MDA3MSwzNjM2OD
+E0NCwtMTQwNDkxMTQ1MCwtMTIzNDI2NzY2MywyMDkyNjU1MzQ0
+LC0xMTYzNjYyNTE4LC0xMTI2ODg5ODg5LDkzNDM4OTYyMl19
 -->
